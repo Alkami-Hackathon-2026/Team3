@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.Kubernetes</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.Kubernetes.ConfigurationException">
+            <summary>
+            Exception that indications that indicates missing configuration
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ConfigurationException.#ctor(System.String)">
+            <summary>
+            Intializes a new instance of the <see cref="T:Alkami.Utilities.Kubernetes.ConfigurationException"/> class
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Kubernetes.RouteNameBuilder">
+            <summary>
+            Fluent builder for constructing Kubernetes route names from service contract types.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.ForContract(System.Type,Alkami.Utilities.Kubernetes.RouteNameServiceType)">
+            <summary>
+            Creates a builder for a contract type, resolving identifier and version from the type's
+            assembly version and optional <see cref="T:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.ForContract``1(Alkami.Utilities.Kubernetes.RouteNameServiceType)">
+            <summary>
+            Resolves identifier and version from <typeparamref name="T"/>'s assembly version and optional
+            <see cref="T:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.ForServiceIdentifier(System.String,Alkami.Utilities.Kubernetes.RouteNameServiceType)">
+            <summary>
+            Creates a builder from a fully-qualified contract string (e.g. "Alkami.MS.Foo.IFooContract") or the servicePath.
+            Requires an explicit version via <see cref="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersion(System.Version)"/> or <see cref="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersion(System.Int32)"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.ForWcfProvider(System.String,System.String)">
+            <summary>
+            Creates a builder for a WCF provider-based service.
+            Requires a version via <see cref="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersion(System.Version)"/>, <see cref="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersion(System.Int32)"/>,
+            or <see cref="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersionFromContract(System.Type)"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithServiceType(Alkami.Utilities.Kubernetes.RouteNameServiceType)">
+            <summary>Sets the service type used in the route. Defaults to <see cref="F:Alkami.Utilities.Kubernetes.RouteNameServiceType.Rpc"/>.</summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersion(System.Version)">
+            <summary>Overrides the version. Passing null is a no-op — version remains derived from context.</summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersion(System.Int32)">
+            <summary>Overrides the major version.</summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithVersionFromContract(System.Type)">
+            <summary>
+            Resolves the version from a contract type's <see cref="T:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute"/> or assembly version.
+            Useful when building a provider route that derives its version from a contract type.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.WithoutVersion">
+            <summary>Omits the version segment from the generated route name.</summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.Build">
+            <summary>Builds the route name string.</summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.RouteNameBuilder.InvalidCharsRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>[\\W_]+</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a character in the set [_\W] atomically at least once.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="T:Alkami.Utilities.Kubernetes.RouteNameServiceType">
+            <summary>
+            Service type used in generation of k8s route names
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.RouteNameServiceType.Rpc">
+            <summary>
+            Indicates WCF based endpoints
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.RouteNameServiceType.Rest">
+            <summary>
+            Indicates REST based endpoints
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Kubernetes.ServiceUrlSettings">
+            <summary>
+            Standard helpers to get information related to the Service Url
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_DnsNamespace">
+            <summary>
+            The environment variable that contains the DNS namespace of the Kubernetes docker container
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_KubernetesServiceHost">
+            <summary>
+            The environment variable that is contains the host of the Kubernetes Host if running in Kubernetes
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_AppPort">
+            <summary>
+            The environment variable that determines which port the application in k8s pod is running on
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_IsDev">
+            <summary>
+            The environment variable that determines if the application is running on a dev box
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_KubernetesEgressToEc2EnvVarName">
+            <summary>
+            Environment variable that determines if egress to EC2 from Kubernetes is enabled.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.ShouldGetServicesFromSubscriptionMS">
+            <summary>
+            Determines whether or not a service should actively participate to Subscriptions with Participating Client.
+            Scenarios where this would not be enabled are: Kubernetes services without the EC2 callback enabled.
+            All services running on Windows will have this active by default.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.IsRunningInWindows">
+            <summary>
+            Whether or not we're running in Windows.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.IsRunningInKubernetes">
+            <summary>
+            Determines if the current process is running in Kubernetes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.IsDevBox">
+            <summary>
+            Determines if the current process has been setup to run as an Developer's machine
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.GetAppPort">
+            <summary>
+            Determines the default application port that is set for the running application
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.GenerateServiceUrl(System.String,System.String)">
+            <summary>
+            Builds out the service url to connect to a service in kubernetes based on if the current process is running in kubernetes or not
+            </summary>
+            <param name="serviceHostName">This is the host name of the service that is running in kubernetes</param>
+            <param name="k8sNamespace">This is the kubernetes namespace that the service is running in (necessary for cross-namespace communication)</param>
+            <returns>The full url of the service</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.GenerateServiceUrl(System.String)">
+            <summary>
+            Builds out the service url to connect to a service in kubernetes based on if the current process is running in kubernetes or not
+            </summary>
+            <param name="serviceHostName">This is the host name of the service that is running in kubernetes</param>
+            <returns>The full url of the service</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Kubernetes.ThreadingConfiguration">
+            <summary>
+            Exposes methods for fine tuning threading settings for applications
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ThreadingConfiguration.UpdateMinThreadsIfOverrideExists">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the InvalidCharsRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.InvalidCharsRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IndexOfNonAsciiOrAny_0E37C94CCBE29E4788589195726106819FCAFB1EB4F7B27C575D1EF8EE5CA280(System.ReadOnlySpan{System.Char})">
+            <summary>Finds the next index of any character that matches a character in the set [_\W].</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_asciiLettersAndDigits">
+            <summary>Supports searching for characters in or not in "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".</summary>
+        </member>
+    </members>
+</doc>

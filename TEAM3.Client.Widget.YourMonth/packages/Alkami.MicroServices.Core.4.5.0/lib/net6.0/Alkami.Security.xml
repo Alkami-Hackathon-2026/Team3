@@ -1,0 +1,514 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Security.AlkamiClaimTypes">
+            <summary>
+            The types of claims that can be applied to an RP-STS security token
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.AccountPermission">
+            <summary>
+            Permissions that relate to an account as well as the entity that owns the account. This is a PREFIX
+            Add the Account ID to the end of this URI
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.AdminDisplayName">
+            <summary>
+            The display name for the admin user masquerading as an FI member.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.AdministratorPermissions">
+            <summary>
+            Permissions for the admin user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.AllGrantedPermissions">
+            <summary>
+            This is an exhaustive list of all permissions this user has from all of their claims, entities etc.. this should be used as a global checker
+            to control main level entry. Additional security should be applied afterwards
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.BankId">
+            <summary>
+            The internal unique identifier of the financial institution to which the user belongs
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.BankIdentifier">
+            <summary>
+            The external unique identifier of the financial institution to which the user belongs
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.BankName">
+            <summary>
+            The name of the financial institution to which the user belongs
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.BankTimeZoneInfo">
+            <summary>
+            The time zone information that is used to localize date/time data representations
+            for a FI's time zone.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.BankUrlSignature">
+            <summary>
+            Bank URL signature, used to identify the proper financial institution when requesting a security token.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.ClientApp">
+            <summary>
+            The client application that is requesting the security token, otherwise known as the
+            application with which the user is interacting, if the user has an interactive context
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.EntityId">
+            <summary>
+            The EntityId for the current entity, if one exists
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.EntityIdentifier">
+            <summary>
+            The EntityIdentifier for the current entity, if one exists
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.EntityPermissions">
+            <summary>
+            Permissions that relate to an entity. This is a PREFIX
+            Add the Entity ID to the end of this URI
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.IsBusinessMasterUser">
+            <summary>
+            Whether or not the user is a business master user
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.IsBusinessSubUser">
+            <summary>
+            Whether or not the user is a business sub user
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.IssuedTokenTypes">
+            <summary>
+            The type of token for which the other associated claims are built.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.IssuerEvidence">
+            <summary>
+            Sign in request issuer evidence.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.LocaleId">
+            <summary>
+            The locality of the user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.MasqueradePermissions">
+            <summary>
+            The admin's permissions while masquerading as a user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.MasqueradingIdentifier">
+            <summary>
+            The administrator identifier that is logged in as a bank user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.MasqueradingUserViewOnly">
+            <summary>
+            Claim to identify that the Masquerading User is View Only
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.MemberIdentifier">
+            <summary>
+            The unique identifier of a user for a specific their primary core.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.SessionId">
+            <summary>
+            Claim to determine the session id.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.ThemeId">
+            <summary>
+            Claim to determine the theme name to use
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.ThemeName">
+            <summary>
+            Claim to determine the theme name to use
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.TimeZoneInfo">
+            <summary>
+            The time zone information that is used to localize date/time data representations
+            for a user's preferred time zone.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.UserId">
+            <summary>
+            The internal unique identifier of a user
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.UserIdentifier">
+            <summary>
+            The well-known (external) unique identifier of a user
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.UserIPAddress">
+            <summary>
+            The source internet protocol address of the user making the request, or of the service
+            that is acting on behalf of the user if the request is not an interactive context
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.UserName">
+            <summary>
+            The unique identifier of a user by a Secure Token Service issuing authority.  One user may have
+            multiple STSID values from one or more identifying parties, however this value is unique in
+            the namespace context of a single identifying party.
+            </summary>
+            <remarks>Uri Type</remarks>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.UserPermissions">
+            <summary>
+             Permissions that relate to a user
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.BankInstanceIdentifier">
+            <summary>
+             Unique identifier for a FI within an environment
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.AlkamiClaimTypes.OAuthScopes">
+            <summary>
+            Claim containing the OAuthScopes tied to this identity.
+            </summary>
+        </member>
+        <member name="T:Alkami.Security.ClaimsUtility">
+            <summary>
+            The ClaimsUtility contains various methods related to security claims.
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.IsAuthenticated(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Determines if the provided <see cref="T:Alkami.Contracts.BaseRequest"/> has an authenticated Alkami principal and the <see cref="T:Alkami.Contracts.BaseRequest"/>
+            values line up with the values on the <see cref="P:Alkami.Contracts.BaseRequest.ClaimsIdentity"/>.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to validate.</param>
+            <returns>True - the provided <paramref name="request"/> is valid; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.IsMasqueradingAdmin(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Determines whether the provided <see cref="T:Alkami.Contracts.BaseRequest"/> was from a masquerading admin.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to validate.</param>
+            <returns>True - the provided <paramref name="request"/> is from a maquerading admin; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.IsAdmin(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Determines whether the provided <see cref="T:Alkami.Contracts.BaseRequest"/> was from an admin.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to validate.</param>
+            <returns>True - the provided <paramref name="request"/> is an admin; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetClaimValue(Alkami.Contracts.BaseRequest,System.String)">
+            <summary>
+            Gets the value of the desired <see cref="T:System.Security.Claims.Claim"/> from the <paramref name="request"/>'s claims.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to get the <see cref="T:System.Security.Claims.Claim"/> from.</param>
+            <param name="claimType">The type of the claim to get.</param>
+            <returns>The value of the <see cref="T:System.Security.Claims.Claim"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetPermission(Alkami.Contracts.BaseRequest,System.String)">
+            <summary>
+            Gets the requested permissions on the provided <paramref name="request"/>'s claims from the desired <paramref name="claimType"/>.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to get the permissions from.</param>
+            <param name="claimType">The type of the claim to search for.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask`1"/> hydrated from the claim.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetPermission(Alkami.Contracts.BaseRequest,System.String,System.String)">
+            <summary>
+            Gets the requested permissions on the provided <paramref name="request"/> from the desired <paramref name="claimType"/> with the provided <paramref name="suffix"/>.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to get the permissions from.</param>
+            <param name="claimType">The type of the claim to search for.</param>
+            <param name="suffix">The suffix to apply to the claimType for claims that are prefixed.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask`1"/> hydrated from the claim.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.IsAuthenticated(System.Security.Principal.IPrincipal)">
+            <summary>
+            Determines if the provided <see cref="T:System.Security.Principal.IPrincipal"/> is an authenticated Alkami principal.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/> to validate.</param>
+            <returns>True - the provided <paramref name="principal"/> is valid; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.IsAuthenticated(System.Security.Principal.IIdentity)">
+            <summary>
+            Determines if the provided <see cref="T:System.Security.Principal.IIdentity"/> is an authenticated Alkami identity.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Principal.IIdentity"/> to validate.</param>
+            <returns>True - the provided <paramref name="identity"/> is valid; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.IsAuthenticated(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Determines if the provided <see cref="T:System.Security.Principal.IIdentity"/> is an authenticated Alkami identity.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Claims.ClaimsIdentity"/> to validate.</param>
+            <returns>True - the provided <paramref name="identity"/> is valid; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetClaimValue(System.Security.Claims.ClaimsIdentity,System.String)">
+            <summary>
+            Gets the value of the desired <see cref="T:System.Security.Claims.Claim"/>.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Claims.ClaimsIdentity"/> to get the <see cref="T:System.Security.Claims.Claim"/> from.</param>
+            <param name="claimType">The type of the claim to get.</param>
+            <returns>The value of the <see cref="T:System.Security.Claims.Claim"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetPermission(System.Security.Claims.ClaimsIdentity,System.String)">
+            <summary>
+            Gets the requested permissions on the provided <paramref name="identity"/> from the desired <paramref name="claimType"/>.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Claims.ClaimsIdentity"/> to validate.</param>
+            <param name="claimType">The type of the claim to search for.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask`1"/> hydrated from the claim.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetPermission(System.Security.Claims.ClaimsIdentity,System.String,System.String)">
+            <summary>
+            Gets the requested permissions on the provided <paramref name="identity"/> from the desired <paramref name="claimType"/> with the provided <paramref name="suffix"/>.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Claims.ClaimsIdentity"/> to validate.</param>
+            <param name="claimType">The type of the claim to search for.</param>
+            <param name="suffix">The suffix to apply to the claimType for claims that are prefixed.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask`1"/> hydrated from the claim.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.GetClaim(System.Security.Claims.ClaimsIdentity,System.String)">
+            <summary>
+            Gets the requested <paramref name="claimType"/> from the <paramref name="identity"/>.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Claims.ClaimsIdentity"/> to validate.</param>
+            <param name="claimType">The type of the claim to search for.</param>
+            <returns>The <see cref="T:System.Security.Claims.Claim"/> with the specified <paramref name="claimType"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.DoesRequestMatchClaim(Alkami.Contracts.BaseRequest,System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Determines whether the provided <see cref="T:Alkami.Contracts.BaseRequest"/> matches the claims provided on the <see cref="T:System.Security.Claims.ClaimsIdentity"/>.
+            </summary>
+            <param name="request">The <see cref="T:Alkami.Contracts.BaseRequest"/> to validate.</param>
+            <param name="identity">The <see cref="T:System.Security.Claims.ClaimsIdentity"/> to validate.</param>
+            <returns>True - the provided <paramref name="request"/> is valid; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.ToClaimsIdentity(System.Byte[])">
+            <summary>
+            Deserialize sut into ClaimsIdentity object.
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.ClaimsUtility.Serialize(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Serialize ClaimsIdentity object into sut.
+            </summary>
+        </member>
+        <member name="T:Alkami.Security.Mask">
+            <summary>
+            The <see cref="T:Alkami.Security.Mask"/> encapsulates functionality for managing bit masks.
+            </summary>
+        </member>
+        <member name="F:Alkami.Security.Mask._storage">
+            <summary>
+            The internal <see cref="T:System.Collections.BitArray"/> of the <see cref="T:Alkami.Security.Mask"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.Mask.#ctor">
+            <summary>
+            Initiates a new instance of the <see cref="T:Alkami.Security.Mask"/> class.
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.Mask.#ctor(System.Int32)">
+            <summary>
+            Obsolete: Use the constructor that does not take any parameters.
+            </summary>
+            <param name="size">The size of the <see cref="T:Alkami.Security.Mask"/>.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.Serialize">
+            <summary>
+            Serializes the <see cref="T:Alkami.Security.Mask"/> into an array of <see cref="T:System.Int32"/>s.
+            </summary>
+            <returns>The array of <see cref="T:System.Int32"/>s.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.SerializeToString">
+            <summary>
+            Serializes the <see cref="T:Alkami.Security.Mask"/> to a value of integers separated by commas.
+            </summary>
+            <returns>A comma separated list of integers representing the <see cref="T:Alkami.Security.Mask"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.SerializeToBytes">
+            <summary>
+            Serializes the <see cref="T:Alkami.Security.Mask"/> into an array of bytes (little endian).
+            </summary>
+            <returns>An array of bytes (little endian) representing the value of the <see cref="T:Alkami.Security.Mask"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.SetOn(System.Int32)">
+            <summary>
+            Obsolete: Use the 'Grant' method instead.
+            </summary>
+            <param name="position">The position to grant.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.Grant(System.Int32)">
+            <summary>
+            Grants the bit at the specified position.
+            </summary>
+            <param name="position">The position to grant.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.Revoke(System.Int32)">
+            <summary>
+            Revokes the bit at the specified position.
+            </summary>
+            <param name="position">The position to revoke.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.ToString">
+            <summary>
+            Converts the <see cref="T:Alkami.Security.Mask"/> to a series of 0's and 1's.
+            </summary>
+            <returns>A series of 0's and 1's to represent the <see cref="T:Alkami.Security.Mask"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.HasAll(System.Int32[])">
+            <summary>
+            Checks to see if the <see cref="T:Alkami.Security.Mask"/> has all the positions set.
+            </summary>
+            <param name="positions">The positions to check.</param>
+            <returns>True - All of the provided <paramref name="positions"/> were set.  False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.RemoveAllBut(System.Int32[])">
+            <summary>
+            Obsolete: Change to call 'RevokeAllBut'.
+            </summary>
+            <param name="positions">The positions that are available to be on.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.RevokeAllBut(System.Int32[])">
+            <summary>
+            Updates the Mask to only allow enabled bits at the provided positions.
+            </summary>
+            <param name="positions">The positions that are available to be on.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.SetAllFrom(Alkami.Security.Mask)">
+            <summary>
+            Obsolete: Change to call 'GrantAllFrom'.
+            </summary>
+            <param name="mask">The mask to set bits from.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.GrantAllFrom(Alkami.Security.Mask)">
+            <summary>
+            Grants all of the same bits as the provide <see cref="T:Alkami.Security.Mask"/>.
+            </summary>
+            <param name="mask">The mask to set bits from.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.ExpandStorageIfNeeded(System.Int32)">
+            <summary>
+            Expands the underlying <see cref="T:System.Collections.BitArray"/> based on the largest potentially requestable position.
+            </summary>
+            <param name="largestPosition">The largest position potentially requested by the caller.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask.FromString(System.String)">
+            <summary>
+            Generates a <see cref="T:Alkami.Security.Mask"/> from a comma separated list of integers.
+            </summary>
+            <param name="commaSeperatedInt">The comma separated list of integers.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask"/> generated from <paramref name="commaSeperatedInt"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.FromBytes(System.Byte[])">
+            <summary>
+            Generates a <see cref="T:Alkami.Security.Mask"/> from an array of bytes.
+            </summary>
+            <param name="bytes">The array of bytes.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask"/> generated from <paramref name="bytes"/>.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask.GetLengthBy32BitBoundary(System.Int32)">
+            <summary>
+            Gets the length adjusted to the 32-bit boundary that encompasses the desired length.
+            </summary>
+            <param name="requestedLength">The requested length for the <see cref="T:System.Collections.BitArray"/>.</param>
+            <returns>The length adjusted to a 32-bit boundary.</returns>
+        </member>
+        <member name="T:Alkami.Security.Mask`1">
+            <summary>
+            The <see cref="T:Alkami.Security.Mask`1"/> encapsulates functionality for managing bit masks for an enum of type <typeparamref name="T"/>.
+            </summary>
+            <typeparam name="T">The type of the enum to manage the bit mask for.</typeparam>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.#ctor">
+            <summary>
+            Creates a new instance of a <see cref="T:Alkami.Security.Mask`1"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.#ctor(Alkami.Security.Mask)">
+            <summary>
+            Creates a new instance of a <see cref="T:Alkami.Security.Mask`1"/>.
+            </summary>
+            <param name="mask">The <see cref="T:Alkami.Security.Mask"/> to build the instance off of.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.Grant(`0[])">
+            <summary>
+            Grants the provided <typeparamref name="T"/> to the mask.
+            </summary>
+            <param name="permissions">The array of <typeparamref name="T"/> to grant.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.Revoke(`0[])">
+            <summary>
+            Revokes the provided <typeparamref name="T"/> from the mask.
+            </summary>
+            <param name="permissions">The array of <typeparamref name="T"/> to revoke.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.HasPermission(`0)">
+            <summary>
+            Checks to see if the provided <typeparamref name="T"/> is set.
+            </summary>
+            <param name="permission">The permission to check.</param>
+            <returns>True - The permission is set; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.HasAllPermission(`0[])">
+            <summary>
+            Checks to see if the provided <typeparamref name="T"/> have all been set.
+            </summary>
+            <param name="permissions">The permissions to check.</param>
+            <returns>True - All of the permissions are set; False - otherwise.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.RemoveAllBut(Alkami.Security.Mask{`0})">
+            <summary>
+            Obsolete: Change to call 'RevokeAllBut'.
+            </summary>
+            <param name="permissionMask">The mask containing the super-set of permissions that are allowed.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.RevokeAllBut(Alkami.Security.Mask{`0})">
+            <summary>
+            Updates the <see cref="T:Alkami.Security.Mask`1"/> to only include the provided permissions.
+            </summary>
+            <param name="permissionMask">The mask containing the super-set of permissions that are allowed.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.RemoveAllBut(`0[])">
+            <summary>
+            Obsolete: Change to call 'RevokeAllBut'.
+            </summary>
+            <param name="permissions">The permissions that are available to be set.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.RevokeAllBut(`0[])">
+            <summary>
+            Updates the <see cref="T:Alkami.Security.Mask`1"/> to only include the provided permissions.
+            </summary>
+            <param name="permissions">The permissions that are available to be set.</param>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.FromString(System.String)">
+            <summary>
+            Generates a <see cref="T:Alkami.Security.Mask`1"/> from the provided string.
+            </summary>
+            <param name="input">The string containing the comma separated list of integers.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask`1"/> generated from the provided string.</returns>
+        </member>
+        <member name="M:Alkami.Security.Mask`1.FromBytes(System.Byte[])">
+            <summary>
+            Generates a <see cref="T:Alkami.Security.Mask`1"/> from the provided array of bytes.
+            </summary>
+            <param name="bytes">The array of bytes to generate the <see cref="T:Alkami.Security.Mask`1"/> from.</param>
+            <returns>The <see cref="T:Alkami.Security.Mask`1"/> generated from the provided array of bytes.</returns>
+        </member>
+    </members>
+</doc>

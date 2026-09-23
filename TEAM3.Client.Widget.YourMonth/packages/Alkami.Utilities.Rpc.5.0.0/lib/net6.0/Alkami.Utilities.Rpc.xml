@@ -1,0 +1,228 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.Rpc</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.Rpc.ClaimsIdentitySurrogateConverter">
+            <summary>
+            A Surrogate Converter for <see cref="T:System.Security.Claims.ClaimsIdentity"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Rpc.ClaimsIdentitySurrogateConverter.SurrogateType">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Utilities.Rpc.ClaimsIdentitySurrogateConverter.ContractType">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.ClaimsIdentitySurrogateConverter.ConvertToSurrogate(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.ClaimsIdentitySurrogateConverter.ConvertFromSurrogate(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.ClaimSurrogate.GetObjectData(System.Object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.DictionarySurrogate.GetObjectData(System.Object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="info"></param>
+            <param name="context"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.DictionarySurrogate.SetObjectData(System.Object,System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext,System.Runtime.Serialization.ISurrogateSelector)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <param name="info"></param>
+            <param name="context"></param>
+            <param name="selector"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions">
+            <summary>
+            Class containing extension methods for contract types.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractTypeForWcfProvider(System.Type,System.String,System.String)">
+            <summary>
+            Builds the route name by convention for a provider.
+            </summary>
+            <param name="contractType">Type representing a service contract</param>
+            <param name="providerType">Provider type of the provider-based service</param>
+            <param name="providerName">The provider name for this service as configured in the database.</param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromNamespacedContractStringForWcfProvider(System.String,System.String,System.String,System.Version)">
+            <summary>
+            Builds the route name by convention from a namespaced contract type and version for a provider.
+            </summary>
+            <param name="contractString">The full name of the contract (eg. Alkami.MS.RustyShackleford.Contracts.IShacklefordContract)</param>
+            <param name="providerType">Provider type of the provider-based service</param>
+            <param name="providerName">The name of the provider as configured in the database</param>
+            <param name="currentVersion">The version of the contract.</param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractType(System.Type)">
+            <summary>
+            Builds the route name by convention (Defaults build for <see cref="F:Alkami.Utilities.Rpc.Extensions.RouteNameServiceType.Rpc"/>)
+            </summary>
+            <param name="contractType"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromContractType(System.Type,Alkami.Utilities.Rpc.Extensions.RouteNameServiceType)">
+            <summary>
+            Builds the route name by convention
+            </summary>
+            <param name="contractType"></param>
+            <param name="serviceType">Indicates the type of service this url needs to be generated for</param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromNamespacedContractString(System.String,System.Version)">
+            <summary>
+            Builds the route name by convention from a namespaced contract type and version. (Defaults build for <see cref="F:Alkami.Utilities.Rpc.Extensions.RouteNameServiceType.Rpc"/>)
+            </summary>
+            <param name="contractString">The full name of the contract (eg. Alkami.MS.RustyShackleford.Contracts.IShacklefordContract)</param>
+            <param name="currentVersion">The version of the contract.</param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRoutedNameFromNamespacedContractString(System.String,System.Version,Alkami.Utilities.Rpc.Extensions.RouteNameServiceType)">
+            <summary>
+            Builds the route name by convention from a namespaced contract type and version.
+            </summary>
+            <param name="contractString">The full name of the contract (eg. Alkami.MS.RustyShackleford.Contracts.IShacklefordContract)</param>
+            <param name="currentVersion">The version of the contract.</param>
+            <param name="serviceType">Indicates the type of service this url needs to be generated for</param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRouteName(System.String,System.Int32,Alkami.Utilities.Rpc.Extensions.RouteNameServiceType)">
+            <summary>
+            Builds the Route name for the passed in service path and major version
+            </summary>
+            <param name="serviceIdentifier">This is the service path that will appear in the route</param>
+            <param name="majorVersion">The major version of the service.</param>
+            <param name="serviceType"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.Extensions.ContractTypeExtensions.BuildRouteNameForWcfProvider(System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Builds the Kubernetes route for a WCF provider-based service
+            </summary>
+            <param name="providerType">Provider type of the provider-based service</param>
+            <param name="providerName">The provider name for this service as configured in the database.</param>
+            <param name="majorVersion">The major version of the service.</param>
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.Extensions.RouteNameServiceType">
+            <summary>
+            Service type used in generation of k8s route names
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Rpc.Extensions.RouteNameServiceType.Rpc">
+            <summary>
+            Indicates WCF based endpoints
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Rpc.Extensions.RouteNameServiceType.Rest">
+            <summary>
+            Indicates REST based endpoints
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.IAlkamiSerializationSurrogateProvider">
+            <summary>
+            Extends the <see cref="T:System.Runtime.Serialization.ISerializationSurrogateProvider"/> to allow adding in Alkami built <see cref="T:Alkami.Utilities.Rpc.ISurrogateConverter"/>s
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.IAlkamiSerializationSurrogateProvider.AddSurrogateConverter(Alkami.Utilities.Rpc.ISurrogateConverter)">
+            <summary>
+            Adds a <paramref name="surrogateConverter"/> to the SerializationSurrogateProvider
+            </summary>
+            <param name="surrogateConverter"></param>
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.IPAddressSurrogateConverter">
+            <summary>
+            A Surrogate Converter for <see cref="T:System.Net.IPAddress"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Rpc.IPAddressSurrogateConverter.SurrogateType">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Utilities.Rpc.IPAddressSurrogateConverter.ContractType">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.IPAddressSurrogateConverter.ConvertFromSurrogate(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.IPAddressSurrogateConverter.ConvertToSurrogate(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.ISurrogateConverter">
+            <summary>
+            Contract for adding Converters to the <see cref="T:Alkami.Utilities.Rpc.IAlkamiSerializationSurrogateProvider"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Rpc.ISurrogateConverter.SurrogateType">
+            <summary>
+            The type of the Surrogate that is used during conversion
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Rpc.ISurrogateConverter.ContractType">
+            <summary>
+            The type of the original object
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.ISurrogateConverter.ConvertToSurrogate(System.Object)">
+            <summary>
+            Converts an object of type <see cref="P:Alkami.Utilities.Rpc.ISurrogateConverter.ContractType"/> to <see cref="P:Alkami.Utilities.Rpc.ISurrogateConverter.SurrogateType"/>
+            </summary>
+            <param name="original"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.ISurrogateConverter.ConvertFromSurrogate(System.Object)">
+            <summary>
+            Converts an object of type <see cref="P:Alkami.Utilities.Rpc.ISurrogateConverter.SurrogateType"/> to <see cref="P:Alkami.Utilities.Rpc.ISurrogateConverter.ContractType"/>
+            </summary>
+            <param name="surrogate"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.RpcDataContractSerializer">
+            <summary>
+            Exposes method for getting DataContractSerializer used in RPC communication
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.RpcDataContractSerializer.Get(System.Type)">
+            <summary>
+            Retrieves default serializer for communication with containerized services.
+            </summary>
+            <param name="objectType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Rpc.SerializationSurrogateProvider">
+            <summary>
+            Can be used in .NET 6 code that needs to serialize special types with DataContractSerializer
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.SerializationSurrogateProvider.GetDefault">
+            <summary>
+            Gets a new instance of the Default <see cref="T:Alkami.Utilities.Rpc.IAlkamiSerializationSurrogateProvider"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.SerializationSurrogateProvider.#ctor">
+            <summary>
+            Constructor
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.SerializationSurrogateProvider.AddSurrogateConverter(Alkami.Utilities.Rpc.ISurrogateConverter)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.SerializationSurrogateProvider.GetDeserializedObject(System.Object,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.SerializationSurrogateProvider.GetObjectToSerialize(System.Object,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Rpc.SerializationSurrogateProvider.GetSurrogateType(System.Type)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

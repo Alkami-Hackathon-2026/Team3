@@ -1,0 +1,68 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472;net6.0;net8.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <LangVersion Condition="'$(TargetFramework)' == 'net472'">8.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageId>Alkami.Subscription.ParticipatingClient</PackageId>
+    <Description>Includes the participating Client assemblies for the subscription services</Description>
+    <Title>Alkami Services Subscriptions Participating Client</Title>
+    <PackageTags>SubscriptionService ParticipatingClient</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.Broker" Version="2.15.1" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net472' ">
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Runtime.Caching" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' ">
+    <PackageReference Include="System.Reactive.Linq" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="System.Reactive.Linq" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="8.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alkami.Services.Subscriptions.Data\Alkami.Services.Subscriptions.Data.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Alkami.Services.Subscriptions.Resolver\Alkami.Services.Subscriptions.Resolver.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="SelfResolvingClient.*.cs">
+      <DependentUpon>SelfResolvingClient.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.Services.Subscriptions.ParticipatingService.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.Services.Subscriptions.ParticipatingClient.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.Services.Subscriptions.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.Services.Subscriptions.TestMocks</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Alkami.MicroServices.Test.Service.Client</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>

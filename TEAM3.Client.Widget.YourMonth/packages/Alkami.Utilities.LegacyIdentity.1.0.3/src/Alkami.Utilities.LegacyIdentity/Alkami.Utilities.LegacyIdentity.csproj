@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Utilities to facilitate framework independent serialization of ClaimsIdentity</Description>
+    <TargetFrameworks>net472;net6.0;net8.0</TargetFrameworks>
+    <PackageProjectUrl>https://bitbucket.corp.alkami.net/projects/ARCH/repos/Alkami.Utilities</PackageProjectUrl>
+    <RepositoryUrl>https://bitbucket.corp.alkami.net/projects/ARCH/repos/Alkami.Utilities</RepositoryUrl>
+    <Version>1.0.3</Version>
+    <LangVersion Condition="'$(TargetFramework)' == 'net472'">8.0</LangVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="Newtonsoft.Json" Version="8.0.3" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net8.0'">
+    <ProjectReference Include="..\Alkami.Utilities.Json\Alkami.Utilities.Json.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Transactions.Contracts.1.28</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Transactions.Data.Validations.GetTransactionCategoriesRequestValidator">
+            <summary>
+            Validates the Get transaction category request
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Data.Validations.GetTransactionRequestValidator">
+            <summary> Request validator checking permissions for the transactions requested.</summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Data.Validations.GetTransactionRequestValidator.ValidateInternal(Alkami.MicroServices.Transactions.Contracts.Requests.GetTransactionsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Data.Validations.GetTransactionTypesRequestValidator">
+            <summary>
+            A validator that ensures that the GetTransactionTypesRequest is correct and processable.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Data.Validations.TransactionSorterValidator.ValidateInternal(Alkami.MicroServices.Transactions.Contracts.TransactionSorter)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Data.Validations.ValidationExtensions.EnsurePropertyIsSet``2(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},``0,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Ensures an expression has a value, or adds the default value (and a validation warning) when none is provided
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Data.Enrichment">
+            <summary>
+            Enrichment data (category, merchant info, location, cleansed description) for core.Transaction record
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.Transaction">
+            <summary>
+            Parent transaction object
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.TransactionId">
+            <summary>
+            References Id in core.Transaction table.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.ProviderTransactionId">
+            <summary>
+            Internal transaction Id used by enrichment provider.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.ProviderTransactionIdentifier">
+            <summary>
+            The Id supplied by the enrichment provider for the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.CategoryId">
+            <summary>
+            The transaction category Id
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.CleansedDescription">
+            <summary>
+            Clean description retrieved from Transaction Cleansing provider
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.Merchant">
+            <summary>
+            Name of merchant or financial entity associated with the transaction
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.CreateDate">
+            <summary>
+             Indicates date enrichment data was created
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.LastUpdate">
+            <summary>
+             Indicates date enrichment data was last updated or modified
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.Latitude">
+            <summary>
+            Transaction location Latitude
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.Longitude">
+            <summary>
+            Transaction location Longitude
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.UserId">
+            <summary>
+            User Id
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.Address">
+            <summary>
+            Cleansed transaction Address *Limited coverage
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.City">
+            <summary>
+            Cleansed transaction City *Limited coverage
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.State">
+            <summary>
+            Cleansed transaction State *Limited coverage
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.ZipCode">
+            <summary>
+            Cleansed transaction Zip *Limited coverage
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.Country">
+            <summary>
+            Cleansed transaction Country *Limited coverage
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Enrichment.IgnoreCleanDescription">
+            <summary>
+            Allows individual cleansed descriptions to be ignored if they weren't cleansed properly
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.AccountId">
+            <summary>
+            The account within which this transaction occurred
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.AdditionalInfo">
+            <summary>
+            Additional information about the transaction, possibly from a third party provider
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.Amount">
+            <summary>
+            The amount of the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.Balance">
+            <summary>
+            The balance of the account after this transaction was posted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.BatchNumber">
+            <summary>
+            A core-specific 'batch number' to which this transaction belongs, if applicable as determined by the core interface.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.CheckNumber">
+            <summary>
+            An item (check/draft) number associated with this transaction, if any.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.CoreSequence">
+            <summary>
+            A core-specific unique identifier for the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.CreateDate">
+            <summary>
+            The create date
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.Debit">
+            <summary>
+            Whether or not the transaction represents a debit entry
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.EffectiveDate">
+            <summary>
+            The date the transaction became effective within the account, which may differ from the posting date in the case of held items, etc.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.EscrowAmount">
+            <summary>
+            Gets or sets the escrow amount applied to this transaction (used for loans)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.FeeAmount">
+            <summary>
+            Gets or sets the amount of this transaction that was applied towards fee's
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.GeneralDescription">
+            <summary>
+            A brief summary of the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.ImageSequence">
+            <summary>
+            If provided by the core, the image sequence number for identifying the image through a draft imaging system.
+            This may be an ECE Institution Sequence number as defined by ANSI X9.37, or a custom value with specific meaning to the core''s context.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.InterestAmount">
+            <summary>
+            The interest amount applied to this transaction (used for loans, usually in conjunction with PrincipalAmount)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.IsVoid">
+            <summary>
+            A boolean indicating whether a transaction is void.  A void transaction is one that is no longer
+            returned from normal core transaction requests
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.MerchantClassificationCode">
+            <summary>
+            Gets or sets the merchant classification code (MCC) for the transaction, if it is known
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.MICRAccountNumber">
+            <summary>
+            This field stores the account number portion of this transaction's MICR line
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.OtherAmount">
+            <summary>
+            Gets or sets the amount of this transaction that is applied to other types of categories that is not explicitly defined.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.PostingDate">
+            <summary>
+            The date the transaction posted to the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.PostingSequence">
+            <summary>
+            A core-specific 'posting sequence' number for the transaction, to indicate the posting order of the transaction within the account, if available via the core's interface implementation.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.PrincipalAmount">
+            <summary>
+            The principal amount applied to this transaction (used for loans, usually in conjunction with InterestAmount)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.SpecificDescription">
+            <summary>
+            A detailed explanation of the transaction, if available and if different from the general description.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.Splits">
+            <summary>
+            The transaction category splits to which this transaction has been allocated.
+            </summary>
+            <remarks>
+            Uncategorized transactions have no splits.  Categorized transactions may have one split for a whole-amount
+            categorization of the transaction to a single category, or multiple splits for proportioned allocation among
+            multiple categories.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.TraceNumber">
+            <summary>
+            A number assigned by the FI, that can be used to trace a single transaction in the system.
+            This differs from the core sequence number, because this value can be shown to the end user, where the core sequence number will not be shown.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.TranKey">
+            <summary>
+            This is the key returned by the core provider after a transaction/transfer has been successfully added to the core
+            provider.  This value is needed in order to cancel/modify pending transfers/transactions in the core
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.TransactionCode">
+            <summary>
+            A core-specific 'transaction code' this transaction is assigned which references its transaction type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.TransactionType">
+            <summary>
+            The TransactionType information associated with the transaction code. 
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.UserId">
+            <summary>
+            The user which created the transaction
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.Transaction.Enrichments">
+            <summary>
+            Enrichment data (category, merchant info, location, cleansed description)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.DisplayName">
+            <summary>
+            The end-user display name of the transaction category.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.EntityId">
+            <summary>
+            The user that owns the transaction category, if applicable
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.IconContentType">
+            <summary>
+            The MIME content type of the binary data in the PortraitImage field.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.IconImage">
+            <summary>
+            The image shown in the category icon portion of the administrative user interface
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.IsExpense">
+            <summary>
+            Whether or not this item is an expense.  If false, this is an income category.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.IsWant">
+            <summary>
+            Whether or not this item is a "Want", that is, whether amounts allocated to this category are discretionary.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.ParentTransactionCategory">
+            <summary>
+            The parent transaction category, if any, under which this transaction category is grouped in a hierarchy of transaction categories.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.ParentTransactionCategoryId">
+            <summary>
+            The parent transaction category ID, if any, under which this transaction category is grouped in a hierarchy of transaction categories.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.TransactionCategoryClassification">
+            <summary>
+            The bank classification for this new transaction category, from a bank-defined list of classifications used for bank reporting purposes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.TransactionCategoryClassificationId">
+            <summary>
+            The bank classification for this new transaction category, from a bank-defined list of classifications used for bank reporting purposes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategory.UserId">
+            <summary>
+            The user that owns the transaction category, if applicable
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification">
+            <summary>
+            A transaction category classification is a institution name for a set of user-created categories to
+            allow the FI to report across custom categories utilizing a standard set of metrics.  For instance,
+            users may create their own categories, however, they are required to associate them to a list of
+            classifications provided by the FI.  In turn, the FI can then reporting on spending behaviors, etc.
+            based on classifications they have defined, independent of the names or schemas that users have
+            created for their own custom categorization.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification.BankId">
+            <summary>
+            Gets or sets the bank that owns the transaction category classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification.BillPayCategoryKey">
+            <summary>
+            Gets or sets the the field will be used to profile
+            the bill pay provider's category identifier for transmittal.
+            If all user-created transaction categories that relate to this
+            transaction category classification also relate to a particular category
+            identifier in the third-party bill pay system, and payments for payees
+            must transmit a category, then this field is applicable.
+            </summary>
+            <remarks>
+            If, for instance, a bill pay provider must get a category designation
+            "AUTO" for any automobile-related expense, then the financial institution
+            can setup this classification named "Automobile" with the BillPayCategoryKey
+            of "AUTO".  When a user then creates their own category called "Gas" and
+            relates it to this "Automobile" classification, and subsequently
+            sends a payment to Shell Oil which has a default expense category of "Gas",
+            then through this field, the system will be able to properly send "AUTO"
+            for the user's payment.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification.IconContentType">
+            <summary>
+            Gets or sets the MIME content type of the binary data in the PortraitImage field.
+            for the default icon image for transaction categories linked to this classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification.IconImage">
+            <summary>
+            Gets or sets the default icon image for transaction categories linked to this classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification.Name">
+            <summary>
+            Gets or sets the transaction category classification name
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryClassification.OFXStandardIndustryCode">
+            <summary>
+            Gets or sets the OFX-recognized SIC code for categorization of the transaction
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.BankId">
+            <summary>
+            Gets or sets the bank that owns the transaction category classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.TransactionCategoryClassificationId">
+            <summary>
+            The bank classification for this new transaction category, from a bank-defined list of classifications used for bank reporting purposes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.ParentTransactionCategoryDefaultId">
+            <summary>
+            The id of the parent category if this object is a child category. This will be null 
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.Name">
+            <summary>
+            The end-user display name of the transaction category.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.IsExpense">
+            <summary>
+            Whether or not this item is an expense.  If false, this is an income category.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.IsWant">
+            <summary>
+            Whether or not this item is a "Want", that is, whether amounts allocated to this category are discretionary.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.IconImage">
+            <summary>
+            The image shown in the category icon portion of the administrative user interface
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.IconContentType">
+            <summary>
+            The MIME content type of the binary data in the PortraitImage field.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategoryDefault.CreateDate">
+            <summary>
+            The date this category was created
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit">
+            <summary>
+            This table links a transaction to a category, provIding the schema support to allocatea transaction between
+            one or more categories simultaneously.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.TransactionId">
+            <summary>
+            The transaction which this split is allocating funds
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.Transaction">
+            <summary>
+            The transaction which this split is allocating funds
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.TransactionCategory">
+            <summary>
+            The transaction category to which this split is allocating fund
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.TransactionCategoryId">
+            <summary>
+            The transaction category to which this split is allocating fund
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.Amount">
+            <summary>
+            The amount of the transaction allocated to the specified transaction category
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.IsDeleted">
+            <summary>
+            Mark split for deletion
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+                        <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Data.TransactionCategorySplit.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+            </returns>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCode.Code">
+            <summary>
+            Gets or sets the transaction code value
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCode.CoreProviderId">
+            <summary>
+            Gets or sets the core provider that owns this transaction code
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCode.Debit">
+            <summary>
+            Gets or sets a value indicating whether or not the transaction code represents a debit entry
+            </summary>
+            <remarks>
+            Some core systems or implementations at institutions reuse the same
+            transaction code to mean different things based on whether or not the
+            transaction is a debit or a credit.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCode.Name">
+            <summary>
+            Gets or sets the human-readable name for the transaction code
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionCode.TransactionType">
+            <summary>
+            Gets or sets the type of the transaction this code represents
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.AccountDailyTransactionLimit">
+            <summary>
+            Gets or sets the daily limit for a single account of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.AccountMonthlyTransactionLimit">
+            <summary>
+            Gets or sets the monthly limit for a single account of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.AllowDispute">
+            <summary>
+            Gets or sets a value indicating whether or not transactions of this type can be disputed
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.AssignableToTransactionCategory">
+            <summary>
+            Gets or sets a value indicating whether or not transactions matching this type can be assigned a transaction category
+            </summary>
+            <remarks>
+            Typically, certain types of internal transaction codes, notably transfers of funds between
+            two non-GL accounts, are not eligible for user categorization, since both sides of the transaction
+            cause the net sum of the categorized attribution to be zero.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.BankID">
+            <summary>
+            Gets or sets the financial institution that owns this transaction type.
+            </summary>
+            <remarks>
+            The bank field provides multi-tenant functionality by segregating the transaction types, which in concert with other
+            top-level relationship segregations allows for multiple banks to be independently stored in the
+            same data store.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.BatchSweepCutoffTime">
+            <summary>
+            Gets or sets the value, if this transaction type is batch swept, then this is the time is or
+            should be swept
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.DefaultTransactionCategoryClassificationId">
+            <summary>
+            The Id of the default transaction category classification.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.DefaultTransactionCategoryClassification">
+            <summary>
+            Gets or sets the value, if transactions of this type are always associated to a financial institution's transaction category classification,
+            setting this field will associate all transactions recorded with this transaction type such that when they are
+            encountered, if the end-user has one transaction category established for the FI's linked transaction category
+            classification, the transaction will be automatically categorized to the user's category based on this established
+            linkage.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.EntityDailyTransactionLimit">
+            <summary>
+            Gets or sets the daily limit for all transactions for a single entity of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.EntityMonthlyTransactionLimit">
+            <summary>
+            Gets or sets the monthly limit for all transactions for a single entity of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.GlobalDailyTransactionLimit">
+            <summary>
+            Gets or sets the daily limit for all transactions of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.GlobalMonthlyTransactionLimit">
+            <summary>
+            Gets or sets the monthly limit for all transactions of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.IsBatchSweepAutomatic">
+            <summary>
+            Gets or sets a value indicating whether or not this transaction type is automatically swept into a batch
+            file by a process which does not need manual intervention to initiate the
+            process.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.IsBatchSwept">
+            <summary>
+            Gets or sets a value indicating whether or not this transaction type is handled by an interface that batch
+            sweeps items into an output file
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.IsSubjectToLimits">
+            <summary>
+            Gets or sets a value indicating whether or not items coded with this transaction type are subject to limits and authorizations
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.Name">
+            <summary>
+            Gets or sets the name of the transaction type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.SingleTransactionLimit">
+            <summary>
+            Gets or sets the per-instance limit for a single transaction of this type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Data.TransactionType.TransactionCodes">
+            <summary>
+            Gets or sets the transaction codes profiles across all core providers, for this transaction type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.MerchantClassificationCodeFilter.Ids">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.MerchantClassificationCodeSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.MerchantClassificationCodeSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionCategoryFilter">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Alkami.Contracts.IFilter" />
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionCategoryFilter.Ids">
+            <summary>
+            Gets or sets the ids.
+            </summary>
+            <value>
+            The ids.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionCategoryFilter.OwnerUserIds">
+            <summary>
+            Gets or sets the Owner user
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionCategoryMapper">
+             <summary>
+            
+             </summary>
+             <seealso cref="T:Alkami.Contracts.IMapping" />
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionCategoryMapper.IncludeAllLevels">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionDateFields.EffectiveDate">
+            <summary>
+            The effective date
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionDateFields.PostingDate">
+            <summary>
+            The posting date
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionFilter.FilterAmountsByAbsoluteValue">
+            <summary>
+            Flag used to filter using the absolute value for amounts.
+            </summary>        
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionFilter.PageOffset">
+            <summary>
+            Number of transactions to skip in addition to the page size * page number. 
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields">
+            <summary> The valid fields that can be used to sort the list of returned transactions /// </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.Id">
+            <summary>
+            Order the results by the default criteria (e.g. PostDate)
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.PostingDate">
+            <summary>
+            Order the results by the post date of the transaction
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.TransactionType">
+            <summary>
+            Order the results by the type of the transaction
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.Amount">
+            <summary>
+            Order the results by the amount
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.Description">
+            <summary>
+            Order the results by the description
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.TransactionId">
+            <summary>
+            Order the results by the transaction id
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.EffectiveDate">
+            <summary>
+            Order the results by the effective date
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.Balance">
+            <summary>
+            Order the results by the balance
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.SpecificDescription">
+            <summary>
+            Order the results by the specific description
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.GeneralDescription">
+            <summary>
+            Order the results by the general description
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.Debit">
+            <summary>
+            Order the results by the boolean debit
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.CreateDate">
+            <summary>
+            Order the results by the create date
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.PrincipalAmount">
+            <summary>
+            Order the results by the principal amount
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.InterestAmount">
+            <summary>
+            Order the results by the interest amount
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.BatchNumber">
+            <summary>
+            Order the results by the Batch Number
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.CoreSequence">
+            <summary>
+            Order the results by the Core Squence
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.PostingSequence">
+            <summary>
+            Order the results by the Posting Sequence
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionSortingFields.TranKey">
+            <summary>
+             Order the results by the TranKey
+             </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionTypeFilter">
+            <summary>
+            A filter that can filter through the TransactionTypes.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Contracts.TransactionTypeFilter.#ctor">
+            <summary>
+            Creates a new instance of TransactionTypeFilter.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionTypeFilter.Ids">
+            <summary>
+            The IDs of the TransactionType that we want to search for.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionTypeFilter.Names">
+            <summary>
+            The names of the TransactionType records we want to search for. Case-insensitive.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionTypeMapper">
+            <summary>
+            A mapper that determines the kind of data returned back from GetTransactionTypes(...).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionTypeMapper.IncludeTransactionCodes">
+            <summary>
+            Should a sub-list of transaction codes be included with the transaction types we are returning?
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSorter">
+            <summary>
+            A sorter that organizes data returned back from the GetTransactionTypes signature.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSortingFields">
+            <summary>
+            The kind of fields that can be sorted on the response from GetTransactionTypes(...) signature.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSortingFields.Id">
+            <summary>
+            Order the results by the default criteria (e.g. ID)
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSortingFields.Name">
+            <summary>
+            Order the results by the name of the transaction type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Transactions.Contracts.TransactionTypeSortingFields.CreateDate">
+            <summary>
+            Order the results by the create date of the transaction type.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Contracts.ITransactionServiceContract.GetTransactionTypesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetTransactionTypesRequest)">
+            <summary> Retrieves transaction type information from the database from the given request. </summary>
+            <param name="request">The request to use to create the response.</param>
+            <returns>A complete TransactionTypeResponse object.</returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Contracts.ITransactionServiceContract.GetRecurringExpensesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetRecurringExpensesRequest)">
+            <summary> Gets user-specific recurring expense records. </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Contracts.ITransactionServiceContract.AddOrUpdateRecurringExpensesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.AddOrUpdateRecurringExpensesRequest)">
+            <summary> Adds or updates recurring expense records. </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Transactions.Contracts.Requests.DeleteTransactionsRequest.AccountIds">
+            <summary>
+            Will delete all transactions for the given Accounts
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.Requests.GetTransactionTypesRequest">
+            <summary>
+            A transaction type request that can retrieve entries from the core.TransactionType table.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Transactions.Contracts.Responses.TransactionTypesResponse">
+            <summary>
+            The response back that contains the different TransactionTypes from GetTransactionTypes(...).
+            </summary>
+        </member>
+    </members>
+</doc>

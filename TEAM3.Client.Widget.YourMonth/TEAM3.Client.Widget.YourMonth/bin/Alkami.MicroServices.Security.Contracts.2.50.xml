@@ -1,0 +1,1121 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Security.Contracts.2.50</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelFilter">
+            <summary>
+            Filter for WCF access level search that allows for querying by IDs or PartialName.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelFilter.Ids">
+            <summary>
+            Gets or sets the list of access level IDs to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelFilter.PartialName">
+            <summary>
+            Gets or sets the partial name to search for in access level names.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelMapper">
+            <summary>
+            Mapper for WCF access level search that controls which related data to include in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AccessLevelMapper.IncludePermissions">
+            <summary>
+            Gets or sets a value indicating whether to include permissions in the access level results.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter">
+            <summary>
+            Filter for WCF entity search that allows for querying by IDs, PartialName, EntityTypeIds, PermissionNames, EntityIdentifiers, EINs, and IsActive status.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.Ids">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.PartialName">
+            <summary>
+            Gets or sets the partial name to search for in entity names.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.EntityTypeIds">
+            <summary>
+            Gets or sets the list of entity type IDs to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.PermissionNames">
+            <summary>
+            Gets or sets the list of permission names to filter entities by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.EntityIdentifiers">
+            <summary>
+            Gets or sets the list of entity identifiers (GUIDs) to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.EINs">
+            <summary>
+            Entity identification number (Tax ID) of a business
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityFilter.IsActive">
+            <summary>
+            Excludes inactive entities
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupFilter">
+            <summary>
+            Filter for WCF entity group search that allows for querying by IDs, PartialName, and EntityIds.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupFilter.Ids">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupFilter.PartialName">
+            <summary>
+            Gets or sets the partial name to search for in entity group names.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupFilter.EntityIds">
+            <summary>
+            Gets or sets the list of entity IDs to filter entity groups by.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMapper">
+            <summary>
+            Mapper for WCF entity group search that controls which related data to include in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMapper.IncludeEntity">
+            <summary>
+            Gets or sets a value indicating whether to include the entity in the entity group results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMapper.IncludeEntityGroupMembers">
+            <summary>
+            Gets or sets a value indicating whether to include entity group members in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMapper.IncludeEntityGroupPermissions">
+            <summary>
+            Gets or sets a value indicating whether to include entity group permissions in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMapper.IncludeEntityGroupAccounts">
+            <summary>
+            Gets or sets a value indicating whether to include entity group accounts in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMapper.IncludeEntityGroupAccountPermissions">
+            <summary>
+            Gets or sets a value indicating whether to include entity group account permissions in the results.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberFilter">
+            <summary>
+            Filter for WCF entity group member search that allows for querying by IDs, EntityGroupIds, and UserIds.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberFilter.Ids">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberFilter.EntityGroupIds">
+            <summary>
+            Gets or sets the list of entity group IDs to filter entity group members by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberFilter.UserIds">
+            <summary>
+            Gets or sets the list of user IDs to filter entity group members by.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberMapper">
+            <summary>
+            Mapper for WCF entity group member search that controls which related data to include in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberMapper.IncludeUsers">
+            <summary>
+            Gets or sets a value indicating whether to include user information in the entity group member results.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper">
+            <summary>
+            Mapper for WCF entity search that controls which related data to include in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeMasterUser">
+            <summary>
+            Gets or sets a value indicating whether to include the master user in the entity results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityType">
+            <summary>
+            Gets or sets a value indicating whether to include the entity type in the entity results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityPermissions">
+            <summary>
+            Gets or sets a value indicating whether to include entity permissions in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityGroups">
+            <summary>
+            Gets or sets a value indicating whether to include entity groups in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityGroupMembers">
+            <summary>
+            Gets or sets a value indicating whether to include entity group members in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityGroupPermissions">
+            <summary>
+            Gets or sets a value indicating whether to include entity group permissions in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityGroupAccounts">
+            <summary>
+            Gets or sets a value indicating whether to include entity group accounts in the results.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityMapper.IncludeEntityGroupAccountPermissions">
+            <summary>
+            Gets or sets a value indicating whether to include entity group account permissions in the results.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.LoginGroupFilter">
+            <summary>
+            Filter for getting login groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.LoginGroupFilter.Ids">
+            <summary>
+            The specific login group ids to get.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.LoginGroupFilter.UserId">
+            <summary>
+            The specific user id to find.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.LoginGroupMapper">
+            <summary>
+            A mapper for the get login group request.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.LoginGroupMapper.IncludeUserInfo">
+            <summary>
+            When set, the response will include more information about each user in the login group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.LoginGroupMapper.IncludeImages">
+            <summary>
+            When set, the response will include the image data for each user in the login group.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.PermissionFilter">
+            <summary>
+            Filter for WCF permission search that allows for querying by IDs.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.PermissionFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.PermissionFilter"/> class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.PermissionFilter.Ids">
+            <summary>
+            Gets or sets the list of permission IDs to filter by.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.UserFilter">
+            <summary>
+            Filter for WCF user search that allows for querying by various user properties.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.Ids">
+            <summary>
+            Gets or sets the list of user IDs to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.EntityId">
+            <summary>
+            Gets or sets the entity ID to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.UserIdentifiers">
+            <summary>
+            Gets or sets the list of user identifiers (GUIDs) to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.BankId">
+            <summary>
+            Gets or sets the bank ID to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.FirstName">
+            <summary>
+            Gets or sets the first name to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.LastName">
+            <summary>
+            Gets or sets the last name to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.TaxIdentifier">
+            <summary>
+            SSN or TIN
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.FlavorId">
+            <summary>
+            Gets or sets the flavor ID to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.BuisnessName">
+            <summary>
+            Name of the business that the user may belong to.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.StartDateTime">
+            <summary>
+            Create date staring period from which to start the search
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.EndDateTime">
+            <summary>
+            Create date ending period to which the search will go.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.IsBranchEmployee">
+            <summary>
+            Gets or sets a value indicating whether to filter for branch employees.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.UserName">
+            <summary>
+            Gets or sets the username to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.CoreMemberId">
+            <summary>
+            Gets or sets the core member ID to filter users by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.IsAdmin">
+            <summary>
+            Gets or sets a value indicating whether to filter for admin users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.IsActive">
+            <summary>
+            Gets or sets a value indicating whether to filter for active users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.IsLockedOut">
+            <summary>
+            Gets or sets a value indicating whether to filter for locked out users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.IncludeDeleted">
+            <summary>
+            Includes all users irrespective of their status
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.FilterWithDeletedAccounts">
+            <summary>
+            Filters by all accounts irrespective of their Deleted status when filtering users by account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.AccountIds">
+            <summary>
+            A filter to find a user using their accountid 
+            in cases like when you have join account 
+            and you have user1 and their accoounts and you want to 
+            get other users who share user1's accounts
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.IncludeBranchEmployee">
+            <summary>
+            A filter to indicate whether <see cref="T:Alkami.MicroServices.Security.Data.BranchEmployee"/>'s in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.UseWildCardMatching">
+            <summary>
+            Indicates that a wildcard search can be performed on the FirstName, LastName, and UserName properties
+            when the correlating property filters includes at least one Asterisk and/or a Percent sign.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.UserFilter"/> class.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.UserFilter.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+            <param name="obj">The object to compare with the current object.</param>
+            <returns>True if the specified object is equal to the current object; otherwise, false.</returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.UserMapper">
+            <summary>
+            User Mapper to specify which related records to include when returning User records.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserMapper.ShouldIncludeUserAccounts">
+            <summary>
+            If true, returns UserAccount records.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserMapper.ShouldIncludePermissions">
+            <summary>
+            This property is obsolete. Permissions will always be returned with the User.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserMapper.ShouldIncludeUserAccountPermissions">
+            <summary>
+            This property is obsolete. Permissions will always be returned with the UserAccount.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserMapper.ShouldIncludeUserAdditionalInfo">
+            <summary>
+            If true, returns UserAdditionalInfo records.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserMapper.ShouldIncludeExternalUserAccounts">
+            <summary>
+            This property is obsolete. Call the Accounts service to find the External Account Information.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UserMapper.ShouldIncludeLoginGroup">
+            <summary>
+            If this is set to true, the <see cref="P:Alkami.MicroServices.Security.Data.User.LoginGroupId"/> field will be populated, if part of a group.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateAccessLevelsRequest">
+            <summary>
+            Request for creating or updating access levels.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupMemberRequest">
+            <summary>
+            Request for creating or updating entity group members.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupRequest">
+            <summary>
+            Request for creating or updating entity groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupRequest.TreatMissingDataAsDeleted">
+            <summary>
+            Gets or sets a value indicating whether missing data should be treated as deleted.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityRequest">
+            <summary>
+            Request for creating or updating entities.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityRequest.TreatMissingDataAsDeleted">
+            <summary>
+            Gets or sets a value indicating whether missing data should be treated as deleted.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateLoginGroupRequest">
+            <summary>
+            The request for creating or updating login groups.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest">
+            <summary>
+            Request for creating or updating users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest.DoNotTreatMissingDataAsDeleted">
+            <summary>
+            Gets or sets a value indicating whether to NOT treat missing data as deleted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest.ShouldUpdateFlavor">
+            <summary>
+            Gets or sets a value indicating whether the flavor should be updated.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest.ShouldDeleteMissingUserAccountPermissions">
+            <summary>
+            Gets or sets a value indicating whether missing user account permissions should be deleted.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.BaseRequestExtension.GetBankInstanceIdentifier(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Obtains the bank instance identifier from the claim token or the value specified on the request, in that order.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.BaseRequestExtension.GetUserIdentifier(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Obtains the user identifier from the claim token for the base request specified, in that order
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.BaseRequestExtension.GetUserId(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Obtains the UserId from the claim token for the base request or the prop on the request, in that order
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.BaseRequestExtension.GetBankUri(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Obtains the BankUri from the claims or the request prop, in that order
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.BaseRequestExtension.GetBankIdentifier(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Obtains the BankIdentifier from the claims or the request prop, in that order
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.DeleteUsersRequest">
+            <summary>
+            Request for deleting users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.DeleteUsersRequest.UserIdentifiers">
+            <summary>
+            Gets or sets the list of user identifiers (GUIDs) to delete.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetAccessLevelRequest">
+            <summary>
+            Request for retrieving access levels.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.GetAccessLevelRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.GetAccessLevelRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupMemberRequest">
+            <summary>
+            Request for retrieving entity group members.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupMemberRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupMemberRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupRequest">
+            <summary>
+            Request for retrieving entity groups.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetEntityRequest">
+            <summary>
+            Request for retrieving entities.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.GetEntityRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.GetEntityRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetExternalUserRequest">
+            <summary>
+            Request for retrieving external users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.GetExternalUserRequest.ExternalUserIdentifier">
+            <summary>
+            Gets or sets the external user identifier.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetFlavorUserMetadataRequest">
+            <summary>
+            Represents the request to fetch metadata about Flavor user data
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetJointOwnerRequest">
+            <summary>
+            Request for retrieving joint owners.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetLoginGroupRequest">
+            <summary>
+            The request for getting login groups.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetPermissionRequest">
+            <summary>
+            Request for retrieving permissions.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.GetPermissionRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.GetPermissionRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.GetUserRequest">
+            <summary>
+            Request for retrieving users.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.SearchUsersRequest">
+            <summary>
+            Search request for users allowing for partial matches
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.UpdateMarketingOptOutRequest">
+            <summary>
+            Request for updating a user's marketing opt-out status.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UpdateMarketingOptOutRequest.UserIdToUpdate">
+            <summary>
+            Gets or sets the user ID to update.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.UpdateMarketingOptOutRequest.IsOptedOut">
+            <summary>
+            Gets or sets a value indicating whether the user is opted out of marketing.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberSorter">
+            <summary>
+            Sorter for entity group member objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberSorter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberSorter"/> class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupMemberSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupSorter">
+            <summary>
+            Sorter for entity group objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupSorter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupSorter"/> class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntityGroupSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Requests.EntitySorter">
+            <summary>
+            Sorter for entity objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Requests.EntitySorter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Requests.EntitySorter"/> class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntitySorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Requests.EntitySorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataFilter">
+            <summary>
+            Represents the available filtering options for the flavor user metadata
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataFilter.Ids">
+            <summary>
+            Gets or sets a collection of Ids. This property is unused. 
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataFilter.FlavorIds">
+            <summary>
+            Gets or sets a collection of FlavorIds to fetch metadata for.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataFilter.#ctor">
+            <summary>
+            Creates a new filter instance.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataMapper">
+            <summary>
+            Represents the available children filtering that is available for fetching flavor user metadata
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataMapper.IncludeUserIds">
+            <summary>
+            Gets or sets a flag indicating if userIds should be including in the metdata returned
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataMapper.IncludeSubUserIds">
+            <summary>
+            Gets or sets a flag indicating if sub users should be included in the user counts
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataMapper.#ctor">
+            <summary>
+            Initializes a new instance of the mapper
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.JointOwnerFilter">
+            <summary>
+            Filter for WCF joint owner search that allows for querying by IDs and AccountIds.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.JointOwnerFilter.Ids">
+            <summary>
+            Gets or sets the list of joint owner IDs to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.JointOwnerFilter.AccountIds">
+            <summary>
+            Filters the JointOwners by only those users that are a primary or joint owner on the accounts in this list
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.JointOwnerMapper">
+            <summary>
+            Mapper for WCF joint owner search that controls which related data to include in the results.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.SearchUserFilter">
+            <summary>
+            Search filter is for doing a wide user search with partial match fields
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.Ids">
+            <summary>
+            Search by user ids
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.TaxId">
+            <summary>
+            Search by user tax identification number
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.Ein">
+            <summary>
+            Search by user entity tax identification number
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.Pin">
+            <summary>
+            Search by user pin
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.MemberNumber">
+            <summary>
+            Search by user primary core identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.Username">
+            <summary>
+            Search by username
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.ConfigurableField1">
+            <summary>
+            Search by configurable field in user additional info
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.ConfigurableField2">
+            <summary>
+            Search by configurable field in user additional info
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.SearchUserFilter.SearchField">
+            <summary>
+            Contains search field input and indicates whether to perform partial search or not
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.SearchField.Value">
+            <summary>
+            String value of the search field
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.SearchField.IsPartial">
+            <summary>
+            Determines whether to do a partial search or not
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.SearchField.IsValid">
+            <summary>
+            Partial match value must have a length of at least 4
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.SearchUserFilter.SearchField.ToString">
+            <summary>
+            ToString override
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.SearchUserFilter.IsEmpty">
+            <summary>
+            Returns true if at least one field in the filter is populated
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract">
+            <summary>
+            Contract for the Security Service.
+            The Security Service broadly manages users, entities, and permissions.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetUserAsync(Alkami.MicroServices.Security.Contracts.Requests.GetUserRequest)">
+            <summary>
+            Get users
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetEntityAsync(Alkami.MicroServices.Security.Contracts.Requests.GetEntityRequest)">
+            <summary>
+            Get entities
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetEntityGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupRequest)">
+            <summary>
+            Get entity groups
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetEntityGroupMemberAsync(Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupMemberRequest)">
+            <summary>
+            Get entity group members
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetAccessLevelsAsync(Alkami.MicroServices.Security.Contracts.Requests.GetAccessLevelRequest)">
+            <summary>
+            Get access levels
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetPermissionsAsync(Alkami.MicroServices.Security.Contracts.Requests.GetPermissionRequest)">
+            <summary>
+            Get permissions
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.AddOrUpdateAccessLevelsAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateAccessLevelsRequest)">
+            <summary>
+            Upsert access levels
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.DeleteUsersAsync(Alkami.MicroServices.Security.Contracts.Requests.DeleteUsersRequest)">
+            <summary>
+            Delete users
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.AddOrUpdateUserAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest)">
+            <summary>
+            Upsert users
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.AddOrUpdateEntityAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityRequest)">
+            <summary>
+            Upsert entities
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.AddOrUpdateEntityGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupRequest)">
+            <summary>
+            Upsert entity groups
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.AddOrUpdateEntityGroupMemberAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupMemberRequest)">
+            <summary>
+            Upsert entity group members
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetFlavorUserMetadataAsync(Alkami.MicroServices.Security.Contracts.Requests.GetFlavorUserMetadataRequest)">
+            <summary>
+            Fetch metadata information about flavor user metadata from the remote service
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetJointOwnerAsync(Alkami.MicroServices.Security.Contracts.Requests.GetJointOwnerRequest)">
+            <summary>
+            Gets a list of joint owners records (partial core.User) records that are tied to the same account as a primary or joint relationship
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetExternalUserAsync(Alkami.MicroServices.Security.Contracts.Requests.GetExternalUserRequest)">
+            <summary>
+            Get external users
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.UpdateMarketingOptOutAsync(Alkami.MicroServices.Security.Contracts.Requests.UpdateMarketingOptOutRequest)">
+            <summary>
+            Update marketing opt out
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.GetLoginGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.GetLoginGroupRequest)">
+            <summary>
+            Gets existing login groups.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.AddOrUpdateLoginGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateLoginGroupRequest)">
+            <summary>
+            Adds or updates a login group. This endpoint only supports modifying a single group at a time.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract.SearchUsersAsync(Alkami.MicroServices.Security.Contracts.Requests.SearchUsersRequest)">
+            <summary>
+            Search for users based on partial matches
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.AddOrUpdateLoginGroupResponse">
+            <summary>
+            Response for adding or updating login groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.AddOrUpdateLoginGroupResponse.LoginGroups">
+            <summary>
+            The resulting login groups.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.DeleteUsersResponse">
+            <summary>
+            Response for deleting users.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetEntityGroupMemberResponse">
+            <summary>
+            Response for retrieving entity group members.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.GetEntityGroupMemberResponse.EntityGroupMembers">
+            <summary>
+            Gets or sets the list of entity group members.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetEntityGroupResponse">
+            <summary>
+            Response for retrieving entity groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.GetEntityGroupResponse.EntityGroups">
+            <summary>
+            Gets or sets the list of entity groups.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetEntityResponse">
+            <summary>
+            Response for retrieving entities.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.GetEntityResponse.Entities">
+            <summary>
+            Gets or sets the list of entities.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetFlavorUserMetadataResponse">
+            <summary>
+            Represents the response of one or more flavor user metadata objects
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetJointOwnerResponse">
+            <summary>
+            Response for retrieving joint owners.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.GetJointOwnerResponse.JointOwners">
+            <summary>
+            Gets or sets the collection of joint owners.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetLoginGroupResponse">
+            <summary>
+            Response for the get login groups request.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.GetLoginGroupResponse.LoginGroups">
+            <summary>
+            The resulting login groups.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.GetUserResponse">
+            <summary>
+            Response for retrieving users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Responses.GetUserResponse.Users">
+            <summary>
+            Gets or sets the list of users.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Responses.UpdateMarketingOptOutResponse">
+            <summary>
+            Response for updating a user's marketing opt-out status.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.EntityGroupMemberSortFields">
+            <summary>
+            Sort fields for entity group member objects.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.EntityGroupMemberSortFields.Id">
+            <summary>
+            Sort by entity group member ID.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.EntityGroupMemberSortFields.UserId">
+            <summary>
+            Sort by user ID.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.EntityGroupSortFields">
+            <summary>
+            Sort fields for entity group objects.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.EntityGroupSortFields.Id">
+            <summary>
+            Sort by entity group ID.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.EntityGroupSortFields.Name">
+            <summary>
+            Sort by entity group name.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.EntitySortFields">
+            <summary>
+            Sort fields for entity objects.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.EntitySortFields.Id">
+            <summary>
+            Sort by entity ID.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.EntitySortFields.CreateDate">
+            <summary>
+            Sort by create date.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.LoginGroupSorter">
+            <summary>
+            Sorter for Login Groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Sorters.LoginGroupSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Sorters.LoginGroupSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.LoginGroupSortFields">
+            <summary>
+            Sort fields for Login Groups.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.LoginGroupSortFields.Id">
+            <summary>
+            Sorts by Login Group Id.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.UserSorter">
+            <summary>
+            Sorter for user objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Contracts.Sorters.UserSorter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Security.Contracts.Sorters.UserSorter"/> class.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Sorters.UserSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Contracts.Sorters.UserSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields">
+            <summary>
+            Sort fields for user objects.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields.Id">
+            <summary>
+            Sort by user ID.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields.ModifiedDate">
+            <summary>
+            Sort by modified date.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields.FirstName">
+            <summary>
+            Sort by first name.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields.LastName">
+            <summary>
+            Sort by last name.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields.MiddleName">
+            <summary>
+            Sort by middle name.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Contracts.Sorters.UserSortFields.BirthDate">
+            <summary>
+            Sort by birth date.
+            </summary>
+        </member>
+    </members>
+</doc>

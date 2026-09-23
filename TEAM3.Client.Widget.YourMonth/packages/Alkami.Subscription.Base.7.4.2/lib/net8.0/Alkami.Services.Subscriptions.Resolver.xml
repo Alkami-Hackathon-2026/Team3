@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Services.Subscriptions.Resolver</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Extensions.DependencyInjection.SubscriptionResolverServiceCollectionExtensions">
+            <summary>
+            Extension methods that register resolver infrastructure with a
+            <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.
+            Only available on net8.0 and net10.0.
+            </summary>
+        </member>
+        <member name="M:Alkami.Extensions.DependencyInjection.SubscriptionResolverServiceCollectionExtensions.AddSubscriptionResolver(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Registers <see cref="T:Alkami.Services.Subscriptions.Resolver.SubscriptionServiceProxy"/> as <see cref="T:Alkami.Services.Subscriptions.Data.ISubscriptionService"/>
+            as a singleton managed by the DI container, and registers <see cref="T:Alkami.Services.Subscriptions.Resolver.IResolver"/> by
+            reusing the existing <see cref="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.Instance"/> reconfigured with the
+            DI-supplied dependencies. This avoids creating a second <see cref="T:Alkami.Services.Subscriptions.Resolver.InnerResolver"/> that
+            would otherwise run its own background poll of the Subscription Service alongside the
+            eagerly-created static <see cref="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.Instance"/>. This registration is
+            independent of <see cref="F:Alkami.Services.Subscriptions.Resolver.ServiceResolver.ResolverFactory"/>.
+            </summary>
+            <remarks>
+            All registrations use <c>TryAdd</c>, so callers may pre-register overrides (e.g. mocks
+            in tests) before calling this method and those overrides will be honoured.
+            </remarks>
+        </member>
+        <member name="E:Alkami.Services.Subscriptions.Resolver.InnerResolver.OnChange">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.ClientVersion">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.RefreshData(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.AllRegisteredDefinitions">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.Heartbeat(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.HeartbeatAsync(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.HeartbeatAsync(System.Collections.Generic.List{Alkami.Services.Subscriptions.Data.ServiceDefinition})">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.ConfigureFrom(Alkami.Services.Subscriptions.Data.ISubscriptionService,Alkami.Services.Subscriptions.Data.ISettingsUtility,Microsoft.Extensions.Logging.ILogger{Alkami.Services.Subscriptions.Resolver.InnerResolver})">
+            <summary>
+            Applies DI-supplied dependencies to this (already-running) instance without
+            re-triggering an initial fetch, so the eagerly-populated service list is preserved.
+            The background poll is re-registered against the DI-supplied refresh interval, and
+            the previous wait handle is unregistered. Used to let DI consumers share the same
+            <see cref="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.Instance"/> instead of spinning up a second background poller.
+            </summary>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Resolver.ServiceResolver.ResolverFactory">
+            <summary>
+            Factory to create an instance of <see cref="T:Alkami.Services.Subscriptions.Resolver.IResolver"/>
+            <remarks>No need to override this in the default behavior</remarks>
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.ServiceResolver.EstablishedConnectionAtLeastOnce">
+            <summary>
+            A boolean indicating that a connection was made to the subscription service at least once. This will be used to allow the service to start up
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.ServiceResolver.IsConnected">
+            <summary>
+            a boolean indicating that the connection to the subscription service is currently connected
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.ServiceResolver.AllRegisteredDefinitions">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,398 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Data.Validations</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Data.Validations.CommonValidationChecks">
+            <summary>
+            The <see cref="T:Alkami.Data.Validations.CommonValidationChecks"/> class contains various common validation checks.
+            </summary>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddErrorIfStringIsNullEmptyOrWhitespace(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.String,System.String)">
+            <summary>
+            Checks to see if the provided value is null, empty, or whitespace and, if so, adds a <see cref="T:Alkami.Data.Validations.ValidationResult"/> to the provided list.
+            </summary>
+            <param name="results">The list to add <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</param>
+            <param name="value">The value of the field to check.</param>
+            <param name="fieldName">The name of the field being checked.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddErrorIfEnumValueIsNotDefined``1(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},``0,System.String)">
+            <summary>
+            Checks to see if the provided value is not defined in the Enum and, if so, adds a <see cref="T:Alkami.Data.Validations.ValidationResult"/> to the provided list.
+            </summary>
+            <typeparam name="T">The type of the enum to check.</typeparam>
+            <param name="results">The list to add <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</param>
+            <param name="value">The value of the field to check.</param>
+            <param name="fieldName">The name of the field being checked.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddErrorIfNull``1(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},``0,System.String)">
+            <summary>
+            Checks to see if the provided value is null and, if so, adds a <see cref="T:Alkami.Data.Validations.ValidationResult"/> to the provided list.
+            </summary>
+            <typeparam name="T">The type of the value to check.</typeparam>
+            <param name="results">The list to add <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</param>
+            <param name="value">The value of the field to check.</param>
+            <param name="fieldName">The name of the field being checked.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddErrorIfGuidEmpty(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.Guid,System.String)">
+            <summary>
+            Checks to see if the provided value is Guid.Empty and, if so, adds a <see cref="T:Alkami.Data.Validations.ValidationResult"/> to the provided list.
+            </summary>
+            <param name="results">The list to add <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</param>
+            <param name="value">The value of the field to check.</param>
+            <param name="fieldName">The name of the field being checked.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddErrorIf``1(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},``0,Alkami.Data.Validations.Comparison,``0,System.String)">
+            <summary>
+            Performs a comparison based on the provided values and the desired <see cref="T:Alkami.Data.Validations.Comparison"/> and, if true, adds a <see cref="T:Alkami.Data.Validations.ValidationResult"/> to the provided list.
+            </summary>
+            <typeparam name="T">The type of the value to compare.</typeparam>
+            <param name="results">The list to add <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</param>
+            <param name="actualValue">The actual value to test.</param>
+            <param name="comparison">The <see cref="T:Alkami.Data.Validations.Comparison"/> type to perform.</param>
+            <param name="expectedValue">The expected (constant) value to compare against.</param>
+            <param name="fieldName">The name of the field being checked.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddValidationError(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.String,System.String,Alkami.Data.Validations.SubCode)">
+            <summary>
+            Adds a validation error to the provided collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <param name="results">The collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s to add to.</param>
+            <param name="fieldName">The name of the field with the validation error.</param>
+            <param name="message">The message to add to the <see cref="T:Alkami.Data.Validations.ValidationResult"/>.</param>
+            <param name="subCode">The <see cref="T:Alkami.Data.Validations.SubCode"/> for the validation.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddCustomValidationError(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.String,System.String,System.String)">
+            <summary>
+            Adds a validation error to the provided collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <param name="results">The collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s to add to.</param>
+            <param name="fieldName">The name of the field with the validation error.</param>
+            <param name="message">The message to add to the <see cref="T:Alkami.Data.Validations.ValidationResult"/>.</param>
+            <param name="customSubCode">The custom sub code for the validation.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddValidationWarning(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.String,System.String,Alkami.Data.Validations.SubCode)">
+            <summary>
+            Adds a validation warning to the provided collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <param name="results">The collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s to add to.</param>
+            <param name="fieldName">The name of the field with the validation warning.</param>
+            <param name="message">The message to add to the <see cref="T:Alkami.Data.Validations.ValidationResult"/>.</param>
+            <param name="subCode">The <see cref="T:Alkami.Data.Validations.SubCode"/> for the validation.</param>
+        </member>
+        <member name="M:Alkami.Data.Validations.CommonValidationChecks.AddCustomValidationWarning(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.String,System.String,System.String)">
+            <summary>
+            Adds a validation warning to the provided collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <param name="results">The collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s to add to.</param>
+            <param name="fieldName">The name of the field with the validation warning.</param>
+            <param name="message">The message to add to the <see cref="T:Alkami.Data.Validations.ValidationResult"/>.</param>
+            <param name="customSubCode">The custom sub code for the validation.</param>
+        </member>
+        <member name="T:Alkami.Data.Validations.Comparison">
+            <summary>
+            The type of comparison to use for a validation check.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.Comparison.Equal">
+            <summary>
+            The values are equal.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.Comparison.GreaterThan">
+            <summary>
+            The left value is greater than the right.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.Comparison.GreaterThanOrEqual">
+            <summary>
+            The left value is greater than or equal to the right.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.Comparison.LessThan">
+            <summary>
+            The left value is less than the right.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.Comparison.LessThanOrEqual">
+            <summary>
+            The left value is less than or equal to the right.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.Comparison.NotEqual">
+            <summary>
+            The left value is not equal to the right.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.Unknown">
+            <summary>
+            DO NOT USE!
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.Informational">
+            <summary>
+            Informational – Some kind of information warning that should not stop processing.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.ValidationError">
+            <summary>
+            ValidationError – Data values were out of range based on acceptable values.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.DataRequestError">
+            <summary>
+            DataRequestError – The data request was not well-formed.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.UnsupportedError">
+            <summary>
+            UnsupportedError – The request is not supported by the server implementation.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.PermissionError">
+            <summary>
+            PermissionError – The client lacks the necessary security permission to access the object or operation.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.SystemNonFatalError">
+            <summary>
+            SystemNonFatalError – temporary system error occured such as a temporary system outage, etc.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.ErrorCode.SystemFatalError">
+            <summary>
+            SystemFatalError – critical system error occurred such as full system outage, etc.
+            </summary>
+        </member>
+        <member name="T:Alkami.Data.Validations.IValidate">
+            <summary>
+            The <see cref="T:Alkami.Data.Validations.IValidate"/> interface allows for classes to declare their validation without
+            requiring a concrete (non-generic) class.
+            </summary>
+        </member>
+        <member name="M:Alkami.Data.Validations.IValidate.Validate">
+            <summary>
+            Validates the current object producing a collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <returns>A collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</returns>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.None">
+            <summary>
+            Default.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.Custom">
+            <summary>
+            Custom subcode. True subcode value is in the CustomSubCode.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.NoDataInRequest">
+            <summary>
+            No data in request.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.NoRecordsFound">
+            <summary>
+            No matching records were found.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.BadRequest">
+            <summary>
+            Bad request.  Data in the request was invalid.
+            This error code should only be used if there is not a more detailed
+            error listed below that matches the situation.  Any use of this error
+            code should be communicated to the CUFX team so that the condition
+            can be covered in future versions of the error object.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.LoginInvalid">
+            <summary>
+            Login Invalid.  The user token or credentials were invalid.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.SessionTokenExpired">
+            <summary>
+            Session token expired. The provided session token was expired or otherwise invalid.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.UserTokenExpired">
+            <summary>
+            User token expired. The provided user token expired.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.SubCode409">
+            <summary>
+            Conflict.  The entity submitted for creation already exists.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.IncompleteRequest">
+            <summary>
+            Incomplete request.  The request omitted the following required fields: '%s'
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.PreviousRequestRequired">
+            <summary>
+            Previous request required.  A '%s' request must be made before this one, and was not.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ValueOutOfRange">
+            <summary>
+            Value out of acceptable range.  The value ‘%s’ is not supported for the field ‘%s’ by this
+            service. Valid values must be between ‘%s’ and ‘%s’.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ValueUnsupported">
+            <summary>
+            Unsupported value.  The value ‘%s’ is not supported for the field ‘%s’ by this service. Valid
+            values include '%s'.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.UnprocessableEntity">
+            <summary>
+            Unprocessable entity.  The request contained the following references to entities that could not be found: '%s'.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.AccountLocked">
+            <summary>
+            Account locked.  The login was valid but the account was disabled, locked or otherwise inaccessible.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.MfaLoginFailed">
+            <summary>
+            MFA login failed.  The MFA login information provided was incorrect.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.MacInvalid">
+            <summary>
+            MAC invalid.  The MAC was invalid or missing.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.EncryptionError">
+            <summary>
+            Encryption error.  The provided encrypted data could not be decrypted.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.TooManyRequests">
+            <summary>
+            Too many requests.  The user has sent too many requests in a given amount of time.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidLanguage">
+            <summary>
+            Invalid language.  The requested language '%s' is not supported.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidEmailFormat">
+            <summary>
+            Invalid email format.  The format of the email was invalid.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidPhoneFormat">
+            <summary>
+            Invalid phone format.  The format of the phone was invalid.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidDataSourceId">
+            <summary>
+            Invalid data source ID.  The data source ID was not recognized.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidFinancialInstitutionId">
+            <summary>
+            Invalid FI ID.  The financial institution ID was not recognized.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.MalformedRequest">
+            <summary>
+            Unable to parse request. Invalid JSON/XML.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.AccessDenied">
+            <summary>
+            Access denied.  Access to resource requested was denied.	subCode may contain additional details.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ArtifactNotFound">
+            <summary>
+            Artifact not found.	The artifact ID could not be found in the repository.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.UpdateToFieldNotAllowed">
+            <summary>
+            Update to field not allowed.	The repository does not allow updates to '%s'.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ArtifactCannotBeDecompressed">
+             <summary>
+             Artifact could not be decompressed.	 artifactCompressionType did not result in a successful
+            decompression of the artifact.
+             </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.MimeTypeNotSupported">
+            <summary>
+            MIME type not supported. 	Repository rejected the MIME type.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ArtifactArchived">
+            <summary>
+            Artifact has been archived.	The artifact with the given artifact ID has been archived out of the repository.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ArtifactTooLarge">
+            <summary>
+            Artifact too large.	The artifact was rejected because the artifact has exceeded the size limit.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ArtifactTooSmall">
+            <summary>
+            Artifact too small.	The artifact was rejected because the artifact is smaller than its minimum size limit.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ArtifactRejected">
+            <summary>
+            Artifact rejected. 	The repository has rejected the artifact. See the sub error codes for the specific reason.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidDataLength">
+            <summary>
+            Invalid data length in field '%s'.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidFormat">
+            <summary>
+            Invalid format.  The format of the request is not supported.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.InvalidEnvironment">
+            <summary>
+            Invalid environment.  The environment specified in MessageContext is disallowed by the system as configured.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.DatesOutOfOrder">
+            <summary>
+            Transaction dates are out of order.  The transaction end date is before the transaction start date
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.DateRangeTooLarge">
+            <summary>
+            Transaction date range too wide.  Date range is too wide for the data source to handle.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.GeneralError">
+            <summary>
+            General Error.  Review subCode for more information.
+            </summary>
+        </member>
+        <member name="F:Alkami.Data.Validations.SubCode.ServiceTemporarilyUnavailable">
+            <summary>
+            Service is temporarily unavailable.  Try again later.
+            </summary>
+        </member>
+        <member name="M:Alkami.Data.Validations.ValidationResult.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.Data.Validations.ValidationResult"/> class.
+            </summary>
+        </member>
+    </members>
+</doc>

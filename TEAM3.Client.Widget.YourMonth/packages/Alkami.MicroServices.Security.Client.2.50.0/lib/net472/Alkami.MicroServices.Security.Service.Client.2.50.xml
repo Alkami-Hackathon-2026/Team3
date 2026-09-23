@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Security.Service.Client.2.50</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient">
+            <inheritdoc cref="T:Alkami.MicroServices.Security.Contracts.ISecurityServiceContract" />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetUserAsync(Alkami.MicroServices.Security.Contracts.Requests.GetUserRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetEntityAsync(Alkami.MicroServices.Security.Contracts.Requests.GetEntityRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetEntityGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetEntityGroupMemberAsync(Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupMemberRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetAccessLevelsAsync(Alkami.MicroServices.Security.Contracts.Requests.GetAccessLevelRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetPermissionsAsync(Alkami.MicroServices.Security.Contracts.Requests.GetPermissionRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.AddOrUpdateAccessLevelsAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateAccessLevelsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.AddOrUpdateUserAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.DeleteUsersAsync(Alkami.MicroServices.Security.Contracts.Requests.DeleteUsersRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.AddOrUpdateEntityAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.AddOrUpdateEntityGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.AddOrUpdateEntityGroupMemberAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupMemberRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetFlavorUserMetadataAsync(Alkami.MicroServices.Security.Contracts.Requests.GetFlavorUserMetadataRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetJointOwnerAsync(Alkami.MicroServices.Security.Contracts.Requests.GetJointOwnerRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetExternalUserAsync(Alkami.MicroServices.Security.Contracts.Requests.GetExternalUserRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.UpdateMarketingOptOutAsync(Alkami.MicroServices.Security.Contracts.Requests.UpdateMarketingOptOutRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.GetLoginGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.GetLoginGroupRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.AddOrUpdateLoginGroupAsync(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateLoginGroupRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Service.Client.SecurityServiceClient.SearchUsersAsync(Alkami.MicroServices.Security.Contracts.Requests.SearchUsersRequest)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

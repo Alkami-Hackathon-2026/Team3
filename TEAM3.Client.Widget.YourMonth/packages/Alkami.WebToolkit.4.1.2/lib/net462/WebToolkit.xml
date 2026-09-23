@@ -1,0 +1,618 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebToolkit</name>
+    </assembly>
+    <members>
+        <member name="T:WebToolkit.AsyncHelper">
+            <summary>
+            Allows you to run async methods in MVC 3
+            </summary>
+        </member>
+        <member name="T:WebToolkit.BaseControllerExtensions">
+            <summary>
+            Extensions for the web
+            </summary>
+        </member>
+        <member name="M:WebToolkit.BaseControllerExtensions.AugmentRequest(WebToolkit.Mvc.BaseController,Alkami.Contracts.BaseRequest)">
+            <summary>
+            Allows you to add required fields to interface with micro services
+            </summary>
+            <param name="controller">see <see cref="T:WebToolkit.Mvc.BaseController"/> from the Alkami Orb Framework</param>
+            <param name="request">see <see cref="T:Alkami.Contracts.BaseRequest"/> from the Alkami Micro Services Core Framework</param>
+        </member>
+        <member name="M:WebToolkit.BaseControllerExtensions.ValidateModelWithSiteText``1(WebToolkit.Mvc.BaseController,``0,System.Action{System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult}})">
+            <summary>
+            Validates the provided model and applies any errors to the model state with a site text driven message
+            </summary>
+            <typeparam name="T">Model type</typeparam>
+            <param name="controller">The base controller instance</param>
+            <param name="model">Model to be validated.</param>
+            <param name="postProcessing">Optional action method to be called after validation has occurred but before site text has been applied to the model state.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.BaseControllerExtensions.GetValidationResults(WebToolkit.Mvc.BaseController,System.Object)">
+            <summary>
+            Returns validation results for the given model from the assigned validator.
+            </summary>
+            <param name="controller">Base controller.</param>
+            <param name="model">Model to validate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.BaseControllerExtensions.ApplyValidationResultsToModelState``1(WebToolkit.Mvc.BaseController,System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},``0,System.Action{System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult}})">
+            <summary>
+            Applies the given validation results against the model state using site text to provide the error messages.
+            The site text key generated for any given validation message is:
+            $"Validation.{ModelType}.{Field}.{SubCode}"
+            Where:
+            ModelType is the class name (not full name) of the model being passed in
+            Field is the name of the field/property in the model with the validation error
+            SubCode is the textual subcode representing error type. Custom subcodes take precedence.
+            </summary>
+            <typeparam name="T">Model type</typeparam>
+            <param name="controller">Base controller.</param>
+            <param name="results">List of validation results to be applied.</param>
+            <param name="model">Model to be validated.</param>
+            <param name="postProcessing">Optional action method to be called after validation has occurred but before site text has been applied to the model state.</param>
+        </member>
+        <member name="T:WebToolkit.Mvc.BaseController">
+            <summary>
+            BaseController from WebKit
+            </summary>
+            <summary>
+            BaseController from WebKit
+            </summary>
+        </member>
+        <member name="P:WebToolkit.Mvc.BaseController.SiteText">
+            <summary>
+            The Site text for this widget
+            </summary>
+        </member>
+        <member name="P:WebToolkit.Mvc.BaseController.GlobalSiteText">
+            <summary>
+            The Site text for this widget
+            </summary>
+        </member>
+        <member name="M:WebToolkit.Mvc.BaseController.SiteTextScript(System.String)">
+            <summary>
+            Returns a cached javascript file containing all the site text for the supplied namespace
+            </summary>
+            <param name="siteTextHash">Site text has created using bank identifier, locale id and version</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.Mvc.BaseController.SiteTextJSON(System.String)">
+            <summary>
+            Returns a cached json respone containing all the site text for the supplied namespace
+            </summary>
+            <param name="siteTextHash">Site text has created using bank identifier, locale id and version</param>
+            <returns></returns>
+        </member>
+        <member name="P:WebToolkit.Mvc.BaseController.CurrentBankIdentifier">
+            <summary>
+            The current request's bank identifier
+            </summary>
+        </member>
+        <member name="P:WebToolkit.Mvc.BaseController.CurrentUserId">
+            <summary>
+            The current user's id
+            </summary>
+        </member>
+        <member name="P:WebToolkit.Mvc.BaseController.CurrentUserIdentifier">
+            <summary>
+            The current user's identifier
+            </summary>
+        </member>
+        <member name="P:WebToolkit.Mvc.BaseController.CurrentBankInstanceIdentifier">
+            <summary>
+            The current request's bank instance identifier
+            </summary>
+        </member>
+        <member name="T:WebToolkit.SiteText.DefaultSiteText">
+            <summary>
+            Contains the parsed XML results
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteText.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteText.DefaultFileHash">
+            <summary>
+            Should be used to show the default hash value
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteText.Namespace">
+            <summary>
+            The unique namespace for this defaultSiteText
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteText.Entries">
+            <summary>
+            List of associated entries
+            </summary>
+        </member>
+        <member name="T:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry">
+            <summary>
+            Associated entries for SiteText
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry.#ctor(System.String,System.String)">
+            <summary>
+            Overload Constructor
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Overload Constructor
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="description"></param>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry.Key">
+            <summary>
+            Key associated with the entry
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry.Description">
+            <summary>
+            Description associated with the entry
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteText.DefaultSiteTextEntry.Value">
+            <summary>
+            Value associated with the entry
+            </summary>
+        </member>
+        <member name="T:WebToolkit.SiteText.DefaultSiteTextHelper">
+            <summary>
+            Helper methods for loading and retrieving DefaultSiteText from SiteText XML files and the SiteText Microservice
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.DefaultSiteTextHelper.DefaultSiteTexts">
+            <summary>
+            Loads the full list of namespaces currently in the SiteText Microservice
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.DefaultSiteTextHelper.GetNamespaceListFunc">
+            <summary>
+            Gets a list of the namespaces currently registered with the SiteText Microservice
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.DefaultSiteTextHelper.LoadDefaultSiteTextFromFileFunc">
+            <summary>
+            Loads DefaultSiteText from XML file and sends to SiteText Microservice if required
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.DefaultSiteTextHelper.LoadDefaultSiteTextFunc">
+            <summary>
+            Loads DefaultSiteText from the SiteText Microservice. Use this function if your solution does not own the XML file
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.DefaultSiteTextHelper.SiteTextServiceFunc">
+            <summary>
+            Creates a default instances of the SiteTextServiceClient for accessing SiteText
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.DefaultSiteTextHelper._namespaceList">
+            <summary>
+            Contains a group of Namespace objects obtained from the Site Text Microservice
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.GetNamespaceList">
+            <summary>
+            Loads the full list of namespaces entries currently residing in the SiteText Microservice. Note that once the namespace 
+            list has been retrieved and loaded from the SiteText Microservice, it will not be updated on additional calls 
+            unless the original list is cleared first.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.LoadDefaultSiteText(System.String,System.Int64,System.String)">
+            <summary>
+            Loads the default site text list from a XML file source and sends to SiteText Microservice if new / required
+            </summary>
+            <param name="widgetNamespace"></param>
+            <param name="localeId"></param>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.LoadDefaultSiteText(System.String,System.Int64)">
+            <summary>
+            Loads the default site text list from the Site Text Microservice
+            </summary>
+            <param name="widgetNamespace"></param>
+            <param name="localeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.LoadDefaultSiteTextFromMicroService(System.String,System.Int64)">
+            <summary>
+            Loads the default site text list from the Site Text Microservice
+            </summary>
+            <param name="defaultSiteTextNamespace"></param>
+            <param name="localeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.UpdateDefaultSiteText(WebToolkit.SiteText.DefaultSiteText,System.Int64)">
+            <summary>
+            Comparies the default site text entry against the currently loaded site text entries sourced from the microservice. If the entry is indeed new
+            then a call is made to the site text microservice to update accordingly.
+            </summary>
+            <param name="defaultSiteText"></param>
+            <param name="localeId"></param>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.LoadDefaultSiteTextFromXmlFile(System.String,System.String)">
+            <summary>
+            Load the DefaultSiteText XML based entries. Also stores the default hash value
+            for the XML file in this SiteText instance as well as the DefaultSiteText Entry
+            which contains all elements in the file
+            </summary>
+            <param name="defaultSiteTextNamespace">Name to use. For widgets, this is the Name field on a Widget 
+            (Budgets, Benefits, etc. Anything in Area for a Widget). 
+            For applications/services or the root level
+            this value should be something like Global</param>
+            <param name="fileName">The name of the file to load.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.ConvertToSiteTextLocaleFormat(System.Int64)">
+            <summary>
+            Maps and converts the specific localeId to a matching local string mapped above in the class
+            </summary>
+            <param name="localeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.ConvertToSiteTextLocaleFormat(System.String)">
+            <summary>
+            Maps and converts the specific locale to a matching local id mapped above in the class
+            </summary>
+            <param name="locale"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.RegisterSiteTextEntriesWithMicroService(System.Collections.Generic.List{Alkami.MicroServices.SiteText.Data.Namespace})">
+            <summary>
+            Registers a list of namespaces associated with SiteText with the Site Text Microservice
+            </summary>
+            <param name="nameSpaces"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.GetSiteTextEntriesFromMicroService">
+            <summary>
+            Obtains a list of ALL namespaces from the Site Text Microservice
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.DefaultSiteTextHelper.GetSiteTextEntryFromMicroService(System.String,System.Int64)">
+            <summary>
+            Obtains a specific SiteText namespace instance determined from the namespace key name and locale id from the Site Text Microservice
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:WebToolkit.SiteText.DefaultSiteTextHelper._defaultLocaleMap">
+            <summary>
+            Currently supported locale strings that correspond to the actual locale id. If you want new languages to be supported
+            and have the accompanying XML file placed in the appropriate location for use then you will need to add an entry for it
+            in this dictionary
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.ISiteTextUtility.GetText(System.String,System.Object[])">
+            <summary>
+            Gets the text. Passes to Func
+            </summary>
+            <param name="key">The key.</param>
+            <param name="paramList">The parameter list.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.ISiteTextUtility.InternalGetText(System.String,System.Object[])">
+            <summary>
+            Gets the site text for a given key for the current controller with format replacements
+            </summary>
+            <param name="key"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.ISiteTextUtility.GetTextWithDefault(System.String,System.String,System.String)">
+            <summary>
+            Retrieves a value from SiteText or returns the provided defaultValue if the key does not have a value.
+            This wraps the SiteText.GetTextWithDefault function.
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.ISiteTextUtility.GetTextFormatWithDefault(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Retrieves a value from SiteText or returns the provided defaultValue if the key does not have a value.
+            This wraps the SiteText.GetTextFormatWithDefault function.
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <param name="description"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.ISiteTextUtility.GetTextIfExists(System.String,System.String,System.Object[])">
+            <summary>
+            Retrieves a value from SiteText or returns the provided defaultValue if the key does not have a value.
+            If the value does not exist, this method will NOT add it.
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WebToolkit.SiteText.ISiteTextUtility.SettingList">
+            <summary>
+            A Union of the SiteText keys and DefaultSiteText keys
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.ISiteTextUtility.VersionText">
+            <summary>
+            Returns the version of the internal site text object and default hash
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.ISiteTextUtility.ToDictionary">
+            <summary>
+            Returns the union of SiteText and Default site text in dictionary form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebToolkit.SiteText.RouteCollectionExtensions">
+            <summary>
+            Route extensions to support javascript based SiteText contents
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.RouteCollectionExtensions.ConfigureSiteText(System.Web.Routing.RouteCollection)">
+            <summary>
+            Configures the route collection to handle site text paths
+            </summary>
+            <param name="routes"></param>
+        </member>
+        <member name="T:WebToolkit.SiteText.SiteTextJavascriptHelper">
+            <summary>
+            Helper functions for SiteText
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.SiteTextJavascriptHelper.GlobalSiteTextControllerName">
+            <summary>
+            Name of the controller that houses the global site text. Set this to optimize caching.
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextJavascriptHelper.GenerateJavascriptFileContents(WebToolkit.SiteText.SiteTextUtility)">
+            <summary>
+            Generates the contents of a JavaScript file to apply all the keys and values 
+            of a SiteText utilty into a browser side consumable format
+            </summary>
+            <param name="utility"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextJavascriptHelper.GenerateJSON(WebToolkit.SiteText.SiteTextUtility)">
+            <summary>
+            Generates a JSON string representing all the keys and values in the SiteText utility
+            </summary>
+            <param name="utility">SiteText utility to be JSONified</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextJavascriptHelper.GetSiteTextScriptPath(WebToolkit.Mvc.BaseController,WebToolkit.SiteText.SiteTextNamespace,System.String)">
+            <summary>
+            Returns the path for the generated site text javascript file
+            </summary>
+            <param name="controller">The WebToolkit.Mvc.BaseController instance</param>
+            <param name="siteTextNamespace">SiteTextNamespace to be referenced</param>
+            <param name="area">The executing area if appropriate</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextJavascriptHelper.GetSiteTextJSONPath(WebToolkit.Mvc.BaseController,WebToolkit.SiteText.SiteTextNamespace,System.String)">
+            <summary>
+            Returns the path for the generated site text JSON
+            </summary>
+            <param name="controller">The WebToolkit.Mvc.BaseController instance</param>
+            <param name="siteTextNamespace">SiteTextNamespace to be referenced</param>
+            <param name="area">The executing area if appropriate</param>
+        </member>
+        <member name="T:WebToolkit.SiteText.SiteTextNamespace">
+            <summary>
+            Types of site text namespace (e.g. global, widget specific)
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.SiteTextNamespace.Unknown">
+            <summary>
+            Default value. Do not use.
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.SiteTextNamespace.Global">
+            <summary>
+            Indicates the global namespace
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.SiteTextNamespace.Widget">
+            <summary>
+            Indicates the widget specific namespace
+            </summary>
+        </member>
+        <member name="T:WebToolkit.SiteText.SiteTextUtility">
+            <summary>
+            SiteTextUtility wraps SiteText, using DefaultSiteText from the the SiteText Microservice 
+            to provide the default values if SiteText does not have a value for a key.
+            </summary>
+        </member>
+        <member name="F:WebToolkit.SiteText.SiteTextUtility.UnknownKeyPrefix">
+            <summary>
+            Prefix to be used when a key is not found.
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.ItemName">
+            <summary>
+            Gets item name for this site text
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.LocaleID">
+            <summary>
+            Returns the locale id
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.#ctor(System.String,System.Int64,Common.Logging.ILog)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="itemName">The itemName of the siteText. This will typically be the widgetName</param>
+            <param name="localeId">The localeId to use for localizing the SiteText</param>
+            <param name="logger">The ILog instance to log to</param>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.SiteText">
+            <summary>
+            The Site text for this widget
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.DefaultSiteText">
+            <summary>
+            The DefaultSiteText object used to get default values if SiteText does not contain a requested key
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.GetText(System.String,System.Object[])">
+            <summary>
+            Gets the text. Passes to Func
+            </summary>
+            <param name="key">The key.</param>
+            <param name="paramList">The parameter list.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.FuncGetSiteText">
+            <summary>
+            Use this to bypass InternalGetText when unit testing
+            </summary>
+            <value>The function get site text.</value>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.InternalGetText(System.String,System.Object[])">
+            <summary>
+            Gets the site text for a given key for the current controller with format replacements
+            </summary>
+            <param name="key"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.GetTextWithDefault(System.String,System.String,System.String)">
+            <summary>
+            Retrieves a value from SiteText or returns the provided defaultValue if the key does not have a value.
+            This wraps the SiteText.GetTextWithDefault function.
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.GetTextFormatWithDefault(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            Retrieves a value from SiteText or returns the provided defaultValue if the key does not have a value.
+            This wraps the SiteText.GetTextFormatWithDefault function.
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <param name="description"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.GetTextIfExists(System.String,System.String,System.Object[])">
+            <summary>
+            Retrieves a value from SiteText or returns the provided defaultValue if the key does not have a value.
+            If the value does not exist, this method will NOT add it.
+            </summary>
+            <param name="key"></param>
+            <param name="defaultValue"></param>
+            <param name="paramList"></param>
+            <returns></returns>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.SettingList">
+            <summary>
+            A Union of the SiteText keys and DefaultSiteText keys
+            </summary>
+        </member>
+        <member name="P:WebToolkit.SiteText.SiteTextUtility.VersionText">
+            <summary>
+            Returns the version of the internal site text object and default hash
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextUtility.ToDictionary">
+            <summary>
+            Returns the union of SiteText and Default site text in dictionary form
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:WebToolkit.SiteText.SiteTextValidation">
+            <summary>
+            Site text validation methods
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextValidation.ValidateModel``1(WebToolkit.SiteText.SiteTextUtility,System.Web.Mvc.ModelStateDictionary,``0,System.Action{System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult}})">
+            <summary>
+            Validates the provided model and applies any errors to the model state with a site text driven message
+            </summary>
+            <typeparam name="T">Model type</typeparam>
+            <param name="siteTextUtility">Site text utility class used to look up site text entries</param>
+            <param name="modelState">Model state to apply errors to.</param>
+            <param name="model">Model to be validated.</param>
+            <param name="postProcessing">Optional action method to be called after validation has occurred but before site text has been applied to the model state.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextValidation.GetValidationResults(System.Object)">
+            <summary>
+            Returns validation results for the given model from the assigned validator.
+            </summary>
+            <param name="model">Model to validate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextValidation.FindValidationResult(System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},System.String,System.Nullable{Alkami.Data.Validations.ErrorCode},System.Nullable{Alkami.Data.Validations.SubCode},System.String,System.Boolean)">
+            <summary>
+            Attempts to find a given validation result based up on the supplied values
+            </summary>
+            <param name="results">List of validation results to search through.</param>
+            <param name="fieldName">Name of the field. (Required)</param>
+            <param name="errorCode">Error code. (Optional)</param>
+            <param name="subCode">Sub code. (Optional)</param>
+            <param name="customSubCode">Custom sub code. (Optional)</param>
+            <param name="removeWhenFound">Remove the validation result if it is found. Defaults to false.</param>
+            <returns></returns>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextValidation.ApplyValidationResultsToModelState``1(WebToolkit.SiteText.SiteTextUtility,System.Web.Mvc.ModelStateDictionary,System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult},``0,System.Action{System.Collections.Generic.List{Alkami.Data.Validations.ValidationResult}})">
+            <summary>
+            Applies the given validation results against the model state using site text to provide the error messages.
+            The site text key generated for any given validation message is:
+            $"Validation.{ModelType}.{Field}.{SubCode}"
+            Where:
+            ModelType is the class name (not full name) of the model being passed in
+            Field is the name of the field/property in the model with the validation error
+            SubCode is the textual subcode representing error type. Custom subcodes take precedence.
+            </summary>
+            <typeparam name="T">Model type</typeparam>
+            <param name="siteTextUtility">Site text utility class used to look up site text entries</param>
+            <param name="modelState">Model state to apply errors to.</param>
+            <param name="results">List of validation results to be applied.</param>
+            <param name="model">Model to be validated.</param>
+            <param name="postProcessing">Optional action method to be called after validation has occurred but before site text has been applied to the model state.</param>
+        </member>
+        <member name="T:WebToolkit.SiteText.SiteTextValidationAttribute">
+            <summary>
+            Action filter attribute to help shortcut the validation process that utilizes site text.
+            </summary>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextValidationAttribute.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="modelParameterName">Parameter name of the model to validate.</param>
+        </member>
+        <member name="M:WebToolkit.SiteText.SiteTextValidationAttribute.OnActionExecuting(System.Web.Mvc.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="filterContext"></param>
+        </member>
+    </members>
+</doc>

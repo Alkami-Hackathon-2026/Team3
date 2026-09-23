@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.Kubernetes</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.Kubernetes.ConfigurationException">
+            <summary>
+            Exception that indications that indicates missing configuration
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ConfigurationException.#ctor(System.String)">
+            <summary>
+            Intializes a new instance of the <see cref="T:Alkami.Utilities.Kubernetes.ConfigurationException"/> class
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Kubernetes.ServiceUrlSettings">
+            <summary>
+            Standard helpers to get information related to the Service Url
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_DnsNamespace">
+            <summary>
+            The environment variable that contains the DNS namespace of the Kubernetes docker container
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_KubernetesServiceHost">
+            <summary>
+            The environment variable that is contains the host of the Kubernetes Host if running in Kubernetes
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_AppPort">
+            <summary>
+            The environment variable that determines which port the application in k8s pod is running on
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_IsDev">
+            <summary>
+            The environment variable that determines if the application is running on a dev box
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Kubernetes.ServiceUrlSettings.EnvironmentVariable_KubernetesEgressToEc2EnvVarName">
+            <summary>
+            Environment variable that determines if egress to EC2 from Kubernetes is enabled.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.ShouldGetServicesFromSubscriptionMS">
+            <summary>
+            Determines whether or not a service should actively participate to Subscriptions with Participating Client.
+            Scenarios where this would not be enabled are: Kubernetes services without the EC2 callback enabled.
+            All services running on Windows will have this active by default.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.IsRunningInWindows">
+            <summary>
+            Whether or not we're running in Windows.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.IsRunningInKubernetes">
+            <summary>
+            Determines if the current process is running in Kubernetes
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.IsDevBox">
+            <summary>
+            Determines if the current process has been setup to run as an Developer's machine
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.GetAppPort">
+            <summary>
+            Determines the default application port that is set for the running application
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ServiceUrlSettings.GenerateServiceUrl(System.String)">
+            <summary>
+            Builds out the service url to connect to a service in kubernetes based on if the current process is running in kubernetes or not
+            </summary>
+            <param name="serviceHostName">This is the host name of the service that is running in kubernetes</param>
+            <returns>The full url of the service</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Kubernetes.ThreadingConfiguration">
+            <summary>
+            Exposes methods for fine tuning threading settings for applications
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Kubernetes.ThreadingConfiguration.UpdateMinThreadsIfOverrideExists">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net462;net472;net6.0;net8.0</TargetFrameworks>
+    <Description>Utility classes useful in accessing certificates.</Description>
+    <PackageProjectUrl>https://bitbucket.corp.alkami.net/projects/ARCH/repos/Alkami.Utilities</PackageProjectUrl>
+    <RepositoryUrl>https://bitbucket.corp.alkami.net/projects/ARCH/repos/Alkami.Utilities</RepositoryUrl>
+    <PackageTags>Alkami Utilities Certificates</PackageTags>
+    <Nullable>enable</Nullable>
+    <LangVersion>12.0</LangVersion>
+    <Version>1.1.1</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>DynamicProxyGenAssembly2</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net8.0' ">
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Common.Logging" Version="3.4.1" />
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0' OR '$(TargetFramework)' == 'net8.0' ">
+    <ProjectReference Include="..\Alkami.Utilities.Json\Alkami.Utilities.Json.csproj" />
+    <ProjectReference Include="..\Alkami.Utilities.Kubernetes\Alkami.Utilities.Kubernetes.csproj" />
+    <ProjectReference Include="..\Alkami.Utilities.Rpc\Alkami.Utilities.Rpc.csproj" />
+  </ItemGroup>
+</Project>

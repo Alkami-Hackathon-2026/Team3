@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
+    <Description>This is the set of contracts provided for use in conjunction with the Security Micro Service client</Description>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Alkami.MicroServices.Security.Data.Validations.$(MediumNameSuffix)</AssemblyName>
+    <PackageId>Alkami.MicroServices.Security.Contracts</PackageId>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <VersionPrefix>$(MediumNameVersionPrefix)</VersionPrefix>
+	<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2PAssets</TargetsForTfmSpecificBuildOutput>
+	<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+	<Configurations>Debug;Release;k8s</Configurations>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.MicroServices.Core" Version="4.2.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<PackageReference Include="System.ServiceModel.Primitives" Version="4.10.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alkami.MicroServices.Security.Contracts\Alkami.MicroServices.Security.Contracts.csproj">
+      <PrivateAssets>all</PrivateAssets>
+    </ProjectReference>
+	<ProjectReference Include="..\Alkami.MicroServices.Security.Data\Alkami.MicroServices.Security.Data.csproj">
+	  <PrivateAssets>all</PrivateAssets>
+	</ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(ProjectName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <Target Name="IncludeP2PAssets" DependsOnTargets="BuildOnlySettings;ResolveReferences">
+	<ItemGroup>
+	  <BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'all'))" />
+	</ItemGroup>
+  </Target>
+</Project>

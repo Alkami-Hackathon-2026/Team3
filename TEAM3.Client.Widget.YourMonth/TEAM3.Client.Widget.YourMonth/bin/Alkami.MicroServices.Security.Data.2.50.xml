@@ -1,0 +1,1389 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Security.Data.2.50</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Security.Data.AccessLevel">
+            <summary>
+            Represents an access level that defines a set of permissions for a user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.Id">
+            <summary>
+            Gets or sets the unique identifier for the access level.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.BankId">
+            <summary>
+            Gets or sets the bank identifier associated with this access level.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.Name">
+            <summary>
+            Gets or sets the name of the access level.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.Description">
+            <summary>
+            Gets or sets the description of the access level.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.CreateDate">
+            <summary>
+            Gets or sets the date and time when the access level was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.UserAccount">
+            <summary>
+            Gets or sets the user account associated with this access level.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.AccessLevel.Permissions">
+            <summary>
+            Gets or sets the list of permissions associated with this access level.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.ACHStatus">
+            <summary>
+            The status of ACH account at the user level
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Pending">
+            <summary>
+            ACH has not been verified for this user account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Open">
+            <summary>
+            ACH has been verified for this user account and can be used
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Suspended">
+            <summary>
+            ACH has been suspended for this user account and can not be used
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Blocked">
+            <summary>
+            ACH has been blocked for this user account and can not be used
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.BranchEmployee">
+            <summary>
+            Represents a branch employee user with additional employee-specific properties.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.BranchEmployee.SystemId">
+            <summary>
+            Gets or sets the system identifier for the branch employee.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.BranchEmployee.Title">
+            <summary>
+            Gets or sets the job title of the branch employee.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.BranchEmployee.Office">
+            <summary>
+            Gets or sets the office location of the branch employee.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Entity">
+            <summary>
+            Represents a business entity with associated users, permissions, and entity groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.EntityIdentifier">
+            <summary>
+            Gets or sets the globally unique identifier for the entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.BankId">
+            <summary>
+            Gets or sets the bank identifier associated with this entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.EntityTypeId">
+            <summary>
+            Gets or sets the entity type identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.EntityType">
+            <summary>
+            Gets or sets the entity type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.MasterUserId">
+            <summary>
+            Gets or sets the master user identifier for this entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.MasterUser">
+            <summary>
+            Gets or sets the master user for this entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.Name">
+            <summary>
+            Gets or sets the name of the entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.ACHCompanyIdentification">
+            <summary>
+            Gets or sets the ACH company identification number.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.TaxIdentificationNumber">
+            <summary>
+            Gets or sets the tax identification number (EIN).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.AddressLine1">
+            <summary>
+            Gets or sets the first line of the entity's address.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.AddressLine2">
+            <summary>
+            Gets or sets the second line of the entity's address.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.AddressLine3">
+            <summary>
+            Gets or sets the third line of the entity's address.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.AddressLine4">
+            <summary>
+            Gets or sets the fourth line of the entity's address.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.AddressLine5">
+            <summary>
+            Gets or sets the fifth line of the entity's address.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.AddressLine6">
+            <summary>
+            Gets or sets the sixth line of the entity's address.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.IdleLogoutMinutesOverride">
+            <summary>
+            Gets or sets the idle logout time override in minutes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.CreateDate">
+            <summary>
+            Gets or sets the date and time when the entity was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the entity is active.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.UsePackageLimits">
+            <summary>
+            Gets or sets a value indicating whether to use package limits.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.EntityGroups">
+            <summary>
+            Gets or sets the list of entity groups associated with this entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.Permissions">
+            <summary>
+            Gets or sets the list of permissions associated with this entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Entity.EntityPermissions">
+            <summary> </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityGroup">
+            <summary>
+            Represents a group of users within an entity with associated permissions and accounts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.EntityId">
+            <summary>
+            Gets or sets the entity identifier this group belongs to.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.Entity">
+            <summary>
+            Gets or sets the entity this group belongs to.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.Name">
+            <summary>
+            Gets or sets the name of the entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.Description">
+            <summary>
+            Gets or sets the description of the entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.CreateDate">
+            <summary>
+            Gets or sets the date and time when the entity group was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.EntityGroupMembers">
+            <summary>
+            Gets or sets the list of entity group members.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.EntityGroupAccounts">
+            <summary>
+            Gets or sets the list of entity group accounts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.Permissions">
+            <summary>
+            Gets or sets the list of permissions associated with this entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroup.EntityGroupPermissions">
+            <summary> </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityGroupAccount">
+            <summary>
+            Represents an account associated with an entity group and its permissions.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccount.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity group account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccount.EntityGroupId">
+            <summary>
+            Gets or sets the entity group identifier this account belongs to.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccount.EntityGroup">
+            <summary>
+            Gets or sets the entity group this account belongs to.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccount.AccountId">
+            <summary>
+            Gets or sets the account identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccount.Permissions">
+            <summary>
+            Gets or sets the list of permissions associated with this entity group account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccount.EntityGroupAccountPermissions">
+            <summary> </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityGroupAccountPermission">
+            <summary>
+            Represents a permission assigned to an entity group account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccountPermission.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity group account permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccountPermission.EntityGroupAccountId">
+            <summary>
+            Gets or sets the entity group account identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccountPermission.EntityGroupAccount">
+            <summary>
+            Gets or sets the entity group account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccountPermission.PermissionId">
+            <summary>
+            Gets or sets the permission identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupAccountPermission.CreateDate">
+            <summary>
+            Gets or sets the date and time when the permission was created.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityGroupMember">
+            <summary>
+            Represents a user's membership in an entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity group member.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.EntityGroupId">
+            <summary>
+            Gets or sets the entity group identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.EntityGroup">
+            <summary>
+            Gets or sets the entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.User">
+            <summary>
+            Gets or sets the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.CreateDate">
+            <summary>
+            Gets or sets the date and time when the member was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.IsDeleted">
+            <summary>
+            Gets or sets a value indicating whether the member is deleted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupMember.LockedOutByUserId">
+            <summary>
+            Gets or sets the user identifier of who locked out this member.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityGroupPermission">
+            <summary>
+            Represents a permission assigned to an entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupPermission.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity group permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupPermission.EntityGroupId">
+            <summary>
+            Gets or sets the entity group identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupPermission.EntityGroup">
+            <summary>
+            Gets or sets the entity group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupPermission.PermissionId">
+            <summary>
+            Gets or sets the permission identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityGroupPermission.CreateDate">
+            <summary>
+            Gets or sets the date and time when the permission was created.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityPermission">
+            <summary>
+            Represents a permission assigned to an entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityPermission.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityPermission.EntityId">
+            <summary>
+            Gets or sets the entity identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityPermission.Entity">
+            <summary>
+            Gets or sets the entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityPermission.PermissionId">
+            <summary>
+            Gets or sets the permission identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityPermission.CreateDate">
+            <summary>
+            Gets or sets the date and time when the permission was created.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.EntityType">
+            <summary>
+            Represents a type of business entity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityType.Id">
+            <summary>
+            Gets or sets the unique identifier for the entity type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityType.Name">
+            <summary>
+            Gets or sets the name of the entity type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityType.CreateDate">
+            <summary>
+            Gets or sets the date and time when the entity type was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.EntityType.Entities">
+            <summary>
+            Gets or sets the list of entities of this type.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.ExternalUserAccount">
+            <summary>
+            Represents an external user account with ACH verification information.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.ExternalUserAccount.Id">
+            <summary>
+            Gets or sets the unique identifier for the external user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.ExternalUserAccount.TrialDepositAmount1">
+            <summary>
+            Gets or sets the first trial deposit amount for ACH verification.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.ExternalUserAccount.TrialDepositAmount2">
+            <summary>
+            Gets or sets the second trial deposit amount for ACH verification.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.ExternalUserAccount.UnsuccessfulVerificationAttempts">
+            <summary>
+            Gets or sets the number of unsuccessful verification attempts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.ExternalUserAccount.ACHStatus">
+            <summary>
+            Gets or sets the ACH status for this external user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.ExternalUserAccount.UserAccount">
+            <summary>
+            Gets or sets the user account associated with this external user account.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.FlavorUserMetadata">
+            <summary>
+            Represents aggregate data about specific flavors
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.FlavorUserMetadata.FlavorId">
+            <summary>
+            Gets or sets the flavorId associated with this metadata instance
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.FlavorUserMetadata.UserCount">
+            <summary>
+            Gets or sets the user count associated with this flavorId
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.FlavorUserMetadata.UserIds">
+            <summary>
+            Gets or sets a collection of userIds associated with this flavorId. This property may be null.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.JointOwner">
+            <summary>
+            Represents a joint owner on one or more accounts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.JointOwner.UserIdentifier">
+            <summary>
+            Gets or sets the unique identifier for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.JointOwner.FirstName">
+            <summary>
+            Gets or sets the first name of the joint owner.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.JointOwner.MiddleName">
+            <summary>
+            Gets or sets the middle name of the joint owner.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.JointOwner.LastName">
+            <summary>
+            Gets or sets the last name of the joint owner.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.JointOwner.UserAccountRelationships">
+            <summary>
+            Gets or sets the user account relationships for this joint owner.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LockType">
+            <summary>
+            Specifies the types of account locks that can occur within the system.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.LockType.Unknown">
+            <summary>
+            An unknown type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.LockType.FailedPassword">
+            <summary>
+            Locktype for user account locked due to failed password attempts.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.LockType.FailedMFA">
+            <summary>
+            Locktype for user account locked due to failed MFA attempts.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.LockType.Risk">
+            <summary>
+            Locktype for user account locked due to risk-based authentication.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.LockType.Admin">
+            <summary>
+            Locktype for user account locked by an administrator.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroup">
+            <summary>
+            Represents a login group of users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.Id">
+            <summary>
+            The group id.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.CreateDate">
+            <summary>
+            The UTC date/time this group was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.LastModifiedDate">
+            <summary>
+            The UTC date/time this group was last modified.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.Users">
+            <summary>
+            The users that are part of this group.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroupUser">
+            <summary>
+            Represents a user that has been grouped with other users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.UserId">
+            <summary>
+            The grouped user id.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.CreateDate">
+            <summary>
+            The UTC date/time this user was added to the group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.UserInfo">
+            <summary>
+            Additional information about the login group user. This will be included only if LoginGroupMapper.IncludeUserInfo is true.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.UserImage">
+            <summary>
+            The image data for the login group user. This will be included only if LoginGroupMapper.IncludeImages is true.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.LoginGroupId">
+            <summary>
+            The login group id.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroupUserImage">
+            <summary>
+            Image data for a user in a login group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserImage.ImageData">
+            <summary>
+            The user's portrait image bytes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserImage.ContentType">
+            <summary>
+            The MIME content type of the binary data in the <see cref="P:Alkami.MicroServices.Security.Data.LoginGroupUserImage.ImageData"/> field.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroupUserInfo">
+            <summary>
+            Additional user information for a user that's part of a group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.UserIdentifier">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.LoginId">
+            <summary>
+            The user's login ID (also called the username).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.DisplayName">
+            <summary>
+            The user's display name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.FirstName">
+            <summary>
+            The user's first name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.LastName">
+            <summary>
+            The user's last name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.BusinessName">
+            <summary>
+            The user's business name (if a business user).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.IsDeleted">
+            <summary>
+            Whether this user is deleted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.IsActive">
+            <summary>
+            Whether this user is active or disabled.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.IsLockedOut">
+            <summary>
+            Whether this user has been locked out.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.UserType">
+            <summary>
+            The user type.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Permission">
+            <summary>
+            Represents a permission that can be granted to users, accounts, entities, or entity groups.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.AccessLevels">
+            <summary> </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.CreateDate">
+            <summary>
+            Gets or sets the date and time when the permission was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.Description">
+            <summary>
+            Gets or sets the description of the permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.DisplayName">
+            <summary>
+            Gets or sets the display name of the permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.Id">
+            <summary>
+            Gets or sets the unique identifier for the permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.Name">
+            <summary>
+            Gets or sets the name of the permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.PermissionIndex">
+            <summary>
+            Gets or sets the permission index.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.PermissionType">
+            <summary>
+            Gets or sets the type of permission.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.UserAccounts">
+            <summary> </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.Users">
+            <summary> </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.Entities">
+            <summary> </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.EntityGroups">
+            <summary> </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.Permission.EntityGroupAccounts">
+            <summary> </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.RelationshipSubType">
+            <summary>
+            Represents Relationship Sub Types.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.RelationshipSubType.CrossAccount">
+            <summary>
+            RelationShipSubType CrossAccount.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.RelationshipSubType.SharedAccess">
+            <summary>
+            RelationShipSubType SharedAccess.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.RelationshipSubType.CoreLinked">
+            <summary>
+            RelationShipSubType CoreLinked.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.StsId">
+            <summary>
+            Represents a Security Token Service identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.StsId.Id">
+            <summary>
+            Gets or sets the unique identifier for the STS ID.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.StsId.ItemId">
+            <summary>
+            Gets or sets the item identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.StsId.Value">
+            <summary>
+            Gets or sets the STS ID value.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.StsId.CreatedUtc">
+            <summary>
+            Gets or sets the date and time when the STS ID was created (UTC).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.StsId.Version">
+            <summary>
+            Gets or sets the version of the STS ID.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UnlockType">
+            <summary>
+            Specifies the type of unlock operation.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UnlockType.Unknown">
+            <summary>
+            An unknown type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UnlockType.Self">
+            <summary>
+            Unlock by self.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UnlockType.Admin">
+            <summary>
+            Unlock by admin.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.User">
+            <summary>
+            Represents a user with associated accounts, permissions, and identity information.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.ACHDisclosureAccepted">
+            <summary>
+            Gets or sets a value indicating whether the user has accepted the ACH disclosure.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.AchRiskLevel">
+            <summary>
+            Gets or sets the ACH risk level for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.BankId">
+            <summary>
+            Gets or sets the bank identifier associated with this user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.BillingCycle">
+            <summary>
+            Gets or sets the billing cycle for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.BirthDate">
+            <summary>
+            Gets or sets the user's date of birth.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.CreateDate">
+            <summary>
+            Gets or sets the date and time when the user was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.CrossAccountFailures">
+            <summary>
+            Gets or sets the number of cross-account failures.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.CurrentStatus">
+            <summary>
+            Gets or sets the current status of the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.DeducedPostalCode">
+            <summary>
+            Gets or sets the deduced postal code for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.DisplayName">
+            <summary>
+            Gets or sets the display name for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Employee">
+            <summary>
+            Gets or sets a value indicating whether the user is an employee.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.EntityId">
+            <summary>
+            Gets or sets the entity identifier associated with this user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Entity">
+            <summary>
+            Gets or sets the entity associated with this user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.FirstName">
+            <summary>
+            Gets or sets the user's first name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.FlavorId">
+            <summary>
+            Gets or sets the flavor identifier for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.FlavorOverrideUntil">
+            <summary>
+            Gets or sets the date and time until which the flavor override is valid.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.HasLoggedInBefore">
+            <summary>
+            Gets or sets a value indicating whether the user has logged in before.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Id">
+            <summary>
+            Gets or sets the unique identifier for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.IsACHEnabled">
+            <summary>
+            Gets or sets a value indicating whether ACH is enabled for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.IsActive">
+            <summary>
+            Gets or sets a value indicating whether the user is active.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.IsLockedOut">
+            <summary>
+            Gets or sets a value indicating whether the user is locked out.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LastBillPaySsoAccess">
+            <summary>
+            Gets or sets the date and time of the last Bill Pay SSO access.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LastBillPaySync">
+            <summary>
+            Gets or sets the date and time of the last Bill Pay synchronization.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LastCoreUpdate">
+            <summary>
+            Gets or sets the date and time of the last core update.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LastLoginDate">
+            <summary>
+            Gets or sets the date and time of the last login.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LastName">
+            <summary>
+            Gets or sets the user's last name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LocaleID">
+            <summary>
+            Gets or sets the locale identifier for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.MaritalStatus">
+            <summary>
+            Gets or sets the marital status of the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.MemberSince">
+            <summary>
+            Gets or sets the date the user became a member.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.MiddleName">
+            <summary>
+            Gets or sets the user's middle name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.OverridePricelistID">
+            <summary>
+            Gets or sets the override pricelist identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.ParentalStatus">
+            <summary>
+            Gets or sets the parental status of the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.PIN">
+            <summary>
+            Gets or sets the user's PIN.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.ReceivesFIEmailAlerts">
+            <summary>
+            Gets or sets a value indicating whether the user receives FI email alerts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.ReceivesFIStatementAlerts">
+            <summary>
+            Gets or sets a value indicating whether the user receives FI statement alerts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.RelationshipCode">
+            <summary>
+            Gets or sets the relationship code for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Sensitive">
+            <summary>
+            Gets or sets a value indicating whether the user is sensitive.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Sex">
+            <summary>
+            Gets or sets the sex/gender of the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.TaxIdentificationNumber">
+            <summary>
+            Gets or sets the tax identification number (SSN/TIN) for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.ThemeID">
+            <summary>
+            Gets or sets the theme identifier for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.TimeZoneInfo">
+            <summary>
+            Gets or sets the time zone information for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.UserIdentifier">
+            <summary>
+            Gets or sets the globally unique identifier for the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.UsernameChangeRequired">
+            <summary>
+            Gets or sets a value indicating whether the user is required to change their username.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Warnings">
+            <summary>
+            Gets or sets warnings associated with the user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.UserAccounts">
+            <summary>
+            Gets or sets the list of user accounts associated with this user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.Permissions">
+            <summary>
+            Gets or sets the list of permissions associated with this user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.UserAdditionalInfos">
+            <summary>
+            Gets or sets the list of additional user information.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.IsDeleted">
+            <summary>
+            Gets or sets a value indicating whether the user is deleted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.MarketingOptOut">
+            <summary>
+            Gets or sets a value indicating whether the user has opted out of marketing.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LoginGroupId">
+            <summary>
+            The Login Group ID, if part of a login group. This will only be populated if UserMapper.ShouldIncludeLoginGroup is set to true.
+            This is not used during user creation or updates.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserAccount">
+            <summary>
+            Represents a user's account with associated permissions and settings.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.AccessLevelId">
+            <summary>
+            Gets or sets the access level identifier for the user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.AccountId">
+            <summary>
+            Gets or sets the account identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.AddedByCore">
+            <summary>
+            Gets or sets a value indicating whether the account was added by the core system.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.CreateDate">
+            <summary>
+            Gets or sets the date the user account relationship was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.Deleted">
+            <summary>
+            Gets or sets a value indicating whether the user account is deleted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.DisplayName">
+            <summary>
+            Gets or sets the display name for the user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.HasMasterRights">
+            <summary>
+            Gets or sets a value indicating whether the user has master rights for this account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.HiddenByEndUser">
+            <summary>
+            Gets or sets a value indicating whether the account is hidden by the end user.
+            </summary>
+            <summary>
+            Gets or sets a value indicating whether the account is hidden by the end user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.HideFromEndUser">
+            <summary>
+            Gets or sets a value indicating whether to hide this account from the end user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.Id">
+            <summary>
+            Gets or sets the identifier for the user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.IsBalancePeekEnabled">
+            <summary>
+            Gets or sets a value indicating whether balance peek is enabled for this account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.IsHiddenFromBillPay">
+            <summary>
+            Gets or sets a value indicating whether the account is hidden from bill pay.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.MobileDisplayName">
+            <summary>
+            Gets or sets the display name for mobile devices.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.Ordering">
+            <summary>
+            Gets or sets the ordering/sort order for the user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.Relationship">
+            <summary>
+            Gets or sets the relationship type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.RelationshipDescription">
+            <summary>
+            Gets or sets the description of the relationship.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.RelationshipSubType">
+            <summary>
+            RelationShipSubType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.ThemeColorIndex">
+            <summary>
+            Gets or sets the theme color index for the user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.UserId">
+            <summary>
+            Gets or sets the user identifier associated with the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.User">
+            <summary>
+            Gets or sets the user associated with the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.AccessLevel">
+            <summary>
+            Gets or sets the access level associated with the user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.ExternalUserAccount">
+            <summary>
+            Gets or sets the external user account associated with this user account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccount.Permissions">
+            <summary>
+            Gets or sets the list of permissions associated with the user account.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.UserAccount.CloneWithoutNavigationProperties(Alkami.MicroServices.Security.Data.UserAccount)">
+            <summary>
+            Clones a UserAccount object without its navigation properties.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserAccountRelationship">
+            <summary>
+            Represents the relationship between a user and an account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccountRelationship.AccountId">
+            <summary>
+            Gets or sets the account identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccountRelationship.Relationship">
+            <summary>
+            Gets or sets the relationship type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAccountRelationship.RelationshipSubType">
+            <summary>
+            Gets or sets the relationship sub-type.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserAdditionalInfo">
+            <summary>
+            Represents additional information associated with a user.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.Id">
+            <summary>
+            Gets or sets the unique identifier for the user additional info.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.CreatedDate">
+            <summary>
+            Gets or sets the date and time when the info was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.UpdatedDate">
+            <summary>
+            Gets or sets the date and time when the info was last updated.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.User">
+            <summary>
+            Gets or sets the user this info belongs to.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.UserAdditionalInfoType">
+            <summary>
+            Gets or sets the type of additional info.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.UserAdditionalInfoValue">
+            <summary>
+            Gets or sets the value of the additional info.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserAdditionalInfo.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserAdditionalInfoType">
+            <summary>
+            Defines constants for user additional info types.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserAdditionalInfoType.EmployerName">
+            <summary>
+            Employer name info type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserAdditionalInfoType.EmployerPosition">
+            <summary>
+            Employer position info type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserAdditionalInfoType.AdvertisingIdentifier">
+            <summary>
+            Advertising identifier info type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserAdditionalInfoType.MothersMaidenName">
+            <summary>
+            Mother's maiden name info type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserAdditionalInfoType.ConfigurableField1">
+            <summary>
+            Configurable field 1 info type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserAdditionalInfoType.ConfigurableField2">
+            <summary>
+            Configurable field 2 info type.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserIdentity">
+            <summary>
+            Represents user identity information for authentication.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.UserId">
+            <summary>
+            Gets or sets the user identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.ProviderId">
+            <summary>
+            Gets or sets the provider identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.STSID">
+            <summary>
+            Gets or sets the Security Token Service identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.TemporaryPasswordExpirationDate">
+            <summary>
+            Gets or sets the temporary password expiration date.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.RequireMfaOnLogin">
+            <summary>
+            Gets or sets a value indicating whether MFA is required on login.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.CreateDate">
+            <summary>
+            Gets or sets the date and time when the identity was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.UpdateDate">
+            <summary>
+            Gets or sets the date and time when the identity was last updated.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.RowVersion">
+            <summary>
+            Gets or sets the row version for concurrency control.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.ProviderItemId">
+            <summary>
+            Gets or sets the provider item identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.UserIdentity.UserItemId">
+            <summary>
+            Gets or sets the user item identifier.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserType">
+            <summary>
+            The type of a user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.Unknown">
+            <summary>
+            An unknown type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.Admin">
+            <summary>
+            An admin user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.Retail">
+            <summary>
+            A retail user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.BusinessOwner">
+            <summary>
+            A business owner/master user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.BusinessSubUser">
+            <summary>
+            A business sub-user.
+            </summary>
+        </member>
+    </members>
+</doc>

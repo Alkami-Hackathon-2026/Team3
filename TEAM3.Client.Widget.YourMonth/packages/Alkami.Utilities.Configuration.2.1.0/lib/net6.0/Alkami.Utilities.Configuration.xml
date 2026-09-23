@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.Configuration</name>
+    </assembly>
+    <members>
+        <member name="M:Alkami.Utilities.Configuration.ConfigManager.Get(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.ConfigManager.AllKeys">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.EnvironmentVariables.Get(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.EnvironmentVariables.AllKeys">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.Manager">
+            <summary>
+            Manager for getting Settings from AppSettings, Environment Variables, and IConfiguration
+            </summary>
+        </member>
+        <member name="E:Alkami.Utilities.Configuration.Manager.ConfigurationsChanged">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.Manager.Register(Alkami.Utilities.Configuration.SettingsBase)">
+            <summary>
+            Register another <paramref name="customSettingsBase"/> to lookup settings
+            </summary>
+            <param name="customSettingsBase"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.Manager.AddConfigurationSettingManager(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Sets up so the Settings will pull from the IConfiguration before pulling from Environment Variables or AppSettings
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.Manager.AddConfigurationSettingManager(Microsoft.Extensions.Configuration.IConfiguration,System.Boolean)">
+            <summary>
+            Sets up so the Settings will pull from the IConfiguration
+            </summary>
+            <param name="configuration"></param>
+            <param name="overridesOtherSettings">If <c>true</c> will choose these settings over the Environment Variables or AppSettings</param>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.Manager.GetSetting(System.String)">
+            <summary>
+            Gets a settings from the registered <see cref="T:Alkami.Utilities.Configuration.SettingsBase"/> classes
+            </summary>
+            <param name="name">Setting name to look up</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.Manager.GetAllKeys">
+            <summary>
+            Gets the list of all keys that are available to get settings for
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.SettingsBase">
+            <summary>
+            Base class that is need to register a Settings setup with <see cref="T:Alkami.Utilities.Configuration.Manager"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.SettingsBase.Get(System.String)">
+            <summary>
+            Get a setting by it's <paramref name="name"/>
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.SettingsBase.AllKeys">
+            <summary>
+            Get list of setting names
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

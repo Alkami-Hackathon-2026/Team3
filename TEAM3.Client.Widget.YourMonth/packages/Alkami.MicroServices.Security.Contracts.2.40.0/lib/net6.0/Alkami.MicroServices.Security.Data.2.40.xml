@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Security.Data.2.40</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Security.Data.ACHStatus">
+            <summary>
+            The status of ACH account at the user level
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Pending">
+            <summary>
+            ACH has not been verified for this user account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Open">
+            <summary>
+            ACH has been verified for this user account and can be used
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Suspended">
+            <summary>
+            ACH has been suspended for this user account and can not be used
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.ACHStatus.Blocked">
+            <summary>
+            ACH has been blocked for this user account and can not be used
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.FlavorUserMetadata">
+            <summary>
+            Represents aggregate data about specific flavors
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.FlavorUserMetadata.FlavorId">
+            <summary>
+            Gets or sets the flavorId associated with this metadata instance
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.FlavorUserMetadata.UserCount">
+            <summary>
+            Gets or sets the user count associated with this flavorId
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.FlavorUserMetadata.UserIds">
+            <summary>
+            Gets or sets a collection of userIds associated with this flavorId. This property may be null.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroup">
+            <summary>
+            Represents a login group of users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.Id">
+            <summary>
+            The group id.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.CreateDate">
+            <summary>
+            The UTC date/time this group was created.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.LastModifiedDate">
+            <summary>
+            The UTC date/time this group was last modified.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroup.Users">
+            <summary>
+            The users that are part of this group.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroupUser">
+            <summary>
+            Represents a user that has been grouped with other users.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.UserId">
+            <summary>
+            The grouped user id.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.CreateDate">
+            <summary>
+            The UTC date/time this user was added to the group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.UserInfo">
+            <summary>
+            Additional information about the login group user. This will be included only if LoginGroupMapper.IncludeUserInfo is true.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUser.UserImage">
+            <summary>
+            The image data for the login group user. This will be included only if LoginGroupMapper.IncludeImages is true.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroupUserImage">
+            <summary>
+            Image data for a user in a login group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserImage.ImageData">
+            <summary>
+            The user's portrait image bytes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserImage.ContentType">
+            <summary>
+            The MIME content type of the binary data in the <see cref="P:Alkami.MicroServices.Security.Data.LoginGroupUserImage.ImageData"/> field.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.LoginGroupUserInfo">
+            <summary>
+            Additional user information for a user that's part of a group.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.UserIdentifier">
+            <summary>
+            The user's unique identifier.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.LoginId">
+            <summary>
+            The user's login ID (also called the username).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.DisplayName">
+            <summary>
+            The user's display name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.FirstName">
+            <summary>
+            The user's first name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.LastName">
+            <summary>
+            The user's last name.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.BusinessName">
+            <summary>
+            The user's business name (if a business user).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.IsDeleted">
+            <summary>
+            Whether this user is deleted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.IsActive">
+            <summary>
+            Whether this user is active or disabled.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.IsLockedOut">
+            <summary>
+            Whether this user has been locked out.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.LoginGroupUserInfo.UserType">
+            <summary>
+            The user type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Security.Data.User.LoginGroupId">
+            <summary>
+            The Login Group ID, if part of a login group. This will only be populated if UserMapper.ShouldIncludeLoginGroup is set to true.
+            This is not used during user creation or updates.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.UserType">
+            <summary>
+            The type of a user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.Unknown">
+            <summary>
+            An unknown type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.Admin">
+            <summary>
+            An admin user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.Retail">
+            <summary>
+            A retail user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.BusinessOwner">
+            <summary>
+            A business owner/master user.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Security.Data.UserType.BusinessSubUser">
+            <summary>
+            A business sub-user.
+            </summary>
+        </member>
+    </members>
+</doc>

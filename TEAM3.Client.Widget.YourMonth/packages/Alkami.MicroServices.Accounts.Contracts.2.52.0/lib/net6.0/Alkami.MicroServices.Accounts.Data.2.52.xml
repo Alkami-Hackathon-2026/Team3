@@ -1,0 +1,2478 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Accounts.Data.2.52</name>
+    </assembly>
+    <members>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AccountHolder">
+            <summary>
+            An identifier used to either partially or completely uniquely identifier an account on the core.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AccountIdentifier">
+            <summary>
+            A globally-unique identifier that represents an account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AccountType">
+            <summary>
+            The type of account.  All accounts are of a specific type, and the type of account specifies default presentation of account details to the end-user, as well as capabilities and restrictions on activities and funds within the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AccountTypeId">
+            <summary>
+            The type of account.  All accounts are of a specific type, and the type of account specifies default presentation of account details to the end-user, as well as capabilities and restrictions on activities and funds within the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.ExternalReference">
+            <summary>
+            A unique ID that identifies the account record at a third party provider (aggregate provider, external ACH providers, etc)
+            NOTE: This field will map to the RemoteIdentifier on the core.Account table
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AggregateInstitutionId">
+            <summary>
+            Gets or sets the aggregate institution id.
+            </summary>
+            <value>
+            The aggregate institution id.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AvailableBalance">
+            <summary>
+            The current available balance of the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CollectedBalance">
+            <summary>
+            Checking account cash balance after deducting checks drawn on other banks.
+            Generally defined as account ledger balances, less unpaid checks in the process of collection.
+            </summary>
+            <remarks>
+            A bank may count a deposited check as funds available for use by its customer in two business days,
+            but usually will not include it in the depositor's collected balance for five or six days.
+            This allows time for the drawer bank to return the check because of insufficient funds in the check
+            maker's account or for other reasons.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CreateDate">
+            <summary>
+            Gets or sets the create date of the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CreditLimitAmount">
+            <summary>
+            The current credit limit of the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CurrentLoanPayoffAmount">
+            <summary>
+            For loan accounts, the current payoff amount of the loan
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CurrYTDFees">
+            <summary>
+            Gets or sets the current year to date Fees/Cap Int
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CurrYTDPenalty">
+            <summary>
+            Gets or sets the current year to date interest penalty
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CurrYTDWithholding">
+            <summary>
+            Gets or sets the current year to date withholding amount
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.DailyInterestAccrued">
+            <summary>
+            For loan accounts, the amount of daily interest accrued
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.DividendPaymentDate">
+            <summary>
+            For an account that has a dividend payment this field contains the next date of that payment
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.DividendPaymentMethod">
+            <summary>
+            For an account that has a dividend payment, this field specifies the type of payment method used
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.EntityID">
+            <summary>
+            The unique identifier of the entity that owns the account, if it is owned by a business and is not a personal account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.EstimatedLoanCloseDate">
+            <summary>
+            For loan accounts, the estimated date the loan will be closed
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.FirstLoanPaymentDate">
+            <summary>
+            For loan accounts, the date the first loan payment was due
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.HoldAmount">
+            <summary>
+            Gets or sets the amount of funds being held.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.Id">
+            <summary>
+            The database identity field that represents the primary key of the data entity
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.InterestDue">
+            <summary>
+            Gets or sets the interest due for the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.InterestPaidLTD">
+            <summary>
+            The amount of interest accrued (for loans) or paid as dividends (for asset accounts),
+            over the life of the account (LTD is life to date).
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.InterestPaidPYTD">
+            <summary>
+            The amount of interest accrued (for loans) or paid as dividends (for asset accounts),
+            over the previous year-to-date
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.InterestPaidYTD">
+            <summary>
+            The amount of interest accrued (for loans) or paid as dividends (for asset accounts),
+            year-to-date
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.InterestRate">
+            <summary>
+            The interest rate on the account, as last read from the core system.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastDividendPaidAmount">
+            <summary>
+            Gets or sets the amount of the last paid dividend
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastPaymentAmount">
+            <summary>
+            Gets or sets the amount of the last payment made
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastPaymentDate">
+            <summary>
+            For loan accounts, the last date a payment was posted to the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastRenewelDate">
+            <summary>
+            Gets or sets the date that account was last renewed. Applies to Certificates and IRA's
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastStatementDate">
+            <summary>
+            The last date a statement should have generated for the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastTransactionDate">
+            <summary>
+            The Date of the Last Transaction against the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LateChargeDue">
+            <summary>
+            Gets or sets the late charges due for the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LedgerBalance">
+            <summary>
+            The balance which only includes transactions posted to the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LoanOpenDate">
+            <summary>
+            For loan accounts, the date the loan account was opened
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.MaturityDate">
+            <summary>
+            For an account that matures, this field specified the date of said maturity
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.MaturityPaymentMethod">
+            <summary>
+            For an account that matures, this field specifies the type of payment method used when paying out the maturity.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.MICRAccountNumber">
+            <summary>
+            This field stores the account number portion of a draft's MICR line
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.MinimumBalance">
+            <summary>
+            The minimum amount of funding that must remain in the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.NextPaymentAmountDue">
+            <summary>
+            For loan accounts, the amount due on the NextPaymentDate
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.NextPaymentDate">
+            <summary>
+            For loan accounts, the next date a payment is scheduled to be posted to the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.Number">
+            <summary>
+            The account number
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.PastDueAmount">
+            <summary>
+            For loan accounts, the amount past-due on the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastStatementBalance">
+            <summary>
+            Gets or sets the last statement balance of the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.DividendPaidYTD">
+            <summary>
+            Gets or sets the amount paid as dividends (for asset accounts), year-to-date
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.PrevYrFees">
+            <summary>
+            Gets or sets the previous year fees/cap int.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.PrevYrPenalty">
+            <summary>
+            Gets or sets the previous year interest penalty
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.PrevYrWithholding">
+            <summary>
+            Gets or sets the previous year withholding amount
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.PrincipalAndInterestAmount">
+            <summary>
+            For loan accounts, the amount of principal and interest for the next payment due
+            </summary>
+            <remarks>
+            This would not include escrow fees or other institution fees that contribute to the
+            total NextPaymentAmountDue
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.RegDCount">
+            <summary>
+            Gets or sets the RegD count on the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.Status">
+            <summary>
+            Gets or sets an enumeration value that represents the status of the current account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.TaxesPaidYTD">
+            <summary>
+            Gets or sets the taxes paid year-to-date
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.YesterdayBalance">
+            <summary>
+            For loan accounts, the date on the NextPaymentDate
+            </summary>
+            <summary>
+            If provided by the core, the balance at end of day the previous business day.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.MaskedAccountNumber">
+            <summary>
+            Contains the <see cref="P:Alkami.MicroServices.Accounts.Data.Account.MaskedAccountNumber"/> data for this account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.CreditCardNumber">
+            <summary>
+            Contains the Credit Card Number for this account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.Warnings">
+            <summary>
+            Any warnings on the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastTransactionsUpdate">
+            <summary>
+            The date of the Last Transaction Update the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastDirectDepositAmount">
+            <summary>
+            Amount of last direct deposit for this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastDirectDepositDate">
+            <summary>
+            Date of last direct deposit for this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastWithdrawalAmount">
+            <summary>
+            Amount of last withdrawal for this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastWithdrawalDate">
+            <summary>
+            Date of last withdrawal for this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.NetMemoAmount">
+            <summary>
+            Net memo amount for this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.UncollectedFunds">
+            <summary>
+            Uncollected funds for this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AddressLine1">
+            <summary>
+            Address line 1
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.AddressLine6">
+            <summary>
+            Address line 6
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Account.LastTransactionSyncCompleted">
+            <summary>
+            Indicates whether or not a transaction sync has completed for this account
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Data.Account.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AccountInformation">
+            <summary>
+            Specifies information about an account for formatting purposes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountInformation.Identifier">
+            <summary>
+            A unique identifier for this account. Useful for matching request and response.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountInformation.Number">
+            <summary>
+            The account number
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountInformation.AccountHolder">
+            <summary>
+            An identifier used to either partially or completely uniquely identify an account on the core.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountInformation.AccountTypeId">
+            <summary>
+            The account type id to use for formatting.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AccountNumberAndHolderPair">
+            <summary>
+            A pair of account number and account holder that can be used for filtering.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountNumberAndHolderPair.Number">
+            <summary>
+            The account number.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountNumberAndHolderPair.Holder">
+            <summary>
+            The account holder.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Unknown">
+            <summary>
+            Unknown status, the Status description field should be used to populated the core value
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Open">
+            <summary>
+            Account is open
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Inactive">
+            <summary>
+            Inactive account, not used in awhile
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Suspended">
+            <summary>
+            Most likely some going on legally so not much can happen online
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Closed">
+            <summary>
+            Close not used anymore
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Pending">
+            <summary>
+            Account is pending
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountStatus.Blocked">
+            <summary>
+            Account has been blocked for transfers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.AccountDisplayFormat">
+            <summary>
+            Gets or sets the account display format.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.AccountTypeClass">
+            <summary>
+            Gets or sets the classification for the account type. Classifications allow grouping
+            of similar account types both for reporting and end-user presentation purposes.
+            </summary>
+            <remarks>
+            For example, a financial institution may have multiple checking products, for instance,
+            such as Second Chance Checking, Premium Checking, and Free Checking. All these account
+            types may be classified generally as a "Deposit" account type classification.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.AccountTypeAllows2">
+            <summary>
+            Flags indicating all the allowed actions on an account type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.AccountTypeAllows">
+            <summary>
+            Flags indicating all the allowed actions on an account type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.CoreName">
+            <summary>
+            Gets or sets the name of the account type within the core.
+            </summary>
+            <remarks>
+            This field is used to abstract
+            account type indicators between core provider interfaces to allow for new account
+            types to be profiled within the database and without requiring updates to the
+            core interface provider implementation.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.CoreProviderId">
+            <summary>
+            Gets or sets the core provider that allows accounts of this type to be accessed and refreshed.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.DebitCardTransfersAccountDisplayFormat">
+            <summary>
+            Gets or sets the display format uses for accounts that are used by debit accounts
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.DisplayedBalance">
+            <summary>
+            Acceptable values are 0-3
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.FeeDeductablePreferenceOrder">
+            <summary>
+            Gets or sets a value that, if this account type can have online banking fees deducted from it, this
+            is the preference order in which an account types are evaluated for a user
+            to find a suitable account to select for fee assessment.
+            </summary>
+            <remarks>
+            If this field is null, this account type will not be selected for fee
+            assessments.  Most account types SHOULD have a fee deduction preference
+            set, so that users who, for instance, only have a savings account but also
+            have online access, are assessed fees through the only available account type
+            that can be deducted.  However, certain account types SHOULD NOT have a preference
+            order, namely credit accounts and certificate accounts.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.HideAccountDetails">
+            <summary>
+            Gets or sets a value indicating if the account details tab should be hidden in My Accounts
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.HideNumberFromDetails">
+            <summary>
+            Gets or sets a value indicating if the account number should appear on the account details screen.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.InstantTransfersAccountDisplayFormat">
+            <summary>
+            Gets or sets the display format used for accounts that have instant transfers enabled
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.AccountTypeShowAsOfDateMessage">
+            <summary>
+            Gets or sets a value indicating if the As Of date message should be shown for an account type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.HideFromEndUser">
+            <summary>
+            Gets or sets a value indicating whether the system or an administrator has determined any accounts of this account type
+            should be hidden from end users.
+            </summary>
+            <remarks>
+            As the name of this field infers, it is not settable by end-users.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.LinkedAccountDisplayFormat">
+            <summary>
+            Gets or sets the account display format for linked accounts.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.LinkedAccountTypePriorities">
+            <summary>
+             Determines the priority of account types to be considered in the creation of linked accounts
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.NachaAccountDisplayFormat">
+            <summary>
+            Gets or sets a tokenized string that describes how the account number should be displayed in the NACHA file
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.OverrideBillPayProviderId">
+            <summary>
+            Gets or sets a value that, if set, indicates a specific bill payment provider to use in lieu of the bank-configured default one
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.OverrideStatementProviderId">
+            <summary>
+            Gets the value of an statement provider if the account type has an override
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.RegDEnforced">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are subject to Reg D limits
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.ForceSyncDuringLogin">
+            <summary>
+            Gets or sets a value that, if set to true, forces accounts of this type to sync during the login process.
+            </summary>
+            <remarks>
+            If set to false, the account will follow the normal steps to check if a sync should happen.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.SyncTransactions">
+            <summary>
+            Whether accounts that fall under this account type should have their transactions synced from the core provider.
+            Useful when syncing records from 3rd parties (Such as credit cards or mortgages) that would not have transactions on
+            the core, but would show up in online banking with balance / other account details
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.PostTransferSyncDelayInSeconds">
+            <summary>
+            Number of seconds to delay a sync for a provider.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.PostTransferXtnSyncDelayInSeconds">
+            <summary>
+            Number of seconds to delay a transaction sync for a provider.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForACHTransfersIn">
+            <summary>
+            Gets or sets the transaction code used for incoming ACH transfers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForACHTransfersOut">
+            <summary>
+            Gets or sets the transaction code to use for ach debit entries for transfers out of this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForAdditionalAmount">
+            <summary>
+            Gets or sets the transaction code used for addition amount payments on this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForEscrowOnly">
+            <summary>
+            Gets or sets the transaction code used for escrow only payments on this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForOtherPaymentOption">
+            <summary>
+            Gets or sets the transaction code used for other payment option payments made on this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForPayOff">
+            <summary>
+            Gets or sets the transaction code used for payoff on this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForPrincipalOnly">
+            <summary>
+            Gets or sets the transaction code used for principle only payments on this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForTransfersIn">
+            <summary>
+            Gets or sets the transaction code to use for credit entries for transfers into this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForTransfersOut">
+            <summary>
+            Gets or sets the transaction code to use for debit entries for transfers out of this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForWireTransfersIn">
+            <summary>
+            Gets or sets the transaction code used for incoming wire transfers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForWireTransfersOut">
+            <summary>
+            Gets or sets the transaction code to use for wire debit entries for transfers out of this account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForCryptoTransferIn">
+            <summary>
+            Gets or sets the transaction code used for general ledger transfers for crypto sells
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountType.TransactionCodeForCryptoTransferOut">
+            <summary>
+            Gets or sets the transaction code used for general ledger transfers for crypto buys
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AccountTypeAllows">
+            <summary>
+            This is used to indicate 
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.None">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.ACHTransfersIn">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            into them through its core provider via ACH
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.ACHTransfersOut">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            out of them through its core provider via ACH
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.AutodraftTransferIn">
+            <summary>
+            Gets or sets a value indicating whether or account of this type could be setup for auto-draft
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.AutodraftTransferOut">
+            <summary>
+            Gets or sets a value indicating whether or account of this type could be a source of funds for auto-draft
+            Currently such account should be an external account and not visible to (hidden from) end user
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.BillPay">
+            <summary>
+            Gets or sets a value indicating whether or not users can pay bills from this account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.CheckOrder">
+            <summary>
+            Gets / sets whether checks can be ordered for the account type. See
+            DEV-2688 for more information.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.CheckWithdrawal">
+            <summary>
+            Gets or sets a value indicating whether or not this account type can have check withdrawals transferred from it
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.RDC">
+            <summary>
+            Gets or sets a value indicating whether or not this account type allows RDC
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.StopPay">
+            <summary>
+            Gets or sets a value indicating whether or not this account type can have stop pays
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.TransfersIn">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            into them through its core provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.TransfersOut">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            out of them through its core provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.WireTransfersOut">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            out of them through its core provider via wire transfer
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows.SkipBalanceCheckForTransfers">
+            <summary>
+            Gets or sets a value indicating that transfer Amount validation against AvailableBalance should be disabled
+            for transfers from these accounts
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2">
+            <summary>
+            This is used to indicate allowances on a given account type.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.None">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.ACHTransfersIn">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            into them through its core provider via ACH
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.ACHTransfersOut">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            out of them through its core provider via ACH
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AutodraftTransferIn">
+            <summary>
+            Gets or sets a value indicating whether or account of this type could be setup for auto-draft
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AutodraftTransferOut">
+            <summary>
+            Gets or sets a value indicating whether or account of this type could be a source of funds for auto-draft
+            Currently such account should be an external account and not visible to (hidden from) end user
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.BillPay">
+            <summary>
+            Gets or sets a value indicating whether or not users can pay bills from this account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.CheckOrder">
+            <summary>
+            Gets / sets whether checks can be ordered for the account type. See
+            DEV-2688 for more information.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.CheckWithdrawal">
+            <summary>
+            Gets or sets a value indicating whether or not this account type can have check withdrawals transferred from it
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.RDC">
+            <summary>
+            Gets or sets a value indicating whether or not this account type allows RDC
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.StopPay">
+            <summary>
+            Gets or sets a value indicating whether or not this account type can have stop pays
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.TransfersIn">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            into them through its core provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.TransfersOut">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            out of them through its core provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.WireTransfersOut">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type allow funds to be transferred
+            out of them through its core provider via wire transfer
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.SkipBalanceCheckForTransfers">
+            <summary>
+            Gets or sets a value indicating that transfer Amount validation against AvailableBalance should be disabled
+            for transfers from these accounts
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.P2P">
+            <summary>
+            Gets or sets a value indicate whether an this account type is allowed for P2P.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.OneTimeTransfers">
+            <summary>
+            Gets or sets a value indicating whether or not an account of this type is allowed to do one time transfers.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.RecurringTransfers">
+            <summary>
+            Gets or sets a value indicating whether or not an account of this type is allowed to do recurring transfers.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.ImmediateTransfers">
+            <summary>
+            Gets or sets a value indicating whether or not an account of this type is allowed to do immediate transfers (Note: this is not the same as OneTimeTransfer).
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.FutureDatedTransfers">
+            <summary>
+            Gets or sets a value indicating whether or not an account of this type is allowed to do transfers which have dates in the future.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowCryptoIn">
+            <summary>
+            Represents the capability to transfer proceeds from a crypto-currency sell transaction into this account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowCryptoOut">
+            <summary>
+            Represents the capability to transfer funds from this account to a crypto-currency custody account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowNewMoneyInOnly">
+            <summary>
+            Represents the restriction to only allow new money to be transfered to this account (i.e. from external accounts only)
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowRTPIn">
+            <summary>
+            Represents the capability to transfer from an external ACH account to this account via RTP/FedNow
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowRTPOut">
+            <summary>
+            Represents the capability to transfer funds from this account to an external ACH account via RTP/FedNow
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowDebitCardIn">
+            <summary>
+            Represents the capability to transfer from an external debit card account to this account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowDebitCardOut">
+            <summary>
+            Represents the capability to transfer funds from this account to an external debit card account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowNicknameUpdates">
+            <summary>
+            Represents the capability to update nicknames for accounts
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeAllows2.AllowOverpayment">
+            <summary>
+            Represents the capability to pay more than the ledger balance on the account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeClass.BankId">
+            <summary>
+            The financial institution that owns this account type classification.
+            </summary>
+            <remarks>
+            The bank field provides multi-tenant functionality by segregating the Account Classifications down
+            through Account Types, Accounts, and Transactions on a per-bank basis, which in concert with other
+            top-level relationship segregations allows for multiple banks to be independently stored in the
+            same data store.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeClass.Name">
+            <summary>
+            The name of the account type classification.
+            </summary>
+            <remarks>
+            This field is only shown to the administrative users of banks through configuration interfaces and
+            reporting tools.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeClass.Ordering">
+            <summary>
+            The ordering of account type classifications in end-user presentation layers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeClass.AccountTypes">
+            <summary>
+            A collection of all account types of this account type classification type.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Data.AccountTypeClass.ToString">
+            <summary>
+            Provides a debugging-friendly representation of the data entity's name
+            </summary>
+            <returns>A string representation of the entity, consisting of the entity's name and it's unique identifier in a human readable format</returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AccountTypeField">
+            <summary>
+            A field that indicates what details, or properties of an
+            <see cref="T:Alkami.MicroServices.Accounts.Data.Account"/> need to be displayed.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeField.DisplayName">
+            <summary>
+            The string map of the account type field
+            </summary>
+            <remarks>This is a globalized field that appears different based on the locale id of the requesting user</remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeField.Field">
+            <summary>
+            Field represents a property on the specified account type that should contain important data or context (i.e. AvailableBalance)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AccountTypeField.Ordering">
+            <summary>
+            The ordering of fields in end-user presentation layers.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.None">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.AssetAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account holds assets or liabilities.
+            </summary>
+            <remarks>
+            If the account type is an asset account, then negative amounts are expenses.  If it is not (that is, if it's a liability account), negative amounts are income, i.e. loan payments reducing loan value.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.AutoLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is for tracking an auto loan
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.BalanceOnlyAccount">
+            <summary>
+            Gets or sets a value indicating whether or not transaction detail is available for the account.
+            Some accounts may only provide balance and top-level account information,
+            without transaction history that shows the changes in balances over time.
+            </summary>
+            <remarks>
+            Various core functionality such as budgets and savings goals will not
+            work for accounts that are balance-only accounts, as they require
+            linkages with transactions in an account for proper function.  This flag
+            allows various components that require transactions to understand which
+            accounts cannot provide the transaction detail information.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.BusinessAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a business account
+            </summary>
+            <remarks>
+            If an account is a business account it will be assigned an entity id from the master user when it is created in our database
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.CertificateAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "certificate" accounts,
+            such as 'time share' or 'certificates of deposit'.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.ClosedEndedLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is for tracking a closed-ended loan
+            </summary>
+            <remarks>
+            Closed-ended loans are consumer installment loans where the borrower
+            cannot change:
+            1. Number an amount of payments
+            2. Maturity date
+            3. Credit Terms
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.CoreOnlyScheduledTransfer">
+            <summary>
+            Gets or sets a value indicating whether transfer schedule to an account of this type is maintained by the core
+            </summary>
+            <remarks>
+            Some core systems maintain and execute transfer schedules.
+            Alkami Web access allows creation of schedules, but should not attempt to
+            execute individual transfers.
+            In such case the transfers will be synchronized as host-only transfers.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.CreditAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "credit" accounts, such
+            as loans or mortgages, which receive funds in the form of a credit
+            payment instead of a regular transfer.  Credit accounts may have
+            an interest rate charge.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.CreditCardAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is specifically a credit card.
+            </summary>
+            <remarks>
+            Credit cards are types of open-ended loans.  The account type flag <see cref="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.OpenEndedLoanAccount"/>
+            should be set whenever this flag is also set.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.DemandDepositAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "demand deposit" accounts,
+            such as checking accounts that issue drafts, POS debit transactions,
+            or have other check writing or demand deposit withdrawal privileges.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.ExternalAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are 'external' to the system.
+            External accounts support transfers only as an ACH or Wire, not as a core-provided
+            transfer function.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.MoneyMarketAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a money market account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.MortgageLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a mortgage loan account.
+            </summary>
+            <remarks>
+            Mortgages can be open-ended, though this is rare.  Typically, the account type flag <see cref="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.ClosedEndedLoanAccount"/>
+            is set whenever this flag is also set.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.OpenEndedLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is an open-ended loan
+            </summary>
+            <remarks>
+            Open Ended Loans: are loans that allow you to put money in, (make a payment)
+            and take money out (make charges or cash withdrawals).  These loans have credit
+            limits that you cannot exceed without penalty.  They are flexible loan products
+            that provide the consumer with options.   On an open ended line of credit you
+            only pay interest if a balance is kept at the end of the statement period.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.PayoffCalculatorDisplayed">
+            <summary>
+            Gets or sets a value indicating whether or not the payoff calculator is displayed for the account type
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.SavingsAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "savings" accounts, subject
+            to regulations and requirements that differentiate them from
+            demand deposit accounts.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.InvestmentAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an investment account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.IRAAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an IRA (individual retirement account).
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIs.HSAAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an HSA (health savings account).
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible">
+            <summary>
+            AccountTypeIsExtensible was created from AccountTypeIs enum.
+            This enum was created to make AccountTypeIs attributes extensible so that new ones can be added without causing a breaking change to the contract.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.None">
+            <summary>
+            Default
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.AssetAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account holds assets or liabilities.
+            </summary>
+            <remarks>
+            If the account type is an asset account, then negative amounts are expenses.  If it is not (that is, if it's a liability account), negative amounts are income, i.e. loan payments reducing loan value.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.AutoLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is for tracking an auto loan
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.BalanceOnlyAccount">
+            <summary>
+            Gets or sets a value indicating whether or not transaction detail is available for the account.
+            Some accounts may only provide balance and top-level account information,
+            without transaction history that shows the changes in balances over time.
+            </summary>
+            <remarks>
+            Various core functionality such as budgets and savings goals will not
+            work for accounts that are balance-only accounts, as they require
+            linkages with transactions in an account for proper function.  This flag
+            allows various components that require transactions to understand which
+            accounts cannot provide the transaction detail information.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.BusinessAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a business account
+            </summary>
+            <remarks>
+            If an account is a business account it will be assigned an entity id from the master user when it is created in our database
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.CertificateAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "certificate" accounts,
+            such as 'time share' or 'certificates of deposit'.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.ClosedEndedLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is for tracking a closed-ended loan
+            </summary>
+            <remarks>
+            Closed-ended loans are consumer installment loans where the borrower
+            cannot change:
+            1. Number an amount of payments
+            2. Maturity date
+            3. Credit Terms
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.CoreOnlyScheduledTransfer">
+            <summary>
+            Gets or sets a value indicating whether transfer schedule to an account of this type is maintained by the core
+            </summary>
+            <remarks>
+            Some core systems maintain and execute transfer schedules.
+            Alkami Web access allows creation of schedules, but should not attempt to
+            execute individual transfers.
+            In such case the transfers will be synchronized as host-only transfers.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.CreditAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "credit" accounts, such
+            as loans or mortgages, which receive funds in the form of a credit
+            payment instead of a regular transfer.  Credit accounts may have
+            an interest rate charge.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.CreditCardAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is specifically a credit card.
+            </summary>
+            <remarks>
+            Credit cards are types of open-ended loans.  The account type flag <see cref="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.OpenEndedLoanAccount"/>
+            should be set whenever this flag is also set.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.DemandDepositAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "demand deposit" accounts,
+            such as checking accounts that issue drafts, POS debit transactions,
+            or have other check writing or demand deposit withdrawal privileges.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.ExternalAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are 'external' to the system.
+            External accounts support transfers only as an ACH or Wire, not as a core-provided
+            transfer function.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.MoneyMarketAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a money market account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.MortgageLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a mortgage loan account.
+            </summary>
+            <remarks>
+            Mortgages can be open-ended, though this is rare.  Typically, the account type flag <see cref="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.ClosedEndedLoanAccount"/>
+            is set whenever this flag is also set.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.OpenEndedLoanAccount">
+            <summary>
+            Gets or sets a value indicating whether or not the account is an open-ended loan
+            </summary>
+            <remarks>
+            Open Ended Loans: are loans that allow you to put money in, (make a payment)
+            and take money out (make charges or cash withdrawals).  These loans have credit
+            limits that you cannot exceed without penalty.  They are flexible loan products
+            that provide the consumer with options.   On an open ended line of credit you
+            only pay interest if a balance is kept at the end of the statement period.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.PayoffCalculatorDisplayed">
+            <summary>
+            Gets or sets a value indicating whether or not the payoff calculator is displayed for the account type
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.SavingsAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type are "savings" accounts, subject
+            to regulations and requirements that differentiate them from
+            demand deposit accounts.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.InvestmentAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an investment account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.IRAAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an IRA (individual retirement account).
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.HSAAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an HSA (health savings account).
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.DebitCard">
+            <summary>
+            Gets or sets a value indicating whether or not the account is a debit card account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AccountTypeIsExtensible.HelocAccount">
+            <summary>
+            Gets or sets a value indicating whether or not accounts of this type is an HelocAccount.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AggregatedAccount">
+            <summary>
+            Aggregation detail tied to an account
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.RefreshDate">
+            <summary>
+            Date asset data was last refreshed between Aggregated Institution and Yodlee
+            (stored in extended properties from DEV-44008)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.NextScheduledRefeshDate">
+            <summary>
+            Future date targeting next time data will be refreshed
+            (new utc value which could enable scheduled refreshes of aggregated accounts)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.LastRefreshAttemptDate">
+            <summary>
+            Detail of when the data was last re-synced
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.LastUpdatedDate">
+            <summary>
+            Detail of when the data was last updated
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.ExternalStatus">
+            <summary>
+            Message describing status of the account sync, i.e. "IN_PROGRESS", "SUCCESS"
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.StatusCode">
+            <summary>
+            Integer indicating status of the refresh
+            (currently stored in extended properties from DEV-45514)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.StatusMessage">
+            <summary>
+            Message describing status of the request, i.e. "OK"
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.AdditionalStatus">
+            <summary>
+            Message providing additional information of the request, i.e. "LOGIN_SUCCESS"
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.AggregationStatus">
+            <summary>
+            Consolidated status definition based on externally received details
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.ProviderId">
+            <summary>
+             An ID to specify an external party or institution i.e. value for CHASE would be "12"
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.ProviderAccountId">
+            <summary>
+            User's Identifier for their account with their external reference/party (i.e. chase), Essentially the user's login ID for "Chase" or "American Express" for example i.e. "12345678"
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.UserAccountId">
+            <summary>
+            User's Identifier for their account with their external reference/party (i.e. Chase's Account Id)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.ProviderName">
+            <summary>
+            Name of the provider i.e. Chase, American Express Cards
+            (currently stored in extended properties from DEV-45514)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.Container">
+            <summary>
+            Type of container i.e. creditCard, rewards
+            For each container, element details such as field name, description, data type, and availability status are provided.
+            
+            Account level - data elements of the consumer’s account 
+            Transaction level - transactions related data elements of the consumer’s account
+            Statement level - statements of the consumer’s account(not applicable for bank container)
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.UserAccountType">
+            <summary>
+            Type of the account i.e. Charge, Rewards_points
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.Nickname">
+            <summary>
+            name or description applied by the user, i.e. nickname for a card
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.AccountName">
+            <summary>
+             Name of the account at the provider/institution the user is familiar with
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.PrimaryRewardUnit">
+            <summary>
+            Unit of measure for the user's rewards, i.e. points
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.IncludeInNetWorth">
+            <summary>
+             flag to include aggregated account in users net worth calculation or not, default is false.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.IsManual">
+            <summary>
+            Determines if manual added account such as home for tracking net worth
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.AggregatedAccount.IsAsset">
+            <summary>
+            Property owned by a person or company, regarded as having value and available to meet debts
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.AggregationStatus">
+            <summary>
+            Consolidated / interpreted overall status of the aggregated account based on the various status code, message, etc sent from the 3rd party used for aggregation
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AggregationStatus.Unknown">
+            <summary>
+            ¯\_(ツ)_/¯
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AggregationStatus.Error">
+            <summary>
+            Account encountered error state
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AggregationStatus.Ok">
+            <summary>
+            Account is in a good state, not syncing
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AggregationStatus.InProgress">
+            <summary>
+            Account is undergoing sync
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AggregationStatus.NeedsEdit">
+            <summary>
+            Account needs user attention
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.AggregationStatus.NeedsSync">
+            <summary>
+            Account needs to sync
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType">
+            <summary>
+            The type of output provider a particular transaction type uses
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.Unknown">
+            <summary>
+            The type of output provider is not known
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.ACHOutputFileProvider">
+            <summary>
+            The type of the output provider is an ACH (automated clearing house) file output provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.BillPayOutputFileProvider">
+            <summary>
+            The type of the output provider is a bill payment file output provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.CheckOrderOutputProvider">
+            <summary>
+            The type of the output provider is a check order file output provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.FormUserResponseOutputFileProvider">
+            <summary>
+            The type of the output provider is a user-form value file output provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.PositivePayOutputFileProvider">
+            <summary>
+            The type of the output provider is a positive payment file output provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.StopPayOutputFileProvider">
+            <summary>
+            The type of the output provider is a check stop payment file output provider
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.BatchSweepProviderType.WireOutputFileProvider">
+            <summary>
+            The type of the output provider is a wire transfer file output provider
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.DividendPaymentMethodType">
+            <summary>
+            An enumeration of methods used to make a dividend payment
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.DividendPaymentMethodType.Unknown">
+            <summary>
+            Unknown State. This state will never be used, if this state shows up an exception must be thrown.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.DividendPaymentMethodType.Check">
+            <summary>
+            A payment type of check
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.DividendPaymentMethodType.InternalTransfer">
+            <summary>
+            A payment type of Internal Transfer, or a transfer to account in the same bank
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.DividendPaymentMethodType.Compound">
+            <summary>
+            a payment type of compound. This payment type is used when a member wishes to have any dividend be reinvested in the account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.DividendPaymentMethodType.Forfeit">
+            <summary>
+            a payment type of Forfeit. This indicates dividends earned on this share should not be posted
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit">
+            <summary>
+            An entity group transaction type limit is a limiting factor calculated into the capabilities of a
+            business banking user for all accounts within the entity group for certain types of transactions
+            </summary>
+            <remarks>
+            This limiter overlays other permission checks for user account access and applies limits
+            on the initiation of certain types of transactions.  If a user otherwise has access to an account,
+            this limiter may prevent them from making certain types of transactions of a threshold for
+            that account is reached, or if the user has exceeded their limit for a certain type of
+            transaction on a per-user basis within a period of time.
+            </remarks>
+            <example>
+            Examples of when this type of limiter is used include:
+            1. An administrator wishes no ACH Payment transaction type to be made which exceeds $10,000
+            2. An administrator wishes the sum of all Wire Transfers transactions to not exceed $15,000 for a given month, regardless of any one user.
+            3. An administrator wishes the sum of all Wire Transfers transactions to not exceed $1,000 for any single user for any one day.
+            </example>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.EntityGroupId">
+            <summary>
+            The entity group to which this limiter applies
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.TransactionType">
+            <summary>
+            The type of transaction to which this limiter applies
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.DailyAuthorizedLimit">
+            <summary>
+            The daily amount a user can execute without needing additional authorization for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.WeeklyAuthorizedLimit">
+            <summary>
+            The weekly amount a user can execute without needing additional authorization for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.MonthlyAuthorizedLimit">
+            <summary>
+            The monthly amount a user can execute without needing additional authorization for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.DailyMaxLimit">
+            <summary>
+            The daily maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.WeeklyMaxLimit">
+            <summary>
+            The weekly maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.MonthlyMaxLimit">
+            <summary>
+            The monthly maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.DailyAuthorizableLimit">
+            <summary>
+            The daily maximum amount users with this role can authorize for other users for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.WeeklyAuthorizableLimit">
+            <summary>
+            The weekly maximum amount users with this role can authorize for other users for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityGroupTransactionTypeLimit.MonthlyAuthorizableLimit">
+            <summary>
+            The monthly maximum amount users with this role can authorize for other users for this group and type.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit">
+             <summary>
+             A entity transaction type limit is a limitation on certain types of
+             transactions for all users assigned to a particular entity.
+             </summary>
+             <remarks>
+             Entities may or may not have transaction type limit overrides.  If they
+             do not have such overrides, then they are subject to the limitations
+             at their entity level.  If no entity transaction type limits exist,
+             they are subject to the global limits of the FI's transaction types.
+            
+             These limits are created by the financial institution.  They may not
+             be modified by the entity itself.
+             </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit.EntityId">
+            <summary>
+            The entity to which the transaction type limitation applies
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit.TransactionType">
+            <summary>
+            The transaction type to which the transaction type limitation applies
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit.DailyMaxLimit">
+            <summary>
+            The daily maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit.WeeklyMaxLimit">
+            <summary>
+            The weekly maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit.MonthlyMaxLimit">
+            <summary>
+            The monthly maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.EntityTransactionTypeLimit.SingleAuthorizedLimit">
+            <summary>
+            The amount a user can submit in a single transaction without requiring authorization.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.ExternalAccount">
+            <summary>
+            An external account is an account held at another financial institution.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.ExternalAccount.RoutingNumberInfo">
+            <summary>
+            Gets or sets the routing number of the financial institution
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.ExternalAccount.RoutingNumberInfoId">
+            <summary>
+            Gets or sets the routing number of the financial institution
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.ExternalAccount.ExternalAccountType">
+            <summary>
+            Gets or sets the external account type of the external account
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.ExternalAccountType">
+            <summary>
+            The classification type of an external account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.ExternalAccountType.ACH">
+            <summary>
+            The external account is intended for ACH
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.ExternalAccountType.Wire">
+            <summary>
+            The external account is intended for Wire
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit">
+            <summary>
+            A flavor transaction type limit is a limitation on certain types of
+            transactions for all users assigned to a particular flavor.
+            </summary>
+            <remarks>
+            Entities may or may not have transaction type limit overrides.  If they
+            do not have such overrides, then they are subject to the limitations
+            at their flavor level.  If no flavor transaction type limits exist,
+            they are subject to the global limits of the FI's transaction types.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit.FlavorId">
+            <summary>
+            The flavor to which the transaction type limitation applies
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit.TransactionType">
+            <summary>
+            The transaction type to which the transaction type limitation applies
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit.DailyMaxLimit">
+            <summary>
+            The daily maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit.WeeklyMaxLimit">
+            <summary>
+            The weekly maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit.MonthlyMaxLimit">
+            <summary>
+            The monthly maximum amount a user can submit for all transactions for this group and type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FlavorTransactionTypeLimit.SingleAuthorizedLimit">
+            <summary>
+            The amount a user can submit in a single transaction without requiring authorization.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.FormattedAccountInformation">
+            <summary>
+            An account with formatting information.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.FormattedAccountInformation.MaskedAccountNumber">
+            <summary>
+            Contains the <see cref="P:Alkami.MicroServices.Accounts.Data.FormattedAccountInformation.MaskedAccountNumber"/> data for this account.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.LinkedAccountTypePriority">
+            <summary>
+            Determines the priority of account types to be considered in the creation of linked accounts
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.LinkedAccountTypePriority.AccountType">
+            <summary>
+            The account type for the account to be linked
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.LinkedAccountTypePriority.AccountTypeId">
+            <summary>
+            The account type for the account to be linked
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.LinkedAccountTypePriority.Priority">
+            <summary>
+            The priority of this account type in relation to other account types to be considered for a linked account
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber">
+            <summary>
+            Contains formatted versions of the account number using formats specified by AccountType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber.AccountNumber">
+            <summary>
+            The Account number masked and formatted according to the AccountDisplayFormat.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber.LinkedAccountNumber">
+            <summary>
+            The Account number masked and formatted according to the LinkedAccountDisplayFormat.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber.NachaAccountNumber">
+            <summary>
+            The Account number masked and formatted according to the NachaAccountDisplayFormat.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber.UnmaskedAccountNumber">
+            <summary>
+            The Account number formatted, but not masked according to the AccountDisplayFormat.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber.UnmaskedLinkedAccountNumber">
+            <summary>
+            The Account number formatted, but not masked according to the LinkedAccountDisplayFormat.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber.UnmaskedNachaAccountNumber">
+            <summary>
+            The Account number formatted, but not masked according to the NachaAccountDisplayFormat.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.MaturityPaymentMethodType">
+            <summary>
+            An enumeration of methods used to make a dividend payment
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.MaturityPaymentMethodType.Unknown">
+            <summary>
+            Unknown State. This state will never be used, if this state shows up an exception must be thrown.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.MaturityPaymentMethodType.Check">
+            <summary>
+            A payment type of check
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.MaturityPaymentMethodType.InternalTransfer">
+            <summary>
+            A payment type of Internal Transfer, or a transfer to account in the same bank
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.MaturityPaymentMethodType.Renew">
+            <summary>
+            a payment type of compound. This payment type is used when a member wishes to have any dividend be reinvested in the account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.MaturityPaymentMethodType.Suspend">
+            <summary>
+            A payment type of Suspend, to indicate the balance of the certificate or club share remains in the share until you transfer the funds manually
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType">
+            <summary>
+            A data contract that denotes transaction types used in the &lt;TRNTYPE&gt; element.
+            </summary>
+            <remarks>
+            Transfers generated from a model are treated identically to individually requested transfers by OFX.
+            Therefore, they should have the transaction types listed below once they are processed.
+            Transfers initiated out of band with respect to OFX should also be handled in this fashion when they appear
+            in a statement download.
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Other">
+            <summary>
+            Other or unknown transaction type
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Credit">
+            <summary>
+            Generic credit
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Debit">
+            <summary>
+            Generic debit
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Int">
+            <summary>
+            Interest earned or paid
+            </summary>
+            <remarks>
+            Depends on sign of amount
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Div">
+            <summary>
+            Dividend payment on a share account
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Fee">
+            <summary>
+            A fee imposed by the financial institution
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.SrvChg">
+            <summary>
+            Service charge
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Dep">
+            <summary>
+            Deposit of funds
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.ATM">
+            <summary>
+            ATM debit or credit
+            </summary>
+            <remarks>
+            Depends on sign of amount
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.POS">
+            <summary>
+            Point of sale debit or credit
+            </summary>
+            <remarks>
+            Depends on sign of amount
+            </remarks>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Xfer">
+            <summary>
+            Transfer of funds between accounts
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Check">
+            <summary>
+            Check draft
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Payment">
+            <summary>
+            Electronic payment
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.Cash">
+            <summary>
+            Cash withdrawal
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.DirectDep">
+            <summary>
+            Direct deposit
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.DirectDebit">
+            <summary>
+            Merchant-initiated debit
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.OpenFinancialExchangeTransactionType.RepeatPmt">
+            <summary>
+            Repeating payment / standing order
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.RelationshipType">
+            <summary>
+            A relation as defined between the user an the account, the type differs from account permissions. It is useful to limit a user account in ways that are not defined by the account permissions.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RelationshipType.Unknown">
+            <summary>
+            The relationship between the account and the user of this account is unknown.
+            If the account is being set to this value then it means that the core does not use relationships, or require relationships
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RelationshipType.PrimaryOwner">
+            <summary>
+            The user of the account is considered the primary owner of the account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RelationshipType.JointOwner">
+            <summary>
+            The user of the account is considered the joint owner of the account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RelationshipType.Linked">
+            <summary>
+            This account has been granted access indirectly. The user is not a joint or a primary user, but has been granted some level of permission on this account.
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RelationshipType.Aggregated">
+            <summary>
+            This account has been granted access indirectly from a remote aggregation provider.  The user may be a primary or joint owner, but the relationship in the remote host
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RelationshipType.BusinessAccount">
+            <summary>
+            This account has been granted access by virtue of the entity to which this user belongs.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo">
+            <summary>
+            Routing Numbers are 9 digit bank codes used by banks to process ACH and Fed-wire transfers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.BankCity">
+            <summary>
+            The city of the financial institution
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.BankName">
+            <summary>
+            The name of the Financial Institution.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.BankShortName">
+            <summary>
+            The bank short name or telegraphic name of the financial institution
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.BankState">
+            <summary>
+            The state or territory abbreviation for the financial institution
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.DateOfLastRevision">
+            <summary>
+            The last date the routing number for this financial institution was revised (YYYYMMDD)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.Deleted">
+            <summary>
+            Gets or sets the flag indicating whether or not a routing number is deleted
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.IsBlockedForACH">
+            <summary>
+            Gets or sets the flag indicating whether or not routing number is blocked for ACH
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.IsBlockedForWires">
+            <summary>
+            Gets or sets the flag indicating whether or not routing number is blocked for Wires
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.NewRoutingNumber">
+            <summary>
+            If the routing number is not used any more, this is the routing number that should be used instead
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.RoutingNumber">
+            <summary>
+            The 9 digit routing number.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.RoutingNumberInfo.RoutingNumberInfoType">
+            <summary>
+            Gets or sets the routing number info type indicating which type of routing number this is
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.RoutingNumberInfoType">
+            <summary>
+            The classification type of a routing number info
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RoutingNumberInfoType.FedACH">
+            <summary>
+            The routing number info is of type FedLine (ABA)
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RoutingNumberInfoType.Swift">
+            <summary>
+            The routing number info is of type Swift (International)
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Data.RoutingNumberInfoType.Fedwire">
+            <summary>
+            This routing number info is of type Fed-wire (http://www.fededirectory.frb.org/download.cfm)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.Account">
+            <summary>
+            The account within which this transaction occurred
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.AccountId">
+            <summary>
+            The account within which this transaction occurred
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.Amount">
+            <summary>
+            The amount of the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.Balance">
+            <summary>
+            The balance of the account after this transaction was posted.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.BatchNumber">
+            <summary>
+            A core-specific 'batch number' to which this transaction belongs, if applicable as determined by the core interface.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.CheckNumber">
+            <summary>
+            An item (check/draft) number associated with this transaction, if any.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.CoreSequence">
+            <summary>
+            A core-specific unique identifier for the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.Debit">
+            <summary>
+            Whether or not the transaction represents a debit entry
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.EffectiveDate">
+            <summary>
+            The date the transaction became effective within the account, which may differ from the posting date in the case of held items, etc.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.EscrowAmount">
+            <summary>
+            Gets or sets the escrow amount applied to this transaction (used for loans)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.FeeAmount">
+            <summary>
+            Gets or sets the amount of this transaction that was applied towards fee's
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.GeneralDescription">
+            <summary>
+            A brief summary of the transaction.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.ImageSequence">
+            <summary>
+            If provided by the core, the image sequence number for identifying the image through a draft imaging system.
+            This may be an ECE Institution Sequence number as defined by ANSI X9.37, or a custom value with specific meaning to the core's context.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.InterestAmount">
+            <summary>
+            The interest amount applied to this transaction (used for loans, usually in conjunction with PrincipalAmount)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.IsVoid">
+            <summary>
+            A boolean indicating whether a transaction is void.  A void transaction is one that is no longer
+            returned from normal core transaction requests
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.MerchantClassificationCode">
+            <summary>
+            Gets or sets the merchant classification code (MCC) for the transaction, if it is known
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.MICRAccountNumber">
+            <summary>
+            This field stores the account number portion of this transaction's MICR line
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.OtherAmount">
+            <summary>
+            Gets or sets the amount of this transaction that is applied to other types of categories that is not explicitly defined.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.PostingDate">
+            <summary>
+            The date the transaction posted to the account.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.PostingSequence">
+            <summary>
+            A core-specific 'posting sequence' number for the transaction, to indicate the posting order of the transaction within the account, if available via the core's interface implementation.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.PrincipalAmount">
+            <summary>
+            The principal amount applied to this transaction (used for loans, usually in conjunction with InterestAmount)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.SpecificDescription">
+            <summary>
+            A detailed explanation of the transaction, if available and if different from the general description.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.Splits">
+            <summary>
+            The transaction category splits to which this transaction has been allocated.
+            </summary>
+            <remarks>
+            Uncategorized transactions have no splits.  Categorized transactions may have one split for a whole-amount
+            categorization of the transaction to a single category, or multiple splits for proportioned allocation among
+            multiple categories.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.TraceNumber">
+            <summary>
+            A number assigned by the FI, that can be used to trace a single transaction in the system.
+            This differs from the core sequence number, because this value can be shown to the end user, where the core sequence number will not be shown.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.TranKey">
+            <summary>
+            This is the key returned by the core provider after a transaction/transfer has been successfully added to the core
+            provider.  This value is needed in order to cancel/modify pending transfers/transactions in the core
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.TransactionCode">
+            <summary>
+            A core-specific 'transaction code' this transaction is assigned which references its transaction type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.Transaction.UserId">
+            <summary>
+            The user which created the transaction
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.DisplayName">
+            <summary>
+            The end-user display name of the transaction category.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.EntityId">
+            <summary>
+            The user that owns the transaction category, if applicable
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.IconContentType">
+            <summary>
+            The MIME content type of the binary data in the PortraitImage field.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.IconImage">
+            <summary>
+            The image shown in the category icon portion of the administrative user interface
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.IsExpense">
+            <summary>
+            Whether or not this item is an expense.  If false, this is an income category.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.IsWant">
+            <summary>
+            Whether or not this item is a "Want", that is, whether amounts allocated to this category are discretionary.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.ParentTransactionCategory">
+            <summary>
+            The parent transaction category, if any, under which this transaction category is grouped in a hierarchy of transaction categories.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.ParentTransactionCategoryId">
+            <summary>
+            The parent transaction category ID, if any, under which this transaction category is grouped in a hierarchy of transaction categories.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.TransactionCategoryClassification">
+            <summary>
+            The bank classification for this new transaction category, from a bank-defined list of classifications used for bank reporting purposes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.TransactionCategoryClassificationId">
+            <summary>
+            The bank classification for this new transaction category, from a bank-defined list of classifications used for bank reporting purposes.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategory.UserId">
+            <summary>
+            The user that owns the transaction category, if applicable
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification">
+            <summary>
+            A transaction category classification is a institution name for a set of user-created categories to
+            allow the FI to report across custom categories utilizing a standard set of metrics.  For instance,
+            users may create their own categories, however, they are required to associate them to a list of
+            classifications provided by the FI.  In turn, the FI can then reporting on spending behaviors, etc.
+            based on classifications they have defined, independent of the names or schema that users have
+            created for their own custom categorization.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification.BankId">
+            <summary>
+            Gets or sets the bank that owns the transaction category classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification.BillPayCategoryKey">
+            <summary>
+            Gets or sets the field will be used to profile
+            the bill pay provider's category identifier for transmittal.
+            If all user-created transaction categories that relate to this
+            transaction category classification also relate to a particular category
+            identifier in the third-party bill pay system, and payments for payees
+            must transmit a category, then this field is applicable.
+            </summary>
+            <remarks>
+            If, for instance, a bill pay provider must get a category designation
+            "AUTO" for any automobile-related expense, then the financial institution
+            can setup this classification named "Automobile" with the BillPayCategoryKey
+            of "AUTO".  When a user then creates their own category called "Gas" and
+            relates it to this "Automobile" classification, and subsequently
+            sends a payment to Shell Oil which has a default expense category of "Gas",
+            then through this field, the system will be able to properly send "AUTO"
+            for the user's payment.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification.IconContentType">
+            <summary>
+            Gets or sets the MIME content type of the binary data in the PortraitImage field.
+            for the default icon image for transaction categories linked to this classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification.IconImage">
+            <summary>
+            Gets or sets the default icon image for transaction categories linked to this classification
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification.Name">
+            <summary>
+            Gets or sets the transaction category classification name
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategoryClassification.OFXStandardIndustryCode">
+            <summary>
+            Gets or sets the OFX-recognized SIC code for categorization of the transaction
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit">
+            <summary>
+            This table links a transaction to a category, provIding the schema support to allocates transaction between
+            one or more categories simultaneously.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.TransactionId">
+            <summary>
+            The transaction which this split is allocating funds
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.Transaction">
+            <summary>
+            The transaction which this split is allocating funds
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.TransactionCategory">
+            <summary>
+            The transaction category to which this split is allocating fund
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.TransactionCategoryId">
+            <summary>
+            The transaction category to which this split is allocating fund
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.Amount">
+            <summary>
+            The amount of the transaction allocated to the specified transaction category
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/> is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+                        <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Data.TransactionCategorySplit.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+            </returns>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCode.Code">
+            <summary>
+            Gets or sets the transaction code value
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCode.CoreProviderId">
+            <summary>
+            Gets or sets the core provider that owns this transaction code
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCode.Debit">
+            <summary>
+            Gets or sets a value indicating whether or not the transaction code represents a debit entry
+            </summary>
+            <remarks>
+            Some core systems or implementations at institutions reuse the same
+            transaction code to mean different things based on whether or not the
+            transaction is a debit or a credit.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCode.Name">
+            <summary>
+            Gets or sets the human-readable name for the transaction code
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionCode.TransactionType">
+            <summary>
+            Gets or sets the type of the transaction this code represents
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.AccountDailyTransactionLimit">
+            <summary>
+            Gets or sets the daily limit for a single account of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.AccountMonthlyTransactionLimit">
+            <summary>
+            Gets or sets the monthly limit for a single account of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.AllowDispute">
+            <summary>
+            Gets or sets a value indicating whether or not transactions of this type can be disputed
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.AssignableToTransactionCategory">
+            <summary>
+            Gets or sets a value indicating whether or not transactions matching this type can be assigned a transaction category
+            </summary>
+            <remarks>
+            Typically, certain types of internal transaction codes, notably transfers of funds between
+            two non-GL accounts, are not eligible for user categorization, since both sides of the transaction
+            cause the net sum of the categorized attribution to be zero.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.BankID">
+            <summary>
+            Gets or sets the financial institution that owns this transaction type.
+            </summary>
+            <remarks>
+            The bank field provides multi-tenant functionality by segregating the transaction types, which in concert with other
+            top-level relationship segregations allows for multiple banks to be independently stored in the
+            same data store.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.BankIdentifier">
+            <summary>
+            Gets or sets the external unique identifier of the financial institution that owns the transaction type.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.BatchSweepCutoffTime">
+            <summary>
+            Gets or sets the value, if this transaction type is batch swept, then this is the time is or
+            should be swept
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.BatchSweepProviderType">
+            <summary>
+            Gets or sets the value, if the transaction type is batch swept, this is the type of output
+            file provider that handles the generation of the sweep
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.DefaultTransactionCategoryClassification">
+            <summary>
+            Gets or sets the value, if transactions of this type are always associated to a financial institution's transaction category classification,
+            setting this field will associate all transactions recorded with this transaction type such that when they are
+            encountered, if the end-user has one transaction category established for the FI's linked transaction category
+            classification, the transaction will be automatically categorized to the user's category based on this established
+            linkage.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.EntityDailyTransactionLimit">
+            <summary>
+            Gets or sets the daily limit for all transactions for a single entity of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.EntityMonthlyTransactionLimit">
+            <summary>
+            Gets or sets the monthly limit for all transactions for a single entity of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.EntityTransactionTypeLimits">
+            <summary>
+            Gets or sets the entities that impose transaction limits for transactions of this type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.FlavorTransactionTypeLimits">
+            <summary>
+            Gets or sets the flavors that impose transaction limits for transactions of this type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.GlobalDailyTransactionLimit">
+            <summary>
+            Gets or sets the daily limit for all transactions of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.GlobalMonthlyTransactionLimit">
+            <summary>
+            Gets or sets the monthly limit for all transactions of this type at the FI through the online banking platform
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.IsBatchSweepAutomatic">
+            <summary>
+            Gets or sets a value indicating whether or not this transaction type is automatically swept into a batch
+            file by a process which does not need manual intervention to initiate the
+            process.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.IsBatchSwept">
+            <summary>
+            Gets or sets a value indicating whether or not this transaction type is handled by an interface that batch
+            sweeps items into an output file
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.IsSubjectToLimits">
+            <summary>
+            Gets or sets a value indicating whether or not items coded with this transaction type are subject to limits and authorizations
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.Name">
+            <summary>
+            Gets or sets the name of the transaction type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.OFXTransactionType">
+            <summary>
+            Gets or sets the OFX-recognized type for the transaction
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.SingleTransactionLimit">
+            <summary>
+            Gets or sets the per-instance limit for a single transaction of this type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Data.TransactionType.TransactionCodes">
+            <summary>
+            Gets or sets the transaction codes profiles across all core providers, for this transaction type
+            </summary>
+        </member>
+    </members>
+</doc>

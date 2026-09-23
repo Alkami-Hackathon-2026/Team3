@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Transactions.Service.Client.1.28</name>
+    </assembly>
+    <members>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.GetTransactionsAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetTransactionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.GetCleansedTransactionsAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetCleansedTransactionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.GetTransactionCategoriesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetTransactionCategoriesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.AddOrUpdateTransactionsAsync(Alkami.MicroServices.Transactions.Contracts.Requests.AddOrUpdateTransactionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.DeleteTransactionsAsync(Alkami.MicroServices.Transactions.Contracts.Requests.DeleteTransactionsRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.AddOrUpdateTransactionCategoriesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.AddOrUpdateTransactionCategoriesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.DeleteTransactionCategoriesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.DeleteTransactionCategoriesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.AddOrUpdateMerchantCategoryCodesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.AddOrUpdateMerchantCategoryCodesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.DeleteMerchantCategoryCodesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.DeleteMerchantCategoryCodesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.GetMerchantCategoryCodesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetStandardMerchantCodesRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Transactions.Service.Client.TransactionServiceClient.GetTransactionTypesAsync(Alkami.MicroServices.Transactions.Contracts.Requests.GetTransactionTypesRequest)">
+            <summary>
+            Retrieves transaction type information from the database from the given request.
+            </summary>
+            <param name="request">The request to use to create the response.</param>
+            <returns>A complete TransactionTypeResponse object.</returns>
+        </member>
+    </members>
+</doc>

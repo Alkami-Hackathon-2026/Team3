@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.ServiceAttributes</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.ServiceAttributes.ProviderImplementationAttribute">
+            <summary>
+            Assembly attribute used to indicate the assembly has an implementation of a given provider
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ProviderImplementationAttribute.ProviderType">
+            <summary>
+            Provider type as defined via configuration
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ProviderImplementationAttribute.ProviderName">
+            <summary>
+            Provider name as defined via configuration
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.ServiceAttributes.ProviderImplementationAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="providerType">Provider type as defined via configuration</param>
+            <param name="providerName">Provider name as defined via configuration</param>
+        </member>
+        <member name="T:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute">
+            <summary>
+            Attribute to indicate interface is used to call to an external service.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute.ServicePath">
+            <summary>
+            Path of the service
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute.MajorVersion">
+            <summary>
+            Major version of the service
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.ServiceAttributes.ServiceClientAttribute.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="servicePath">Path of the service</param>
+            <param name="majorVersion">Major version of the service</param>
+        </member>
+        <member name="T:Alkami.Utilities.ServiceAttributes.ServiceDefinitionAttribute">
+            <summary>
+            Assembly attribute used to indicate the assembly has an implementation of a given service. 
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ServiceDefinitionAttribute.ServicePath">
+            <summary>
+            Path of the service implemented
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.ServiceAttributes.ServiceDefinitionAttribute.#ctor(System.String)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="servicePath">Path of the service implemented</param>
+        </member>
+        <member name="T:Alkami.Utilities.ServiceAttributes.ServiceReferenceAttribute">
+            <summary>
+            Assembly attribute used to indicate the assembly references an external service 
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ServiceReferenceAttribute.ServicePath">
+            <summary>
+            Path of the service referenced
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.ServiceAttributes.ServiceReferenceAttribute.Version">
+            <summary>
+            Version of the service referenced
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.ServiceAttributes.ServiceReferenceAttribute.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="servicePath">Path of the service referenced</param>
+            <param name="serviceMajorVersion">Major version of the service referenced</param>
+            <param name="serviceMinorVersion">Minor version of the service referenced</param>
+        </member>
+    </members>
+</doc>

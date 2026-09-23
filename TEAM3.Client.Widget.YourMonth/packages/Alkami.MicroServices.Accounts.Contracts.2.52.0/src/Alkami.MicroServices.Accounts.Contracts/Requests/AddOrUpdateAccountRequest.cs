@@ -1,0 +1,11 @@
+﻿using Alkami.Contracts;
+using Alkami.MicroServices.Accounts.Data;
+using System.Runtime.Serialization;
+
+namespace Alkami.MicroServices.Accounts.Contracts.Requests
+{
+    [DataContract(IsReference = true)]
+    public class AddOrUpdateAccountRequest : BaseCreateOrUpdateRequest<Account>
+    {
+    }
+}

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0"?>
+<packageManifest>
+    <version>1.0</version>
+    <general>
+        <creatorCode>TEAM3</creatorCode>
+        <compound>TEAM3_SDK</compound>
+        <element>TEAM3.Client.Widget.YourMonth</element>
+        <componentType>Widget</componentType>
+
+		<!--SDK clients should add their BankIdentifier(s) in this list. No quotes or brackets - {} - are required. Dashes are encouraged.-->
+        <bankIdentifiers>
+            <bankIdentifier name="TEAM3">78554577-9DE6-43CD-9085-5868977156D1</bankIdentifier>
+        </bankIdentifiers>
+
+	</general>
+
+    <!-- Widget -->
+    <widgetManifest>
+		<widgetName>TEAM3.Client.Widget.YourMonth</widgetName>
+		<description>A personalized picture of your last 30 to 60 days: spending, top merchants, recurring charges, and insights.</description>
+        <!-- <widgetInstall>Client|Admin|Generic</widgetInstall> - Generic means this gets installed in both Admin and Client with v1.0 manifests -->
+        <widgetInstall>Client</widgetInstall>
+        <areaName>TEAM3YourMonth</areaName>
+        <assemblyInfo>TEAM3.Client.Widget.YourMonth</assemblyInfo>
+		<!-- <displaySettings>Desktop|Mobile|Tablet|DesktopMobile|All</displaySettings> -->
+        <displaySettings>All</displaySettings>
+        <iconName>piggy</iconName>
+    </widgetManifest>
+</packageManifest>

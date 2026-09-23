@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.LegacyIdentity</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer">
+            <summary>
+            Default implementation of <see cref="T:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer" />
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToClaimsIdentity(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToJson(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToCompressed(System.Security.Claims.ClaimsIdentity)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToCompressed(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToJson(System.Security.Claims.ClaimsIdentity)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToClaimsIdentity(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.CompressionUtility">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.CompressionUtility.Compress(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="uncompressedData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.CompressionUtility.Decompress(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="compressedData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer">
+            <summary>
+            Data contract for ClaimsIdentity serialization
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToClaimsIdentity(System.Byte[])">
+            <summary>
+            Convert from compressed Json to a <see cref="T:System.Security.Claims.ClaimsIdentity" />
+            </summary>
+            <param name="compressedJson">Compressed json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToClaimsIdentity(System.String)">
+            <summary>
+            Convert from serialized json to a <see cref="T:System.Security.Claims.ClaimsIdentity" />
+            </summary>
+            <param name="serializedJson">Serialized json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToJson(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Convert from <see cref="T:System.Security.Claims.ClaimsIdentity" /> to serialized json
+            </summary>
+            <param name="identity">Identity to serialize</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToJson(System.Byte[])">
+            <summary>
+            Convert from compressed json to serialized json
+            </summary>
+            <param name="compressedJson">Compressed json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToCompressed(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Convert from <see cref="T:System.Security.Claims.ClaimsIdentity" /> to compressed json
+            </summary>
+            <param name="identity">Identity to serialize</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToCompressed(System.String)">
+            <summary>
+            Convert from serialized json to compressed json
+            </summary>
+            <param name="serializedJson">Serialized json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.JsonClaimsIdentity">
+            <summary>
+            Json Claims Identity
+            </summary>
+            <remarks>
+            This object is not intended to be referenced in production code.
+            It is a POCO only to aid in serialization of the claims identity.
+            </remarks>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.JsonClaim">
+            <summary>
+            Json Claim
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.JsonClaimProperty">
+            <summary>
+            Json Claim Property
+            </summary>
+        </member>
+        <member name="T:Alkami.Security.Principal.GuestIdentity">
+            <summary>
+            An identity associated with a guest session that can be put on the Thread.CurrentPrincipal
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.Principal.GuestIdentity.#ctor(System.String,System.Nullable{System.Guid},System.Nullable{System.Guid},System.String)">
+            <summary>
+            The guest identity.
+            </summary>
+            <param name="sessionIdentifier">The identifier for the current session</param>
+            <param name="tenantInstanceIdentifier">Then tenant (i.e. bank) instance identifer for the current session</param>
+            <param name="tenantIdentifier">The tenant (i.e. bank) identifier for the current session</param>
+            <param name="hostUrl">The host for the current session</param>
+            <exception cref="T:System.ArgumentNullException">The session identifier is null or empty</exception>
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.Name">
+            <summary>
+            Always returns empty since the guest is not a user
+            </summary>
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.AuthenticationType">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.IsAuthenticated">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.TenantInstanceIdentifier">
+            <summary>
+            Then tenant (i.e. bank) instance identifer for the current session
+            </summary>
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.TenantIdentifier">
+            <summary>
+            The tenant (i.e. bank) identifier for the current session
+            </summary>
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.HostUrl">
+            <summary>
+            The host for the current session
+            </summary>
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestIdentity.SessionIdentifier">
+            <summary>
+            The identifier for the current session
+            </summary>
+        </member>
+        <member name="T:Alkami.Security.Principal.GuestPrincipal">
+            <summary>
+            The <see cref="T:System.Security.Principal.IPrincipal" /> representing a guest identity
+            </summary>
+        </member>
+        <member name="M:Alkami.Security.Principal.GuestPrincipal.#ctor(Alkami.Security.Principal.GuestIdentity)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.Security.Principal.GuestPrincipal"/> class from a guest identity
+            </summary>
+            <param name="identity">The <see cref="T:Alkami.Security.Principal.GuestIdentity"/></param>
+        </member>
+        <member name="P:Alkami.Security.Principal.GuestPrincipal.Identity">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Security.Principal.GuestPrincipal.IsInRole(System.String)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

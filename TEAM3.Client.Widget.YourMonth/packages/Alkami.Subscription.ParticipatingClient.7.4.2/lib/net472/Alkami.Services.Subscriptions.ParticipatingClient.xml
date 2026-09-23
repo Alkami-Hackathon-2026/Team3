@@ -1,0 +1,1429 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Services.Subscriptions.ParticipatingClient</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1">
+            <summary>
+            Internal generic WCF client base class that remains open so as to reduce the overhead of the TLS handshake
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.#ctor(Alkami.Services.Subscriptions.Data.AlkamiHttpBinding,System.ServiceModel.EndpointAddress)">
+            <summary>
+            Construct client with specified bindings and service endpoint address from an http binding
+            </summary>
+            <param name="binding">Client bindings.</param>
+            <param name="remoteAddress">Service endpoint address.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.#ctor(System.ServiceModel.NetTcpBinding,System.ServiceModel.EndpointAddress,System.ServiceModel.Description.ClientCredentials)">
+            <summary>
+            Construct client with specified bindings and service endpoint address from a net tcp binding
+            </summary>
+            <param name="binding">Client bindings.</param>
+            <param name="remoteAddress">Service endpoint address.</param>
+            <param name="clientCredentials">Client Credentials</param>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.Channel">
+            <summary>
+            Returns the Channel of <typeparamref name="T"/>
+            </summary>
+            <remarks>
+            By default the Channel property is protected in the base class, so must override it to expose it.
+            </remarks>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.CloseOrAbort">
+            <summary>
+            Will try to close, and if it fails will instead abort. Based on https://www.codeproject.com/Articles/622989/WCF-and-the-Try-Catch-Abort-Pattern
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiClientFactory`1.CreateNewClient">
+            <summary>
+            Creates a new client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1.#ctor(System.Collections.Generic.List{Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1.GetNext(Alkami.Contracts.BaseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingClientBindings">
+            <summary>
+            Exposes a way to get the Bindings for ParticpiatingClient
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingClientBindings.NetTcpBinding(System.Int32)">
+            <summary>
+            Net TCP binding used for connecting to Windwow machines
+            </summary>
+            <param name="timeoutSeconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingClientBindings.HttpBinding(System.Int32,System.Boolean)">
+            <summary>
+            Http binding for connecting to HTTP/HTTPS
+            </summary>
+            <param name="timeoutSeconds"></param>
+            <param name="https"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingClientBindings.GetClientCertificate">
+            <summary>
+            Gets the <c>Alkami Mutual Client</c> certificate used in NetTCP bindings mTLS
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingClientBindings.GetServiceCertificate">
+            <summary>
+            Gets the <c>Alkami Mutual Service</c> certificate used in NetTCP bindings mTLS
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IParticipatingClientBindings.GetIdentity">
+            <summary>
+            Gets the Endpoint Identity used in NetTCP bindings mTLS
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1">
+            <summary>
+            Defines the interface that can be used to create Clients to Alkami endpoints
+            </summary>
+            <typeparam name="TChannel">The type of channel that the client factory creates.</typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1.GetClient">
+            <summary>
+            Gets a client from the object pool
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1.Release(Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0})">
+            <summary>
+            Release the client back to the object pool
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactoryCache`1">
+            <summary>
+            This will be used to create the Alkami Client Factory
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactoryCache`1.GetOrCreateFactory(System.Uri,System.Int32)">
+            <summary>
+            Gets or creates the Client factory for the endpoint and timeout sent
+            </summary>
+            <param name="endpointUri"></param>
+            <param name="timeoutInSeconds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1.#ctor(System.Collections.Generic.List{`0})">
+            <summary>
+            
+            </summary>
+            <param name="storageBag"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1.GetNext(Alkami.Contracts.BaseRequest)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.ClaimsIdentitySerializationMethod">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.NullableClaimsIdentitySerializationMethod">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.K8sConfiguration">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.K8sUsageCondition">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.K8sUsageConditionMode">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.ProviderConfiguration">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.ServiceDefinition">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.DictionaryStringInt32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.ListGuid">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.DateTimeOffset">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.Guid">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.Uri">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.Version">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.Int64">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ParticipatingClientJsonContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.RoundRobinLoadBalancer`1">
+            <summary>
+            Load balancer that tries to roundrobin requests
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.RoundRobinLoadBalancer`1.GetNext(Alkami.Contracts.BaseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.RoundRobinLoadBalancer`1.#ctor(System.Collections.Generic.List{Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint{`0}})">
+            <summary>
+            Creates a round robin load balancer. Uses a static counter per <typeparamref name="T"/>
+            </summary>
+            <param name="storageBag"></param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior">
+            <summary>
+            The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior"/> adds a <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityInjectorInspector"/> into the WCF workflow.
+            </summary>
+            <seealso cref="T:System.ServiceModel.Description.IOperationBehavior" />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.AddBindingParameters(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Implement to pass data at runtime to bindings to support custom behavior.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="bindingParameters">The collection of objects that binding elements require to support the behavior.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.ApplyClientBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.ClientOperation)">
+            <summary>
+            Implements a modification or extension of the client across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="clientOperation">The run-time object that exposes customization properties for the operation described by <paramref name="operationDescription" />.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.DispatchOperation)">
+            <summary>
+            Implements a modification or extension of the service across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="dispatchOperation">The run-time object that exposes customization properties for the operation described by <paramref name="operationDescription" />.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.Validate(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Implement to confirm that the operation meets some intended criteria.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityInjectorInspector">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityInjectorInspector.AfterCall(System.String,System.Object[],System.Object,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityInjectorInspector.BeforeCall(System.String,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient.LegacyShimFactory">
+            <summary>
+            Gets or sets the legacy shim factory.
+            </summary>
+            <value>
+            The legacy shim factory.
+            </value>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.K8sServiceEndpoints">
+            <summary>
+            Returns the list of K8s endpoints. DEPRECATED use <see cref="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetServiceEndpoints(System.Nullable{System.Boolean})"/> with value of
+            <see langword="true"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ServiceEndpoints">
+            <summary>
+            Gets the current <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> s for the client. DEPRECATED use
+            <see cref="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetServiceEndpoints(System.Nullable{System.Boolean})"/> with value of <see langword="null"/>.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.AlkamiClientFactory">
+            <summary>
+            Gets the Client Factory to generate clients for endpoints
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Int32,System.Version)">
+             <summary>
+             The base class for all the clients
+             </summary>
+            
+             <param name="timeoutSeconds"></param>
+             <param name="minCompatibleVersion"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Nullable{System.Int32},System.Version)">
+            <summary>
+            The base class for all the clients
+            </summary>
+            <param name="timeoutSeconds"></param>
+            <param name="minCompatibleVersion"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Version)">
+            <summary>
+            The base class for all the clients
+            </summary>
+            <param name="minCompatibleVersion"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetFavoredClaimsIdentitySerializationMethod">
+            <summary>
+            Gets the preferred serialization method.
+            </summary>
+            <returns>The preferred <see cref="T:Alkami.Contracts.ClaimsIdentitySerializationMethod"/>.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetFavoredClaimsIdentitySerializationMethod(System.Boolean)">
+            <summary>
+            Gets the preferred serialization method.
+            </summary>
+            <param name="isForKubernetes">If true then FavoredClaimsIdentitySerializationMethod must be either <see cref="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.Json"/> or <see cref="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.CompressedJson"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetServiceEndpoints(System.Nullable{System.Boolean})">
+            <summary>
+            Gets the Service Endpoints from subscription service
+            </summary>
+            <param name="includeK8sEndpoints">
+            If <see langword="null"/> returns all endpoints, when <see langword="true"/> filters to just k8s endpoints
+            and when <see langword="false"/> it returns endpoints without k8s endpoints
+            </param>
+            <returns>The list of service endpoints from subscription service</returns> 
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCall``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure the local client is properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternal``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint{`0},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure the local client is properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="serviceEndpoint">The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> to execute against.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.DetermineClaimsIdentitySerializationMethod(Alkami.Services.Subscriptions.Data.ServiceDefinition,Alkami.Contracts.ClaimsIdentitySerializationMethod)">
+            <summary>
+            Determines which serialization method to use for the given <see cref="T:Alkami.Services.Subscriptions.Data.ServiceDefinition"/>.
+            </summary>
+            <param name="definition">The <see cref="T:Alkami.Services.Subscriptions.Data.ServiceDefinition"/> to get the serialization method to use.</param>
+            <param name="favoredSerializationMethod">The preferred <see cref="T:Alkami.Contracts.ClaimsIdentitySerializationMethod"/> to use.</param>
+            <returns>The <see cref="T:Alkami.Contracts.ClaimsIdentitySerializationMethod"/> to use.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetServiceEndpointAsync(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Gets the <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> for the <paramref name="request"/>.
+            </summary>
+            <returns>The found Service Endpoint for the request</returns>
+            <exception cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException"></exception>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.InternalKubernetesUri">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GenerateInternalKubernetesUri(Alkami.Contracts.BaseRequest,System.Version)">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.Endpoint">
+            <summary>
+            Gets or sets the endpoint.
+            </summary>
+            <value>
+            The endpoint.
+            </value>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ResolvesFor">
+            <summary>
+            Gets or sets the resolves for.
+            </summary>
+            <value>
+            The resolves for.
+            </value>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ServiceDefinition">
+            <summary>
+            Gets or sets the service definition.
+            </summary>
+            <value>
+            The service definition.
+            </value>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ProviderConfiguration">
+            <summary>
+            Gets or sets the provider configuration.
+            </summary>
+            <value>
+            The provider configuration.
+            </value>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException">
+            <summary>
+            The exception thrown to indicate that no instances of a service were found
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class with its message
+            string set to message.
+            </summary>
+            <param name="message">A string that contains the error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class with the specified
+            error message and the inner exception.
+            </summary>
+            <param name="message">A string that contains the error message that explains the reason for the exception.</param>
+            <param name="innerException">The Exception that caused the current exception to be thrown.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class with the specified
+            serialization information and streaming context.
+            </summary>
+            <param name="info">The SerializationInfo that contains all the data required to serialize the exception.</param>
+            <param name="context">The StreamingContext that specifies the source and destination of the stream.</param>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.ProviderBasedClient.MicroserviceHelper">
+            <summary>
+            The helper class for interacting with microservices.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.MicroserviceHelper.CheckForError(Alkami.Contracts.BaseResponse,System.String)">
+            <summary>
+            Checks for errors in the responses from a microservice.
+            </summary>
+            <param name="response">The <see cref="T:Alkami.Contracts.BaseResponse"/> to check.</param>
+            <param name="callingMethod">The name of the calling method.</param>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1">
+            <summary>
+            Provides access to all active endpoints that support the same provider type
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Int64)">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerId"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.String)">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerName"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String)">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Int64,System.Version)">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerId"></param>
+            <param name="version">Allows you to override the version of the contract for contacting a service</param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.String,System.Version)">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerName"></param>
+            <param name="version">Allows you to override the version of the contract for contacting a service</param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Version)">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="version">Allows you to override the version of the contract for contacting a service</param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Int64,System.Nullable{System.Int32})">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerId"></param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.String,System.Nullable{System.Int32})">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerName"></param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Nullable{System.Int32})">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Int64,System.Version,System.Nullable{System.Int32})">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerId"></param>
+            <param name="version">Allows you to override the version of the contract for contacting a service</param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.String,System.Version,System.Nullable{System.Int32})">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="providerName"></param>
+            <param name="version">Allows you to override the version of the contract for contacting a service</param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.#ctor(System.String,System.Version,System.Nullable{System.Int32})">
+            <summary>
+            Instantiates an instance of the class
+            </summary>
+            <param name="providerType">is static for the generic class</param>
+            <param name="version">Allows you to override the version of the contract for contacting a service</param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.ProxyCallMultiple``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure all clients are properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation from multiple clients.</returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.ProxyCallSingle``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},``0,System.String)">
+            <summary>
+            Executes the provided function safely to the first configured provider.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation from multiple clients.</returns>
+            <exception cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException"></exception>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.Client(Alkami.Contracts.BaseRequest)">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.GenerateInternalKubernetesUriAsync(Alkami.Contracts.BaseRequest,System.String,System.Version)">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.GetProviders(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Returns provider definitions matching the provided arguments. Will attempt to retrieve providers from the Settings service if not already in cache.
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.ClearCache">
+            <summary>
+            Intended for testing only
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ProviderBasedClient`1.Dispose(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException">
+            <summary>
+            Exception happens when error is detected for a Microservice Service Call
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException"/> class.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException"/> class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException"/> class with a specified error message and a reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Settings.ProviderBasedClient.ServiceCallException"/> class with serialized data.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.</param>
+            <exception cref="T:System.ArgumentNullException">info is null.</exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">The class name is null or System.Exception.HResult is zero (0).</exception>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.AdminUrlSignature">
+            <summary>
+            The host name and top-level domain for admin that requests for this institution are directed to.
+            </summary>
+            <remarks>
+            An example of this value is 'www.example.com' or 'www.example.com/login?bankid=1'
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.BankIdentifier">
+            <summary>
+            A globally-unique identifier that represents a financial institution.
+            </summary>
+            <remarks>
+            The BankIdenitifer is the ID by which any other component of the system, including
+            third party components and the claims on secure tokens references a financial institution.  The internal
+            ID is not exposed to alleviate replication issues and to reduce third-party component dependence
+            on internal ID fields for this common data entity, as well as multi-tenancy considerations.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.CreateDate">
+            <summary>
+            Date/Time the Bank was created
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.Id">
+            <summary>
+            Primary id of the Bank
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.IdleLogoutMinutes">
+            <summary>
+            The maximum number of minutes a user of the financial institution can be idle
+            in a presentation layer interface before their session is automatically ended.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.IdleLogoutURL">
+            <summary>
+            The URL to which users are redirected if they are forcibly logged out of their session due to idle session limits
+            </summary>
+            <remarks>
+            While this may be overriden at the flavor level, this is the default for newly-created flavors.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.LocaleID">
+            <summary>
+            The LocaleID that should be configured for a user if they are assigned to this flavor
+            during the on-boarding process.
+            </summary>
+            <remarks>
+            While this may be overriden at the flavor level, this is the default for newly-created flavors.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.LogoImage">
+             <summary>
+             The image shown in the "logo" portion of the user interface
+             </summary>
+             <remarks>
+             If null, the parent's logo (or the parent's parent, recusively) should be shown.
+            
+             While this may be overriden at the flavor level, this is the default for newly-created flavors.
+             </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.MobileLogoImage">
+            <summary>
+            The image shown in the "logo" portion of the user interface in mobile
+            </summary>
+            <remarks>
+            While this may be overriden at the flavor level, this is the default for newly-created flavors.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.Name">
+            <summary>
+            The name of the financial institution.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.TimeZoneInfo">
+            <summary>
+            A serialized string which represents how to treat dates received from and transmitted to the
+            user so they are represented in their local timezone or timezone of choice.
+            </summary>
+            <remarks>
+            All users that are 'onboarded' for this bank are given this as their default time zone.
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.UrlSignature">
+            <summary>
+            The host name and top-level domain that requests for this institution are directed to.
+            </summary>
+            <remarks>
+            An example of this value is 'www.example.com' or 'www.example.com/login?bankid=1'
+            </remarks>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Bank.UserLogoutURL">
+            <summary>
+            The URL to which users are redirected when the initiate a logout sequence
+            </summary>
+            <remarks>
+            While this may be overriden at the flavor level, this is the default for newly-created flavors.
+            </remarks>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Item">
+            <summary>
+            Item record
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.Id">
+            <summary>
+            Primary id of Item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.ParentId">
+            <summary>
+            Id of the Parent Item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.SecondaryId">
+            <summary>
+            Secondary Id for locating the item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.Name">
+            <summary>
+            Name of the item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.ItemType">
+            <summary>
+            Type of the item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.CreatedUtc">
+            <summary>
+            Date/Time the item was created
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.Deleted">
+            <summary>
+            Indicates if the item was deleted
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.Version">
+            <summary>
+            Version of the item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Item.ItemSettings">
+            <summary>
+            List of child ItemSetting objects
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Item.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.ItemSetting">
+            <summary>
+            ItemSetting record
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ItemSetting.Id">
+            <summary>
+            Primary id of the ItemSetting
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ItemSetting.ItemId">
+            <summary>
+            Id of the parent Item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ItemSetting.Name">
+            <summary>
+            Name of the item setting
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ItemSetting.Value">
+            <summary>
+            Name of the item setting
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ItemSetting.Version">
+            <summary>
+            Version of the item setting
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ItemSetting.CreatedUtc">
+            <summary>
+            Date/Time of when the item setting was created
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.ItemSetting.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.LocalizableResource">
+            <summary>
+            LocalizableResource record
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.LocalizableResource.Id">
+            <summary>
+            Primary id of the LocalizableResource
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.LocalizableResource.Name">
+            <summary>
+            Name of the LocalizableResource
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.LocalizableResource.SecondaryId">
+            <summary>
+            Id of the related item
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.LocalizableResourceKey">
+            <summary>
+            Key for the LocalizableResourc
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.LocalizableResourceKey.Name">
+            <summary>
+            Name of the LocalizableResource
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.LocalizableResourceKey.SecondaryId">
+            <summary>
+            Id of the related item
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.LocalizableResourceKey.#ctor(System.String,System.Int64)">
+            <summary>
+            Creates a localizable resource key with the supplied data (or defaults if not supplied as applicable)
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.Provider">
+            <summary>
+            Provider record
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.Id">
+            <summary>
+            Primary id of the Provider
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.ProviderTypeId">
+            <summary>
+            Id of the parent Provider Type
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.Name">
+            <summary>
+            Name of the provider
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.Description">
+            <summary>
+            Description of the provider
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.AssemblyInfo">
+            <summary>
+            Information about the Assembly for the Provider
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.CreateDate">
+            <summary>
+            Date/Time the provider type was created
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.ServicePath">
+            <summary>
+            The ServicePath or Contract Name for a service (Not returned from service)
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.Provider.ServiceTypeId">
+            <summary>
+            The type of the service (Not returned from service)
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.Provider.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.ProviderServiceType">
+            <summary>
+            Provider Service types
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Data.ProviderServiceType.Wcf">
+            <summary>
+            Wcf Service Type
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Data.ProviderServiceType.Http">
+            <summary>
+            Http Service Type
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Data.ProviderType">
+            <summary>
+            ProviderType record
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.Id">
+            <summary>
+            Primary id of the ProviderType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.Name">
+            <summary>
+            Name of the ProviderType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.DisplayName">
+            <summary>
+            DisplayName of the ProviderType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.Description">
+            <summary>
+            Description of the ProviderType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.CreateDate">
+            <summary>
+            Date/Time the ProviderType was created
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.ViewPage">
+            <summary>
+            ViewPage of the ProviderType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Data.ProviderType.Providers">
+            <summary>
+            List of providers for this provider type
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Data.ProviderType.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.BanksFilter">
+            <summary>
+            Filter for Banks
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.BanksFilter.Ids">
+            <summary>
+            When provided, filters banks returned to just those entities with these ids
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.BanksFilter.Identifiers">
+            <summary>
+            When provided, filters banks returned to just those with the specified identifiers
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.BanksFilter.BankUri">
+            <summary>
+            When specified, filters banks returned to those with the specific Non-Admin Uri provided.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.BanksFilter.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter">
+            <summary>
+            Filter for Items
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter.Ids">
+            <summary>
+            When provided, filters items returned to just those entities with these Ids
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter.ParentIds">
+            <summary>
+            When provided, filters items returned to just those entities with these ParentIds
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter.ItemType">
+            <summary>
+            When provided, filters items returned to just those entities with this ItemType
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter.ItemTypes">
+            <summary>
+            When provided, filters items returned to just those entities with these ItemTypes
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter.SecondaryIds">
+            <summary>
+            When provided, filters items returned to just those entities with this SecondaryIds
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemFilter.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemMapper">
+            <summary>
+            Mapper for Items
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemMapper.ShouldIncludeSettings">
+            <summary>
+            When true will include the ItemSettings under each Item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemMapper.ShouldIncludeChangeSets">
+            <summary>
+            When true will include the ChangeSets under each Item
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemMapper.ShouldIncludeChangeSetDetails">
+            <summary>
+            When true will include the ChangeSetDetails under each loaded ChangeSet
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.LocalizableResourceFilter">
+            <summary>
+            Filter for LocalizableResource
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.LocalizableResourceFilter.Keys">
+            <summary>
+            When provided, filters LocalizableResources returned to just those entities with these Keys
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.LocalizableResourceFilter.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.LocalizableResourceFilter.Alkami#Contracts#IFilter#Ids">
+            <summary>
+            Not used in this class
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.LocalizableResourceMapper">
+            <summary>
+            Mapper for LocalizableResources
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeFilter">
+            <summary>
+            Filter for ProviderTypes
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeFilter.Ids">
+            <summary>
+            When provided, filters ProviderTypes returned to just those entities with these ids
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeFilter.PartialName">
+            <summary>
+            When provided, filters ProviderTypes where the Name contains this value
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeFilter.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeMapper">
+            <summary>
+            Mapper for ProviderTypes
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeMapper.ShouldIncludeProviders">
+            <summary>
+            When true will include the Providers under each ProviderType
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSorter">
+            <summary>
+            Sorter for Items
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSorter.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSortFields">
+            <summary>
+            Item Sorting Fields
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSortFields.Id">
+            <summary>
+            Sort by Id
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSortFields.Name">
+            <summary>
+            Sort by Name
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSortFields.CreateDate">
+            <summary>
+            Sort by CreateDate
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ItemSortFields.Version">
+            <summary>
+            Sort by Version
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSorter.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSorter.Ascending">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSorter.OrderByFields">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSortFields">
+            <summary>
+            ProviderType Sorting Fields
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSortFields.Id">
+            <summary>
+            Sort by Id
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSortFields.Name">
+            <summary>
+            Sort by Name
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Settings.Contracts.Filters_And_Mappers.ProviderTypeSortFields.CreateDate">
+            <summary>
+            Sort by CreateDate
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.ISettingsServiceContract">
+            <summary>
+            Service Contract for the Settings Service
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.ISettingsServiceContract.AddOrUpdateItemsAsync(Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest)">
+            <summary>
+            Upsert a list of Items
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.ISettingsServiceContract.GetBanksAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest)">
+            <summary>
+            Get Banks by passed in <paramref name="request"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.ISettingsServiceContract.GetItemsAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetItemRequest)">
+            <summary>
+            Get Items by passed in <paramref name="request"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.ISettingsServiceContract.GetProviderTypeAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetProviderTypeRequest)">
+            <summary>
+            Get ProviderTypes by passed in <paramref name="request"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.ISettingsServiceContract.GetOrAddLocalizableResourcesAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetOrAddLocalizableResourceRequest)">
+            <summary>
+            Get or Add LocalizableResources by passed in <paramref name="request"/>
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest">
+            <summary>
+            Request object for adding and updating Items
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest.CommitMessage">
+            <summary>
+            Message to put in the Change Set Details
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest.Mapping">
+            <summary>
+            Mapper for item results
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest.ShouldRemoveUnpassedItemSettings">
+            <summary>
+            Will clear out the result of any item that is in the database, but not sent up
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest.#ctor(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Constructor to setup from BaseRequest
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest">
+            <summary>
+            Request object getting Banks
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest.#ctor(System.Int64)">
+            <summary>
+            Convenience constructor to request a bank for the specified Id
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Requests.GetBanksRequest.#ctor(System.Guid)">
+            <summary>
+            Convenience constructor to request a bank for the specified <paramref name="bankIdentifier"/>
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Requests.GetItemRequest">
+            <summary>
+            Request item for getting Items
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Requests.GetItemRequest.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Requests.GetOrAddLocalizableResourceRequest">
+            <summary>
+            Request item for getting LocalizableResources
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Responses.BankResponse">
+            <summary>
+            Response object for returning Banks
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Responses.BankResponse.Banks">
+            <summary>
+            List of Banks requested
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Responses.BankResponse.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Responses.ItemResponse">
+            <summary>
+            Response object for returning Items
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Responses.ItemResponse.Items">
+            <summary>
+            List of Items requested
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Responses.ItemResponse.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Responses.LocalizableResourceResponse">
+            <summary>
+            Response object for returning LocalizableResources
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Responses.LocalizableResourceResponse.LocalizableResources">
+            <summary>
+            List of LocalizableResources requested
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Responses.LocalizableResourceResponse.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Settings.Contracts.Responses.ProviderTypeResponse">
+            <summary>
+            Response object for returning ProviderTypes
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Settings.Contracts.Responses.ProviderTypeResponse.ProviderTypes">
+            <summary>
+            List of ProviderTypes requested
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Contracts.Responses.ProviderTypeResponse.#ctor">
+            <summary>
+            Default Constructor
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Client.ServiceClient.AddOrUpdateItemsAsync(Alkami.MicroServices.Settings.Contracts.Requests.AddOrUpdateItemRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Client.ServiceClient.GetItemsAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetItemRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Client.ServiceClient.GetProviderTypeAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetProviderTypeRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Settings.Client.ServiceClient.GetOrAddLocalizableResourcesAsync(Alkami.MicroServices.Settings.Contracts.Requests.GetOrAddLocalizableResourceRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Reserved to be used by the compiler for tracking metadata.
+            This class should not be used by developers in source code.
+            </summary>
+        </member>
+    </members>
+</doc>

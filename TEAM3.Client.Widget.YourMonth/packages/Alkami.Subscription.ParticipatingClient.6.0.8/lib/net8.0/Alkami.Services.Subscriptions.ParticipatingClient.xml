@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Services.Subscriptions.ParticipatingClient</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1">
+            <summary>
+            Internal generic WCF client base class that remains open so as to reduce the overhead of the TLS handshake
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.SerializationSurrogateProvider">
+            <summary>
+            The <see cref="T:System.Runtime.Serialization.ISerializationSurrogateProvider"/> that is used on operations for customizing serialization of objects
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.#ctor(Alkami.Services.Subscriptions.Data.AlkamiHttpBinding,System.ServiceModel.EndpointAddress)">
+            <summary>
+            Construct client with specified bindings and service endpoint address from an http binding
+            </summary>
+            <param name="binding">Client bindings.</param>
+            <param name="remoteAddress">Service endpoint address.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.#ctor(System.ServiceModel.NetTcpBinding,System.ServiceModel.EndpointAddress,System.ServiceModel.Description.ClientCredentials)">
+            <summary>
+            Construct client with specified bindings and service endpoint address from a net tcp binding
+            </summary>
+            <param name="binding">Client bindings.</param>
+            <param name="remoteAddress">Service endpoint address.</param>
+            <param name="clientCredentials">Client Credentials</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.Refresh">
+            <summary>
+            Checks state and will return either the current instance or try to return a new instance if using older system.
+            Will create new instance if<see cref="P:System.ServiceModel.ClientBase`1.State"/> is <see cref="F:System.ServiceModel.CommunicationState.Faulted"/>, <see cref="F:System.ServiceModel.CommunicationState.Closed"/>, or <see cref="F:System.ServiceModel.CommunicationState.Closing"/>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.Channel">
+            <summary>
+            Returns the Channel of <typeparamref name="T"/>
+            </summary>
+            <remarks>
+            By default the Channel property is protected in the base class, so must override it to expose it.
+            </remarks>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.Release">
+            <summary>
+            Calls the ServiceEndpoint to requeue the service if the <see cref="P:System.ServiceModel.ClientBase`1.State"/> is <see cref="F:System.ServiceModel.CommunicationState.Opened"/>
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1.CloseOrAbort">
+            <summary>
+            Will try to close, and if it fails will instead abort. Based on https://www.codeproject.com/Articles/622989/WCF-and-the-Try-Catch-Abort-Pattern
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiClientFactory`1.#ctor(System.Uri,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="clientEndpoint"></param>
+            <param name="timeoutSeconds"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiClientFactory`1.CreateNewClient">
+            <summary>
+            Creates a new client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1.#ctor(System.Collections.Generic.List{Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint{`0}})">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.BestAverageThroughputLoadBalancer`1.GetNext(Alkami.Contracts.BaseRequest)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1">
+            <summary>
+            Defines the interface that can be used to create Clients to Alkami endpoints
+            </summary>
+            <typeparam name="TChannel">The type of channel that the client factory creates.</typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1.GetClient">
+            <summary>
+            Gets a client from the object pool
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactory`1.Release(Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0})">
+            <summary>
+            Release the client back to the object pool
+            </summary>
+            <param name="client"></param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactoryCache`1">
+            <summary>
+            This will be used to create the Alkami Client Factory
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.IAlkamiClientFactoryCache`1.GetOrCreateFactory(System.Uri,System.Int32)">
+            <summary>
+            Gets or creates the Client factory for the endpoint and timeout sent
+            </summary>
+            <param name="endpointUri"></param>
+            <param name="timeoutInSeconds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1.#ctor(System.Collections.Generic.List{`0})">
+            <summary>
+            
+            </summary>
+            <param name="storageBag"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.LoadBalancerBase`1.GetNext(Alkami.Contracts.BaseRequest)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior">
+            <summary>
+            The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior"/> adds a <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.SecurityInjectorInspector"/> into the WCF workflow.
+            </summary>
+            <seealso cref="T:System.ServiceModel.Description.IOperationBehavior" />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.AddBindingParameters(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Channels.BindingParameterCollection)">
+            <summary>
+            Implement to pass data at runtime to bindings to support custom behavior.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="bindingParameters">The collection of objects that binding elements require to support the behavior.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.ApplyClientBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.ClientOperation)">
+            <summary>
+            Implements a modification or extension of the client across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="clientOperation">The run-time object that exposes customization properties for the operation described by <paramref name="operationDescription" />.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.OperationDescription,System.ServiceModel.Dispatcher.DispatchOperation)">
+            <summary>
+            Implements a modification or extension of the service across an operation.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+            <param name="dispatchOperation">The run-time object that exposes customization properties for the operation described by <paramref name="operationDescription" />.</param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SecurityBehavior.Validate(System.ServiceModel.Description.OperationDescription)">
+            <summary>
+            Implement to confirm that the operation meets some intended criteria.
+            </summary>
+            <param name="operationDescription">The operation being examined. Use for examination only. If the operation description is modified, the results are undefined.</param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient.LegacyShimFactory">
+            <summary>
+            Gets or sets the legacy shim factory.
+            </summary>
+            <value>
+            The legacy shim factory.
+            </value>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.AlkamiClientFactory">
+            <summary>
+            Gets the Client Factory to generate clients for endpoints
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Int32,System.Version)">
+            <summary>
+            The base class for all the clients
+            </summary>
+            
+            <param name="timeoutSeconds"></param>
+            <param name="minCompatibleVersion"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Nullable{System.Int32},System.Version)">
+            <summary>
+            The base class for all the clients
+            </summary>
+            <param name="timeoutSeconds"></param>
+            <param name="minCompatibleVersion"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.#ctor(System.Version)">
+            <summary>
+            The base class for all the clients
+            </summary>
+            <param name="minCompatibleVersion"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetFavoredClaimsIdentitySerializationMethod">
+            <summary>
+            Gets the preferred serialization method.
+            </summary>
+            <returns>The preferred <see cref="T:Alkami.Contracts.ClaimsIdentitySerializationMethod"/>.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetFavoredClaimsIdentitySerializationMethod(System.Boolean)">
+            <summary>
+            Gets the preferred serialization method.
+            </summary>
+            <param name="isForKubernetes">If true then FavoredClaimsIdentitySerializationMethod must be either <see cref="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.Json"/> or <see cref="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.CompressedJson"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCall``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure the local client is properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternal``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0},``0,System.String)">
+             <summary>
+             Executes the provided function safely to ensure the local client is properly released.
+             </summary>
+             <typeparam name="TRequest">The type of the request object.</typeparam>
+             <typeparam name="TResponse">The type of the response object.</typeparam>
+             <param name="operation">The operation to call on the client.</param>
+             <param name="client">The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1"/> to execute against.</param>
+             <param name="request">The instance of the request object to pass to the operation.</param>
+             <param name="callingMethod">The name of the method calling this method.</param>
+             <returns>The response of the operation.</returns>
+            
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternal``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint{`0},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure the local client is properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="serviceEndpoint">The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> to execute against.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ProxyCallInternalOld``2(System.Func{`0,``0,System.Threading.Tasks.Task{``1}},Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0},``0,System.String)">
+            <summary>
+            Executes the provided function safely to ensure the local client is properly released.
+            </summary>
+            <typeparam name="TRequest">The type of the request object.</typeparam>
+            <typeparam name="TResponse">The type of the response object.</typeparam>
+            <param name="operation">The operation to call on the client.</param>
+            <param name="client">The <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient`1"/> to execute against.</param>
+            <param name="request">The instance of the request object to pass to the operation.</param>
+            <param name="callingMethod">The name of the method calling this method.</param>
+            <returns>The response of the operation.</returns>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.ServiceEndpoints">
+            <summary>
+            Gets the current <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/>s for the client.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.DetermineClaimsIdentitySerializationMethod(Alkami.Services.Subscriptions.Data.ServiceDefinition,Alkami.Contracts.ClaimsIdentitySerializationMethod)">
+            <summary>
+            Determines which serialization method to use for the given <see cref="T:Alkami.Services.Subscriptions.Data.ServiceDefinition"/>.
+            </summary>
+            <param name="definition">The <see cref="T:Alkami.Services.Subscriptions.Data.ServiceDefinition"/> to get the serialization method to use.</param>
+            <param name="favoredSerializationMethod">The preferred <see cref="T:Alkami.Contracts.ClaimsIdentitySerializationMethod"/> to use.</param>
+            <returns>The <see cref="T:Alkami.Contracts.ClaimsIdentitySerializationMethod"/> to use.</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.Client(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Gets the client.
+            </summary>
+            <value>
+            The client.
+            </value>
+            <exception cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException"></exception>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GetServiceEndpointAsync(Alkami.Contracts.BaseRequest)">
+            <summary>
+            Gets the <see cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1"/> for the <paramref name="request"/>.
+            </summary>
+            <returns>The found Service Endpoint for the request</returns>
+            <exception cref="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException"></exception>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.InternalKubernetesUri">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.SelfResolvingClient`1.GenerateInternalKubernetesUri(Alkami.Contracts.BaseRequest,System.Version)">
+            <summary>
+            Builds an internal Uri for accessing this service from within a Kubernetes cluster.
+            </summary>)
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.Clients">
+            <summary>
+            The clients
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.Endpoint">
+            <summary>
+            Gets or sets the endpoint.
+            </summary>
+            <value>
+            The endpoint.
+            </value>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ResolvesFor">
+            <summary>
+            Gets or sets the resolves for.
+            </summary>
+            <value>
+            The resolves for.
+            </value>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ServiceDefinition">
+            <summary>
+            Gets or sets the service definition.
+            </summary>
+            <value>
+            The service definition.
+            </value>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ProviderConfiguration">
+            <summary>
+            Gets or sets the provider configuration.
+            </summary>
+            <value>
+            The provider configuration.
+            </value>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.GetClient">
+            <summary>
+            Gets the client, with the default time from <see cref="F:Alkami.Services.Subscriptions.Data.SubscriptionBindings.DefaultTimeout"/>
+            </summary>
+            <returns>The client</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.GetClient(System.Int32)">
+            <summary>
+            Gets the client.
+            </summary>
+            <param name="timeoutSeconds">The timeout for this client's binding in seconds</param>
+            <returns>The client</returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.CreateNewClient(System.Int32)">
+            <summary>
+            Creates a new client
+            </summary>
+            <param name="timeoutSeconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ShutDown">
+            <summary>
+            Shuts down.
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceEndpoint`1.ReplenishClient(Alkami.Services.Subscriptions.ParticipatingClient.AlkamiCachedClient{`0})">
+            <summary>
+            Replenishes the client.
+            </summary>
+            <param name="client">The client.</param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException">
+            <summary>
+            The exception thrown to indicate that no instances of a service were found
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class with its message
+            string set to message.
+            </summary>
+            <param name="message">A string that contains the error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class with the specified
+            error message and the inner exception.
+            </summary>
+            <param name="message">A string that contains the error message that explains the reason for the exception.</param>
+            <param name="innerException">The Exception that caused the current exception to be thrown.</param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.ParticipatingClient.ServiceInstanceNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the ServiceInstanceNotFoundException class with the specified
+            serialization information and streaming context.
+            </summary>
+            <param name="info">The SerializationInfo that contains all the data required to serialize the exception.</param>
+            <param name="context">The StreamingContext that specifies the source and destination of the stream.</param>
+        </member>
+    </members>
+</doc>

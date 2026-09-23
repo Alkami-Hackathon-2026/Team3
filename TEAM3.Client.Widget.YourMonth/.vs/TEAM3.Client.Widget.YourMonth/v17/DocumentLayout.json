@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|c:\\temp\\sdkproject\\team3.client.widget.yourmonth\\team3.client.widget.yourmonth\\controllers\\team3yourmonthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|solutionrelative:team3.client.widget.yourmonth\\controllers\\team3yourmonthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TEAM3YourMonthController.cs",
+              "DocumentMoniker": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
+              "RelativeDocumentMoniker": "TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
+              "ToolTip": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
+              "RelativeToolTip": "TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-23T01:32:54.204Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

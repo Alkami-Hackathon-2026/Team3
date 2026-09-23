@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Services.Subscriptions.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Services.Subscriptions.Data.Extensions.StringUrlExtensions">
+            <summary>
+            Extension methods to help with manipulating Url strings
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.Extensions.StringUrlExtensions.RemoveDiacritics(System.String)">
+            <summary>  
+            Removes all accents from the input string.  
+            </summary>  
+            <param name="text">The input string.</param>  
+            <returns></returns>  
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.Extensions.StringUrlExtensions.Slugify(System.String)">
+            <summary>  
+            Turn a string into a slug by removing all accents,   
+            special characters, additional spaces, substituting   
+            spaces with hyphens and making it lower-case.  
+            </summary>  
+            <param name="value">The string to turn into a slug.</param>  
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.ISubscriptionService">
+            <summary>
+            Handles the discovery aspect of the services
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ISubscriptionService.GetServices(System.Collections.Generic.List{System.String},System.Boolean,System.String)">
+            <summary>
+            Gets all registered services and their current stats
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ISubscriptionService.GetServicesCheckingHash(System.Collections.Generic.List{System.String},System.String,System.String)">
+            <summary>
+            Gets all registered services and their current stats
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ISubscriptionService.Register(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
+            <summary>
+            Registers a new service
+            </summary>
+            <param name="serviceDefinition"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ISubscriptionService.RegisterMultiple(System.Collections.Generic.List{Alkami.Services.Subscriptions.Data.ServiceDefinition})">
+            <summary>
+            Registers multiple service definitions
+            </summary>
+            <param name="serviceDefinitions"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ISubscriptionService.UnRegister(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
+            <summary>
+            Unregisters a service
+            </summary>
+            <param name="serviceDefinition"></param>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ISubscriptionService.UnRegisterMultiple(System.Collections.Generic.List{Alkami.Services.Subscriptions.Data.ServiceDefinition})">
+            <summary>
+            Unregisters multiple service definitions
+            </summary>
+            <param name="serviceDefinitions"></param>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.K8s.K8sConfiguration">
+            <summary>
+            Populated for all services that live in Kubernetes
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Data.K8s.K8sConfiguration.UsageCondition">
+            <summary>
+            If null, then access to the service is unconditional (i.e. it will receive all requests, regardless of their characteristics)
+            </summary>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.K8s.K8sUsageCondition">
+            <summary>
+            Can be used to adjust access to a K8s service for particular banks or users
+            </summary>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.K8s.K8sUsageConditionMode">
+            <summary>
+            The usage condition mode for K8s
+            </summary>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.LoggingInspector">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.LoggingInspector.AfterReceiveReply(System.ServiceModel.Channels.Message@,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.LoggingInspector.AfterReceiveRequest(System.ServiceModel.Channels.Message@,System.ServiceModel.IClientChannel,System.ServiceModel.InstanceContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.LoggingInspector.BeforeSendReply(System.ServiceModel.Channels.Message@,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.LoggingInspector.BeforeSendRequest(System.ServiceModel.Channels.Message@,System.ServiceModel.IClientChannel)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.LoggingInspector.Create_XML(System.ServiceModel.Channels.Message)">
+            <summary>
+            Creates XML that can be logged.
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.ProviderConfiguration">
+            <summary>
+            A service definition for providers
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Data.ProviderConfiguration.Id">
+            <summary>
+            The provider identifier (not currently unique across FIs)
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Data.ProviderConfiguration.Name">
+            <summary>
+            The name of the provider for this service definition.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Data.ProviderConfiguration.ProviderType">
+            <summary>
+            The provider type for this service definition.
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Data.ServiceDefinition.FullName">
+            <summary>
+            Since providers of the same provider type share Name, this property can be used to differentiate regular services as well as providers
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.ServiceDefinition.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.SettingsUtility">
+            <summary>
+            Default implementation of the <see cref="T:Alkami.Services.Subscriptions.Data.ISettingsUtility" />
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.GetServiceBindingPortNumber(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.GetServiceDefinitionRefreshInterval(System.Boolean)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.GetOnDemandServiceDefinitionRefreshIsEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.GetIsSubscriptionCachingEnabled">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.EnableGarbageCollection">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.GetBindingBufferSizeInBytes">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.GetSubscriptionServiceMachineName">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.ParseOnDemandServiceDefinitionRefreshIsEnabledSetting(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SettingsUtility.ParseServiceDefinitionRefreshIntervalSetting(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.SoapLoggingEndpointBehavior">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SoapLoggingEndpointBehavior.Validate(System.ServiceModel.Description.ServiceEndpoint)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SoapLoggingEndpointBehavior.AddBindingParameters(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Channels.BindingParameterCollection)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SoapLoggingEndpointBehavior.ApplyDispatchBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.EndpointDispatcher)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SoapLoggingEndpointBehavior.ApplyClientBehavior(System.ServiceModel.Description.ServiceEndpoint,System.ServiceModel.Dispatcher.ClientRuntime)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Services.Subscriptions.Data.SubscriptionBindings">
+            <summary>
+            Standard Bindings and Helpers for WCF clients and Services
+            </summary>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Data.SubscriptionBindings.MutualClientCertificateSubjectName">
+            <summary>
+            The Subject Name of the Client Certificate used to secure communications from the client to the service
+            </summary>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Data.SubscriptionBindings.MutualServiceCertificateSubjectName">
+            <summary>
+            The Subject Name of the Client Certificate used to secure communications from the service back to the client
+            </summary>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Data.SubscriptionBindings.DefaultTimeout">
+            <summary>
+            1 minute timeout
+            </summary>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Data.SubscriptionBindings.ServiceCertificate">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Data.SubscriptionBindings.ClientCertificate">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.Object)">
+            <summary>
+            Fins a certificate by the specified criteria.
+            </summary>
+            <param name="name">Store name to search.</param>
+            <param name="location">Store location to search.</param>
+            <param name="findType">Type of criteria by which to search.</param>
+            <param name="findValue">Criteria to which to search.</param>
+            <returns>An instance of the certificate, otherwise throws InvalidOperationException.</returns>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Data.SubscriptionBindings.Identity">
+            <summary>
+            Standard Identity for net tcp services and clients
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.GetServiceCertificate">
+            <summary>
+            Gets the Certificate needed for ClientCredentials Service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.GetClientCertificate">
+            <summary>
+            Gets the Certificate needed for ClientCredentials Client
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.Binding">
+            <summary>
+            Standard binding for services and clients with default timeout
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.Binding(System.Int32)">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <param name="timeoutSeconds">The receive and send timeout in seconds. A negative value will be replaced with a default.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.NetTcpBinding">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.NetTcpBinding(System.Int32)">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <param name="timeoutSeconds">The receive and send timeout in seconds. A negative value will be replaced with a default.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.HttpBinding">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.HttpBinding(System.Int32)">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <param name="timeoutSeconds">The receive and send timeout in seconds. A negative value will be replaced with a default.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.HttpBinding(System.Boolean)">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <param name="https">if true turns on Transport Mode</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Data.SubscriptionBindings.HttpBinding(System.Int32,System.Boolean)">
+            <summary>
+            Standard binding for services and clients
+            </summary>
+            <param name="timeoutSeconds">The receive and send timeout in seconds. A negative value will be replaced with a default.</param>
+            <param name="https">if true turns on Transport Mode</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

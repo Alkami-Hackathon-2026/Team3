@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.LegacyIdentity</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer">
+            <summary>
+            Default implementation of <see cref="T:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer" />
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToClaimsIdentity(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToJson(System.Byte[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToCompressed(System.Security.Claims.ClaimsIdentity)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToCompressed(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToJson(System.Security.Claims.ClaimsIdentity)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.ClaimsIdentitySerializer.ToClaimsIdentity(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.CompressionUtility">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.CompressionUtility.Compress(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="uncompressedData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.CompressionUtility.Decompress(System.Byte[])">
+            <summary>
+            
+            </summary>
+            <param name="compressedData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer">
+            <summary>
+            Data contract for ClaimsIdentity serialization
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToClaimsIdentity(System.Byte[])">
+            <summary>
+            Convert from compressed Json to a <see cref="T:System.Security.Claims.ClaimsIdentity" />
+            </summary>
+            <param name="compressedJson">Compressed json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToClaimsIdentity(System.String)">
+            <summary>
+            Convert from serialized json to a <see cref="T:System.Security.Claims.ClaimsIdentity" />
+            </summary>
+            <param name="serializedJson">Serialized json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToJson(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Convert from <see cref="T:System.Security.Claims.ClaimsIdentity" /> to serialized json
+            </summary>
+            <param name="identity">Identity to serialize</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToJson(System.Byte[])">
+            <summary>
+            Convert from compressed json to serialized json
+            </summary>
+            <param name="compressedJson">Compressed json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToCompressed(System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Convert from <see cref="T:System.Security.Claims.ClaimsIdentity" /> to compressed json
+            </summary>
+            <param name="identity">Identity to serialize</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LegacyIdentity.IClaimsIdentitySerializer.ToCompressed(System.String)">
+            <summary>
+            Convert from serialized json to compressed json
+            </summary>
+            <param name="serializedJson">Serialized json previously created by this serializer</param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.JsonClaimsIdentity">
+            <summary>
+            Json Claims Identity
+            </summary>
+            <remarks>
+            This object is not intended to be referenced in production code.
+            It is a POCO only to aid in serialization of the claims identity.
+            </remarks>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.JsonClaim">
+            <summary>
+            Json Claim
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.LegacyIdentity.JsonClaimProperty">
+            <summary>
+            Json Claim Property
+            </summary>
+        </member>
+    </members>
+</doc>

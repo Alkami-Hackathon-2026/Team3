@@ -1,0 +1,1886 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.CompareSetResult`2">
+            <summary>
+            Results from the comparison of two sets
+            </summary>
+            <typeparam name="T">The type of the items in the sets</typeparam>
+            <typeparam name="TJoinValue">The type for the lists of non-unique values in each set</typeparam>
+        </member>
+        <member name="P:Alkami.Utilities.CompareSetResult`2.HasError">
+            <summary>
+            True if an error has occured during set comparison, false otherwise
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.CompareSetResult`2.OnlyInLeft">
+            <summary>
+            Items in the left set which are not in the right set
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.CompareSetResult`2.NonUniqueInLeft">
+            <summary>
+            Items in the left set which are not unique
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.CompareSetResult`2.OnlyInRight">
+            <summary>
+            Items in the right set which are not in the left set
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.CompareSetResult`2.NonUniqueInRight">
+            <summary>
+            Items in the right set which are not unique
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.CompareSetResult`2.InBoth">
+            <summary>
+            A list containing pairs of values which are in both sets
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.CompareSets">
+            <summary>
+            Static class for comparing sets
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.CompareSets.Compare``2(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},Common.Logging.ILog,System.Func{``0,``1})">
+            <summary>
+            Populating the lists NonUniqueInLeft and NonUniqueInRight has not been implemented yet
+            Compare two sets
+            </summary>
+            <typeparam name="T">The item type for the sets</typeparam>
+            <typeparam name="TJoinValue">The type for the lists of non-unique values in each set</typeparam>
+            <param name="leftSet">The first set to be compared</param>
+            <param name="rightSet">The second set to be compared</param>
+            <param name="logger">Current logger</param>
+            <param name="compareSelector"></param>
+            <returns>The results of the comparison of the two sets</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ApplicationConfiguration">
+            <summary>
+            The ApplicationConfiguration class is a helper class to get the ORB application 
+            configuration from the application configuration file.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationConfiguration.AppSettingsFunc">
+            <summary>
+            An AppSettings delegate to use for unit testing configuration settings
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfiguration.Name">
+            <summary>
+            Returns the Application Name configured for this application.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfiguration.Environment">
+            <summary>
+            Returns the Environment section configured for this application.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfiguration.Logging">
+            <summary>
+            Returns the Application section configured for this application.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfiguration.Configuration">
+            <summary>
+            A static method to get the ORB Application Configuration from
+            the application configuration file.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ApplicationConfigurationSection">
+             <summary>
+             The ApplicationConfigurationSection class is used to configure application configuration values
+             for Alkami applications.
+             </summary>
+             <remarks>
+             Here is an example of the configuration section within the application configuration file.
+             <code>
+             &lt;?xml version="1.0" encoding="utf-8" ?&gt;
+            &lt;configuration&gt;
+              &lt;configSections&gt;
+                &lt;sectionGroup name="applicationSettings" type="System.Configuration.ApplicationSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"&gt;
+                  &lt;section name="Alkami.Utilities.Settings" type="Alkami.Utilities.Configuration.ApplicationConfigurationSection, Alkami.Utilities"/&gt;
+                &lt;/sectionGroup&gt;
+              &lt;/configSections&gt;
+              &lt;applicationSettings&gt;
+                &lt;Alkami.Utilities.Settings name="My Application"&gt;
+                  &lt;environment
+                    name="Unknown"
+                    type="Unknown"
+                    hosting="Unknown"
+                    server="Unknown"
+                    application="Unknown"
+                  /&gt;
+                  &lt;logging
+                    sanitize="true"
+                    taxIdRegex="\b([0-9]{1,3})([ -]?)([0-9]{2,3})([ -]?)([0-9]{4})([a-zA-Z]?)\b"
+                    privateNumberRegex="\b(?&lt;![0-9\*\-][:\s]?)([0-9]{2,19})(?![:\s]?[0-9\*\-])\b"
+                    logCallStack="false"
+                  &gt;
+                    &lt;encryption encrypt="true"
+                                store="My"
+                                location="CurrentUser"
+                                findType="FindBySubjectName"
+                                findValue="Alkami Mutual Service"
+                    /&gt;
+                  &lt;/logging&gt;
+                &lt;/Alkami.Utilities.Settings&gt;
+              &lt;/applicationSettings&gt;
+            &lt;/configuration&gt;
+             </code>
+             </remarks>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.AppSettings">
+            <summary>
+            Gets the application settings using the AppSettingsFunc delegate.
+            </summary>
+            <value>The application settings.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.Name">
+            <summary>
+            Gets or sets the name of the application.
+            </summary>
+            <value>The name of the application.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.Environment">
+            <summary>
+            Gets or sets the application environment element that configures environmental settings.
+            </summary>
+            <value>The application environment element.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.Logging">
+            <summary>
+            Gets or sets the application logging configuration element.
+            </summary>
+            <value>The application logging configuration.</value>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement">
+            <summary>
+            The EnvironmentElement class is used to configure environmental application
+            properties such as the name of the environment, environment type, hosting type and
+            server type.
+            </summary>
+            <seealso cref="T:System.Configuration.ConfigurationElement" />
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement.AppSettings">
+            <summary>
+            Gets the application settings using the AppSettingsFunc delegate.
+            </summary>
+            <value>The application settings.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement.Name">
+            <summary>
+            Gets or sets the name of the environment such POD1, LANEA, AWS_POD1
+            </summary>
+            <value>The name of the environment.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement.Type">
+            <summary>
+            Gets or sets the environment type such as Development, QA, Staging or Production.
+            </summary>
+            <value>The type of the environment.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement.Hosting">
+            <summary>
+            Gets or sets the type of the hosting environment such as Firehost, AWS, OnPremise or None.
+            </summary>
+            <value>The hosting environment.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement.Server">
+            <summary>
+            Gets or sets the server type such as Web, App, Radium, All or other.
+            </summary>
+            <value>The type of server role.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EnvironmentElement.Application">
+            <summary>
+            Gets or sets the type of application such as WebClient, AdminClient, Microservice or other.
+            </summary>
+            <value>The type of application.</value>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement">
+            <summary>
+            The LoggingElement class is used to configure application wide logging properties
+            such as whether to sanitize log entries, encrypt log entries, log the call stack
+            and regular expressions to use for sanitizing log entries.
+            </summary>
+            <seealso cref="T:System.Configuration.ConfigurationElement" />
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement.AppSettings">
+            <summary>
+            Gets the application settings using the AppSettingsFunc delegate.
+            </summary>
+            <value>The application settings.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement.SanitizeLogEntry">
+            <summary>
+            Gets or sets a value indicating whether to sanitize log entries.
+            </summary>
+            <value><c>true</c> if log entries should be sanitized; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement.TaxIdRegex">
+            <summary>
+            Gets or sets the regular expression to use to identify tax identifiers for sanitizing.
+            </summary>
+            <value>The tax identifier regular expression.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement.PrivateNumberRegex">
+            <summary>
+            Gets or sets the regular expression to use to private numbers for sanitizing.
+            </summary>
+            <value>The private number regular expression.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement.LogCallStack">
+            <summary>
+            Gets or sets a value indicating whether the call stack should be logged when the LogCallStack
+            methods are called. Call stacks can take a large amount of storage and should only be logged
+            in non production environments or when trying to diagnose difficult problems.
+            </summary>
+            <value><c>true</c> if the call stack should be logged; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.LoggingElement.Encryption">
+            <summary>
+            Gets or sets the encryption element that is used to configure application
+            encryption properties.
+            </summary>
+            <value>The application encryption configuration element.</value>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement">
+            <summary>
+            The EncryptionElement class contains encryption configuration such as
+            whether encryption is enabled, the Certificate Store Name, Location and
+            certificate to use for encrypting logging statements.
+            </summary>
+            <seealso cref="T:System.Configuration.ConfigurationElement" />
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.AppSettings">
+            <summary>
+            Gets the application settings using the AppSettingsFunc delegate.
+            </summary>
+            <value>The application settings.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.EncryptionEnabled">
+            <summary>
+            Gets or sets a value indicating whether encryption is enabled.
+            </summary>
+            <value><c>true</c> if encryption is enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.StoreName">
+            <summary>
+            Gets or sets the name of the certificate store such as My, TrustedPeople and AuthRoot.
+            </summary>
+            <value>The name of the certificate store.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.StoreLocation">
+            <summary>
+            Gets or sets the name of the certificate location such as LocalComputer and CurrentUser.
+            </summary>
+            <value>The name of the certificate location.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.FindType">
+            <summary>
+            Gets or sets the method used to find a certificate such as FindByThumbprint and FindBySubjectName.
+            The setting interprets the value contained in the <see cref="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.FindValue"/> property.
+            </summary>
+            <value>The method to use to find the certificate to use to encrypt secure log entries.</value>
+        </member>
+        <member name="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.FindValue">
+            <summary>
+            Gets or sets the value to use to find a certificate. How this value is interpreted
+            depends on the setting of the <see cref="P:Alkami.Utilities.Configuration.ApplicationConfigurationSection.EncryptionElement.FindType"/> property.
+            </summary>
+            <value>The value to find the certificate from the configured certificate location.</value>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ApplicationType">
+            <summary>
+            The ApplicationType enumeration defines the type of the application such as
+            WebClient, AdminClient and Microservice.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.Unknown">
+            <summary>
+            The application type is either unknown or not configured.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.WebClient">
+            <summary>
+            The application type is Web client.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.AdminClient">
+            <summary>
+            The application type is Admin client.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.IPSTS">
+            <summary>
+            The application type is IP-STS.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.RPSTS">
+            <summary>
+            The application type is RP-STS.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.WcfService">
+            <summary>
+            The application type is a WCF Service.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.WebService">
+            <summary>
+            The application type is a web service.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.Microservice">
+            <summary>
+            The application type is a microservice.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ApplicationType.Other">
+            <summary>
+            The application type is something else.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.EnvironmentType">
+            <summary>
+            The EnvironmentType enumeration defines the type of the environment such as
+            Development, Staging and Production.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Unknown">
+            <summary>
+            The environment type is either unknown or not configured.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Development">
+            <summary>
+            The environment type is a development environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.TeamQA">
+            <summary>
+            The environment type is a team QA environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.QA">
+            <summary>
+            The environment type is QA environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Integration">
+            <summary>
+            The environment type is an Integration envrionment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Build">
+            <summary>
+            The environment type is a build environment
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Secure">
+            <summary>
+            The Secure envrionment is a marker enumeration that separates
+            secure environments like staging and production from less
+            secure environments such as development and QA.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Staging">
+            <summary>
+            The environment type is a staging environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Production">
+            <summary>
+            The environment type is a production environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.LoadTest">
+            <summary>
+            The environment type is a load testing environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Sandbox">
+            <summary>
+            The environment type is a sandbox environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Regression">
+            <summary>
+            The environment type is a regression environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Test">
+            <summary>
+            The environment type is a test environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.SDK">
+            <summary>
+            The environment type is a sdk environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.EnvironmentType.Unconfigured">
+            <summary>
+            The environment type is a unconfigured environment.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.HostingType">
+            <summary>
+            The HostingType enumeration defines the type of the hosting environment such as
+            Firehost, AWS and OnPremise.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.Unknown">
+            <summary>
+            The hosting type is either unknown or not configured.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.None">
+            <summary>
+            There is no hosting environment. This is appropriate for development, QA
+            and internal servers.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.Firehost">
+            <summary>
+            The hosting environment is Firehost.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.OnPremise">
+            <summary>
+            The hosting environment is an on premise environment.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.Aws">
+            <summary>
+            The hosting envrionment is within Amazon AWS.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.Azure">
+            <summary>
+            The hosting environment is within Microsoft Azure.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.HostingType.Other">
+            <summary>
+            The hosting environment is some other environment.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.MicroserviceConfiguration">
+            <summary>
+            The MicroserviceConfiguration class is a helper class to configure microservice settings and recovery
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Configuration.MicroserviceConfiguration.ConfigureServiceRecovery(Topshelf.HostConfigurators.HostConfigurator)">
+            <summary>
+            Sets up the Topshelf ServiceRecovery Configuration
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Configuration.ServerType">
+            <summary>
+            The ServerType enumeration defines the type of the server type such as
+            Web, App, Radium, Nag or SQL.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.Unknown">
+            <summary>
+            The server type is either unknown or not configured.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.All">
+            <summary>
+            The server type contains all tiers. This is appropriate for development environments.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.Web">
+            <summary>
+            The server type is on the web tier.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.App">
+            <summary>
+            The server type is on the app tier.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.Sql">
+            <summary>
+            The server type is SQL Server.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.Radium">
+            <summary>
+            The server type only contains Radium.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.Nag">
+            <summary>
+            The server type only contains Nag.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Configuration.ServerType.Other">
+            <summary>
+            The server type is some other type.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Cryptography.AsymmetricEncryption">
+            <summary>
+            The AsymmetricEncryption contains an Encryptor and Decryptor that can be used to
+            security encrypt large amounts of data securely. This was originally made for log 
+            encryption. It is currently only used by log encryption.
+            </summary>
+            <remarks>
+            Since asymmetric encryption is only designed to encrypt small amounts of data, 
+            encryption on the majority of the payload is done using a symmetric encryption
+            provider using random Key/IV. The certificate and asymmetric encryption is 
+            used to only encrypt the Key/IV. The following table documents the format of the
+            encrypted string.
+                <list type="table">
+                    <listheader>
+                        <name>Name</name>
+                        <term>Data Type</term>
+                        <encoding>Encoding</encoding>
+                        <encryption>Encryption</encryption>
+                        <remarks>Remarks</remarks>
+                    </listheader>
+                    <item>
+                        <name>Thumbprint length</name>
+                        <term>ushort</term>
+                        <encoding></encoding>
+                        <encryption></encryption>
+                        <remarks>The length of the Thumbprint byte array.</remarks>
+                    </item>
+                    <item>
+                        <name>Thumbprint</name>
+                        <term>byte array</term>
+                        <encoding>ASCII</encoding>
+                        <encryption></encryption>
+                        <remarks>The thumbprint identifies the certificate that was used to encrypt the cipher. That certificate will be needed to decrypt the encrypted cargo.</remarks>
+                    </item>
+                    <item>
+                        <name>Cipher length</name>
+                        <term>ushort</term>
+                        <encoding></encoding>
+                        <encryption></encryption>
+                        <remarks>The length of the Cipher byte array.</remarks>
+                    </item>
+                    <item>
+                        <name>Cipher</name>
+                        <term>byte array</term>
+                        <encoding>ASCII</encoding>
+                        <encryption>Encrypted with certificate</encryption>
+                        <remarks>The cipher contains the Key and IV that was used to encrypt the cargo. It is encrypted with the certificate.</remarks>
+                    </item>
+                    <item>
+                        <name>Encrypted Cargo length</name>
+                        <term>ushort</term>
+                        <encoding></encoding>
+                        <encryption></encryption>
+                        <remarks>The length of the encrypted Cargo byte array.</remarks>
+                    </item>
+                    <item>
+                        <name>Cargo</name>
+                        <term>byte array</term>
+                        <encoding>UTF8</encoding>
+                        <encryption>Symmetric encrypted using random Key/IV stored in Cipher</encryption>
+                        <remarks>Contains the encrypted cargo that was encrypted using symmetric encryption using a random Key and IV that has been stored in the Cipher.</remarks>
+                    </item>
+                    <item>
+                        <name>Cargo length</name>
+                        <term>ushort</term>
+                        <encoding></encoding>
+                        <encryption></encryption>
+                        <remarks>The original length of the Cargo byte array before encryption.</remarks>
+                    </item>
+                </list>
+            </remarks>
+        </member>
+        <member name="F:Alkami.Utilities.Cryptography.AsymmetricEncryption.EncryptionByteLimit">
+            <summary>
+             The limit of bytes that we can encrypt and decrypt successfully
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.EncryptWithThumbprint(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            The Encrypt method encrypts a string using the specified certificate.
+            </summary>
+            <param name="payload">The payload to encrypt.</param>
+            <param name="certificate">The X.509 certificate to use to encrypt the payload.</param>
+            <returns>Returns a string that contains the encrypted payload.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.DecryptWithThumbprint(System.String)">
+            <summary>
+            The Decrypt method decrypts a string that was encrypted by the <see cref="T:Alkami.Utilities.Cryptography.AsymmetricEncryption.Encryptor"/>.
+            </summary>
+            <param name="payload">The encrypted payload to decrypt.</param>
+            <returns>Returns the decrypted payload.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.Decrypt(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            The Decrypt method decrypts a string that was encrypted by the <see cref="T:Alkami.Utilities.Cryptography.AsymmetricEncryption.Encryptor"/>.
+            </summary>
+            <param name="payload">The encrypted payload to decrypt.</param>
+            <param name="certificate">The certificate containing the private key for decrypting the payload.</param>
+            <returns>Returns the decrypted payload.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Cryptography.AsymmetricEncryption.Encryptor">
+            <summary>
+            The Encryptor is a sealed call that is used to assymetrically encrypt a payload.
+            The <see cref="T:Alkami.Utilities.Cryptography.AsymmetricEncryption.Decryptor"/> class decrypts a payload encrypted using this method.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.Encryptor.#ctor(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            The constructor that creates an instance of the Encryptor class.
+            </summary>
+            <param name="payload">The payload to encrypt.</param>
+            <param name="certificate">The X.509 certificate to use to encrypt the cipher.</param>
+            <param name="cryptoProvider">The symmetric cryptography provider to use to encrypt the payload using the cipher.</param>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.Encryptor.GetEncryptedString">
+            <summary>
+            Gets the encrypted string using the assigned properties of the Encryptor instance.
+            </summary>
+            <returns>Returns the encrypted value as a string.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Cryptography.AsymmetricEncryption.Decryptor">
+            <summary>
+            The Decryptor is a sealed call that is used to assymetrically decrypt a payload
+            that was encrypted using <see cref="T:Alkami.Utilities.Cryptography.AsymmetricEncryption.Encryptor"/>. You should use WebDecrypt to
+            decrypt any logs.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.Decryptor.#ctor(System.String,System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.SymmetricAlgorithm)">
+            <summary>
+            The constructor that creates an instance of the Decryptor class.
+            </summary>
+            <param name="payload">The payload to decrypt.</param>
+            <param name="certificate">
+            The certificate to use to decrypt the payload. If this is null, the certificate will
+            be found based on the thumbprint of the certificate that encrypted the message. If
+            the certificate's doesn't private key doesn't match the public key that encrypted
+            the payload, the decryption will fail.
+            </param>
+            <param name="cryptoProvider">
+            The SymmetricAlgorithm cryptography provider to use to decrypt the payload. If this
+            is null, the RijndaelManaged crypto provider will be used. If the crypto provider
+            doesn't match the provider that was used to encrypt the message, the results are
+            unknown but probably wrong.
+            </param>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.AsymmetricEncryption.Decryptor.GetDecryptedString">
+            <summary>
+            Gets the decrypted string using the assigned properties of the Decryptor instance.
+            </summary>
+            <returns>Returns the decrypted value as a string.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Cryptography.CertificateUtility">
+            <summary>
+            Utility class used to find certificates in the computer's cert store.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.CertificateUtility.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.Object)">
+            <summary>
+            Finds a certificate by the specified criteria.  If the certificate cannot be found, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <param name="name">Store name to search.</param>
+            <param name="location">Store location to search.</param>
+            <param name="findType">Type of criteria by which to search.</param>
+            <param name="findValue">Criteria to which to search.</param>
+            <returns>An instance of the certificate, otherwise throws <see cref="T:System.InvalidOperationException"/>.</returns>
+            <exception cref="T:System.InvalidOperationException">If a non-expired cert cannot be found, an <see cref="T:System.InvalidOperationException"/> is thrown.</exception>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.CertificateUtility.GetCertificateIfPresent(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.Object)">
+            <summary>
+            Finds a certificate by the specified criteria.  If the certificate cannot be found, a null is returned.
+            </summary>
+            <param name="name">Store name to search.</param>
+            <param name="location">Store location to search.</param>
+            <param name="findType">Type of criteria by which to search.</param>
+            <param name="findValue">Criteria to which to search.</param>
+            <returns>An instance of the certificate, otherwise null.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.CertificateUtility.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Finds a certificate by the specified criteria.  If the certificate cannot be found, an <see cref="T:System.InvalidOperationException"/> is thrown.
+            </summary>
+            <param name="name">Store name to search.</param>
+            <param name="location">Store location to search.</param>
+            <param name="findType">Type of criteria by which to search.</param>
+            <param name="findValue">Criteria to which to search.</param>
+            <returns>An instance of the certificate, otherwise throws <see cref="T:System.InvalidOperationException"/>.</returns>
+            <exception cref="T:System.InvalidOperationException">If a non-expired cert cannot be found, an <see cref="T:System.InvalidOperationException"/> is thrown.</exception>
+        </member>
+        <member name="M:Alkami.Utilities.Cryptography.CertificateUtility.GetCertificateIfPresent(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Finds a certificate by the specified criteria.  If the certificate cannot be found, a null is returned.
+            </summary>
+            <param name="name">Store name to search.</param>
+            <param name="location">Store location to search.</param>
+            <param name="findType">Type of criteria by which to search.</param>
+            <param name="findValue">Criteria to which to search.</param>
+            <returns>An instance of the certificate, otherwise null.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Extensions.DelegateBuilder">
+            <summary>
+            Utility to transform reflection-obtained instances to functional delegates
+            MI: source adapted from: http://stackoverflow.com/questions/13041674/create-func-or-action-for-any-method-using-reflection-in-c
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.DelegateBuilder.BuildDelegate``1(System.Reflection.MethodInfo,System.Object[])">
+            <summary>
+            Creates a generic delegate from a method info defined on a static or instance type
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="method"></param>
+            <param name="missingParamValues"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Extensions.EnumerableExtensions">
+            <summary>
+            A utility class that provides static methods as shortcuts for handling enumerations
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Provides expression based for-each functionality to IEnumerable{T} objects.
+            </summary>
+            <typeparam name="T">The generic type of the collection.</typeparam>
+            <param name="collection">The collection to iterate over.</param>
+            <param name="action">The action to perform on each element of the collection.</param>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.DuplicatesBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Returns any duplicates found based on the lamda expression.
+            </summary>
+            <typeparam name="TSource">The source</typeparam>
+            <typeparam name="TKey">The Key</typeparam>
+            <param name="source">The source enumeration to order.</param>
+            <param name="keySelector">The key to select on</param>
+            <returns>An enumeration of duplicate entities</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.DistinctBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1})">
+            <summary>
+            Returns distinct objects based on the lamda expression.
+            </summary>
+            <typeparam name="TSource">The source</typeparam>
+            <typeparam name="TKey">The Key</typeparam>
+            <param name="source">The source enumeration to order.</param>
+            <param name="keySelector">The key to select on</param>
+            <returns>An enumeration of distinct entities</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.TryGetSingleOrDefault``1(System.Collections.Generic.IEnumerable{``0},System.Boolean@)">
+            <summary>
+            Returns the sole element from a single-element sequence. If the sequence
+            has no elements or if it has more than 1 element the return value is
+            default(T).
+            </summary>
+            <typeparam name="T">Element type of the collection.</typeparam>
+            <param name="items">Collection to enumerate.</param>
+            <param name="tooManyItems">Set to true upon return if the sequence has too many items.</param>
+            <returns>
+            Returns the sole item from the collection or null if the collection has 0 or 
+            more than 1 items.
+            </returns>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determines if the specified collection is null or contains no elements.
+            </summary>
+            <typeparam name="T">Collection type.</typeparam>
+            <param name="items">Collection to check. This parameter can be null.</param>
+            <returns>
+            Returns true if the collection is null or if it has no elements.
+            </returns>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.ChunkBy``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Splits a 
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="chunkSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.EnumerableExtensions.OrderBy``2(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``1},System.Boolean)">
+            <summary>
+            Orders an enumerable by some selected value in the supplied direction
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TKey"></typeparam>
+            <param name="enumerable"></param>
+            <param name="selector">Produce a value by which to sort the enumerable</param>
+            <param name="ascending">Whether the enumerable should be in ascending or descending order</param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Extensions.SettingReaderUtility">
+            <summary>
+            A tiny utility for reading configuration settings from various sources (this is source-agnostic and technology-agnostic)
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.SettingReaderUtility.GetSettingOrDefault``1(System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Func{``0})">
+            <summary>
+            Returns the configured setting for a given setting key or the default value returned by the provided delegate.
+            </summary>
+            <typeparam name="T">The type of the setting item</typeparam>
+            <param name="settings">The keyed collectino of settings to search through</param>
+            <param name="name">The name/key of the setting</param>
+            <param name="defaultValueDelegate">The delegate function that would return the default value in case a configured one is not found.</param>
+            <returns>The configured or default value of the setting identified by its name (key)</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Extensions.SettingReaderUtility.GetSettingOrDefault``1(System.Collections.Generic.IDictionary{System.String,System.String},System.String,System.Func{``0},System.Boolean)">
+            <summary>
+            Returns the configured setting for a given setting key or the default value returned by the provided delegate.
+            </summary>
+            <typeparam name="T">The type of the setting item</typeparam>
+            <param name="settings">The keyed collectino of settings to search through</param>
+            <param name="name">The name/key of the setting</param>
+            <param name="defaultValueDelegate">The delegate function that would return the default value in case a configured one is not found.</param>
+            <param name="allowEmptyOrWhitespace">When true, will only use defaultValue if setting is missing or is null. When false, will also return defaultValue if setting is Empty or Whitespace</param>
+            <returns>The configured or default value of the setting identified by its name (key)</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Formatting.ObjectPropertyBinder">
+            <summary>
+            This class takes information from the source object and binds it to a format string with qualifiers.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Formatting.ObjectPropertyBinder.PropertyReflector">
+            <summary>
+            Gets or sets the PropertyReflector dependency
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.ObjectPropertyBinder.#ctor">
+            <summary>
+            Creates an instance of the ObjectPropertyBinder class.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.ObjectPropertyBinder.Bind(System.String,System.Object)">
+            <summary>
+            Binds the specified source data to the output format by the exposed public properties on the source object, with formatting as appropriate.
+            </summary>
+            <param name="outputFormat"></param>
+            <param name="sourceData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.ObjectPropertyBinder.DetectPropertyBindingExpressionsIn(System.String)">
+            <summary>
+            This scans the outputFormat for binding expressions, and produces binding expression tokens.
+            </summary>
+            <param name="outputFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Formatting.PropertyReflector">
+            <summary>
+            Responsible for enumerating and caching discovered reflection information for types
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.PropertyReflector.DiscoverEligiblePropertiesFrom(System.Object)">
+            <summary>
+            This discovers eligible property information from reflection for the given object
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.PropertyReflector.DiscoverEligiblePropertiesFrom(System.Type)">
+            <summary>
+            This discovered eligible property information from reflection for the given source type
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Formatting.Utilities.StringUtilities">
+            <summary>
+            Global utilities for string formatting
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetShouldSanitize">
+            <summary>
+            Boolean representation for the SanitizeLogEntry setting. True if SanitizeLogEntry is not in the configuration.
+            </summary>
+            <returns>false if ORB has been configured to log private data, true otherwise</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetTaxIdRegex">
+            <summary>
+            Get the configuration for the tax ID regular epxression
+            </summary>
+            <returns>String that contains the regular expression that should match tax IDs</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetPrivateNumberRegex">
+            <summary>
+            Get the configuration for the private number regular expression
+            </summary>
+            <returns>String that contains the regular expression that should match private numbers</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetConnectionPasswordRegex">
+            <summary>
+            Configuration for ConnStr Password Regex
+            </summary>
+            <returns>The regular expression that should match passwords in connection strings</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.ToMaskedString(System.String,System.Int32,System.Boolean)">
+             <summary>
+            
+             </summary>
+             <param name="input"> the input string we will be masking </param>
+             <param name="unmaskedTrailingCharacterCount"> the number of characters that will remain unmasked after the operation completes. Defaults to 4.</param>
+             <param name="maskToLength"> when true this parameter will ensure the length of the masked output is the same length as the input string. When false this setting will put four asterisks in front of the unmasked characters. Defaults to true. </param>
+             <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeConnStr(System.String)">
+            <summary>
+            Redact password from connection string
+            </summary>
+            <param name="input">String to sanitize</param>
+            <returns>Sanitized string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.String)">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The string that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.MaskCardNumbers(System.String)">
+            <summary>
+            Masks card numbers with stars (*) leaving the last 4 and first 2 digits
+            </summary>
+            <param name="input">The string with card numbers to mask</param>
+            <returns>A string where card numbers have been masked</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.RedactTaxId(System.String)">
+            <summary>
+            Redacts the TaxID based on a pattern.
+            </summary>
+            <param name="str">The string to search for the pattern to redact.</param>
+            <returns>A string where the tax ID has been masked with *'s leaving the last 4 digits</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.RedactPrivateNumber(System.String)">
+            <summary>
+            Redacts a number which represents NPPI based on a patern.
+            </summary>
+            <param name="input">The string to search for the pattern to redact.</param>
+            <returns>A string where the number has been masked with *'s possibly leaving the last 4 digits</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.Left(System.String,System.Int32)">
+            <summary>
+            Returns the first specified number of characters from a string
+            </summary>
+            <param name="text">The string from which to return the first specified number of characters</param>
+            <param name="length">The number of characters, at maximum to return</param>
+            <returns>The first specified number of characters</returns>
+            <remarks>
+            As String.Substring() will thrown an exception if the string has fewer characters than requested by its
+            index property, this is a more usable version that mimics the Visual Basic Left() functionality
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.Right(System.String,System.Int32)">
+            <summary>
+            Returns the last specified number of characters from a string
+            </summary>
+            <param name="text">The string from which to return the last specified number of characters</param>
+            <param name="length">The number of characters, at maximum to return</param>
+            <returns>The last specified number of characters</returns>
+            <remarks>
+            As String.Substring() will thrown an exception if the string has fewer characters than requested by its
+            index property, this is a more usable version that mimics the Visual Basic Left() functionality
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.Nullable{System.Int64})">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The number that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.Int64)">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The number that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.Int32)">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The number that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.MaskEmailAddress(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Mask an email address.
+            </summary>
+            <param name="originalEmailAddress">Email address to be masked</param>
+            <param name="min">Minimum characters that will be displayed</param>
+            <param name="max">Maximum characters that will be displayed</param>
+            <param name="defaultNumOfMasks">Default number of masks</param>
+            <returns>Masked email address</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.MaskPhoneNumber(System.String,System.Int32,System.Char)">
+            <summary>
+            Mask a phone number.
+            </summary>
+            <param name="phoneNumber">phone Number to be masked</param>
+            <param name="digitDisplayCount">The number of numbers to show towards the end of the mask</param>
+            <param name="delimeter">The delimiter used in displaying the phone number</param>
+            <returns>Masked Phone Number</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Hashing.HashMethod">
+            <summary>
+            An enumeration of the keyed hash algorithms available to the Compute method.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACMD5">
+            <summary>
+            MD5 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACRIPEMD160">
+            <summary>
+            RIPEMD160 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA1">
+            <summary>
+            SHA1 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA256">
+            <summary>
+            SHA256 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA384">
+            <summary>
+            SHA384 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA512">
+            <summary>
+            SHA512 Algorithm
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Hashing.HashUtility">
+            <summary>
+            Static class that handles the computation of a hash based on a keyed hash algorithm.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.Byte[],System.Byte[],Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="messageBytes">The message bytes.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>
+            The computed hash represented as a hex string.
+            </returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.Byte[],System.String,Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="messageBytes">The message bytes.</param>
+            <param name="key">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>
+            The computed hash represented as a hex string.
+            </returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.String,System.Byte[],Alkami.Utilities.Hashing.HashMethod,System.Boolean)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <param name="byteArrayToHexStringLower"></param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ComputeBinary(System.String,System.Byte[],Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ComputeBinary(System.Byte[],System.Byte[],Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="messageBytes">The message to hash.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.String,System.String,Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="textStringKey">The key to hash the method with as a text string.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ComputeFromHexString(System.String,System.String,Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="hexStringKey">The key to hash the method with as a HEX string.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ByteArrayToHexString(System.Byte[],System.Boolean)">
+            <summary>
+            Bytes the array to hexadecimal string.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="isLower">If true, sets X2 to x2.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ByteArrayToHexStringLower(System.Byte[])">
+            <summary>
+            Bytes the array to hexadecimal string lower.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.HexStringToByteArray(System.String)">
+            <summary>
+            Strings to byte array.
+            </summary>
+            <param name="hex">The hexadecimal.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.StringToByteArray(System.String)">
+            <summary>
+            string to byte array.
+            </summary>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.IpAddressUtility">
+            <summary>
+            Utility methods to handle IP addresses, request headers and user IP lookups
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.IpAddressUtility.HttpIPHeaders">
+             <summary>
+             HTTP headers to look for when trying to guess the user's IP address.
+             Headers are checked in order with a final fallback to REMOTE_ADDR if
+             all other headers are missing. See
+            
+             http://stackoverflow.com/questions/1634782/what-is-the-most-accurate-way-to-retrieve-a-users-correct-ip-address-in-php
+            
+             for more information.
+             </summary>
+        </member>
+        <member name="F:Alkami.Utilities.IpAddressUtility.Context">
+            <summary>
+            Stub to use to override for testing
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.String[],System.Func{System.Net.IPAddress,System.Boolean},System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="validateFunc">
+            A callback function to determine if a given IP address should be considered
+            valid or not. If the validation function returns false (that is, it determines
+            that an IP address is invalid) the IP address is not returned to the caller.
+            If the validation function is not specified, all IP addresses are valid.
+            </param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.String[],System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Web.HttpContextBase,System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="context">HttpContext for the request.</param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Web.HttpContext,System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="context">HttpContext for the request.</param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Web.HttpContext,System.String[],System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="context">HttpContext for the request.</param>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Web.HttpContext,System.String[],System.Func{System.Net.IPAddress,System.Boolean},System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="context">HttpContext for the request.</param>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="validateFunc">
+            A callback function to determine if a given IP address should be considered
+            valid or not. If the validation function returns false (that is, it determines
+            that an IP address is invalid) the IP address is not returned to the caller.
+            If the validation function is not specified, all IP addresses are valid.
+            </param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Web.HttpContextBase,System.String[],System.Func{System.Net.IPAddress,System.Boolean},System.Net.IPAddress)">
+            <summary>
+            Determines the user's IP address from the current request (if available)
+            by checking multiple request headers until an IP address is found. If
+            the IP address cannot be determined, a default IP address is returned
+            (null if not otherwise specified).
+            </summary>
+            <param name="context">HttpContext for the request.</param>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="validateFunc">
+            A callback function to determine if a given IP address should be considered
+            valid or not. If the validation function returns false (that is, it determines
+            that an IP address is invalid) the IP address is not returned to the caller.
+            If the validation function is not specified, all IP addresses are valid.
+            </param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.Collections.Generic.IEnumerable{System.String}}},System.String[],System.Func{System.Net.IPAddress,System.Boolean},System.Net.IPAddress)">
+            <summary>
+            This is an overload if you don't have an HttpContext
+            </summary>
+            <param name="httpRequestHeaders"></param>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="validateFunc">
+            A callback function to determine if a given IP address should be considered
+            valid or not. If the validation function returns false (that is, it determines
+            that an IP address is invalid) the IP address is not returned to the caller.
+            If the validation function is not specified, all IP addresses are valid.
+            </param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.IpAddressUtility.GetUserIpAddress(System.Collections.Specialized.NameValueCollection,System.String[],System.Func{System.Net.IPAddress,System.Boolean},System.Net.IPAddress)">
+            <summary>
+            This is an overload if you don't have an HttpContext
+            </summary>
+            <param name="serverVariables">The request server variables or headers</param>
+            <param name="headerNames">List of HTTP header names to check.</param>
+            <param name="validateFunc">
+            A callback function to determine if a given IP address should be considered
+            valid or not. If the validation function returns false (that is, it determines
+            that an IP address is invalid) the IP address is not returned to the caller.
+            If the validation function is not specified, all IP addresses are valid.
+            </param>
+            <param name="ipDefault">
+            Default IP address to return if a valid IP address cannot be picked for
+            the request.
+            </param>
+            <returns>Returns the IP address for the request in the specified context.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.LogUtility">
+            <summary>
+            Static helper methods and utilities when logging
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.COLUMN_SEPARATOR">
+            <summary>
+            A standard column separator to be used when logging
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.CORRELATION_ID">
+            <summary>
+            The name of the Correlation_ID property to correlate multiple log entries to a single request
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.BankIdentifier">
+            <summary>
+            The name of the BankIdentifier Property in the Log4Net ThreadContext Properties
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.UserIdentifier">
+            <summary>
+            The name of the UserIdentifier Property in the Log4Net ThreadContext Properties
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.UserSessionId">
+            <summary>
+            The name of the UserSessionId Property in the Log4Net ThreadContext Properties
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.QuartzJobName">
+            <summary>
+            The name of the Quartz JobName Property in the Log4Net ThreadContext Properties
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.LogUtility.QuartzJobGroup">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectClaimsForLogging(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Injects the Current Claims
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLoggingProperties(System.Uri)">
+            <summary>
+             Injects some custom properties into Logging, for public services
+            </summary>
+            <param name="bankUrlSignature">The banks URI</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLoggingProperties(System.Guid)">
+            <summary>
+             Injects some custom properties into Logging, for public services
+            </summary>
+            <param name="bankIdentifier">The banks Identifier</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLoggingProperties(System.Guid,System.String,System.String)">
+            <summary>
+             Injects some custom properties into Logging, for public services
+            </summary>
+            <param name="bankIdentifier">The banks Identifier</param>
+            <param name="stsUserId">The stsUserId or the UserName</param>
+            <param name="userSessionId">The session id of the user</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLoggingProperties(System.Uri,System.String,System.String)">
+            <summary>
+             Injects some custom properties into Logging, for public services
+            </summary>
+            <param name="bankUrlSignature">The Banks Uri</param>
+            <param name="stsUserId">The STS ID of the user</param>
+            <param name="userSessionId">The session id of the user</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLoggingProperties(System.Uri,System.Guid,System.String)">
+            <summary>
+             Injects some custom properties into Logging, for public services
+            </summary>
+            <param name="bankUrlSignature">The Banks Uri</param>
+            <param name="userIdentifier">The userIdentifier of the user</param>
+            <param name="userSessionId">The session id of the user</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLoggingProperties(System.Guid,System.Guid,System.String)">
+            <summary>
+             Injects some custom properties into Logging, for public services
+            </summary>
+            <param name="bankIdentifier">The Bank identifier</param>
+            <param name="userIdentifier">The userIdentifier of the user</param>
+            <param name="userSessionId">The session id of the user</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectLog4NetQuartzProperties(System.String,System.String)">
+            <summary>
+            Injects the Trigger group and Name into Log4Net ThreadContext
+            </summary>
+            <param name="triggerName">The TriggerName</param>
+            <param name="triggerGroup">The Trigger group</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.ClearLoggingProperties">
+            <summary>
+            Clear all the properties
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogIISApplicationStartup(Common.Logging.ILog,System.Reflection.Assembly)">
+            <summary>
+            Logs information about the loaded assemblies during application startup
+            </summary>
+            <param name="logger">The Logger</param>
+            <param name="executingAssembly">The Executing Assembly</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogWindowsServiceApplicationStartup(Common.Logging.ILog,System.Reflection.Assembly)">
+            <summary>
+            Logs information about the loaded assemblies during application startup
+            </summary>
+            <param name="logger">The Logger</param>
+            <param name="executingAssembly">The Executing Assembly</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.TraceCallStack(Common.Logging.ILog,System.String)">
+            <summary>
+            Trace-logs the current call stack with the specified message.
+            </summary>
+            <param name="logger">Logger to use for logging.</param>
+            <param name="logMessage">Log message to add.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InfoCallStack(Common.Logging.ILog,System.String)">
+            <summary>
+            Info-logs the current call stack with the specified message.
+            </summary>
+            <param name="logger">Logger to use for logging.</param>
+            <param name="logMessage">Log message to add.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.WarnCallStack(Common.Logging.ILog,System.String)">
+            <summary>
+            Warn-logs the current call stack with the specified message.
+            </summary>
+            <param name="logger">Logger to use for logging.</param>
+            <param name="logMessage">Log message to add.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.ErrorCallStack(Common.Logging.ILog,System.String)">
+            <summary>
+            Error-logs the current call stack with the specified message.
+            </summary>
+            <param name="logger">Logger to use for logging.</param>
+            <param name="logMessage">Log message to add.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.DebugCallStack(Common.Logging.ILog,System.String)">
+            <summary>
+            Debug-logs the current call stack with the specified message.
+            </summary>
+            <param name="logger">Logger to use for logging.</param>
+            <param name="logMessage">Log message to add.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.FatalCallStack(Common.Logging.ILog,System.String)">
+            <summary>
+            Fatal-logs the current call stack with the specified message.
+            </summary>
+            <param name="logger">Logger to use for logging.</param>
+            <param name="logMessage">Log message to add.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogTrace(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Logs the supplied message if Trace is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogTraceEncrypted(Common.Logging.ILog,System.String,System.Object[])">
+            <summary>
+            Encrypts and logs the supplied message if Trace is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="args">An array of objects that contain zero or more objects to format.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogTraceEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Encrypts and logs the supplied message if Trace is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogTraceEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler},System.Exception)">
+            <summary>
+            Encrypts and logs the supplied message and exception if Trace is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogDebug(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Logs the supplied message if Debug is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogDebugEncrypted(Common.Logging.ILog,System.String,System.Object[])">
+            <summary>
+            Encrypts and logs the supplied message if Debug is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="args">An array of objects that contain zero or more objects to format.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogDebugEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Encrypts and logs the supplied message if Debug is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogDebug(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler},System.Exception)">
+            <summary>
+            Logs the supplied message if Debug is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="ex">The exception.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogDebugEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler},System.Exception)">
+            <summary>
+            Encrypts and logs the supplied message and exception if Debug is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogInfo(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Logs the supplied message if Info is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogInfoEncrypted(Common.Logging.ILog,System.String,System.Object[])">
+            <summary>
+            Encrypts and logs the supplied message if Info is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="args">An array of objects that contain zero or more objects to format.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogInfoEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Encrypts and logs the supplied message if Info is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogWarn(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Logs the supplied message if Warn is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogWarnEncrypted(Common.Logging.ILog,System.String,System.Object[])">
+            <summary>
+            Encrypts and logs the supplied message if Warn is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="args">An array of objects that contain zero or more objects to format.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogWarnEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Encrypts and logs the supplied message if Warn is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogError(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Error Logs the supplied message if Error is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogErrorEncrypted(Common.Logging.ILog,System.String,System.Object[])">
+            <summary>
+            Encrypts and logs the supplied message if Error is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="args">An array of objects that contain zero or more objects to format.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogErrorEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Encrypts and logs the supplied message if Error is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.LogErrorEncrypted(Common.Logging.ILog,System.Action{Common.Logging.FormatMessageHandler},System.Exception)">
+            <summary>
+            Encrypts and logs the supplied message and exception if Error is Enabled.
+            </summary>
+            <param name="logger">The logger.</param>
+            <param name="message">The message.</param>
+            <param name="exception">The exception.</param>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.GetCorrelationId">
+            <summary>
+            Gets the CorrelationID
+            </summary>
+            <returns>A Guid which is the CorrlationID. Will be an emtpy Guid if one is not created.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.SetThreadContextProperties(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Gets the BankIdentifier
+            </summary>
+            <returns>A Guid which is the BankIdentifier. Will be an emtpy Guid if one is not created.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.GetThreadContextProperties">
+            <summary>
+            Gets the BankIdentifier
+            </summary>
+            <returns>A Guid which is the BankIdentifier. Will be an emtpy Guid if one is not created.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.InjectCorrelationID(System.Guid)">
+            <summary>
+            Injects the CorrelationID. Will only do so if the correlationID is not already set, to prevent it from being overwritten.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.CreateCoreRequestEntry(System.String,System.String)">
+            <summary>
+            Creates a Log entry that contains the Request made to the core
+            </summary>
+            <param name="coreMethodName">The Name of the Method on the Core we are calling</param>
+            <param name="requestString">The actual Request</param>
+            <returns>A Properly formatted string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.CreateCoreResponseEntry(System.String,System.String)">
+            <summary>
+            Creates a Log entry that contains the Response received from core
+            </summary>
+            <param name="coreMethodName">The Name of the Method on the Core we are calling</param>
+            <param name="requestString">The actual Request</param>
+            <returns>A Properly formatted string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.CreateCoreRequestJsonEntry(System.String,System.Object,System.Boolean)">
+            <summary>
+            Creates a log entry that conains the Json-serialized Request sent to core 
+            </summary>
+            <param name="coreMethod">The Name of the Method on the Core we are calling</param>
+            <param name="objectToLog">The actual Request object</param>
+            <param name="indent">optional boolean indicating indented Json format</param>
+            <returns>A properly formatted string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.CreateCoreResponseJsonEntry(System.String,System.Object,System.Boolean)">
+            <summary>
+            Creates a log entry that conains the Json-serialized Response received from core 
+            </summary>
+            <param name="coreMethod">The Name of the Method on the Core we are calling</param>
+            <param name="objectToLog">The actual REsponse object</param>
+            <param name="indent">optional boolean indicating indented Json format</param>
+            <returns>A properly formatted string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.IsEncryptionEnabled(Common.Logging.ILog)">
+            <summary>
+            Boolean for whether or not log encryption is enabled
+            </summary>
+            <param name="logger">The logger</param>
+            <returns>True if log encryption is enabled, false otherwise</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.EncryptMessage(System.String)">
+            <summary>
+            Encrypt a message (this will use a X.509 certificate)
+            </summary>
+            <remarks>
+            Strings with more than 16379 characters that contain characters such as combining diacritical marks or emoji (which appear to be one character but are actually
+            two characters) are not supported.
+            </remarks>
+            <param name="message">The message to encrypt</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.ReadThumprint(System.String)">
+            <summary>
+            Takes an encrypted string, and gets the thumbrint of the certificate used to encrypt it originally
+            </summary>
+            <param name="payload">The encrypted string</param>
+            <returns>The thumbrint of the certificate used to encrypt the payload string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.ReadLengthFromStream(System.IO.Stream)">
+            <summary>
+            helper function for ReadThumbprint
+            finds the length of the encrypted text
+            (which is written in the first 2 bytes of stream)
+            </summary>
+            <param name="stream">The stream to read from</param>
+            <returns>The length which was written in the stream</returns>
+        </member>
+        <member name="M:Alkami.Utilities.LogUtility.ReadBytesFromStream(System.IO.Stream,System.Int32)">
+            <summary>
+            helper function for ReadThumbprint
+            converts a stream in to byte array
+            </summary>
+            <param name="stream">The stream to read from and convert</param>
+            <param name="bytesToRead">the number of bytes to read</param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.FormatMessageCallbackFormattedMessage">
+            <summary>
+            Format message on demand.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.FormatMessageCallbackFormattedMessage.cachedMessage">
+            <summary>
+            The cached message
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.FormatMessageCallbackFormattedMessage.formatProvider">
+            <summary>
+            The format provider
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.FormatMessageCallbackFormattedMessage.formatMessageCallback">
+            <summary>
+            The format message callback
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.FormatMessageCallbackFormattedMessage.cachedFormat">
+            <summary>
+            The cached format
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.FormatMessageCallbackFormattedMessage.cachedArguments">
+            <summary>
+            The cached arguments
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.FormatMessageCallbackFormattedMessage.#ctor(System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.Utilities.FormatMessageCallbackFormattedMessage"/> class.
+            </summary>
+            <param name="formatMessageCallback">The format message callback.</param>
+        </member>
+        <member name="M:Alkami.Utilities.FormatMessageCallbackFormattedMessage.#ctor(System.IFormatProvider,System.Action{Common.Logging.FormatMessageHandler})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.Utilities.FormatMessageCallbackFormattedMessage"/> class.
+            </summary>
+            <param name="formatProvider">The format provider.</param>
+            <param name="formatMessageCallback">The format message callback.</param>
+        </member>
+        <member name="M:Alkami.Utilities.FormatMessageCallbackFormattedMessage.ToString">
+            <summary>
+            Calls <see cref="F:Alkami.Utilities.FormatMessageCallbackFormattedMessage.formatMessageCallback"/> and returns result.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.FormatMessageCallbackFormattedMessage.FormatMessage(System.String,System.Object[])">
+            <summary>
+            Formats the message.
+            </summary>
+            <param name="format">The format.</param>
+            <param name="args">The arguments.</param>
+            <returns>System.String.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.MoreThanOneCertificateFound">
+            <summary>
+              Looks up a localized string similar to There is more than one certificate for find type {0} with find value &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.NoCertificateFound">
+            <summary>
+              Looks up a localized string similar to No certificate was found using search criteria: store location - &apos;{0}&apos;, store name - &apos;{1}&apos;, x509 find type - &apos;{2}&apos;, find value - &apos;{3}&apos;..
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.TypeConversion.TypeConversionUtility">
+            <summary>
+            Utility that performs (simple) type conversions used mainly for settings retrieval and strong-typing
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.TypeConversion.TypeConversionUtility.ConvertTo``1(System.Object)">
+            <summary>
+            New conversion function implementation. Works with value types (including enums), nullable types, strings, other simple types that can be passed in for settings.
+            It is made public so that it can be used outside of the settings context as needed.
+            </summary>
+            <typeparam name="T">The type to convert to</typeparam>
+            <param name="o">The object to attempt to convert</param>
+            <returns>An instance of type T representing the result of conversion of the input object.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Validation.CreditCardValidator">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.RedactCreditCardNumbers(System.String)">
+            <summary>
+            Sanitize a string with one or more credit card numbers
+            </summary>
+            <param name="s">The string with credit card number(s) to redact</param>
+            <returns>The string with redacted credit card number(s)</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.NormalizeCreditCardNumber(System.String)">
+            <summary>
+            Normalizes the credit card number.
+            </summary>
+            <param name="number">The number.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">number</exception>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.IsValidCreditCardNumber(System.String)">
+            <summary>
+            Determines whether [is valid credit card number] [the specified pan].
+            Does not validate issuer. The list of valid issuers would have to be maintained somehow.
+            </summary>
+            <param name="pan">no dashes or spaces.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.ValidateLuhn(System.String)">
+            <summary>
+            ignores non-digit characters. will not work if string contains no digit characters
+            </summary>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

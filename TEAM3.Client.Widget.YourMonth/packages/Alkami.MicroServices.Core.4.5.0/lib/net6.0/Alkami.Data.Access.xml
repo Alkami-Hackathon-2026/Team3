@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Data.Access</name>
+    </assembly>
+    <members>
+        <member name="M:Alkami.Data.Access.ConnectionStringUtil.GetMasterConnectionString">
+            <summary>
+            Gets the Master Connection string
+            </summary>
+        </member>
+        <member name="T:Alkami.Data.Access.MasterDataScope">
+            <summary>
+            A datascope to access AlkamiMaster DB
+            </summary>
+        </member>
+        <member name="M:Alkami.Data.Access.MasterDataScope.#ctor">
+            <summary>
+            Initializes a MasterDataScope using the AlkamiMaster DB configured in config.
+            </summary>
+        </member>
+        <member name="P:Alkami.Data.Access.MasterDataScope.Connection">
+            <summary>
+            Gets a DbConnection
+            </summary>
+        </member>
+        <member name="M:Alkami.Data.Access.MasterDataScope.Dispose">
+            <summary>
+            Safely disposes the MasterDataScope, ensuring the Connection is closed and disposed.
+            </summary>
+        </member>
+        <member name="M:Alkami.Data.Access.TenantRepository.ClearTenants">
+            <summary>
+            Used for testing
+            </summary>
+        </member>
+    </members>
+</doc>

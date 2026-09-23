@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Contracts.BaseCreateOrUpdateRequest`1">
+            <summary>
+            Base Create Or Update Request
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:Alkami.Contracts.BaseRequest" />
+            <seealso cref="T:Alkami.Data.Validations.IValidate" />
+        </member>
+        <member name="M:Alkami.Contracts.BaseCreateOrUpdateRequest`1.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Alkami.Contracts.BaseCreateOrUpdateRequest`1" />.
+            </summary>
+        </member>
+        <member name="P:Alkami.Contracts.BaseCreateOrUpdateRequest`1.ItemList">
+            <summary>
+            Gets or sets the item list.
+            </summary>
+            <value>
+            The item list.
+            </value>
+        </member>
+        <member name="P:Alkami.Contracts.BaseCreateOrUpdateRequest`1.RunAsSingleUnitOfWork">
+            <summary>
+            Gets or sets a value indicating whether [run as single unit of work].
+            </summary>
+            <value>
+            <c>true</c> if [run as single unit of work]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Alkami.Contracts.BaseCreateOrUpdateRequest`1.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseCreateOrUpdateRequest`1.Validate">
+            <summary>
+            Validates the current object producing a collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <returns>A collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseGetRequest`3.Validate">
+            <summary>
+            Validates the current object producing a collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <returns>A collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseRequest.ShallowClone">
+            <summary>
+            Performs a member-wise clone of the request.
+            </summary>
+            <returns>A member-wise clone of the request.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseRequestExtensions.TryApplyClaimsIdentity(Alkami.Contracts.BaseRequest,System.Security.Claims.ClaimsIdentity)">
+            <summary>
+            Will set values on the BaseRequest based on the ClaimsIdentity, if you pass in a non null <see cref="T:System.Security.Claims.ClaimsIdentity"/>
+            </summary>
+            <param name="request">The request to apply the claims identity and correlation id to</param>
+            <param name="claimsIdentity">The claims identity to parse and set values on to the request</param>
+            <returns>Returns true if it can apply the claims identity to the request</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseRequestExtensions.TryApplyClaimsIdentity(Alkami.Contracts.BaseRequest,System.Security.Claims.ClaimsIdentity,System.String)">
+            <summary>
+            Will set values on the BaseRequest based on the ClaimsIdentity, if you pass in a non null <see cref="T:System.Security.Claims.ClaimsIdentity"/>
+            </summary>
+            <param name="request">The request to apply the claims identity and correlation id to</param>
+            <param name="claimsIdentity">The claims identity to parse and set values on to the request</param>
+            <param name="correlationId">The correlation id to apply to the base request. Note, this will not apply if the value is null or whitespace</param>
+            <returns>Returns true if it can apply the claims identity to the request</returns>
+        </member>
+        <member name="T:Alkami.Contracts.ClaimsIdentitySerializationMethod">
+            <summary>
+            Defines the supported methods for serializing the ClaimsIdentity on the request.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.DataContractSerializer">
+            <summary>
+            The legacy method for serializing the ClaimsIdentity using the DataContract Serializer.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.Json">
+            <summary>
+            Converting the ClaimsIdentity to a JSON structure.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.CompressedJson">
+            <summary>
+            Converting the ClaimsIdentity to a JSON structure, then compressing the resulting output.
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.DefaultOrderer">
+            <summary>
+            A simple default orderer
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.ISortOrder">
+            <summary>
+            base interface for controlling paramter types
+            </summary>
+        </member>
+        <member name="P:Alkami.Contracts.ISortOrder.Ascending">
+            <summary>
+            Indicates the direction of the sort
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.ISortOrder`1">
+            <summary>
+            The data contract used to allow callers to control their sorting fields
+            </summary>
+            <typeparam name="TField"></typeparam>
+        </member>
+        <member name="P:Alkami.Contracts.ISortOrder`1.OrderByFields">
+            <summary>
+            A list of Enums representing the availble fields to sort by
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.Internal.AlkamiClaimTypes">
+            <summary>
+            The types of claims that can be applied to an RP-STS security token
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.AccountPermission">
+            <summary>
+            Permissions that relate to an account as well as the entity that owns the account. This is a PREFIX
+            Add the Account ID to the end of this URI
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.AdminDisplayName">
+            <summary>
+            The display name for the admin user masquerading as an FI member.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.AdministratorPermissions">
+            <summary>
+            Permissions for the admin user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.AllGrantedPermissions">
+            <summary>
+            This is an exhaustive list of all permissions this user has from all of their claims, entities etc.. this should be used as a global checker
+            to control main level entry. Additional security should be applied afterwards
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.BankId">
+            <summary>
+            The internal unique identifier of the financial institution to which the user belongs
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.BankIdentifier">
+            <summary>
+            The external unique identifier of the financial institution to which the user belongs
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.BankName">
+            <summary>
+            The name of the financial institution to which the user belongs
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.BankTimeZoneInfo">
+            <summary>
+            The time zone information that is used to localize date/time data representations
+            for a FI's time zone.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.BankUrlSignature">
+            <summary>
+            Bank URL signature, used to identify the proper financial institution when requesting a security token.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.ClientApp">
+            <summary>
+            The client application that is requesting the security token, otherwise known as the
+            application with which the user is interacting, if the user has an interactive context
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.EntityId">
+            <summary>
+            The EntityId for the current entity, if one exists
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.EntityIdentifier">
+            <summary>
+            The EntityIdentifier for the current entity, if one exists
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.EntityPermissions">
+            <summary>
+            Permissions that relate to an entity. This is a PREFIX
+            Add the Entity ID to the end of this URI
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.IsBusinessMasterUser">
+            <summary>
+            Whether or not the user is a business master user
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.IsBusinessSubUser">
+            <summary>
+            Whether or not the user is a business sub user
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.IssuedTokenTypes">
+            <summary>
+            The type of token for which the other associated claims are built.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.IssuerEvidence">
+            <summary>
+            Sign in request issuer evidence.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.LocaleId">
+            <summary>
+            The locality of the user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.MasqueradePermissions">
+            <summary>
+            The admin's permissions while masquerading as a user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.MasqueradingIdentifier">
+            <summary>
+            The administrator identifier that is logged in as a bank user.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.MasqueradingUserViewOnly">
+            <summary>
+            Claim to identify that the Masquerading User is View Only
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.MemberIdentifier">
+            <summary>
+            The unique identifier of a user for a specific their primary core.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.SessionId">
+            <summary>
+            Claim to determine the session id.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.ThemeId">
+            <summary>
+            Claim to determine the theme name to use
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.ThemeName">
+            <summary>
+            Claim to determine the theme name to use
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.TimeZoneInfo">
+            <summary>
+            The time zone information that is used to localize date/time data representations
+            for a user's preferred time zone.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.UserId">
+            <summary>
+            The internal unique identifier of a user
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.UserIdentifier">
+            <summary>
+            The well-known (external) unique identifier of a user
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.UserIPAddress">
+            <summary>
+            The source internet protocol address of the user making the request, or of the service
+            that is acting on behalf of the user if the request is not an interactive context
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.UserName">
+            <summary>
+            The unique identifier of a user by a Secure Token Service issuing authority.  One user may have
+            multiple STSID values from one or more identifying parties, however this value is unique in
+            the namespace context of a single identifying party.
+            </summary>
+            <remarks>Uri Type</remarks>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.UserPermissions">
+            <summary>
+             Permissions that relate to a user
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.BankInstanceIdentifier">
+            <summary>
+             Unique identifier for a FI within an environment
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.Internal.AlkamiClaimTypes.OAuthScopes">
+            <summary>
+            Claim containing the OAuthScopes tied to this identity.
+            </summary>
+        </member>
+    </members>
+</doc>

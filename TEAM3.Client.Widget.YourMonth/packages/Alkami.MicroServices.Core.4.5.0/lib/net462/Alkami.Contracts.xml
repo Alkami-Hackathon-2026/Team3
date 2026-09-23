@@ -1,0 +1,271 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Contracts.BaseCreateOrUpdateRequest`1">
+            <summary>
+            Base Create Or Update Request
+            </summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:Alkami.Contracts.BaseRequest" />
+            <seealso cref="T:Alkami.Data.Validations.IValidate" />
+        </member>
+        <member name="M:Alkami.Contracts.BaseCreateOrUpdateRequest`1.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Alkami.Contracts.BaseCreateOrUpdateRequest`1" />.
+            </summary>
+        </member>
+        <member name="P:Alkami.Contracts.BaseCreateOrUpdateRequest`1.ItemList">
+            <summary>
+            Gets or sets the item list.
+            </summary>
+            <value>
+            The item list.
+            </value>
+        </member>
+        <member name="P:Alkami.Contracts.BaseCreateOrUpdateRequest`1.RunAsSingleUnitOfWork">
+            <summary>
+            Gets or sets a value indicating whether [run as single unit of work].
+            </summary>
+            <value>
+            <c>true</c> if [run as single unit of work]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="M:Alkami.Contracts.BaseCreateOrUpdateRequest`1.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents this instance.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents this instance.
+            </returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseCreateOrUpdateRequest`1.Validate">
+            <summary>
+            Validates the current object producing a collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <returns>A collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseGetRequest`3.Validate">
+            <summary>
+            Validates the current object producing a collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.
+            </summary>
+            <returns>A collection of <see cref="T:Alkami.Data.Validations.ValidationResult"/>s.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseRequest.ShallowClone">
+            <summary>
+            Performs a member-wise clone of the request.
+            </summary>
+            <returns>A member-wise clone of the request.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.BaseResponse.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Alkami.Contracts.BaseResponse"/> class.
+            </summary>
+        </member>
+        <member name="M:Alkami.Contracts.BaseResponse`1.#ctor">
+            <summary>
+            Creates a new instance of the <see cref="T:Alkami.Contracts.BaseResponse`1"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.ClaimsIdentitySerializationMethod">
+            <summary>
+            Defines the supported methods for serializing the ClaimsIdentity on the request.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.DataContractSerializer">
+            <summary>
+            The legacy method for serializing the ClaimsIdentity using the DataContract Serializer.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.Json">
+            <summary>
+            Converting the ClaimsIdentity to a JSON structure.
+            </summary>
+        </member>
+        <member name="F:Alkami.Contracts.ClaimsIdentitySerializationMethod.CompressedJson">
+            <summary>
+            Converting the ClaimsIdentity to a JSON structure, then compressing the resulting output.
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.DefaultOrderer">
+            <summary>
+            A simple default orderer
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.ISortOrder">
+            <summary>
+            base interface for controlling paramter types
+            </summary>
+        </member>
+        <member name="P:Alkami.Contracts.ISortOrder.Ascending">
+            <summary>
+            Indicates the direction of the sort
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.ISortOrder`1">
+            <summary>
+            The data contract used to allow callers to control their sorting fields
+            </summary>
+            <typeparam name="TField"></typeparam>
+        </member>
+        <member name="P:Alkami.Contracts.ISortOrder`1.OrderByFields">
+            <summary>
+            A list of Enums representing the availble fields to sort by
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.SortFuncWrapper`2">
+            <summary>
+            A wrapper around the member expression that dictates the sorting behavior for a given entity T.
+            </summary>
+            <typeparam name="T">The entity type</typeparam>
+            <typeparam name="TSorter">The entity-bound sorting specification type</typeparam>
+        </member>
+        <member name="M:Alkami.Contracts.SortFuncWrapper`2.Create``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Factory pattern - this class is responsible for producing instances of itself as it knows how to build the wrapped function from the input expression
+            </summary>
+            <typeparam name="TKey">The return type of the member expression it wraps</typeparam>
+            <param name="e">The member expression it must wrap so that it can be used for sorting (specifically, the sorting key selector expression)</param>
+            <returns>An instance of this class with the specific sort function build as needed, ready to be used/invoked.</returns>
+        </member>
+        <member name="P:Alkami.Contracts.SortFuncWrapper`2.SortFunc">
+            <summary>
+            Returns the wrapped sort function to be applied to a queryable collection of entities.
+            </summary>
+        </member>
+        <member name="T:Alkami.Contracts.MemberAssociations`3">
+            <summary>
+            A concurrent dictionary that associates sort fields to entity member expressions that define sorting behavior for a given entity
+            </summary>
+            <typeparam name="T">The entity type</typeparam>
+            <typeparam name="TSorter">The entity-bound sorting specification type</typeparam>
+            <typeparam name="TSortFields">The sorting fields enumeration type</typeparam>
+        </member>
+        <member name="M:Alkami.Contracts.MemberAssociations`3.Add``1(`2,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Enables dictionary initialization using generic values for the member expression type
+            </summary>
+            <typeparam name="TKey">The member expression's return type (used implicitly upon initialization). This is not a dictionary TKey!</typeparam>
+            <param name="f">The sort field (key)</param>
+            <param name="e">The sort member expression (value)</param>
+        </member>
+        <member name="T:Alkami.Contracts.QueryableExtensions">
+            <summary>
+            Extension methods for <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+        </member>
+        <member name="M:Alkami.Contracts.QueryableExtensions.SortBy``2(System.Linq.IQueryable{``0},Alkami.Contracts.ISortOrder,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Sorts the by the provided <paramref name="keySelector"/> with the ordering determined by <see cref="T:Alkami.Contracts.ISortOrder"/>.
+            </summary>
+            <typeparam name="T">The type of the object being sorted.</typeparam>
+            <typeparam name="V">The type of the field being sorted upon.</typeparam>
+            <param name="query">The <see cref="T:System.Linq.IQueryable`1"/> to sort.</param>
+            <param name="sorter">The <see cref="T:Alkami.Contracts.ISortOrder"/>.</param>
+            <param name="keySelector">The expression to select the field to sort upon.</param>
+            <returns>The sorted <see cref="T:System.Linq.IOrderedQueryable`1"/>.</returns>
+        </member>
+        <member name="M:Alkami.Contracts.QueryableExtensions.SortBy``2(System.Linq.IOrderedQueryable{``0},Alkami.Contracts.ISortOrder,System.Linq.Expressions.Expression{System.Func{``0,``1}})">
+            <summary>
+            Sorts the by the provided <paramref name="keySelector"/> with the ordering determined by <see cref="T:Alkami.Contracts.ISortOrder"/>.
+            </summary>
+            <typeparam name="T">The type of the object being sorted.</typeparam>
+            <typeparam name="V">The type of the field being sorted upon.</typeparam>
+            <param name="query">The <see cref="T:System.Linq.IOrderedQueryable`1"/> to sort.</param>
+            <param name="sorter">The <see cref="T:Alkami.Contracts.ISortOrder"/>.</param>
+            <param name="keySelector">The expression to select the field to sort upon.</param>
+            <returns>The sorted <see cref="T:System.Linq.IOrderedQueryable`1"/>.</returns>
+        </member>
+        <member name="T:Alkami.Contracts.SortingHandler`3">
+            <summary>
+            Represents a class that can Sort <typeparamref name="T"/> using the fields in <typeparamref name="TFields"/> as they are passed in by the class <typeparamref name="TSortOrderer"/>
+            This class be eventually be deprecated in favor of SortingHandlerBase.
+            NOTE (MI): this class is intended to be deprecated once the migration to the new SortingHandlerBase is completed.
+            </summary>
+            <typeparam name="T">The class we are sorting</typeparam>
+            <typeparam name="TFields">The List of enums to sort by <remarks>The order of these fields will affect the ordering of the result</remarks></typeparam>
+            <typeparam name="TSortOrderer">The requests sent in by the caller</typeparam>
+        </member>
+        <member name="T:Alkami.Contracts.SortingHandlerBase`3">
+            <summary>
+            Extended base class for SortingHandler - all sorting handlers will switch to inherit from this class instead of 
+            the original SortingHandler, and will require to implement the pairing of sorting fields to the corresponding entity properties
+            </summary>
+            <typeparam name="T">The entity type</typeparam>
+            <typeparam name="TSortFields">The sort fields enum type</typeparam>
+            <typeparam name="TSorter">The entity-specific sorter type that encapsulates sorting order</typeparam>
+        </member>
+        <member name="P:Alkami.Contracts.SortingHandlerBase`3.MemberAssociations">
+            <summary>
+            The readonly property that derived classes must implement; It contains associations between sort fields and entity properties
+            </summary>
+            <example>
+            The code below shows the implementation of this property for the CountrySortingHandler (from the Contacts microservice).
+            The initializer must use the syntax shown below. Do not use expression syntax ( => ...)  but rather property initializer syntax: {get;} = ...
+            <code>
+             protected override MemberAssociations%lt;CountrySortFields, Country&gt; SortingAssociations {get;}
+               = new MemberAssociations&lt;CountrySortFields, Country&gt;
+               {
+                   { CountrySortFields.Id, x => x.Id },
+                   { CountrySortFields.Name, x => x.Name }
+               };
+             </code>
+            </example>
+        </member>
+        <member name="M:Alkami.Contracts.SortingHandlerBase`3.ApplyOrderingAndPagingInternal(System.Linq.IQueryable{`0},`2)">
+            <summary>
+            Refactored method that applies ordering and paging based on the input query on the entities and the sort ordering.
+            The sorting field-to-property associations are provided by the SortingAssociations property implemented by the derived sorting handlers.
+            It is marked as sealed so that subclasses cannot override it.
+            </summary>
+            <param name="originalQuery">The query to be run on the generic entities</param>
+            <param name="orderer">The sort order specification</param>
+            <returns>A queriable collection of entities upon which sorting behavior was applied</returns>
+        </member>
+        <member name="T:Alkami.Contracts.SortingHandlerCommonBase`3">
+            <summary>
+            Common base class for old and new sorting handler base classes.
+            Once the old SortingHandler base class is deprecated (with true), the content of this class can be moved to the new SortingHandlerBase class
+            to reduce the number of base classes to a single one.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <typeparam name="TFields"></typeparam>
+            <typeparam name="TSortOrderer"></typeparam>    
+        </member>
+        <member name="M:Alkami.Contracts.SortingHandlerCommonBase`3.ApplyOrderingAndPagingInternal(System.Linq.IQueryable{`0},`2)">
+            <summary>
+            The original method to be overridden in the specialized sorting handlers using the explicit sorting behavior specification
+            </summary>
+            <param name="originalQuery"></param>
+            <param name="orderer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Contracts.SortingHandlerCommonBase`3.ApplyOrderingAndPagingAsync``3(System.Linq.IQueryable{`0},`2,Alkami.Contracts.BaseGetRequest{``0,``1,``2},Alkami.Contracts.BaseResponse,System.Func{System.Threading.Tasks.Task{System.Int32}})">
+            <summary>
+            Sets TotalResults on the provided response and returns an IQueryable that reflects the sorting and paging options on the request.
+            </summary>
+            <param name="originalQuery"></param>
+            <param name="orderer"></param>
+            <param name="request"></param>
+            <param name="response"></param>
+            <param name="totalResultsFetchFunction">A function which will be called to set TotalResults on the response. Please pass () => originalQuery.CountAsync() if your IQueryable is backed by Entity Framework. Otherwise use the appropriate asynchronous call for your backing implementation, or wrap a call to Count() in a Task if no database work is required to get total results.</param>
+            <exception cref="T:Alkami.Exceptions.SortOrderArgumentException"></exception>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Contracts.SortingHandlerCommonBase`3.ApplyOrderingAndPagingAsync``2(System.Linq.IQueryable{`0},Alkami.Contracts.BaseGetRequest{``0,``1,`2},Alkami.Contracts.BaseResponse,System.Func{System.Threading.Tasks.Task{System.Int32}})">
+            <summary>
+            Sets TotalResults on the provided response and returns an IQueryable that reflects the sorting and paging options on the request.
+            </summary>
+            <typeparam name="TFilter">The type of the filter.</typeparam>
+            <typeparam name="TMapper">The type of the mapper.</typeparam>
+            <param name="originalQuery">The original query.</param>
+            <param name="request">The request.</param>
+            <param name="response">The response.</param>
+            <param name="totalResultsFetchFunction">A function which will be called to set TotalResults on the response. Please pass () => originalQuery.CountAsync() if your IQueryable is backed by Entity Framework. Otherwise use the appropriate asynchronous call for your backing implementation, or wrap a call to Count() in a Task if no database work is required to get total results.</param>
+            <returns></returns>
+            <exception cref="T:Alkami.Exceptions.SortOrderArgumentException"></exception>
+        </member>
+    </members>
+</doc>

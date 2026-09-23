@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Accounts.Service.Client.2.52</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient">
+            <summary>
+            Account Service Client
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.AddOrUpdateAccountAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.AddOrUpdateAccountTypeAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.AddOrUpdateAccountTypeClassAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeClassRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetAccountAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetLimitedAccountInfoAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetLimitedAccountInfoRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetAccountTypeAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetAccountTypeClassAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeClassRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetRoutingNumberInfoAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetRoutingNumberInfoRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetAccountTypeFieldsAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeFieldsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.AddOrUpdateAccountTypeFieldsAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeFieldsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.DeleteAccountTypeClassAsync(Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeClassRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.DeleteAccountTypeAsync(Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.DeleteAccountTypeFieldsAsync(Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeFieldsRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetFormattedAccountNumbersAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetFormattedAccountNumbersRequest)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.UpdateAccountLastTransactionSyncFinishedAsync(Alkami.MicroServices.Accounts.Contracts.Requests.UpdateAccountLastTransactionSyncFinishedRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.AddOrUpdateTransactionAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateTransactionRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.AddOrUpdateTransactionCategoriesAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateTransactionCategoriesRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetTransactionAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetTransactionRequest)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Service.Client.AccountServiceClient.GetTransactionCategoriesAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetTransactionCategoriesRequest)">
+            <inheritdoc/>
+        </member>
+    </members>
+</doc>

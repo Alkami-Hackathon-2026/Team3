@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Alkami.Data.Validations/1.0.0": {
+        "runtime": {
+          "Alkami.Data.Validations.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Alkami.Data.Validations/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

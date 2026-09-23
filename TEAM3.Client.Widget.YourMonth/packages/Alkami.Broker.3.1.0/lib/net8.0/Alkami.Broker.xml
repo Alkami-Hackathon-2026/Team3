@@ -1,0 +1,1249 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Broker</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Broker.App.Broadcaster">
+            <summary>
+            This is your dispatchers broadcast entry point. Use this class to send messages to everyone about a changed event
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.App.Broadcaster.TenantInstanceIdentifierResolver">
+            <summary>
+            Setup in order to try to resolve the tenant instance identifier if it isn't currently setup on the envelope.
+            It will receive a clone of the current Transmission envelope so you can use values on it to help with a
+            lookup.
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Broadcaster.PublisherFactory">
+            <summary>
+            This is a way for you to change the publisher factory. Be careful using this factory, you MUST change it before the first broadcast
+            or it will not take effect
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.App.Broadcaster.Dispatch(Alkami.Broker.App.Events,System.Collections.Generic.Dictionary{System.String,System.String},System.Nullable{System.Guid},System.Nullable{System.Guid})">
+            <summary>
+            Dispatch a message to all listening subscribers
+            </summary>
+            <param name="eventToDispatch">The type of event that happened <see cref="T:Alkami.Broker.App.Events"/></param>
+            <param name="parameters">
+            A dictionary of parameter name and parameter value to pass along to listeners
+            </param>
+            <param name="bankIdentifier">
+            An optional bank identifier if you are unable assign a tenant resolver statically
+            </param>
+            <param name="bankInstanceIdentifier">
+            An optional bank instance identifier if you are unable assign a tenant resolver statically
+            </param>
+        </member>
+        <member name="T:Alkami.Broker.App.Events">
+            <summary>
+            Supported change events in the system. Keep adding to this list as your system grows
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.StateChangeArgs">
+            <summary>
+            Used to indicate services going up or down
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.Heartbeat">
+            <summary>
+            Used to indicate heartbeat messages
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.Unknown">
+            <summary>
+            Unknown default
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.Login">
+            <summary>
+            A user logged in
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.Logout">
+            <summary>
+            A user logged out
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.Transfer">
+            <summary>
+            A transfer took place
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.EmailChanged">
+            <summary>
+            A user changed their email address
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.AddressChanged">
+            <summary>
+            A user changed their physical address
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.CacheRemoved">
+            <summary>
+            An item was removed from the cache somewhere
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.TransactionsUpdated">
+            <summary>
+            Indicates that a transaction was updated and needs to be refreshed in the cache
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.EntityUpdated">
+            <summary>
+            Indicates a widget was updated
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.EntityRemoved">
+            <summary>
+            Indicates that a widget was removed
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.TrackableEntityChangeCommited">
+            <summary>
+            Indicates that a trackable entity's setting has been changed.
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.EntityProgressChanged">
+            <summary>
+            Indicates that an entity has been changed after some processing has occurred
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.DumpCache">
+            <summary>
+            Indicates that the cache needs to be dumped for a user or FI
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.BillPaySyncCompleted">
+            <summary>
+            Indicates the Bill Pay Sync has completed
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.BillPayEnrolled">
+            <summary>
+            Indicates the user has enrolled in billpay
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.RegistrationDisclosureAccepted">
+            <summary>
+            Indicates the user has accepted registration disclosure
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.PendingTransferCompleted">
+            <summary>
+            Indicates the Pending Transfer has completed
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.ElevateLogging">
+            <summary>
+            Indicates that we want a service to increase logging for a specific bank
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.ManipulateServiceInstance">
+            <summary>
+            Indicates that we want a service instance to restart or stop
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.LoginNonRegisteredDevice">
+            <summary>
+            A user logged in from an un-registered device and new ipaddress
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.BillPaySubscriberGenerated">
+            <summary>
+            Indicates billpay subscriber id and password has been generated in checkfree billpay
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.ContactChanged">
+            <summary>
+            A user changed one of their contacts
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.TransferFailed">
+            <summary>
+            A transfer has failed
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.AccountSyncForUserCompleted">
+            <summary>
+            Fired When a Account Sync for a user is Completed
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.BusinessAchCreditSubmitted">
+            <summary>
+            Indicates that a business user has submitted an ACH credit
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.BusinessAchActivity">
+            <summary>
+            Indicates that Business ACH Activity has occurred
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Events.CmsUserListModified">
+            <summary>
+            Represents the event that occurs when a CMS User List is modified
+            </summary>
+        </member>
+        <member name="T:Alkami.Broker.App.Subscription">
+            <summary>
+            Use this class to register you delegate to an event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.App.Subscription.SubscriberFactory">
+            <summary>
+            This is a way for you to change the subscriber factory. Be careful using this factory, you MUST change it before the first subscription
+            or it will not take effect
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.App.Subscription.Add(Alkami.Broker.App.Events,System.Action{System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Adds a subscription and begins listening for any changed events across the environments
+            </summary>
+            <param name="eventToSubscribeTo">The event you want to be notified of <see cref="T:Alkami.Broker.App.Events"/></param>
+            <param name="callback">The delegate to call when an event occurs</param>
+            <returns>The unique subscription Id that can be used to un-subscribe if needed</returns>
+        </member>
+        <member name="M:Alkami.Broker.App.Subscription.Remove(System.Guid)">
+            <summary>
+            Allows you to unsubscribe a delegate from an event
+            </summary>
+            <param name="subscriptionId">The unique subscription Id returned from the Add method</param>
+        </member>
+        <member name="M:Alkami.Broker.App.Subscription.StopSubscriber">
+            <summary>
+            Stops subscribing to events
+            </summary>
+        </member>
+        <member name="T:Alkami.Broker.AsyncHelper">
+            <summary>
+            Helper class to run async methods inside sync methods
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.AsyncHelper.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+            Runs async method of generic type synchronously
+            </summary>
+            <typeparam name="TResult"></typeparam>
+            <param name="func">Async method</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Broker.AsyncHelper.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+            Runs async method synchronously
+            </summary>
+            <param name="func">Async method</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:Alkami.Broker.Base.AbstractPublisher" -->
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.StartInternal">
+            <summary>
+            Begins the process of binding to the transport and prepares the resources to broadcast events
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.StopInternal">
+            <summary>
+            Ends the process of binding to the transport and allows for resources to be freed
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.Stop">
+            <summary>
+            Ends the process of binding to the transport and allows for resources to be freed
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.Start">
+            <summary>
+            Begins the process of binding to the transport and prepares the resources to broadcast events
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.Enqueue(Alkami.Broker.Base.TransmissionEnvelope)">
+            <summary>
+            Adds a message to be broadcast to the internal queue
+            </summary>
+            <param name="envelope"></param>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.Dispatch(Alkami.Broker.Base.TransmissionEnvelope)">
+            <summary>
+            Sends a message from the queue to the transport
+            </summary>
+            <param name="envelope"></param>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractPublisher.Dispose">
+            <summary>
+            Disposes the publisher and calls Stop
+            </summary>
+        </member>
+        <member name="T:Alkami.Broker.Base.AbstractSubscriber">
+            <summary>
+            An abstract class for all subscribers. Allows you to build a subscriber thats transport agnostic
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.AbstractSubscriber.IsConfigured">
+            <summary>
+            Indicates that the subscriber is properly configured
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractSubscriber.Start">
+            <summary>
+            Begins the process of binding to the transport
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractSubscriber.Stop">
+            <summary>
+            Ends the process of binding to the transport and cleans up any resources
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractSubscriber.ItemArrived(System.Action{Alkami.Broker.Base.TransmissionEnvelope})">
+            <summary>
+            Use this method to register a callback when a message is returned
+            </summary>
+            <param name="dataArrivedCallback">The delegate to call when a message is received</param>
+        </member>
+        <member name="M:Alkami.Broker.Base.AbstractSubscriber.ShouldFilterOutEvent(Alkami.Broker.Base.TransmissionEnvelope)">
+            <summary>
+            Given a TransmissionEnvelope, determines if the event should be filtered out by using known criteria for the current subscriber
+            </summary>
+            <param name="envelope"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Broker.Base.EmptyPublisher.StartInternal">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Broker.Base.EmptyPublisher.StopInternal">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Broker.Base.EmptyPublisher.Dispatch(Alkami.Broker.Base.TransmissionEnvelope)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.Base.EmptySubscriber">
+            <summary>
+            This is the default that will never do anything
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.EmptySubscriber.#ctor(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Broker.Base.EmptySubscriber.Start">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Broker.Base.EmptySubscriber.Stop">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.Base.ReservedKeyNames">
+            <summary>
+            Reserved key names that are not to be used in your payload
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.AreaName">
+            <summary>
+            The area raising the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.SourceServer">
+            <summary>
+            The Server raising the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.MessageId">
+            <summary>
+            The unique identifier of the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.ProcessId">
+            <summary>
+            The Process Id that raised the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.ThreadId">
+            <summary>
+            The Managed Thread Id that raised the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.BankIdentifier">
+            <summary>
+            The Tenant Bank Identifier that owns the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.BankInstanceIdentifier">
+            <summary>
+            The Tenant Bank Instance Identifier that owns the event
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.Base.ReservedKeyNames.Event">
+            <summary>
+            The event type that sent this message
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelopCertificateFactory.CertificateFactory">
+            <summary>
+            This is a way for you to change the cerfiticate factory to allow unit testing without an external dependencies. Be careful using this factory, you MUST change it before the first broadcast
+            or it will not take effect
+            </summary>
+        </member>
+        <member name="T:Alkami.Broker.Base.TransmissionEnvelope">
+            <summary>
+            A wrapper envelope to convey an event occurring in the system
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.Event">
+            <summary>
+            What kind of event is being raised
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.Parameters">
+            <summary>
+            What arguments are being sent with the event
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.BankIdentifier">
+            <summary>
+            The broadcasting bank's unique identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.BankInstanceIdentifier">
+            <summary>
+            The broadcasting bank's unique instance identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.SourceServer">
+            <summary>
+            The server source of this event
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.ProcessId">
+            <summary>
+            The Process Id responsible for this change
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.ThreadId">
+            <summary>
+            The thread Id responsible for this change
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.MessageId">
+            <summary>
+            Unique message identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.Base.TransmissionEnvelope.AreaName">
+            <summary>
+            Unique message identifier
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.Base.TransmissionEnvelope.Serialize">
+            <summary>
+            Allows you to binary serialize the contents of this message
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Broker.Base.TransmissionEnvelope.FromBytes(System.Byte[])">
+            <summary>
+            Creates an instance of the envelope from  a byte array
+            </summary>
+            <param name="bites">The array of bytes recieved from the transport</param>
+            <returns>An instance of Transmission Envelope</returns>
+        </member>
+        <member name="M:Alkami.Broker.Base.TransmissionEnvelope.Clone">
+            <summary>
+            Clone the broker envelope (used in <see cref="M:Alkami.Broker.Base.AbstractPublisher.Dispatch(Alkami.Broker.Base.TransmissionEnvelope)"/> method to ensure serialization of envelope is thread-safe)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Broker.BrokerLogging">
+            <summary>
+            Configures the logging back-end used by Alkami Broker.
+            <para>
+            On .NET 8, calling <see cref="M:Alkami.Broker.BrokerLogging.UseLoggerFactory(Microsoft.Extensions.Logging.ILoggerFactory)"/> routes all internal broker logs through
+            <c>Microsoft.Extensions.Logging</c> instead of the default <c>Common.Logging</c>.
+            If <see cref="M:Alkami.Broker.BrokerLogging.UseLoggerFactory(Microsoft.Extensions.Logging.ILoggerFactory)"/> is not called on .NET 8, <c>Common.Logging</c> is used.
+            </para>
+            <para>
+            On .NET 10 and later, <c>Common.Logging</c> is not available. If <see cref="M:Alkami.Broker.BrokerLogging.UseLoggerFactory(Microsoft.Extensions.Logging.ILoggerFactory)"/>
+            is not called, logging is silently discarded via <c>NullLoggerFactory</c>.
+            </para>
+            <remarks>
+            Must be called <b>before</b> any call to <c>Setup.PublishUsingRedis</c>,
+            <c>Setup.SubscribeUsingRedis</c>, <c>Broadcaster.InitializePublisher</c>,
+            or <c>Subscription.InitializeSubscriber</c>.
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.BrokerLogging.UseLoggerFactory(Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Configures Alkami Broker to route all internal logging through the supplied
+            <paramref name="loggerFactory"/>, bypassing <c>Common.Logging</c>.
+            </summary>
+            <param name="loggerFactory">
+            The <see cref="T:Microsoft.Extensions.Logging.ILoggerFactory"/> to use. Typically obtained via dependency injection:
+            <code>serviceProvider.GetRequiredService&lt;ILoggerFactory&gt;()</code>
+            </param>
+        </member>
+        <member name="T:Alkami.Broker.GlobalJson">
+            <summary>
+            Settings to properly handle IP Addresses
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.GlobalJson.Settings">
+            <summary>
+            Use this serializer when your data has IP Addresses
+            </summary>
+        </member>
+        <member name="T:Alkami.Broker.IPAddressConverter">
+            <summary>
+            Proper formatting of Addresses
+            </summary>
+        </member>
+        <member name="T:Alkami.Broker.Logging.BrokerLogManager.DeferredBrokerLogger">
+            <summary>
+            Defers resolution of the concrete logger until the first actual log call. This ensures that a
+            SetLoggerFactory() call made before any logging takes effect, even if the static field was already
+            initialised by the type system.
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.AddressChangedArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that just changed their address
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.AddressChangedArgs.OldAddress">
+            <summary>
+            The Original Address
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.AddressChangedArgs.NewAddress">
+            <summary>
+            The New Address
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.AddressChangedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPayEnrolledArgs.EventGuid">
+            <summary>
+            The Event Guid
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPayEnrolledArgs.UserIdentifier">
+            <summary>
+            The user who enrolled in billpay
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPayEnrolledArgs.UserId">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPayEnrolledArgs.BankIdentifier">
+            <summary>
+            Bank Identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPayEnrolledArgs.BankId">
+            <summary>
+            Bank ID
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPayEnrolledArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs">
+            <summary>
+            Message template for Checkfree subscriber id and password generated event
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs.EventGuid">
+            <summary>
+            The Event Guid
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs.UserIdentifier">
+            <summary>
+            The user who enrolled in billpay
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs.UserId">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs.BankIdentifier">
+            <summary>
+            Bank Identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs.BankId">
+            <summary>
+            Bank ID
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPaySubscriberGeneratedArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs">
+            <summary>
+            Represents the bill pay sync completed arguments
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.UserIdentifier">
+            <summary>
+            The user for which the bill pay sync completed for
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.BankUriString">
+            <summary>
+            The bank URL for the completed sync - required for correctly targeting the correct cache on event receivers
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.IsSyncSuccess">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the arguments from the specified parameters
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Constructs the arguments from the dispatcher payload data
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.ToDictionary">
+            <summary>
+            Converts this arguments collection to a form transmissible by the dispatcher
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.ToString">
+            <summary>
+            Converts this arguments collection to a form for easy reading in the debugger or logging
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BillPaySyncCompletedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BrokerArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.EntityId">
+            <summary>
+            Entity Id
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.SourceAccountId">
+            <summary>
+            Source Account Id
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.SubmittingUserId">
+            <summary>
+            Submitting User's Id
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.Amount">
+            <summary>
+            The submitted ACH activity will be for the given amount
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.IsCredit">
+            <summary>
+            if true, the event is referring to an ACH Credit. If false, this event is for an ACH Debit
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.TemplateId">
+            <summary>
+            This is the ID of the Business ACH template this event originates from
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.EventType">
+            <summary>
+            Indicates the type of ACH activity that is being reported.
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.ScheduledDate">
+            <summary>
+            Used on AchScheduled events. If null, no future ACH payments are scheduled. The time will be 00:00 for any scheduled payments.
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.BusinessAchActivityArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="F:Alkami.Broker.MessageTemplates.BusinessAchActivityEventType.AchScheduled">
+            <summary>
+            a new Business ACH Payment has been scheduled.
+            </summary>
+        </member>
+        <member name="F:Alkami.Broker.MessageTemplates.BusinessAchActivityEventType.AchCanceled">
+            <summary>
+            Indicates a Business ACH Payment has been canceled.
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.CacheExpiredArgs.CacheKey">
+            <summary>
+            The expired cache key
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.CacheExpiredArgs.InstanceGuid">
+            <summary>
+            The cache instance identifier
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.CacheExpiredArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.CmsUserListModifiedArgs">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.CmsUserListModifiedArgs.BankIdentifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.CmsUserListModifiedArgs.UserListId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.CmsUserListModifiedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ContactChangedArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that just changed their contact info
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ContactChangedArgs.UserId">
+            <summary>
+            The Id of the User that just changed their contact info
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ContactChangedArgs.ContactId">
+            <summary>
+            The Contact Microservice Id of the contact that has changed
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ContactChangedArgs.ContactType">
+            <summary>
+            The ContactType of the contact that has changed
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.ContactChangedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.DumpCacheArgs.UserIdentifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.DumpCacheArgs.BankUrl">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.DumpCacheArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.FileName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.BankIdentifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.TimeSpanToElevate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.NamespaceToElevate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.ServiceToElevate">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.ProcessId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.ElevateLoggingArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EmailChangedArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that just changed their email
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EmailChangedArgs.EventGuid">
+            <summary>
+            The Event Guid
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EmailChangedArgs.OldEmail">
+            <summary>
+            The Original Email
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EmailChangedArgs.NewEmail">
+            <summary>
+            The New Email
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EmailChangedArgs.BankID">
+            <summary>
+            Bank ID
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.EmailChangedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EntityModifiedArgs.BankIdentifier">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EntityModifiedArgs.EntityIds">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EntityModifiedArgs.InstanceGuid">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.EntityModifiedArgs.EntityType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.EntityModifiedArgs.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.EntityModifiedArgs.#ctor(System.Guid,System.Collections.Generic.IEnumerable{System.Int64},System.Guid,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="bankIdentifier"></param>
+            <param name="entityIds"></param>
+            <param name="instanceGuid"></param>
+            <param name="entityType"></param>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.EntityModifiedArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.HeartBeatArgs">
+            <summary>
+            Constructs a representation of the heart beat event with the specified data
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.HeartBeatArgs.HeartBeatTimestamp">
+            <summary>
+            This is the offset time of the heart beat
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.HeartBeatArgs.ServerName">
+            <summary>
+            This is the name of the server originating the heart beat
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.HeartBeatArgs.ServicesOnMachine">
+            <summary>
+            The visible services on the machine
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.HeartBeatArgs.#ctor(System.DateTimeOffset,System.String,System.Collections.Generic.HashSet{System.String})">
+            <summary>
+            Constructs a heart beat args with the supplied information. Intended to be used by invoking code.
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.HeartBeatArgs.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Constructs a heart beat args instance from the serialized data received from the dispatcher
+            </summary>
+            <param name="arguments"></param>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.HeartBeatArgs.ToDictionary">
+            <summary>
+            Converts this arguments class to the data format needed for serialization by the dispatcher
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.HeartBeatArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.LoginArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that just logged in
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.LoginArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.LoginNonRegisteredDeviceArgs.UserName">
+            <summary>
+            The User's Identifier that just logged in
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.LoginNonRegisteredDeviceArgs.DeviceName">
+            <summary>
+            Browser or device login was made on
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.LoginNonRegisteredDeviceArgs.IPAddress">
+            <summary>
+            IPAddress where login was made
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.LoginNonRegisteredDeviceArgs.LoginDateTime">
+            <summary>
+            DateTime that login was made
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.LoginNonRegisteredDeviceArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.LogoutArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that just logged out
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.LogoutArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs">
+            <summary>
+            Represents the bill pay sync completed arguments
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.UserIdentifier">
+            <summary>
+            The user for which the bill pay sync completed for
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.BankUriString">
+            <summary>
+            The bank URL for the completed sync - required for correctly targeting the correct cache on event receivers
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.#ctor(System.Guid,System.String)">
+            <summary>
+            Constructs the arguments from the specified parameters
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Constructs the arguments from the dispatcher payload data
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.ToDictionary">
+            <summary>
+            Converts this arguments collection to a form transmissible by the dispatcher
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.ToString">
+            <summary>
+            Converts this arguments collection to a form for easy reading in the debugger or logging
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.PendingTransferCompletedArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.RegistrationDisclosureAcceptedArgs.EventGuid">
+            <summary>
+            The Event Guid
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.RegistrationDisclosureAcceptedArgs.UserIdentifier">
+            <summary>
+            The user who accepted registration disclosure
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.RegistrationDisclosureAcceptedArgs.UserId">
+            <summary>
+            User ID
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.RegistrationDisclosureAcceptedArgs.BankIdentifier">
+            <summary>
+            Bank Identifier
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.RegistrationDisclosureAcceptedArgs.BankId">
+            <summary>
+            Bank ID
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.RegistrationDisclosureAcceptedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ServiceControllerArgs.ServiceName">
+            <summary>
+            Service Name of the service, not friendly name
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ServiceControllerArgs.MachineName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ServiceControllerArgs.ProcessId">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.ServiceControllerArgs.Action">
+            <summary>
+            Action to service instance: Restart or Stop
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.ServiceControllerArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusChangeArgs.IsShuttingDown">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusChangeArgs.IsStartingUp">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusChangeArgs.Owner">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusChangeArgs.ServerName">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.StatusChangeArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.StatusInfoArgs">
+            <summary>
+            Class used to give status updates and entity-specific information on a collection of entities being processed
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusInfoArgs.EntityType">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusInfoArgs.EntityID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusInfoArgs.TotalCount">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusInfoArgs.NumberCompleted">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.StatusInfoArgs.NumberFailures">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.StatusInfoArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TrackableEntityChangeCommitedArgs.#ctor(System.Collections.Generic.IReadOnlyDictionary{System.String,System.String})">
+            <summary>
+            Constructes the arguments based on the raw data. Intended for use when receiving the event from the dispatcher.
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TrackableEntityChangeCommitedArgs.ToDictionary">
+            <summary>
+            Serializes the arguments to the raw format the dispatcher uses
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TrackableEntityChangeCommitedArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs">
+            <summary>
+            Represents the event for a transaction update in the dispatcher
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.TransactionIds">
+            <summary>
+            The set of affected transaction Ids
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.AccountIdentifier">
+            <summary>
+            The accountIdentifier of the affected transaction Ids
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.InstanceGuid">
+            <summary>
+            The instance Guid of the TransactionStore where the event was generated. This is used to avoid the same store handling it's own event
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.#ctor(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Constructes the arguments based on the raw data. Intended for use when receiving the event from the dispatcher.
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.#ctor(System.Guid,System.Collections.Generic.IEnumerable{System.Int64},System.Guid)">
+            <summary>
+            Constructs the arguments based on data you wish to send. Intended for use when you wish to send the event.
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.ToDictionary">
+            <summary>
+            Serializes the arguments to the raw format the dispatcher uses
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.ToString">
+            <summary>
+            Returns a convenient representation for the debugger or serialization
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransactionsModifiedEventArgs.IsValid">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that initiated the transfer
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferArgs.FromAccount">
+            <summary>
+            The from account
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferArgs.ToAccount">
+            <summary>
+            The to account
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferArgs.Amount">
+            <summary>
+            The transfer amount
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferArgs.ConfirmationNumber">
+            <summary>
+            The transfer confirmation number
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferArgs.TransferDate">
+            <summary>
+            The date that the transfer completed or null if the value has not been set
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransferArgs.IsValid">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Broker.MessageTemplates.TransferFailedArgs">
+            <summary>
+            Represents the event for when a transfer failed
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferFailedArgs.UserIdentifier">
+            <summary>
+            The User's Identifier that initiated the transfer
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferFailedArgs.FromAccount">
+            <summary>
+            The from account
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferFailedArgs.ToAccount">
+            <summary>
+            The to account
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferFailedArgs.Amount">
+            <summary>
+            The transfer amount
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferFailedArgs.TransferDate">
+            <summary>
+            The date that the transfer failed on or null if the value has not been set
+            </summary>
+        </member>
+        <member name="P:Alkami.Broker.MessageTemplates.TransferFailedArgs.Reason">
+            <summary>
+            The reason why the transfer failed or null if it has not been set
+            </summary>
+        </member>
+        <member name="M:Alkami.Broker.MessageTemplates.TransferFailedArgs.IsValid">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

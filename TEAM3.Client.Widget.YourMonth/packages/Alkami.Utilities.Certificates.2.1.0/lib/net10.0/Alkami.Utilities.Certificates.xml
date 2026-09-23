@@ -1,0 +1,580 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities.Certificates</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.Certificates.CertificateStore">
+            <summary>
+            A certificate store for retrieving local certs.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateStore.GetCertificatesByValue(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Attempts to get certificates by a provided string value
+            </summary>
+            <param name="storeName"></param>
+            <param name="storeLocation"></param>
+            <param name="findType"></param>
+            <param name="findValue"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException"></exception>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.CertificateUtility">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.#ctor(Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy,Microsoft.Extensions.Logging.ILogger{Alkami.Utilities.Certificates.CertificateUtility})">
+            <summary>
+            Default Constructor. Accepts a certificate retrieval strategy and Microsoft Logger
+            </summary>
+            <param name="retrievalStrategy"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.FindBySubjectName(System.Security.Cryptography.X509Certificates.StoreName,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.FindByThumbprint(System.Security.Cryptography.X509Certificates.StoreName,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.FindCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.FindBySubjectName(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.FindByThumbprint(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.CertificateUtility.FindCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.ICertificateUtility"/>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.ICertificateServiceClient">
+            <summary>
+            Certificates Service v.1.5 - The Certificate service provides access to public certificates.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateServiceClient.GetCertificatesAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a certificate based on the provided thumbprint.
+            </summary>
+            <param name="thumbprint">The thumbprint of the certificate to retrieve.</param>
+            <param name="cancellationToken">The optional <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A Task of <see cref="T:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1"/> from the operation.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateServiceClient.PostCertificatesQueriesAsync(Alkami.Utilities.Certificates.Models.CertificateQueryBody,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves certificates based on the provided filter parameters and certificate type.
+            </summary>
+            <param name="certificateQueryBody">The body of the request that will be used to filter and page the cerificates.</param>
+            <param name="cancellationToken">The optional <see cref="T:System.Threading.CancellationToken"/> used to propagate notifications that the operation should be canceled.</param>
+            <returns>A Task of <see cref="T:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1"/> from the operation.</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.ICertificateStore">
+            <summary>
+            Represents a store used to keep certificates safe and sound.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateStore.GetCertificatesByValue(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Attempts to retrieve a certificate from the store with the provided values.
+            </summary>
+            <param name="storeName"></param>
+            <param name="storeLocation"></param>
+            <param name="findType"></param>
+            <param name="identifier"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.ICertificateUtility">
+            <summary>
+            Utility class used to get the latest valid certificate
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateUtility.FindByThumbprint(System.Security.Cryptography.X509Certificates.StoreName,System.String)">
+            <summary>
+            Finds a certificate based upon the thumbprint. StoreLocation defaults to CurrentUser for Linux, and LocalMachine for Windows.
+            <para>Warning: The returned X509Certificate2 should not be disposed or used within a using statement as it is managed by this library and stored in a cache.</para>
+            </summary>
+            <param name="storeName"><see cref="T:System.Security.Cryptography.X509Certificates.StoreName"/> value</param>
+            <param name="thumbprint">Thumbprint to search for</param>
+            <returns>Returns a certificate if found. If it is not found, returns null.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateUtility.FindBySubjectName(System.Security.Cryptography.X509Certificates.StoreName,System.String)">
+            <summary>
+            Finds a certificate based upon the subject name. StoreLocation defaults to CurrentUser for Linux, and LocalMachine for Windows.
+            <para>Warning: The returned X509Certificate2 should not be disposed or used within a using statement as it is managed by this library and stored in a cache.</para>
+            </summary>
+            <param name="storeName"><see cref="T:System.Security.Cryptography.X509Certificates.StoreName"/> value</param>
+            <param name="subjectName">Subject to search for</param>
+            <returns>Returns a certificate if found. If it is not found, returns null.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateUtility.FindCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Asynchronously finds a certificate based on the provided parameters. StoreLocation defaults to CurrentUser for Linux, and LocalMachine for Windows.
+            <para>Warning: The returned X509Certificate2 should not be disposed or used within a using statement as it is managed by this library and stored in a cache.</para>
+            </summary>
+            <param name="storeName">The name of the certificate store.</param>
+            <param name="findType">The type of search to perform.</param>
+            <param name="findValue">The value to search for.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the found certificate, or null if no certificate was found.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when the provided find type is not supported by the retrieval strategy.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown when the find value is null or whitespace, and the find type is not 'FindBySubjectName'.</exception>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateUtility.FindByThumbprint(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)">
+            <summary>
+            Finds a certificate based upon the thumbprint
+            <para>Warning: The returned X509Certificate2 should not be disposed or used within a using statement as it is managed by this library and stored in a cache.</para>
+            </summary>
+            <param name="storeName"><see cref="T:System.Security.Cryptography.X509Certificates.StoreName"/> value</param>
+            <param name="storeLocation"><see cref="T:System.Security.Cryptography.X509Certificates.StoreLocation"/> value</param>
+            <param name="thumbprint">Thumbprint to search for</param>
+            <returns>Returns a certificate if found. If it is not found, returns null.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateUtility.FindBySubjectName(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.String)">
+            <summary>
+            Finds a certificate based upon the subject name
+            <para>Warning: The returned X509Certificate2 should not be disposed or used within a using statement as it is managed by this library and stored in a cache.</para>
+            </summary>
+            <param name="storeName"><see cref="T:System.Security.Cryptography.X509Certificates.StoreName"/> value</param>
+            <param name="storeLocation"><see cref="T:System.Security.Cryptography.X509Certificates.StoreLocation"/> value</param>
+            <param name="subjectName">Subject to search for</param>
+            <returns>Returns a certificate if found. If it is not found, returns null.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.ICertificateUtility.FindCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Asynchronously finds a certificate based on the provided parameters.
+            <para>Warning: The returned X509Certificate2 should not be disposed or used within a using statement as it is managed by this library and stored in a cache.</para>
+            </summary>
+            <param name="storeName">The name of the certificate store.</param>
+            <param name="storeLocation">The location of the certificate store.</param>
+            <param name="findType">The type of search to perform.</param>
+            <param name="findValue">The value to search for.</param>
+            <returns>A task that represents the asynchronous operation. The task result contains the found certificate, or null if no certificate was found.</returns>
+            <exception cref="T:System.InvalidOperationException">Thrown when the provided find type is not supported by the retrieval strategy.</exception>
+            <exception cref="T:System.ArgumentNullException">Thrown when the find value is null or whitespace, and the find type is not 'FindBySubjectName'.</exception>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.AlkamiCertificate">
+            <summary>
+            Certificate record from the Certificate service
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.SubjectName">
+            <summary>
+            Gets or sets the subject name of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.Thumbprint">
+            <summary>
+            Gets or sets the thumbprint of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.CreatedDateTime">
+            <summary>
+            Gets or sets the creation date of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.StartDateTime">
+            <summary>
+            Gets or sets the start date of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.ExpirationDateTime">
+            <summary>
+            Gets or sets the expiration date of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.Base64Encoded">
+            <summary>
+            Gets or sets the base64 encoding of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.Passphrase">
+            <summary>
+            Gets or sets the passphrase of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.AlkamiCertificate.Type">
+            <summary>
+            Gets or sets the type of the certificate.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.CertificateAuthorityType">
+            <summary>
+            The certificate type
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Certificates.Models.CertificateAuthorityType.Intermediate">
+            <summary>
+            Represents an intermediate certificate, which is used to sign other certificates.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Certificates.Models.CertificateAuthorityType.Root">
+            <summary>
+            Represents a root certificate, which is a top-level certificate in a certificate chain.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Certificates.Models.CertificateAuthorityType.None">
+            <summary>
+            Represents a certificate that does not have an autority.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1">
+            <summary>
+            Api response for the session service
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.#ctor(System.Net.Http.HttpResponseMessage,`0,System.Exception)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="response"></param>
+            <param name="content"></param>
+            <param name="error"></param>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.Content">
+            <summary>
+            Serialized response
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.HasContent">
+            <summary>Gets a value indicating whether deserialized <see cref="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.Content"/> is available.</summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.StatusCode">
+            <summary>
+            HTTP response status code.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.IsSuccessStatusCode">
+            <summary>
+            Indicates whether the request was successful.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.IsSuccessful">
+            <summary>
+            Indicates whether the request was successful and there wasn't any other error (for example, during content
+            deserialization).
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.Error">
+            <summary>
+            The <see cref="T:System.Exception" /> object in case of unsuccessful response.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.Models.CertificateApiResponse`1.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.CertificateMetadataQueryResult">
+            <summary>
+            Represents the result of a certificate metadata query.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadataQueryResult.Results">
+            <summary>
+            The list of Certificate Metadata objects resulted from the query
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadataQueryResult.PaginationToken">
+            <summary>
+            The token that can be used to fetch the next page of data
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.CertificateQueryBody">
+            <summary>
+            Represents the parameters used to query certificates.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryBody.CertificateType">
+            <summary>
+            The certificate type that we are querying for
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryBody.Filter">
+            <summary>
+            Represents the parameters used to query certificates.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryBody.PaginationToken">
+            <summary>
+            The token used to paginate the query
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryBody.PageSize">
+            <summary>
+            The page size
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.CertificateMetadata">
+            <summary>
+            Represents a certificate in the Alkami system.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.SubjectName">
+            <summary>
+            Gets or sets the subject name of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.Thumbprint">
+            <summary>
+            Gets or sets the thumbprint of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.CreatedDateTime">
+            <summary>
+            Gets or sets the creation date of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.StartDateTime">
+            <summary>
+            Gets or sets the start date of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.ExpirationDateTime">
+            <summary>
+            Gets or sets the expiration date of the certificate.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.AlkamiNotBeforeDateTime">
+            <summary>
+            Gets or sets the internal alkami date for a certificate should be available for use.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateMetadata.Type">
+            <summary>
+            Gets or sets the type of the certificate.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.CertificateQueryFilter">
+            <summary>
+            Represents the parameters used to query certificates.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryFilter.SubjectName">
+            <summary>
+            Gets or sets the subject name used to query certificates.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryFilter.Thumbprint">
+            <summary>
+            Gets or sets the thumbprint used to query certificates.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificateQueryFilter.IsActive">
+            <summary>
+            Whether to retrieve certificates that are currently active.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.Boolean">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.AlkamiCertificate">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.CertificateAuthorityType">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.CertificateMetadata">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.CertificateMetadataArray">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.CertificateMetadataQueryResult">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.CertificateQueryBody">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.CertificateQueryFilter">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.UDSCertificateQueryParameters">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.DateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.NullableDateTime">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.Stream">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.StoreLocation">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.StoreName">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.X509FindType">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.Int32">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.Int64">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.String">
+            <summary>
+            Defines the source generated JSON serialization contract metadata for a given type.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.Default">
+            <summary>
+            The default <see cref="T:System.Text.Json.Serialization.JsonSerializerContext"/> associated with a default <see cref="T:System.Text.Json.JsonSerializerOptions"/> instance.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.GeneratedSerializerOptions">
+            <summary>
+            The source-generated options associated with this context.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.#ctor">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.#ctor(System.Text.Json.JsonSerializerOptions)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.Models.CertificatesJsonContext.GetTypeInfo(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters">
+            <summary>
+            Query parameters for retrieving certificates from the sidecar via UDS
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.StoreName">
+            <summary>
+            The <see cref="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.StoreName"/> to search certificates on.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.StoreLocation">
+            <summary>
+            The <see cref="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.StoreLocation"/> to search certificates on.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.X509FindType">
+            <summary>
+            The <see cref="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.X509FindType"/> that will be used to filter certificates on by <see cref="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.FindValue"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.FindValue">
+            <summary>
+            The find value, this corresponds to the type supplied on <see cref="P:Alkami.Utilities.Certificates.Models.UDSCertificateQueryParameters.X509FindType"/>
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.NoOpCertificateServiceClient">
+            <summary>
+            A NoOp version of the certificate service that is used when certificate service isn't setup
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.NoOpCertificateServiceClient.GetCertificatesAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.NoOpCertificateServiceClient.PostCertificatesQueriesAsync(Alkami.Utilities.Certificates.Models.CertificateQueryBody,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy">
+            <summary>
+            Defines a strategy for loading certificates
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <summary>
+            Retrieves a <see cref="T:System.Security.Cryptography.X509Certificates.X509Certificate2"/> from a certificate store.
+            </summary>
+            <param name="storeName"></param>
+            <param name="location"></param>
+            <param name="findType"></param>
+            <param name="findValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy.IsSupportedFindType(System.Security.Cryptography.X509Certificates.X509FindType)">
+            <summary>
+            Whether the supplied <see cref="T:System.Security.Cryptography.X509Certificates.X509FindType"/> is supported by this strategy.
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.RetrievalStrategy.KubernetesCertificateStrategy">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.KubernetesCertificateStrategy.#ctor(Microsoft.Extensions.Logging.ILogger{Alkami.Utilities.Certificates.RetrievalStrategy.KubernetesCertificateStrategy})">
+            <summary>
+            Accepts the Microsoft Logger.
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.KubernetesCertificateStrategy.IsSupportedFindType(System.Security.Cryptography.X509Certificates.X509FindType)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.KubernetesCertificateStrategy.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy"/>
+        </member>
+        <member name="T:Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy">
+            <summary>
+            Local Certificate Strategy
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy.Logger">
+            <summary>
+            Da Logger
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy.#ctor(Microsoft.Extensions.Logging.ILogger{Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy},Alkami.Utilities.Certificates.ICertificateStore,Alkami.Utilities.Certificates.ICertificateServiceClient)">
+            <summary>
+            Default Constructor. Accepts the Microsoft logger
+            </summary>
+            <param name="logger"></param>
+            <param name="certificateStore"></param>
+            <param name="certificatesClient"></param>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy.IsSupportedFindType(System.Security.Cryptography.X509Certificates.X509FindType)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy.GetCertificate(System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Security.Cryptography.X509Certificates.X509FindType,System.String)">
+            <inheritdoc cref="T:Alkami.Utilities.Certificates.RetrievalStrategy.ICertificateRetrievalStrategy"/>
+        </member>
+        <member name="M:Alkami.Utilities.Certificates.RetrievalStrategy.LocalCertificateStrategy.GetThumbprintBySubjectNameAsync(System.String,System.String)">
+             <summary>
+            
+             </summary>
+             <param name="subjectName"></param>
+             <param name="certificateType"></param>
+             <returns></returns>
+             <exception cref="T:System.Net.Http.HttpRequestException"></exception>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net472;net6.0</TargetFrameworks>
+	<Description>Contains all the data objects and validators for the Accounts Microservice</Description>
+	<PackageProjectUrl>https://extranet.alkamitech.com/display/ORB/Alkami.MicroServices.Accounts.Contracts</PackageProjectUrl>
+	<RepositoryUrl>https://extranet.alkamitech.com/display/ORB/Alkami.MicroServices.Accounts.Contracts</RepositoryUrl>
+	<PackageTags>ORB Microservices Accounts Contracts Data Validation</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <AssemblyName>Alkami.MicroServices.Accounts.Contracts.$(MediumNameSuffix)</AssemblyName>
+    <RootNamespace>Alkami.MicroServices.Accounts.Contracts</RootNamespace>
+	<PackageId>Alkami.MicroServices.Accounts.Contracts</PackageId>
+    <VersionPrefix>$(MediumNameVersionPrefix)</VersionPrefix>
+	<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);IncludeP2PAssets</TargetsForTfmSpecificBuildOutput>
+	<Configurations>Debug;Release;k8s</Configurations>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net472'">
+	<Reference Include="System.ServiceModel"></Reference>
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	<PackageReference Include="System.ServiceModel.Primitives" Version="4.10.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.MicroServices.Core" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alkami.MicroServices.Accounts.Data\Alkami.MicroServices.Accounts.Data.csproj">
+      <PrivateAssets>all</PrivateAssets>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>$(ProjectName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <Target Name="IncludeP2PAssets" DependsOnTargets="BuildOnlySettings;ResolveReferences">
+	<ItemGroup>
+		<BuildOutputInPackage Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'all'))" />
+	</ItemGroup>
+  </Target>
+</Project>

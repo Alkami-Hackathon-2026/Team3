@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Security.Data.Validations.2.40</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.SearchUserFilterValidator">
+            <summary>
+            SearchUserFilterValidator
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.SearchUserFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.SearchUserFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+    </members>
+</doc>

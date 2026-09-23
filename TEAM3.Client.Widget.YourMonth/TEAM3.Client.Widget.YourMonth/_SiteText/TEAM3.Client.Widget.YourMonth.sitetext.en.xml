@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<SiteText xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <entries>
+    <entry Key="Title">Your Month</entry>
+    <entry Key="MobileTitle">Your Month</entry>
+    <entry Key="Greeting">Hi</entry>
+    <entry Key="Loading">Loading your month...</entry>
+    <entry Key="Dismiss">Dismiss</entry>
+    <entry Key="SpendHeading">Spending</entry>
+    <entry Key="ThisMonth">This month</entry>
+    <entry Key="LastMonth">Last month</entry>
+    <entry Key="Change">Change</entry>
+    <entry Key="TopMerchants">Top merchants</entry>
+    <entry Key="RecurringCharges">Recurring charges</entry>
+    <entry Key="NoData">Nothing to show yet.</entry>
+  </entries>
+</SiteText>

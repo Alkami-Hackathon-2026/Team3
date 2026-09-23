@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Accounts.Contracts.2.52</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter">
+            <summary>
+            <see cref="T:Alkami.Contracts.IFilter"/> implementation to filter <see cref="T:Alkami.MicroServices.Accounts.Data.Account"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.AccountNumbersAndHolders">
+            <summary>
+            A Dictionary of <see cref="P:Alkami.MicroServices.Accounts.Data.Account.Number"/> and <see cref="P:Alkami.MicroServices.Accounts.Data.Account.AccountHolder"/> If the Holder is null, we will only match on <see cref="P:Alkami.MicroServices.Accounts.Data.Account.Number"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.AccountNumberAndHolderPairs">
+            <summary>
+            A list of <see cref="T:Alkami.MicroServices.Accounts.Data.AccountNumberAndHolderPair"/> to filter by.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.AccountNumbers">
+            <summary>
+            A list of <see cref="P:Alkami.MicroServices.Accounts.Data.Account.Number"/>'s to filter on
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.Ids">
+            <summary>
+            A list of <see cref="P:Alkami.MicroServices.Accounts.Data.Account.Id"/>'s to filter on
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.IncludeExternal">
+            <summary>
+            A filter to indicate whether <see cref="T:Alkami.MicroServices.Accounts.Data.ExternalAccount"/>'s in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.IncludeAggregate">
+            <summary>
+            A filter to indicate whether <see cref="T:Alkami.MicroServices.Accounts.Data.AggregatedAccount"/> is in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.RoutingNumberInfoId">
+            <summary>
+            A filter to limit the <see cref="P:Alkami.MicroServices.Accounts.Data.ExternalAccount.RoutingNumberInfoId"/>'s in the result set
+            <remarks>This property requires <see cref="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.IncludeExternal"/> to be set</remarks>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.AccountIdentifiers">
+            <summary>
+            A filter on <see cref="P:Alkami.MicroServices.Accounts.Data.Account.AccountIdentifier"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountFilter.AccountHolders">
+            <summary>
+            A list of <see cref="P:Alkami.MicroServices.Accounts.Data.Account.AccountHolder"/>'s to filter on
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper">
+            <summary>
+            <see cref="T:Alkami.Contracts.IMapping"/> implementation for <see cref="T:Alkami.MicroServices.Accounts.Data.Account"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.IncludeAccountType">
+            <summary>
+            Indicates if the service should populate <see cref="P:Alkami.MicroServices.Accounts.Data.Account.AccountType"/> in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.IncludeAccountTypeFields">
+            <summary>
+            Indicates if the service should populate the <see cref="T:Alkami.MicroServices.Accounts.Data.AccountTypeField" /> of the <see cref="P:Alkami.MicroServices.Accounts.Data.Account.AccountType"/> in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.IncludeRoutingInfo">
+            <summary>
+            Indicates if the service should populate <see cref="P:Alkami.MicroServices.Accounts.Data.ExternalAccount.RoutingNumberInfo"/> in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.IncludeTransactionDetails">
+            <summary>
+            Indicates if the service should populate <see cref="P:Alkami.MicroServices.Accounts.Data.Transaction.TransactionCode"/>
+            <remarks>This requires <see cref="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.IncludeTransactions"/> to be set</remarks>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.IncludeTransactions">
+            <summary>
+            Indicates if the service should populate <see cref="P:Alkami.MicroServices.Accounts.Data.Account.Transactions"/> in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountMapper.AccountMaskSettings">
+            <summary>
+            Indicates if the service should populate the <see cref="T:Alkami.MicroServices.Accounts.Data.MaskedAccountNumber"/> in the result set.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeClassFilter">
+            <summary>
+            <see cref="T:Alkami.Contracts.IFilter"/> implementation for <see cref="T:Alkami.MicroServices.Accounts.Data.AccountTypeClass"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeClassFilter.Ids">
+            <summary>
+            Filter for <see cref="P:Alkami.MicroServices.Accounts.Data.AccountTypeClass.Id"/>
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeClassMapper">
+            <summary>
+            Mapping class to determine depth of AccountTypeClass tree
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeClassMapper.IncludeAccountTypes">
+            <summary>
+            Informs the service to include <see cref="T:Alkami.MicroServices.Accounts.Data.AccountType"/> with each <see cref="T:Alkami.MicroServices.Accounts.Data.AccountTypeClass"/>
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeFilter">
+            <summary>
+            <see cref="T:Alkami.Contracts.IFilter"/> implementation for <see cref="T:Alkami.MicroServices.Accounts.Data.AccountType"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeFilter.Ids">
+            <summary>
+            Filter on <see cref="P:Alkami.MicroServices.Accounts.Data.AccountType.Id"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeFilter.CoreName">
+            <summary>
+            Filter on <see cref="P:Alkami.MicroServices.Accounts.Data.AccountType.CoreName"/>
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeMapper">
+            <summary>
+            <see cref="T:Alkami.Contracts.IMapping"/> for <see cref="T:Alkami.MicroServices.Accounts.Data.AccountType"/>
+            </summary>
+            <seealso cref="T:Alkami.Contracts.IMapping" />
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.AccountTypeMapper.IncludeAccountTypeFields">
+            <summary>
+            Indicates if the service should populate the <see cref="T:Alkami.MicroServices.Accounts.Data.AccountTypeField" /> of the result set
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionCategoryFilter">
+            <summary>
+            
+            </summary>
+            <seealso cref="T:Alkami.Contracts.IFilter" />
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionCategoryFilter.Ids">
+            <summary>
+            Gets or sets the ids.
+            </summary>
+            <value>
+            The ids.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionCategoryFilter.OwnerUserIds">
+            <summary>
+            Gets or sets the Owner user
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionCategoryMapper">
+             <summary>
+            
+             </summary>
+             <seealso cref="T:Alkami.Contracts.IMapping" />
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionCategoryMapper.IncludeAllLevels">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionDateFields.EffectiveDate">
+            <summary>
+            The effective date
+            </summary>
+        </member>
+        <member name="F:Alkami.MicroServices.Accounts.Contracts.Requests.TransactionDateFields.PostingDate">
+            <summary>
+            The posting date
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeFieldsRequest">
+            <summary>
+            Request for creating or updating Account Type Fields
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeFieldsRequest">
+            <summary>
+            Request for deleting Account Type Fields
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeFieldsRequest.Ids">
+            <summary>
+            The list of account type field ids to delete
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeFieldsRequest.#ctor">
+            <inheritdoc />
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountRequest">
+            <summary>
+            account identifying info will be obtained for the filters
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetFormattedAccountNumbersRequest">
+            <summary>
+            Request for getting formatted account numbers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.GetFormattedAccountNumbersRequest.Accounts">
+            <summary>
+            The accounts to format.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetRoutingNumberInfoRequest">
+            <summary>
+            Get Routing Number Info Request
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.UpdateAccountLastTransactionSyncFinishedRequest.AccountIdentifiers">
+            <summary>
+            Account Identifier to be updated
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Requests.UpdateAccountLastTransactionSyncFinishedRequest.LastTransactionSyncFinishedDate">
+            <summary>
+            Value to set the LastTransactionSyncFinished column in core.Account (Validated using UTC).
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.AccountMaskSettings">
+            <summary>
+            The <see cref="T:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.AccountMaskSettings"/> define how to generate masked account numbers.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.AccountMaskSettings.JoinAccountHolderNumberFormatString">
+            <summary>
+            Defines how to join the account holder and number.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.AccountMaskSettings.FormatOnlyAccountHolder">
+            <summary>
+            Indicates whether formatting should only be applied to the account holder.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.AccountMaskSettings.PadOutput">
+            <summary>
+            Indicates whether the output should be padded the full length of the requested format.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.LimitedAccountInfoFilter.AccountNumbers">
+            <summary>
+            A list of <see cref="!:Account.Number"/>'s to filter on
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.LimitedAccountInfoFilter.Ids">
+            <summary>
+            A list of <see cref="!:Account.Id"/>'s to filter on
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.LimitedAccountInfoFilter.AccountIdentifiers">
+            <summary>
+            A filter on <see cref="!:Account.AccountIdentifier"/>
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.LimitedAccountInfoMapper.IncludeAccountType">
+            <summary>
+            Indicates if the service should populate <see cref="!:Account.AccountType"/> in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.LimitedAccountInfoMapper.IncludeAccountTypeFields">
+            <summary>
+            Indicates if the service should populate the <see cref="!:AccountTypeField" /> of the <see cref="!:Account.AccountType"/> in the result set
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.LimitedAccountInfoMapper.AccountMaskSettings">
+            <summary>
+            Indicates if the service should populate the <see cref="!:MaskedAccountNumber"/> in the result set.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter">
+            <summary>
+            Routing Number Info Filter
+            </summary>
+            <seealso cref="T:Alkami.Contracts.IFilter" />
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.Ids">
+            <summary>
+            Gets or sets the ids.
+            </summary>
+            <value>
+            The ids.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.RoutingNumbers">
+            <summary>
+            Gets or sets the routing numbers.
+            </summary>
+            <value>
+            The routing numbers.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.PartialBankName">
+            <summary>
+            Gets or sets the partial name of the bank.
+            </summary>
+            <value>
+            The partial name of the bank.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.IsBlockedForWires">
+            <summary>
+            Gets or sets the is blocked for wires.
+            </summary>
+            <value>
+            The is blocked for wires.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.IsBlockedForACH">
+            <summary>
+            Gets or sets the is blocked for ach.
+            </summary>
+            <value>
+            The is blocked for ach.
+            </value>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.RoutingNumberInfoType">
+            <summary>
+            Gets or sets the type of the routing number information.
+            </summary>
+            <value>
+            The type of the routing number information.
+            </value>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.MicroServices.Accounts.Contracts.Filters_And_Mappers.RoutingNumberInfoFilter"/> class.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract">
+            <summary>
+            Account Service Contract
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.AddOrUpdateAccountAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountRequest)">
+            <summary>
+            Account Service request to create or modify one or many Accounts
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.AddOrUpdateAccountTypeAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeRequest)">
+            <summary>
+            Account Service request to create or modify one or many Account Types
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.AddOrUpdateAccountTypeClassAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeClassRequest)">
+            <summary>
+            Account Service request to create or modify one or many Account Type Classes
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeClassRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeClassResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetAccountAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountRequest)">
+            <summary>
+            Account Service request for retrieving Accounts
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetLimitedAccountInfoAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetLimitedAccountInfoRequest)">
+            <summary>
+            Account Service request for retrieving Limited Account Information
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetLimitedAccountInfoRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.LimitedAccountInfoResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetAccountTypeAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeRequest)">
+            <summary>
+            Account Service request for retrieving Account Types
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetAccountTypeClassAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeClassRequest)">
+            <summary>
+            Account Service request for retrieving Account Type Classes
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeClassRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeClassResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetRoutingNumberInfoAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetRoutingNumberInfoRequest)">
+            <summary>
+            Account Service request for retrieving Account routing number information
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetRoutingNumberInfoRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.GetRoutingNumberInfoResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetAccountTypeFieldsAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeFieldsRequest)">
+            <summary>
+            Endpoint for retrieving a list of valid fields that may be used by a given Account Type.
+            Please note: This endpoint does not return configured fields for existing Account Types. 
+            To retrieve configured Account Type Fields associated to a given Account Type, you need to call the GetAccountTypeAsync endpoint with IncludeAccountTypeFields Mapper value enabled.
+            Please see GetAccountTypeFieldsAsync handler/implementation for more detailed explanation.
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetAccountTypeFieldsRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.GetAccountTypeFieldsResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.AddOrUpdateAccountTypeFieldsAsync(Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeFieldsRequest)">
+            <summary>
+            Account Service request for creating or updating a list of fields for Account Type display
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeFieldsRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeFieldsResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.DeleteAccountTypeClassAsync(Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeClassRequest)">
+            <summary>
+            Account Service request for deleting an unused account type class
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeClassRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.DeleteAccountTypeClassResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.DeleteAccountTypeAsync(Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeRequest)">
+            <summary>
+            Account Service request for deleting an unused account type
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.DeleteAccountTypeResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.DeleteAccountTypeFieldsAsync(Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeFieldsRequest)">
+            <summary>
+            Account Service request for deleting a list of account type fields for Account Type display
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.DeleteAccountTypeFieldsRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.DeleteAccountTypeFieldsResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.UpdateAccountLastTransactionSyncFinishedAsync(Alkami.MicroServices.Accounts.Contracts.Requests.UpdateAccountLastTransactionSyncFinishedRequest)">
+            <summary>
+            Account Service request for updating the LastTransactionSyncFinished property for an account.
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.UpdateAccountLastTransactionSyncFinishedRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.UpdateAccountLastTransactionSyncFinishedResponse"></returns>
+        </member>
+        <member name="M:Alkami.MicroServices.Accounts.Contracts.IAccountServiceContract.GetFormattedAccountNumbersAsync(Alkami.MicroServices.Accounts.Contracts.Requests.GetFormattedAccountNumbersRequest)">
+            <summary>
+            Account Service request for retrieving properly formatted account numbers.
+            </summary>
+            <param cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.GetFormattedAccountNumbersRequest" name="request"></param>
+            <returns cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.GetFormattedAccountNumbersResponse"></returns>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeFieldsResponse">
+            <summary>
+            Returned response for a <see cref="T:Alkami.MicroServices.Accounts.Contracts.Requests.AddOrUpdateAccountTypeFieldsRequest"/> 
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Responses.AccountTypeFieldsResponse.Fields">
+            <summary>
+            List of configured fields that indicates what details, or properties of an Account need to be displayed.
+            Example Fields: AvailableBalance, InterestRate, InterestPaidYTD, NextPaymentDate, etc.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Responses.DeleteAccountTypeFieldsResponse">
+            <summary>
+            Returned response for a <see cref="T:Alkami.MicroServices.Accounts.Contracts.Responses.DeleteAccountTypeFieldsResponse"/> 
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Responses.GetFormattedAccountNumbersResponse">
+            <summary>
+            Response for the Get Formatted Account Numbers request.
+            </summary>
+        </member>
+        <member name="P:Alkami.MicroServices.Accounts.Contracts.Responses.GetFormattedAccountNumbersResponse.FormattedAccounts">
+            <summary>
+            List of formatted accounts.
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Sorters.AccountSorter">
+            <summary>
+            Container to determine how to sort Accounts
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Sorters.AccountSortingFields">
+            <summary>
+            Fields that are supported for sorting
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Accounts.Contracts.Sorters.LimitedAccountInfoSorter">
+            <summary>
+            Container to determine how to sort Accounts
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Exceptions</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Exceptions.IAlkamiExceptionParser">
+            <summary>
+            Allows you to handle an Alkami Exception
+            </summary>
+        </member>
+        <member name="T:Alkami.Exceptions.SortOrderArgumentException">
+            <summary>
+            The <see cref="T:Alkami.Exceptions.SortOrderArgumentException"/> indicates that an invalid sort order was supplied.
+            </summary>
+            <seealso cref="T:System.Exception" />
+        </member>
+        <member name="M:Alkami.Exceptions.SortOrderArgumentException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Alkami.Exceptions.SortOrderArgumentException"/> class.
+            </summary>
+            <param name="sortOrderType">Type of the sort order.</param>
+        </member>
+    </members>
+</doc>

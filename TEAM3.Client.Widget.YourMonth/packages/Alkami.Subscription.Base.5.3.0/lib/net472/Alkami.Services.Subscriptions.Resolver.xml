@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Services.Subscriptions.Resolver</name>
+    </assembly>
+    <members>
+        <member name="E:Alkami.Services.Subscriptions.Resolver.InnerResolver.OnChange">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.ClientVersion">
+            <inheritdoc/>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.RefreshData(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.InnerResolver.AllRegisteredDefinitions">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.Heartbeat(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.InnerResolver.HeartbeatAsync(Alkami.Services.Subscriptions.Data.ServiceDefinition)">
+            <inheritdoc />
+        </member>
+        <member name="F:Alkami.Services.Subscriptions.Resolver.ServiceResolver.ResolverFactory">
+            <summary>
+            Factory to create an instance of <see cref="T:Alkami.Services.Subscriptions.Resolver.IResolver"/>
+            <remarks>No need to override this in the default behavior</remarks>
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.ServiceResolver.EstablishedConnectionAtLeastOnce">
+            <summary>
+            A boolean indicating that a connection was made to the subscription service at least once. This will be used to allow the service to start up
+            </summary>
+        </member>
+        <member name="P:Alkami.Services.Subscriptions.Resolver.ServiceResolver.IsConnected">
+            <summary>
+            a boolean indicating that the connection to the subscription service is currently connected
+            </summary>
+        </member>
+        <member name="M:Alkami.Services.Subscriptions.Resolver.ServiceResolver.AllRegisteredDefinitions">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

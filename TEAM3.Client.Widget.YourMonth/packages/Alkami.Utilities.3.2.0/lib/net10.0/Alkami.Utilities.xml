@@ -1,0 +1,578 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.Utilities</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.Utilities.Formatting.Utilities.StringUtilities">
+            <summary>
+            Global utilities for string formatting
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetTaxIdRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>\\b([0-9]{1,3})([ -]?)([0-9]{2,3})([ -]?)([0-9]{4})([a-zA-Z]?)\\b</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match if at a word boundary.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character in the set [0-9] greedily at least 1 and at most 3 times.<br/>
+            ○ 2nd capture group.<br/>
+                ○ Match a character in the set [ \-] atomically, optionally.<br/>
+            ○ 3rd capture group.<br/>
+                ○ Match a character in the set [0-9] greedily at least 2 and at most 3 times.<br/>
+            ○ 4th capture group.<br/>
+                ○ Match a character in the set [ \-] atomically, optionally.<br/>
+            ○ 5th capture group.<br/>
+                ○ Match a character in the set [0-9] exactly 4 times.<br/>
+            ○ 6th capture group.<br/>
+                ○ Match an ASCII letter greedily, optionally.<br/>
+            ○ Match if at a word boundary.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetPrivateNumberRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>\\b(?&lt;![0-9\\*\\-][:\\s\\./]?)([0-9]{2,19})(?![:\\s\\./]?[0-9\\*\\-])\\b</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match if at a word boundary.<br/>
+            ○ Zero-width negative lookbehind.<br/>
+                ○ Match a character in the set [./:\s] greedily, optionally right-to-left.<br/>
+                ○ Match a character in the set [*\-0-9] right-to-left.<br/>
+            ○ 1st capture group.<br/>
+                ○ Match a character in the set [0-9] greedily at least 2 and at most 19 times.<br/>
+            ○ Zero-width negative lookahead.<br/>
+                ○ Match a character in the set [./:\s] atomically, optionally.<br/>
+                ○ Match a character in the set [*\-0-9].<br/>
+            ○ Match if at a word boundary.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetConnectionPasswordRegex">
+            <remarks>
+            Pattern:<br/>
+            <code>[Pp]assword=[^,]+</code><br/>
+            Options:<br/>
+            <code>RegexOptions.Compiled</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ Match a character in the set [Pp].<br/>
+            ○ Match the string "assword=".<br/>
+            ○ Match a character other than ',' atomically at least once.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.GetShouldSanitize">
+            <summary>
+            Boolean representation for the SanitizeLogEntry setting. True if SanitizeLogEntry is not in the
+            configuration.
+            </summary>
+            <returns>false if ORB has been configured to log private data, true otherwise</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.ToMaskedString(System.String,System.Int32,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="input">the input string we will be masking</param>
+            <param name="unmaskedTrailingCharacterCount">
+            the number of characters that will remain unmasked after the operation completes. Defaults to 4.
+            </param>
+            <param name="maskToLength">
+            when true this parameter will ensure the length of the masked output is the same length as the input string.
+            When false this setting will put four asterisks in front of the unmasked characters. Defaults to true.
+            </param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeConnStr(System.String)">
+            <summary>
+            Redact password from connection string
+            </summary>
+            <param name="input">String to sanitize</param>
+            <returns>Sanitized string</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.String)">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The string that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.MaskCardNumbers(System.String)">
+            <summary>
+            Masks card numbers with stars (*) leaving the last 4 and first 2 digits
+            </summary>
+            <param name="input">The string with card numbers to mask</param>
+            <returns>A string where card numbers have been masked</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.RedactTaxId(System.String)">
+            <summary>
+            Redacts the TaxID based on a pattern.
+            </summary>
+            <param name="str">The string to search for the pattern to redact.</param>
+            <returns>A string where the tax ID has been masked with *'s leaving the last 4 digits</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.RedactPrivateNumber(System.String)">
+            <summary>
+            Redacts a number which represents NPPI based on a patern.
+            </summary>
+            <param name="input">The string to search for the pattern to redact.</param>
+            <returns>A string where the number has been masked with *'s possibly leaving the last 4 digits</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.Left(System.String,System.Int32)">
+            <summary>
+            Returns the first specified number of characters from a string
+            </summary>
+            <param name="text">The string from which to return the first specified number of characters</param>
+            <param name="length">The number of characters, at maximum to return</param>
+            <returns>The first specified number of characters</returns>
+            <remarks>
+            As String.Substring() will thrown an exception if the string has fewer characters than requested by its
+            index property, this is a more usable version that mimics the Visual Basic Left() functionality
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.Right(System.String,System.Int32)">
+            <summary>
+            Returns the last specified number of characters from a string
+            </summary>
+            <param name="text">The string from which to return the last specified number of characters</param>
+            <param name="length">The number of characters, at maximum to return</param>
+            <returns>The last specified number of characters</returns>
+            <remarks>
+            As String.Substring() will thrown an exception if the string has fewer characters than requested by its
+            index property, this is a more usable version that mimics the Visual Basic Left() functionality
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.Nullable{System.Int64})">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The number that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.Int64)">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The number that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.SanitizeData(System.Int32)">
+            <summary>
+            Mask or remove sensitive data before logging to file, database, etc.
+            </summary>
+            <param name="input">The number that should be sanitized</param>
+            <returns>A string safe for logging</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.MaskEmailAddress(System.String,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Mask an email address.
+            </summary>
+            <param name="originalEmailAddress">Email address to be masked</param>
+            <param name="min">Minimum characters that will be displayed</param>
+            <param name="max">Maximum characters that will be displayed</param>
+            <param name="defaultNumOfMasks">Default number of masks</param>
+            <returns>Masked email address</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Formatting.Utilities.StringUtilities.MaskPhoneNumber(System.String,System.Int32,System.Char)">
+            <summary>
+            Mask a phone number.
+            </summary>
+            <param name="phoneNumber">phone Number to be masked</param>
+            <param name="digitDisplayCount">The number of numbers to show towards the end of the mask</param>
+            <param name="delimeter">The delimiter used in displaying the phone number</param>
+            <returns>Masked Phone Number</returns>
+        </member>
+        <member name="T:Alkami.Utilities.Hashing.HashMethod">
+            <summary>
+            An enumeration of the keyed hash algorithms available to the Compute method.
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACMD5">
+            <summary>
+            MD5 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA1">
+            <summary>
+            SHA1 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA256">
+            <summary>
+            SHA256 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA384">
+            <summary>
+            SHA384 Algorithm
+            </summary>
+        </member>
+        <member name="F:Alkami.Utilities.Hashing.HashMethod.HMACSHA512">
+            <summary>
+            SHA512 Algorithm
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Hashing.HashUtility">
+            <summary>
+            Static class that handles the computation of a hash based on a keyed hash algorithm.
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.Byte[],System.Byte[],Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="messageBytes">The message bytes.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>
+            The computed hash represented as a hex string.
+            </returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.Byte[],System.String,Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="messageBytes">The message bytes.</param>
+            <param name="key">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>
+            The computed hash represented as a hex string.
+            </returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.String,System.Byte[],Alkami.Utilities.Hashing.HashMethod,System.Boolean)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <param name="byteArrayToHexStringLower"></param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ComputeBinary(System.String,System.Byte[],Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ComputeBinary(System.Byte[],System.Byte[],Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="messageBytes">The message to hash.</param>
+            <param name="keyBytes">The key to hash the method with.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.Compute(System.String,System.String,Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="textStringKey">The key to hash the method with as a text string.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ComputeFromHexString(System.String,System.String,Alkami.Utilities.Hashing.HashMethod)">
+            <summary>
+            Computes a hash of a specified key/message based on the supplied hash algorithm.
+            </summary>
+            <param name="message">The message to hash.</param>
+            <param name="hexStringKey">The key to hash the method with as a HEX string.</param>
+            <param name="hashMethod">The method to use to perform the hash.</param>
+            <returns>The computed hash represented as a hex string.</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ByteArrayToHexString(System.Byte[],System.Boolean)">
+            <summary>
+            Bytes the array to hexadecimal string.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <param name="isLower">If true, sets X2 to x2.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.ByteArrayToHexStringLower(System.Byte[])">
+            <summary>
+            Bytes the array to hexadecimal string lower.
+            </summary>
+            <param name="bytes">The bytes.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.HexStringToByteArray(System.String)">
+            <summary>
+            Strings to byte array.
+            </summary>
+            <param name="hex">The hexadecimal.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Hashing.HashUtility.StringToByteArray(System.String)">
+            <summary>
+            string to byte array.
+            </summary>
+            <param name="characters"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Alkami.Utilities.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.MoreThanOneCertificateFound">
+            <summary>
+              Looks up a localized string similar to There is more than one certificate for find type {0} with find value &apos;{1}&apos;..
+            </summary>
+        </member>
+        <member name="P:Alkami.Utilities.Properties.Resources.NoCertificateFound">
+            <summary>
+              Looks up a localized string similar to No certificate was found using search criteria: store location - &apos;{0}&apos;, store name - &apos;{1}&apos;, x509 find type - &apos;{2}&apos;, find value - &apos;{3}&apos;..
+            </summary>
+        </member>
+        <member name="T:Alkami.Utilities.Validation.CreditCardValidator">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.UnifiedCardRe">
+            <remarks>
+            Pattern:<br/>
+            <code>([0-9]{2})(([0-9]{7,13})|([0-9]{2,2} [0-9]{4,4} [0-9]{4,4} )|([0-9]{2,2}-[0-9]{4,4}-[0-9]{4,4}-)|([0-9]{2,2}-[0-9]{6,6}-[0-9]))([0-9]{4,4})</code><br/>
+            Explanation:<br/>
+            <code>
+            ○ 1st capture group.<br/>
+                ○ Match a character in the set [0-9] exactly 2 times.<br/>
+            ○ 2nd capture group.<br/>
+                ○ Match with 4 alternative expressions.<br/>
+                    ○ 3rd capture group.<br/>
+                        ○ Match a character in the set [0-9] greedily at least 7 and at most 13 times.<br/>
+                    ○ 4th capture group.<br/>
+                        ○ Match a character in the set [0-9] exactly 2 times.<br/>
+                        ○ Match ' '.<br/>
+                        ○ Match a character in the set [0-9] exactly 4 times.<br/>
+                        ○ Match ' '.<br/>
+                        ○ Match a character in the set [0-9] exactly 4 times.<br/>
+                        ○ Match ' '.<br/>
+                    ○ 5th capture group.<br/>
+                        ○ Match a character in the set [0-9] exactly 2 times.<br/>
+                        ○ Match '-'.<br/>
+                        ○ Match a character in the set [0-9] exactly 4 times.<br/>
+                        ○ Match '-'.<br/>
+                        ○ Match a character in the set [0-9] exactly 4 times.<br/>
+                        ○ Match '-'.<br/>
+                    ○ 6th capture group.<br/>
+                        ○ Match a character in the set [0-9] exactly 2 times.<br/>
+                        ○ Match '-'.<br/>
+                        ○ Match a character in the set [0-9] exactly 6 times.<br/>
+                        ○ Match '-'.<br/>
+                        ○ Match a character in the set [0-9].<br/>
+            ○ 7th capture group.<br/>
+                ○ Match a character in the set [0-9] exactly 4 times.<br/>
+            </code>
+            </remarks>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.RedactCreditCardNumbers(System.String)">
+            <summary>
+            Sanitize a string with one or more credit card numbers
+            </summary>
+            <param name="s">The string with credit card number(s) to redact</param>
+            <returns>The string with redacted credit card number(s)</returns>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.NormalizeCreditCardNumber(System.String)">
+            <summary>
+            Normalizes the credit card number.
+            </summary>
+            <param name="number">The number.</param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentNullException">number</exception>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.IsValidCreditCardNumber(System.String)">
+            <summary>
+            Determines whether [is valid credit card number] [the specified pan]. Does not validate issuer. The list of
+            valid issuers would have to be maintained somehow.
+            </summary>
+            <param name="pan">no dashes or spaces.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Alkami.Utilities.Validation.CreditCardValidator.ValidateLuhn(System.String)">
+            <summary>
+            ignores non-digit characters. will not work if string contains no digit characters
+            </summary>
+            <param name="digits"></param>
+            <returns></returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the GetTaxIdRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetTaxIdRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the GetPrivateNumberRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetPrivateNumberRegex_1.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the GetConnectionPasswordRegex method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.GetConnectionPasswordRegex_2.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.UnifiedCardRe_3">
+            <summary>Custom <see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the UnifiedCardRe method.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.RunnerFactory">
+            <summary>Provides a factory for creating <see cref="T:System.Text.RegularExpressions.RegexRunner"/> instances to be used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a <see cref="T:System.Text.RegularExpressions.RegexRunner"/> used by methods on <see cref="T:System.Text.RegularExpressions.Regex"/>.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the <paramref name="inputSpan"/> starting from base.runtextstart for the next match.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search <paramref name="inputSpan"/> starting from base.runtextpos for the next location a match could possibly start.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.UnifiedCardRe_3.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Determine whether <paramref name="inputSpan"/> at base.runtextpos is a match for the regular expression.</summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.Utilities">
+            <summary>Helper methods used by generated <see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout">
+            <summary>Default timeout value set in <see cref="T:System.AppContext"/>, or <see cref="F:System.Text.RegularExpressions.Regex.InfiniteMatchTimeout"/> if none was set.</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_hasTimeout">
+            <summary>Whether <see cref="F:System.Text.RegularExpressions.Generated.Utilities.s_defaultTimeout"/> is non-infinite.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsBoundary(System.ReadOnlySpan{System.Char},System.Int32)">
+            <summary>Determines whether the specified index is a boundary.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsBoundaryWordChar(System.Char)">
+            <summary>Determines whether the specified index is a boundary word character.</summary>
+            <remarks>This is the same as \w plus U+200C ZERO WIDTH NON-JOINER and U+200D ZERO WIDTH JOINER.</remarks>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.Utilities.IsPreWordCharBoundary(System.ReadOnlySpan{System.Char},System.Int32)">
+            <summary>Determines whether the specified index is a boundary.</summary>
+            <remarks>This variant is only employed when the subsequent character will separately be validated as a word character.</remarks>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.WordCategoriesMask">
+            <summary>Provides a mask of Unicode categories that combine to form [\w].</summary>
+        </member>
+        <member name="P:System.Text.RegularExpressions.Generated.Utilities.WordCharBitmap">
+            <summary>Gets a bitmap for whether each character 0 through 127 is in [\w]</summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_indexOfString_256126F772F133D6357D3E28D513F391D4B676E9D584A11DAB87CDAD87C0BC14">
+            <summary>Supports searching for the string "assword=".</summary>
+        </member>
+    </members>
+</doc>

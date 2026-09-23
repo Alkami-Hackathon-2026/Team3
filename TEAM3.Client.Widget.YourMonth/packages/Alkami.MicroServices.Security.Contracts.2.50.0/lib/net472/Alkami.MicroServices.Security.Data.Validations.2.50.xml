@@ -1,0 +1,262 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Alkami.MicroServices.Security.Data.Validations.2.50</name>
+    </assembly>
+    <members>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AccessLevelFilterValidator">
+            <summary>
+            Validator for access level filter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AccessLevelFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AccessLevelFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AccessLevelMapperValidator">
+            <summary>
+            Validator for access level mapper objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AccessLevelMapperValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AccessLevelMapper)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateEntityGroupMemberRequestValidator">
+            <summary>
+            Validator for add or update entity group member requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateEntityGroupMemberRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupMemberRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateEntityGroupRequestValidator">
+            <summary>
+            Request validator for Add or update entity group request
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateEntityGroupRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityGroupRequest)">
+            <summary>
+            Request validator for Add or update entity group request
+            </summary>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateEntityRequestValidator">
+            <summary>
+            Validator for add or update entity requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateEntityRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateEntityRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateUserRequestValidator">
+            <summary>
+            Validator for add or update user requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateUserRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateUserRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.EntityFilterValidator">
+            <summary>
+            Validator for entity filter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.EntityFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.EntityFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.EntityGroupMemberValidator">
+            <summary>
+            Validator for entity group member objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.EntityGroupMemberValidator.ValidateInternal(Alkami.MicroServices.Security.Data.EntityGroupMember)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.EntityGroupRequestValidator">
+            <summary>
+            Validator for get entity group requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.EntityGroupRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetEntityGroupRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.EntityMapperValidator">
+            <summary>
+            Validator for entity mapper objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.EntityMapperValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.EntityMapper)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.EntitySorterValidator">
+            <summary>
+            Validator for entity sorter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.EntitySorterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.EntitySorter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.EntityValidator">
+            <summary>
+            Validator for entity objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.EntityValidator.ValidateInternal(Alkami.MicroServices.Security.Data.Entity)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.FlavorUserMetadataFilterValidator">
+            <summary>
+            Validator for flavor user metadata filter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.FlavorUserMetadataFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.FlavorUserMetadataMapperValidator">
+            <summary>
+            Validator for flavor user metadata mapper objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.FlavorUserMetadataMapperValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.FlavorUserMetadataMapper)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetAccessLevelRequestValidator">
+            <summary>
+            Validator for get access level requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetAccessLevelRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetAccessLevelRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetEntityRequestValidator">
+            <summary>
+            Validator for get entity requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetEntityRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetEntityRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetFlavorUserMetadataRequestValidator">
+            <summary>
+            Validator for get flavor user metadata requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetFlavorUserMetadataRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetFlavorUserMetadataRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetJointOwnerRequestValidator">
+            <summary>
+            Validator for get joint owner requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetJointOwnerRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetJointOwnerRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetPermissionRequestValidator">
+            <summary>
+            Validator for get permission requests.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetPermissionRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetPermissionRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetUserRequestValidator">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetUserRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetUserRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.JointOwnerFilterValidator">
+            <summary>
+            Validator for joint owner filter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.JointOwnerFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.JointOwnerFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.JointOwnerMapperValidator">
+            <summary>
+            Validator for joint owner mapper objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.JointOwnerMapperValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Filters_And_Mappers.JointOwnerMapper)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateLoginGroupRequestValidator">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.AddOrUpdateLoginGroupRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.AddOrUpdateLoginGroupRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.GetLoginGroupRequestValidator">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.GetLoginGroupRequestValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.GetLoginGroupRequest)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.LoginGroupFilterValidator">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.LoginGroupFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.LoginGroupFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.LoginGroupMapperValidator">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.LoginGroupMapperValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.LoginGroupMapper)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.LoginGroupSorterValidator">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.LoginGroupSorterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Sorters.LoginGroupSorter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.PermissionFilterValidator">
+            <summary>
+            Validator for permission filter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.PermissionFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.PermissionFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.SearchUserFilterValidator">
+            <summary>
+            SearchUserFilterValidator
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.SearchUserFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.SearchUserFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.UserFilterValidator">
+            <summary>
+            Validator for user filter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.UserFilterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.UserFilter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.UserMapperValidator">
+            <summary>
+            Validator for user mapper objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.UserMapperValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Requests.UserMapper)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.UserSorterValidator">
+            <summary>
+            Validator for user sorter objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.UserSorterValidator.ValidateInternal(Alkami.MicroServices.Security.Contracts.Sorters.UserSorter)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+        <member name="T:Alkami.MicroServices.Security.Data.Validations.UserValidator">
+            <summary>
+            Validator for user objects.
+            </summary>
+        </member>
+        <member name="M:Alkami.MicroServices.Security.Data.Validations.UserValidator.ValidateInternal(Alkami.MicroServices.Security.Data.User)">
+            <inheritdoc cref="T:Alkami.Data.Validations.EntityValidatorImpl"/>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,70 @@
+@using Alkami.Client.WebClient.Shared.Helpers
+@using System.Web.Mvc.Html
+@using Alkami.Client.Framework.Utility
+@model TEAM3.Client.Widget.YourMonth.Models.TEAM3YourMonthModel
+@section TitleContentPlaceholder{
+    @Html.SiteText("Title")
+}
+
+@section StyleSheetContentPlaceholder{
+}
+
+@section JavaScriptIncludeContentPlaceholder{
+    @Html.ScriptWithCacheExpiration("~/lib/chartjs/chart.min.js")
+    @Html.ScriptWithCacheExpiration("~/Areas/TEAM3YourMonth/Scripts/yourmonth.js")
+}
+
+<div class="widget yourmonth-widget">
+    <div class="content pad--base">
+        <h2 class="font-medium-heading mar-bottom--small">@Html.SiteText("Greeting"), @Model.FirstName</h2>
+
+        <div id="yourmonth_loading" class="pad--base">
+            <span>@Html.SiteText("Loading")</span>
+        </div>
+
+        <div id="yourmonth_content" hidden>
+            <div id="yourmonth_insight" class="iris-card pad--base mar-bottom--base" hidden>
+                <div class="flex flex-justify--between flex-align--center">
+                    <p id="yourmonth_insight_text" class="mar-bottom--0"></p>
+                    <button id="yourmonth_insight_dismiss" type="button" class="iris-button iris-button--secondary">
+                        <span class="iris-button__text">@Html.SiteText("Dismiss")</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="iris-card pad--base mar-bottom--base">
+                <h3 class="font-small-heading mar-bottom--small">@Html.SiteText("SpendHeading")</h3>
+                <div class="flex flex-justify--around flex-align--center">
+                    <div class="text-align--center">
+                        <div class="font-small-text">@Html.SiteText("ThisMonth")</div>
+                        <div id="yourmonth_this_month" class="font-medium-heading"></div>
+                    </div>
+                    <div class="text-align--center">
+                        <div class="font-small-text">@Html.SiteText("LastMonth")</div>
+                        <div id="yourmonth_last_month" class="font-medium-heading"></div>
+                    </div>
+                    <div class="text-align--center">
+                        <div class="font-small-text">@Html.SiteText("Change")</div>
+                        <div id="yourmonth_percent_change" class="font-medium-heading"></div>
+                    </div>
+                </div>
+                <div class="mar-top--base">
+                    <canvas id="yourmonth_chart" height="120" role="img" aria-label="Bar chart comparing this month and last month spending"></canvas>
+                </div>
+            </div>
+
+            <div class="flex">
+                <div class="iris-card pad--base mar-bottom--base width--50 mar-right--small">
+                    <h3 class="font-small-heading mar-bottom--small">@Html.SiteText("TopMerchants")</h3>
+                    <ul id="yourmonth_merchants" class="list--plain"></ul>
+                    <p id="yourmonth_merchants_empty" class="font-small-text" hidden>@Html.SiteText("NoData")</p>
+                </div>
+                <div class="iris-card pad--base mar-bottom--base width--50">
+                    <h3 class="font-small-heading mar-bottom--small">@Html.SiteText("RecurringCharges")</h3>
+                    <ul id="yourmonth_recurring" class="list--plain"></ul>
+                    <p id="yourmonth_recurring_empty" class="font-small-text" hidden>@Html.SiteText("NoData")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

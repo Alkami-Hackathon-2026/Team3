@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net6.0;net472</TargetFrameworks>
+    <LangVersion>12.0</LangVersion>
+    <OutputType>Library</OutputType>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Title>Alkami MicroServices Base Contracts</Title>
+    <Description>Includes the base contracts for the Alkami Microservices.</Description>
+    <PackageTags>Alkami Microservices Contract</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Alkami.GlobalAssets" Version="2.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Alkami.LibraryAssets" Version="1.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Alkami.Exceptions\Alkami.Exceptions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Alkami.Services.Subscriptions.ParticipatingClient" />
+    <InternalsVisibleTo Include="Alkami.Services.Subscriptions.ParticipatingService" />
+    <InternalsVisibleTo Include="Alkami.Services.Host.Container.Rpc.Client" />
+    <InternalsVisibleTo Include="Alkami.Services.Host.Container.Rpc.Host" />
+    <InternalsVisibleTo Include="Alkami.Services.Host.Container.Rpc.Tests" />
+    <InternalsVisibleTo Include="Alkami.Contracts.Tests" />
+  </ItemGroup>
+</Project>
