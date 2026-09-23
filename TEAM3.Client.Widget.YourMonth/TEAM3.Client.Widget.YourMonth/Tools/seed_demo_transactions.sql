@@ -52,21 +52,21 @@ INSERT INTO @Rows VALUES
 
 -- Restaurants / coffee / misc (this month heavier than last month)
 INSERT INTO @Rows VALUES
- ( 1, 18.42, 1, N'COFFEE HUT',              N'Coffee Shops'),
+ ( 1, 18.42, 1, N'COLON CLEANSE COFFEE HUT',              N'Coffee Shops'),
  ( 3, 64.90, 1, N'BELLA PASTA RESTAURANT',  N'Restaurants'),
- ( 7, 14.85, 1, N'COFFEE HUT',              N'Coffee Shops'),
+ ( 7, 14.85, 1, N'COLON CLEANSE COFFEE HUT',              N'Coffee Shops'),
  (10, 42.10, 1, N'BURGER BARN',             N'Fast Food'),
  (11, 156.99, 1, N'BIG BOX ELECTRONICS',    N'Electronics & Software'),
- (14, 17.30, 1, N'COFFEE HUT',              N'Coffee Shops'),
+ (14, 17.30, 1, N'COLON CLEANSE COFFEE HUT',              N'Coffee Shops'),
  (15, 89.99, 1, N'SHOE WAREHOUSE',          N'Clothing'),
  (18, 27.60, 1, N'PIZZA PALACE',            N'Restaurants'),
- (20, 12.75, 1, N'COFFEE HUT',              N'Coffee Shops'),
+ (20, 12.75, 1, N'COLON CLEANSE COFFEE HUT',              N'Coffee Shops'),
  (25, 73.25, 1, N'HOME AND GARDEN CENTER',  N'Home Improvement'),
  (35, 22.18, 1, N'BURGER BARN',             N'Fast Food'),
- (41, 16.20, 1, N'COFFEE HUT',              N'Coffee Shops'),
+ (41, 16.20, 1, N'COLON CLEANSE COFFEE HUT',              N'Coffee Shops'),
  (44, 58.35, 1, N'BELLA PASTA RESTAURANT',  N'Restaurants'),
  (49, 31.44, 1, N'PIZZA PALACE',            N'Restaurants'),
- (56, 19.05, 1, N'COFFEE HUT',              N'Coffee Shops');
+ (56, 19.05, 1, N'COLON CLEANSE COFFEE HUT',              N'Coffee Shops');
 
 -- Credits (ignored by the summary math)
 INSERT INTO @Rows VALUES

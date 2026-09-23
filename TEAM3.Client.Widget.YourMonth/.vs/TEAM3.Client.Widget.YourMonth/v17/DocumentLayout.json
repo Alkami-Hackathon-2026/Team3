@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|c:\\temp\\sdkproject\\team3.client.widget.yourmonth\\team3.client.widget.yourmonth\\controllers\\team3yourmonthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|c:\\temp\\sdkproject\\team3.client.widget.yourmonth\\team3.client.widget.yourmonth\\views\\team3yourmonth\\mobile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|solutionrelative:team3.client.widget.yourmonth\\views\\team3yourmonth\\mobile\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\team3.client.widget.yourmonth\\controllers\\team3yourmonthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|solutionrelative:team3.client.widget.yourmonth\\controllers\\team3yourmonthcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\team3.client.widget.yourmonth\\scripts\\yourmonth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{23A32ECF-F86F-4140-902F-497F1A529EA4}|TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth.csproj|solutionrelative:team3.client.widget.yourmonth\\scripts\\yourmonth.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +22,44 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "yourmonth.js",
+              "DocumentMoniker": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Scripts\\yourmonth.js",
+              "RelativeDocumentMoniker": "TEAM3.Client.Widget.YourMonth\\Scripts\\yourmonth.js",
+              "ToolTip": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Scripts\\yourmonth.js",
+              "RelativeToolTip": "TEAM3.Client.Widget.YourMonth\\Scripts\\yourmonth.js",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAhwBsAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-09-23T19:35:39.962Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Views\\TEAM3YourMonth\\Mobile\\Index.cshtml",
+              "RelativeDocumentMoniker": "TEAM3.Client.Widget.YourMonth\\Views\\TEAM3YourMonth\\Mobile\\Index.cshtml",
+              "ToolTip": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Views\\TEAM3YourMonth\\Mobile\\Index.cshtml",
+              "RelativeToolTip": "TEAM3.Client.Widget.YourMonth\\Views\\TEAM3YourMonth\\Mobile\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-23T16:00:26.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TEAM3YourMonthController.cs",
               "DocumentMoniker": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
               "RelativeDocumentMoniker": "TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
               "ToolTip": "C:\\Temp\\SDKProject\\TEAM3.Client.Widget.YourMonth\\TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
               "RelativeToolTip": "TEAM3.Client.Widget.YourMonth\\Controllers\\TEAM3YourMonthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T01:32:54.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T01:32:54.204Z"
             }
           ]
         }

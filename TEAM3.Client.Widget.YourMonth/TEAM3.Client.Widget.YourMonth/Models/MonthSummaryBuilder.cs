@@ -15,6 +15,7 @@ namespace TEAM3.Client.Widget.YourMonth.Models
     {
         private const decimal RecurringAmountTolerance = 0.10m;
         private const int TopMerchantCount = 3;
+        public const string UncategorizedName = "Other";
 
         // Leading tokens that cores commonly prepend to card/ACH descriptions.
         private static readonly HashSet<string> DescriptionNoiseWords = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
@@ -37,6 +38,7 @@ namespace TEAM3.Client.Widget.YourMonth.Models
                 {
                     Amount = Math.Abs(t.Amount),
                     Name = NormalizeDescription(t.Description),
+                    Category = string.IsNullOrWhiteSpace(t.Category) ? UncategorizedName : t.Category.Trim(),
                     MonthIndex = (t.PostingDate.Year * 12) + t.PostingDate.Month - 1
                 })
                 .ToList();
@@ -64,6 +66,31 @@ namespace TEAM3.Client.Widget.YourMonth.Models
                 .OrderByDescending(m => m.Total)
                 .ThenBy(m => m.Name)
                 .Take(TopMerchantCount)
+                .ToList();
+
+            summary.ThisMonthCategories = spend
+                .Where(t => t.MonthIndex == thisMonthIndex)
+                .GroupBy(t => t.Category)
+                .Select(g => new CategoryTotal { Name = g.Key, Total = g.Sum(t => t.Amount) })
+                .OrderByDescending(c => c.Total)
+                .ThenBy(c => c.Name)
+                .ToList();
+
+            summary.LastMonthCategories = spend
+                .Where(t => t.MonthIndex == thisMonthIndex - 1)
+                .GroupBy(t => t.Category)
+                .Select(g => new CategoryTotal { Name = g.Key, Total = g.Sum(t => t.Amount) })
+                .OrderByDescending(c => c.Total)
+                .ThenBy(c => c.Name)
+                .ToList();
+
+            // Every category with any spend in the lookback window, carrying this month's spend
+            // (zero when the spend was only in earlier months). Drives the budget editor.
+            summary.AllCategories = spend
+                .GroupBy(t => t.Category)
+                .Select(g => new CategoryTotal { Name = g.Key, Total = g.Where(t => t.MonthIndex == thisMonthIndex).Sum(t => t.Amount) })
+                .OrderByDescending(c => c.Total)
+                .ThenBy(c => c.Name)
                 .ToList();
 
             summary.RecurringCharges = byMerchant

@@ -386,6 +386,7 @@
     <Compile Include="Models\TEAM3YourMonthModel.cs"/>
     <Compile Include="Models\SummaryModels.cs"/>
     <Compile Include="Models\MonthSummaryBuilder.cs"/>
+    <Compile Include="Models\CategoryBudgetHelper.cs"/>
 	<Compile Include="Models\FdicComplianceConfigsResponse.cs"/>
 	
     <Compile Include="Controllers\MobileTEAM3YourMonthController.cs"/>
@@ -399,6 +400,7 @@
     <Content Include="Views\TEAM3YourMonth\Index.cshtml"/>
 	  
 	  <Content Include="Scripts\yourmonth.js" />
+	  <Content Include="Styles\yourmonth.css" />
     <Content Include="packages.config" />
 	<Content Include="sem.ver" />
     <None Include="Tools\install_widget.sql" />

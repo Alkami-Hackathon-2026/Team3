@@ -7,64 +7,75 @@
 }
 
 @section StyleSheetContentPlaceholder{
+    @Html.CssWithCacheExpiration("/Areas/TEAM3YourMonth/Styles/yourmonth.css")
 }
 
 @section JavaScriptIncludeContentPlaceholder{
     @Html.ScriptWithCacheExpiration("~/lib/chartjs/chart.min.js")
+    @Html.ScriptWithCacheExpiration("~/lib/vue/vue.min.js")
+    @Html.ScriptWithCacheExpiration("~/lib/vue-demi/index.iife.js")
+    @Html.ScriptWithCacheExpiration("~/lib/pinia/pinia.iife.prod.js")
+    <script>
+        window.team3YourMonthText = {
+            loading: '@Html.SiteText("Loading")',
+            dismiss: '@Html.SiteText("Dismiss")',
+            spendHeading: '@Html.SiteText("SpendHeading")',
+            thisMonth: '@Html.SiteText("ThisMonth")',
+            lastMonth: '@Html.SiteText("LastMonth")',
+            change: '@Html.SiteText("Change")',
+            topMerchants: '@Html.SiteText("TopMerchants")',
+            recurringCharges: '@Html.SiteText("RecurringCharges")',
+            noData: '@Html.SiteText("NoData")',
+            genericError: '@Html.SiteText("GenericError")',
+            chartLabel: '@Html.SiteText("ChartLabel")',
+            budgetBar: '@Html.SiteText("BudgetBar")',
+            budgetRemaining: '@Html.SiteText("BudgetRemaining")',
+            categoryHeading: '@Html.SiteText("CategoryHeading")',
+            insightsTab: '@Html.SiteText("InsightsTab")',
+            tabsLabel: '@Html.SiteText("Title")',
+            budgetSpent: '@Html.SiteText("BudgetSpent")',
+            budgetAmount: '@Html.SiteText("BudgetAmount")',
+            save: '@Html.SiteText("Save")',
+            budgetsSaved: '@Html.SiteText("BudgetsSaved")',
+            budgetRemove: '@Html.SiteText("BudgetRemove")',
+            budgetAddCategory: '@Html.SiteText("BudgetAddCategory")',
+            budgetAdd: '@Html.SiteText("BudgetAdd")'
+        };
+    </script>
     @Html.ScriptWithCacheExpiration("~/Areas/TEAM3YourMonth/Scripts/yourmonth.js")
 }
 
 <div class="widget yourmonth-widget">
     <div class="content pad--base">
-        <h2 class="font-medium-heading mar-bottom--small">@Html.SiteText("Greeting"), @Model.FirstName</h2>
-
-        <div id="yourmonth_loading" class="pad--base">
-            <span>@Html.SiteText("Loading")</span>
+        <div class="flex flex-justify--between flex-align--center yourmonth-greeting">
+            <h2 class="font-medium-heading mar-bottom--0">@Html.SiteText("Greeting"), @Model.FirstName</h2>
+            <button id="yourmonth_settings_button" type="button" class="iris-button iris-button--ghost" data-modifier="compressed" aria-label="@Html.SiteText("BudgetSettings")" aria-controls="yourmonth_budget_drawer">
+                <span class="font-icon-budget-tools" aria-hidden="true"></span>
+            </button>
         </div>
-
-        <div id="yourmonth_content" hidden>
-            <div id="yourmonth_insight" class="iris-card pad--base mar-bottom--base" hidden>
-                <div class="flex flex-justify--between flex-align--center">
-                    <p id="yourmonth_insight_text" class="mar-bottom--0"></p>
-                    <button id="yourmonth_insight_dismiss" type="button" class="iris-button iris-button--secondary">
-                        <span class="iris-button__text">@Html.SiteText("Dismiss")</span>
-                    </button>
-                </div>
-            </div>
-
-            <div class="iris-card pad--base mar-bottom--base">
-                <h3 class="font-small-heading mar-bottom--small">@Html.SiteText("SpendHeading")</h3>
-                <div class="flex flex-justify--around flex-align--center">
-                    <div class="text-align--center">
-                        <div class="font-small-text">@Html.SiteText("ThisMonth")</div>
-                        <div id="yourmonth_this_month" class="font-medium-heading"></div>
-                    </div>
-                    <div class="text-align--center">
-                        <div class="font-small-text">@Html.SiteText("LastMonth")</div>
-                        <div id="yourmonth_last_month" class="font-medium-heading"></div>
-                    </div>
-                    <div class="text-align--center">
-                        <div class="font-small-text">@Html.SiteText("Change")</div>
-                        <div id="yourmonth_percent_change" class="font-medium-heading"></div>
-                    </div>
-                </div>
-                <div class="mar-top--base">
-                    <canvas id="yourmonth_chart" height="120" role="img" aria-label="Bar chart comparing this month and last month spending"></canvas>
-                </div>
-            </div>
-
-            <div class="flex">
-                <div class="iris-card pad--base mar-bottom--base width--50 mar-right--small">
-                    <h3 class="font-small-heading mar-bottom--small">@Html.SiteText("TopMerchants")</h3>
-                    <ul id="yourmonth_merchants" class="list--plain"></ul>
-                    <p id="yourmonth_merchants_empty" class="font-small-text" hidden>@Html.SiteText("NoData")</p>
-                </div>
-                <div class="iris-card pad--base mar-bottom--base width--50">
-                    <h3 class="font-small-heading mar-bottom--small">@Html.SiteText("RecurringCharges")</h3>
-                    <ul id="yourmonth_recurring" class="list--plain"></ul>
-                    <p id="yourmonth_recurring_empty" class="font-small-text" hidden>@Html.SiteText("NoData")</p>
-                </div>
-            </div>
-        </div>
+        <div id="app"></div>
     </div>
+</div>
+
+<div class="iris-drawer" id="yourmonth_budget_drawer" aria-hidden="true">
+    <section class="iris-drawer__content">
+        <header class="iris-drawer__header">
+            <h2 class="iris-drawer__title">@Html.SiteText("BudgetDrawerTitle")</h2>
+            <button class="iris-button iris-button--ghost" data-modifier="compressed" data-close aria-label="@Html.SiteText("Close")">
+                <span class="font-icon-cancel-x" aria-hidden="true"></span>
+            </button>
+        </header>
+        <div class="iris-drawer__body pad--base">
+            <p class="yourmonth-budget__intro">@Html.SiteText("BudgetDrawerText")</p>
+            <div id="yourmonth_budget_app"></div>
+        </div>
+        <footer class="iris-drawer__footer">
+            <button id="yourmonth_budget_save" class="iris-button iris-button--primary mar-bottom--md" data-size="full-width" type="button">
+                <span class="iris-button__text">@Html.SiteText("Save")</span>
+            </button>
+            <button class="iris-button iris-button--secondary" data-close data-size="full-width" type="button">
+                <span class="iris-button__text">@Html.SiteText("Close")</span>
+            </button>
+        </footer>
+    </section>
 </div>

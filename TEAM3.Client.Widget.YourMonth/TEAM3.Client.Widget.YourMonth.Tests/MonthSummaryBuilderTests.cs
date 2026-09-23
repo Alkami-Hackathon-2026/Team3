@@ -197,6 +197,116 @@ namespace TEAM3.Client.Widget.YourMonth.Tests
         }
 
         [Test]
+        public void Build_CategoryTotals_GroupBySpendPerCalendarMonth()
+        {
+            var transactions = new List<TransactionInput>
+            {
+                new TransactionInput { Amount = 100m, IsDebit = true, Description = "Grocery Mart", Category = "Groceries", PostingDate = new DateTime(2026, 9, 5) },
+                new TransactionInput { Amount = 40m, IsDebit = true, Description = "Grocery Mart", Category = "Groceries", PostingDate = new DateTime(2026, 9, 12) },
+                new TransactionInput { Amount = 50m, IsDebit = true, Description = "Gas Stop", Category = "Gas & Fuel", PostingDate = new DateTime(2026, 9, 15) },
+                new TransactionInput { Amount = 80m, IsDebit = true, Description = "Grocery Mart", Category = "Groceries", PostingDate = new DateTime(2026, 8, 5) },
+                new TransactionInput { Amount = 2000m, IsDebit = false, Description = "Payroll", Category = "Paycheck", PostingDate = new DateTime(2026, 9, 1) }
+            };
+
+            var summary = MonthSummaryBuilder.Build(transactions, AsOf);
+
+            Assert.That(summary.ThisMonthCategories, Has.Count.EqualTo(2));
+            Assert.That(summary.ThisMonthCategories[0].Name, Is.EqualTo("Groceries"));
+            Assert.That(summary.ThisMonthCategories[0].Total, Is.EqualTo(140m));
+            Assert.That(summary.ThisMonthCategories[1].Name, Is.EqualTo("Gas & Fuel"));
+            Assert.That(summary.LastMonthCategories, Has.Count.EqualTo(1));
+            Assert.That(summary.LastMonthCategories[0].Total, Is.EqualTo(80m));
+        }
+
+        [Test]
+        public void Build_CategoryTotals_BucketUncategorizedAsOther()
+        {
+            var transactions = new List<TransactionInput>
+            {
+                Debit(25m, "Mystery Store", new DateTime(2026, 9, 5)),
+                new TransactionInput { Amount = 10m, IsDebit = true, Description = "Shop", Category = "  ", PostingDate = new DateTime(2026, 9, 6) }
+            };
+
+            var summary = MonthSummaryBuilder.Build(transactions, AsOf);
+
+            Assert.That(summary.ThisMonthCategories, Has.Count.EqualTo(1));
+            Assert.That(summary.ThisMonthCategories[0].Name, Is.EqualTo(MonthSummaryBuilder.UncategorizedName));
+            Assert.That(summary.ThisMonthCategories[0].Total, Is.EqualTo(35m));
+        }
+
+        [Test]
+        public void Build_CategoryTotals_EmptyMonthsProduceEmptyLists()
+        {
+            var summary = MonthSummaryBuilder.Build(new List<TransactionInput>(), AsOf);
+
+            Assert.That(summary.ThisMonthCategories, Is.Empty);
+            Assert.That(summary.LastMonthCategories, Is.Empty);
+        }
+
+        [Test]
+        public void CategoryBudgetHelper_ParsesAndSanitizes()
+        {
+            var json = "{\"Groceries\":450.005,\" Gas & Fuel \":100,\"Bad\":-5,\"TooBig\":2000000,\"\":10}";
+
+            var budgets = CategoryBudgetHelper.Parse(json);
+
+            Assert.That(budgets, Has.Count.EqualTo(2));
+            Assert.That(budgets["Groceries"], Is.EqualTo(450.00m).Or.EqualTo(450.01m));
+            Assert.That(budgets["Gas & Fuel"], Is.EqualTo(100m));
+        }
+
+        [Test]
+        public void CategoryBudgetHelper_InvalidJsonReturnsEmpty()
+        {
+            Assert.That(CategoryBudgetHelper.Parse("{ not json ]"), Is.Empty);
+            Assert.That(CategoryBudgetHelper.Parse(null), Is.Empty);
+            Assert.That(CategoryBudgetHelper.Parse(""), Is.Empty);
+        }
+
+        [Test]
+        public void CategoryBudgetHelper_RoundTripsThroughSerialize()
+        {
+            var budgets = new Dictionary<string, decimal> { { "Groceries", 450m }, { "Coffee Shops", 60.50m } };
+
+            var roundTripped = CategoryBudgetHelper.Parse(CategoryBudgetHelper.Serialize(budgets));
+
+            Assert.That(roundTripped, Has.Count.EqualTo(2));
+            Assert.That(roundTripped["Coffee Shops"], Is.EqualTo(60.50m));
+        }
+
+        [Test]
+        public void Build_AllCategories_CoversWholeWindowWithThisMonthSpend()
+        {
+            var transactions = new List<TransactionInput>
+            {
+                new TransactionInput { Amount = 100m, IsDebit = true, Description = "Grocery Mart", Category = "Groceries", PostingDate = new DateTime(2026, 9, 5) },
+                new TransactionInput { Amount = 80m, IsDebit = true, Description = "Grocery Mart", Category = "Groceries", PostingDate = new DateTime(2026, 8, 5) },
+                // Spend only in an earlier month: still listed, with zero this-month spend
+                new TransactionInput { Amount = 60m, IsDebit = true, Description = "Shoe Warehouse", Category = "Clothing", PostingDate = new DateTime(2026, 8, 10) }
+            };
+
+            var summary = MonthSummaryBuilder.Build(transactions, AsOf);
+
+            Assert.That(summary.AllCategories, Has.Count.EqualTo(2));
+            Assert.That(summary.AllCategories[0].Name, Is.EqualTo("Groceries"));
+            Assert.That(summary.AllCategories[0].Total, Is.EqualTo(100m));
+            Assert.That(summary.AllCategories[1].Name, Is.EqualTo("Clothing"));
+            Assert.That(summary.AllCategories[1].Total, Is.EqualTo(0m));
+        }
+
+        [Test]
+        public void CategoryBudgetHelper_NameList_SanitizesAndRoundTrips()
+        {
+            var parsed = CategoryBudgetHelper.ParseNameList("[\" Clothing \",\"\",\"clothing\",\"Gas & Fuel\"]");
+
+            Assert.That(parsed, Has.Count.EqualTo(2));
+            Assert.That(parsed, Does.Contain("Clothing"));
+            Assert.That(parsed, Does.Contain("Gas & Fuel"));
+            Assert.That(CategoryBudgetHelper.ParseNameList("{ not a list }"), Is.Empty);
+            Assert.That(CategoryBudgetHelper.ParseNameList(CategoryBudgetHelper.SerializeNameList(parsed)), Is.EqualTo(parsed));
+        }
+
+        [Test]
         public void NormalizeDescription_StripsNoiseDigitsAndPunctuation()
         {
             Assert.That(MonthSummaryBuilder.NormalizeDescription("POS NETFLIX.COM #4821"), Is.EqualTo("NETFLIX COM"));

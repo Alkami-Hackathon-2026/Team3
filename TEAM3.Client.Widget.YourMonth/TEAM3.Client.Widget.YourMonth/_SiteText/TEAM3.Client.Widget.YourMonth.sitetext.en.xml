@@ -1,17 +1,34 @@
 <?xml version="1.0"?>
 <SiteText xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <entries>
-    <entry Key="Title">Your Month</entry>
-    <entry Key="MobileTitle">Your Month</entry>
+    <entry Key="Title">Month in Review</entry>
+    <entry Key="MobileTitle">Month in Review</entry>
     <entry Key="Greeting">Hi</entry>
     <entry Key="Loading">Loading your month...</entry>
     <entry Key="Dismiss">Dismiss</entry>
     <entry Key="SpendHeading">Spending</entry>
     <entry Key="ThisMonth">This month</entry>
     <entry Key="LastMonth">Last month</entry>
-    <entry Key="Change">Change</entry>
+    <entry Key="Change">Change month to month</entry>
     <entry Key="TopMerchants">Top merchants</entry>
     <entry Key="RecurringCharges">Recurring charges</entry>
     <entry Key="NoData">Nothing to show yet.</entry>
+    <entry Key="GenericError">Something went wrong. Please try again later.</entry>
+    <entry Key="ChartLabel">Bar chart comparing this month and last month spending with your configured budget by category</entry>
+    <entry Key="BudgetBar">Budget</entry>
+    <entry Key="BudgetRemaining">Remaining budget</entry>
+    <entry Key="CategoryHeading">Spending by category</entry>
+    <entry Key="InsightsTab">Insights</entry>
+    <entry Key="BudgetSettings">Budget settings</entry>
+    <entry Key="BudgetDrawerTitle">Budget settings</entry>
+    <entry Key="BudgetDrawerText">Set a monthly budget for each spending category.</entry>
+    <entry Key="BudgetSpent">Spent this month</entry>
+    <entry Key="BudgetAmount">Monthly budget</entry>
+    <entry Key="Save">Save</entry>
+    <entry Key="BudgetsSaved">Your budgets have been saved.</entry>
+    <entry Key="BudgetRemove">Remove</entry>
+    <entry Key="BudgetAddCategory">Add category</entry>
+    <entry Key="BudgetAdd">Add</entry>
+    <entry Key="Close">Close</entry>
   </entries>
 </SiteText>
