@@ -34,6 +34,9 @@ namespace TEAM3.Client.Widget.YourMonth.Models
         public decimal Total { get; set; }
 
         public int Count { get; set; }
+
+        /// <summary>The merchant's dominant spending category (largest share of its spend).</summary>
+        public string Category { get; set; }
     }
 
     public class RecurringCharge
@@ -41,6 +44,9 @@ namespace TEAM3.Client.Widget.YourMonth.Models
         public string Name { get; set; }
 
         public decimal Amount { get; set; }
+
+        /// <summary>The charge's dominant spending category (largest share of its spend).</summary>
+        public string Category { get; set; }
     }
 
     public class InsightRule
@@ -82,6 +88,12 @@ namespace TEAM3.Client.Widget.YourMonth.Models
 
         /// <summary>All expense categories in the user's TransactionCategory tree; populated by the controller.</summary>
         public List<string> ExpenseCategories { get; set; } = new List<string>();
+
+        /// <summary>Total debit spend across the whole lookback window.</summary>
+        public decimal TotalWindowSpend { get; set; }
+
+        /// <summary>The lookback window in days; populated by the controller from widget settings.</summary>
+        public int LookbackDays { get; set; }
 
         public string InsightId { get; set; }
 

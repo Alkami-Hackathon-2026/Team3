@@ -61,8 +61,18 @@ namespace TEAM3.Client.Widget.YourMonth.Models
                 .GroupBy(t => t.Name)
                 .ToList();
 
+            summary.TotalWindowSpend = spend.Sum(t => t.Amount);
+
             summary.TopMerchants = byMerchant
-                .Select(g => new MerchantTotal { Name = g.Key, Total = g.Sum(t => t.Amount), Count = g.Count() })
+                .Select(g => new MerchantTotal
+                {
+                    Name = g.Key,
+                    Total = g.Sum(t => t.Amount),
+                    Count = g.Count(),
+                    Category = g.GroupBy(t => t.Category)
+                        .OrderByDescending(cg => cg.Sum(t => t.Amount))
+                        .First().Key
+                })
                 .OrderByDescending(m => m.Total)
                 .ThenBy(m => m.Name)
                 .Take(TopMerchantCount)
@@ -94,7 +104,17 @@ namespace TEAM3.Client.Widget.YourMonth.Models
                 .ToList();
 
             summary.RecurringCharges = byMerchant
-                .Select(g => FindRecurringCharge(g.Key, g.GroupBy(t => t.MonthIndex).ToDictionary(m => m.Key, m => m.Sum(t => t.Amount))))
+                .Select(g =>
+                {
+                    var charge = FindRecurringCharge(g.Key, g.GroupBy(t => t.MonthIndex).ToDictionary(m => m.Key, m => m.Sum(t => t.Amount)));
+                    if (charge != null)
+                    {
+                        charge.Category = g.GroupBy(t => t.Category)
+                            .OrderByDescending(cg => cg.Sum(t => t.Amount))
+                            .First().Key;
+                    }
+                    return charge;
+                })
                 .Where(r => r != null)
                 .OrderByDescending(r => r.Amount)
                 .ToList();

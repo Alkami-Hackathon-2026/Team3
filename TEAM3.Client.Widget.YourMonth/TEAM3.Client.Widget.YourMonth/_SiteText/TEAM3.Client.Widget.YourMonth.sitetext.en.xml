@@ -17,6 +17,8 @@
     <entry Key="ChartLabel">Bar chart comparing this month and last month spending with your configured budget by category</entry>
     <entry Key="BudgetBar">Budget</entry>
     <entry Key="BudgetRemaining">Remaining budget</entry>
+    <entry Key="TotalOverDays">Total over {days} days</entry>
+    <entry Key="BudgetOf">of</entry>
     <entry Key="CategoryHeading">Spending by category</entry>
     <entry Key="InsightsTab">Insights</entry>
     <entry Key="BudgetSettings">Budget settings</entry>

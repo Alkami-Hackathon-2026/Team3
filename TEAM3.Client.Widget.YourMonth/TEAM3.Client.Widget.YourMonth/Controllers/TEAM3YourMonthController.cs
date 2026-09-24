@@ -85,6 +85,7 @@ namespace TEAM3.Client.Widget.YourMonth.Controllers
                 summary.RemovedBudgetCategories = CategoryBudgetHelper.ParseNameList(
                     WidgetSettingsUtil.GetStringValue(UserWidgetSettings, SettingKeyRemovedCategories));
                 summary.ExpenseCategories = GetExpenseCategoryNames();
+                summary.LookbackDays = lookbackDays;
 
                 Logger.DebugFormat("[{0}] Summary built from [{1}] transactions across [{2}] accounts", logPrefix, inputs.Count, accountIds.Count);
                 return Json(summary, JsonRequestBehavior.AllowGet);

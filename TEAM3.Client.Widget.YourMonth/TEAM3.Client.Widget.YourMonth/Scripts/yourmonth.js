@@ -285,6 +285,21 @@
         '#3c6e9f', '#e0a458', '#7fb069', '#c05850', '#8e7cc3',
         '#5ba4a4', '#d98cb3', '#9bb0c9', '#6b4f9e', '#a9a9a9'
     ];
+    var FALLBACK_COLOR = '#c3c9d1';
+
+    // One color per category, assigned in month-category order so the same
+    // category gets the same color everywhere (donuts, legends, merchant list).
+    function buildCategoryColors(summary) {
+        var colors = {};
+        var next = 0;
+        ((summary && summary.LastMonthCategories) || []).concat((summary && summary.ThisMonthCategories) || []).forEach(function (c) {
+            if (!(c.Name in colors)) {
+                colors[c.Name] = CATEGORY_COLORS[next % CATEGORY_COLORS.length];
+                next++;
+            }
+        });
+        return colors;
+    }
 
     // Draws the total of the currently visible slices in the donut hole; legend
     // clicks toggle slice visibility and trigger a redraw, so the total tracks them.
@@ -359,17 +374,7 @@
             {
                 labels: function () { return window.team3YourMonthText || {}; },
                 colorByCategory: function () {
-                    // One color per category, shared across both months so the same
-                    // category matches between the two doughnuts.
-                    var colors = {};
-                    var next = 0;
-                    (this.summary.LastMonthCategories || []).concat(this.summary.ThisMonthCategories || []).forEach(function (c) {
-                        if (!(c.Name in colors)) {
-                            colors[c.Name] = CATEGORY_COLORS[next % CATEGORY_COLORS.length];
-                            next++;
-                        }
-                    });
-                    return colors;
+                    return buildCategoryColors(this.summary);
                 }
             },
             Pinia.mapState(useYourMonthStore, ['summary'])
@@ -403,6 +408,7 @@
                     return null;
                 }
                 var colorByCategory = this.colorByCategory;
+                var budgets = this.summary.CategoryBudgets || {};
                 return new Chart(canvas, {
                     type: 'doughnut',
                     plugins: [donutCenterPlugin],
@@ -426,7 +432,12 @@
                             tooltip: {
                                 callbacks: {
                                     label: function (context) {
-                                        return context.label + ': ' + money(context.parsed);
+                                        // With a budget: "Music: $11.99 of $100.00"
+                                        var label = context.label + ': ' + money(context.parsed);
+                                        if (context.label in budgets) {
+                                            label += ' ' + (text('budgetOf') || 'of') + ' ' + money(budgets[context.label]);
+                                        }
+                                        return label;
                                     }
                                 }
                             }
@@ -442,22 +453,36 @@
         props: {
             heading: { type: String, required: true },
             items: { type: Array, required: true },
-            suffix: { type: String, default: '' }
+            suffix: { type: String, default: '' },
+            colorMap: { type: Object, default: null },
+            icon: { type: String, default: 'swatch' },
+            footerLabel: { type: String, default: '' }
         },
         template:
             '<div class="iris-card pad--base mar-bottom--base width--50" :class="cardClass">' +
             '  <h3 class="font-small-heading mar-bottom--small">{{ heading }}</h3>' +
             '  <ul class="list--plain" v-if="items.length">' +
             '    <li class="flex flex-justify--between pad-bottom--small" v-for="item in items" :key="item.Name">' +
-            '      <span>{{ item.Name }}</span>' +
+            '      <span class="yourmonth-list__item">' +
+            '        <span class="yourmonth-donut__swatch" v-if="colorMap && icon === \'swatch\'" :style="{ backgroundColor: colorMap[item.Category] || fallbackColor }" aria-hidden="true"></span>' +
+            '        <span class="font-icon-recurring yourmonth-list__icon" v-else-if="colorMap" :style="{ color: colorMap[item.Category] || fallbackColor }" aria-hidden="true"></span>' +
+            '        <span>' +
+            '          <span class="yourmonth-list__name">{{ item.Name }}</span>' +
+            '          <span class="yourmonth-list__category" v-if="colorMap && item.Category">{{ item.Category }}</span>' +
+            '        </span>' +
+            '      </span>' +
             '      <span>{{ money(item.Total !== undefined ? item.Total : item.Amount) }}{{ suffix }}</span>' +
             '    </li>' +
             '  </ul>' +
             '  <p class="font-small-text" v-else>{{ labels.noData }}</p>' +
+            '  <div class="yourmonth-list__footer" v-if="footerLabel && items.length">' +
+            '    <span>* {{ footerLabel }}</span>' +
+            '  </div>' +
             '</div>',
         computed: {
             labels: function () { return window.team3YourMonthText || {}; },
-            cardClass: function () { return this.suffix ? '' : 'mar-right--small'; }
+            cardClass: function () { return this.suffix ? '' : 'mar-right--small'; },
+            fallbackColor: function () { return FALLBACK_COLOR; }
         },
         methods: {
             money: money
@@ -498,8 +523,10 @@
             '      <spend-overview v-if="activeTab === \'spending\'"></spend-overview>' +
             '      <category-breakdown v-if="activeTab === \'categories\'"></category-breakdown>' +
             '      <div class="flex" v-if="activeTab === \'insights\'">' +
-            '        <amount-list :heading="labels.topMerchants" :items="summary.TopMerchants"></amount-list>' +
-            '        <amount-list :heading="labels.recurringCharges" :items="summary.RecurringCharges" suffix="/mo"></amount-list>' +
+            '        <amount-list :heading="labels.topMerchants" :items="summary.TopMerchants"' +
+            '                     :color-map="categoryColors" :footer-label="totalOverLabel"></amount-list>' +
+            '        <amount-list :heading="labels.recurringCharges" :items="summary.RecurringCharges" suffix="/mo"' +
+            '                     :color-map="categoryColors" icon="recurring"></amount-list>' +
             '      </div>' +
             '    </div>' +
             '  </div>' +
@@ -513,6 +540,12 @@
                         { id: 'categories', label: this.labels.categoryHeading },
                         { id: 'insights', label: this.labels.insightsTab }
                     ];
+                },
+                categoryColors: function () {
+                    return buildCategoryColors(this.summary);
+                },
+                totalOverLabel: function () {
+                    return (this.labels.totalOverDays || '').replace('{days}', this.summary ? this.summary.LookbackDays : '');
                 }
             },
             Pinia.mapState(useYourMonthStore, ['summary', 'loading'])

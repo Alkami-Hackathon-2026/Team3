@@ -72,6 +72,44 @@
     flex: none;
 }
 
+/* Merchant list: swatch + name with category subtext, totals footer */
+.yourmonth-list__item {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    text-align: left;
+}
+
+.yourmonth-list__item .yourmonth-donut__swatch {
+    margin-top: 4px;
+}
+
+.yourmonth-list__name {
+    display: block;
+}
+
+.yourmonth-list__category {
+    display: block;
+    font-size: 12px;
+    color: #5b6470;
+}
+
+.yourmonth-list__icon {
+    font-size: 16px;
+    margin-top: 2px;
+    flex: none;
+}
+
+.yourmonth-list__footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e4e7eb;
+    margin-top: 8px;
+    padding-top: 10px;
+    font-size: 12px;
+    color: #5b6470;
+}
+
 /* Spending header stats: Change sits over the month bars (left two thirds),
    remaining budget over the budget bar (right third) */
 .yourmonth-spend__stats {

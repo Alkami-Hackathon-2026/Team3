@@ -102,6 +102,25 @@ namespace TEAM3.Client.Widget.YourMonth.Tests
         }
 
         [Test]
+        public void Build_TopMerchants_CarryDominantCategory_AndWindowTotal()
+        {
+            var transactions = new List<TransactionInput>
+            {
+                new TransactionInput { Amount = 100m, IsDebit = true, Description = "Grocery Mart", Category = "Groceries", PostingDate = new DateTime(2026, 9, 5) },
+                new TransactionInput { Amount = 30m, IsDebit = true, Description = "Grocery Mart", Category = "Home Improvement", PostingDate = new DateTime(2026, 9, 6) },
+                new TransactionInput { Amount = 40m, IsDebit = true, Description = "Gas Stop", Category = "Gas & Fuel", PostingDate = new DateTime(2026, 8, 15) },
+                Credit(500m, "Payroll", new DateTime(2026, 9, 1))
+            };
+
+            var summary = MonthSummaryBuilder.Build(transactions, AsOf);
+
+            Assert.That(summary.TopMerchants[0].Name, Is.EqualTo("GROCERY MART"));
+            Assert.That(summary.TopMerchants[0].Category, Is.EqualTo("Groceries"));
+            Assert.That(summary.TopMerchants[1].Category, Is.EqualTo("Gas & Fuel"));
+            Assert.That(summary.TotalWindowSpend, Is.EqualTo(170m));
+        }
+
+        [Test]
         public void Build_RecurringCharges_RequiresConsecutiveMonthsWithinTenPercent()
         {
             var transactions = new List<TransactionInput>
@@ -121,6 +140,7 @@ namespace TEAM3.Client.Widget.YourMonth.Tests
             Assert.That(summary.RecurringCharges, Has.Count.EqualTo(1));
             Assert.That(summary.RecurringCharges[0].Name, Is.EqualTo("NETFLIX COM"));
             Assert.That(summary.RecurringCharges[0].Amount, Is.EqualTo(15.99m));
+            Assert.That(summary.RecurringCharges[0].Category, Is.EqualTo(MonthSummaryBuilder.UncategorizedName));
         }
 
         [Test]
